@@ -329,7 +329,9 @@ export function parseAnswer(input: string): ParseResult {
       .replace(/Infinity/g, '\\infty')
       .replace(/\\mathrm\{Infinity\}/g, '\\infty')
       // "2\cdot\pi" → "2\pi": drop the dot after a number when a non-digit follows.
-      .replace(/(\d)\\cdot(?![\d{]|\\frac)/g, '$1');
+      .replace(/(\d)\\cdot(?![\d{]|\\frac)/g, '$1')
+      // "\frac{-16}{3}" → "-\frac{16}{3}" when the numerator is a single negated term.
+      .replace(/\\frac\{-([^{}+\-]+)\}/g, '-\\frac{$1}');
     return { ok: true, value, tex, expr };
   } catch (err) {
     if (err instanceof ParseError) return { ok: false, error: err.message };

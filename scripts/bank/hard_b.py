@@ -247,7 +247,7 @@ PROBLEMS = [
        r'$V = \tfrac{56\pi}{3} \approx 58.6$.'],
       diagram=svg(220, 160, line(10, 110, 210, 110) + line(30, 150, 30, 10) + line(10, 140, 210, 140, dash=True)
                   + shade('M 30 110 Q 60 60 190 46 L 190 110 Z') + path('M 30 110 Q 60 60 190 46') + line(190, 46, 190, 110)
-                  + label(196, 44, 'y = √x', anchor='start') + label(200, 154, 'y = −1', anchor='end') + label(190, 124, '4')),
+                  + label(150, 40, 'y = √x', anchor='middle') + label(200, 154, 'y = −1', anchor='end') + label(190, 124, '4')),
       alt='The region under y = square root of x from x = 0 to 4 is shaded. A dashed horizontal axis of rotation is drawn at y = -1, below the x-axis.'),
     H('h077', 'Volumes of revolution',
       r'The region between $y = x$ and $y = x^2$ is rotated about the $y$-axis. Find the volume.',

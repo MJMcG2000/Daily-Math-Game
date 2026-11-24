@@ -156,6 +156,12 @@ describe('TeX preview', () => {
     const r = parseAnswer(s);
     expect(r.ok && r.tex.includes(frag)).toBe(true);
   });
+  it('pulls a lone minus sign out of a fraction, but not from a sum', () => {
+    const a = parseAnswer('-16/3');
+    const b = parseAnswer('(-3+1)/2');
+    expect(a.ok && a.tex).toBe('-\\frac{16}{3}');
+    expect(b.ok && b.tex.startsWith('\\frac{-3+1}')).toBe(true);
+  });
   it('drops the dot in 2π but keeps it before fractions', () => {
     const a = parseAnswer('2pi');
     const b = parseAnswer('2(1/2)');

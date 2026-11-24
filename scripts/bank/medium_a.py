@@ -130,7 +130,7 @@ PROBLEMS = [
       diagram=svg(260, 140, line(10, 120, 250, 120) + line(30, 120, 30, 20) + line(225, 120, 225, 98)
                   + poly([(30, 20), (195, 120), (225, 98)], close=False, dash=True) + line(187, 120, 203, 120)
                   + label(18, 72, 'h', italic=True) + label(112, 135, '15') + label(211, 135, '2') + label(240, 112, '1.6')
-                  + label(195, 112, 'mirror', anchor='middle')),
+                  + label(186, 135, 'mirror', anchor='end')),
       alt='A tree of height h on the left, a mirror on the ground 15 m away, and a person 2 m beyond the mirror with eyes 1.6 m high. A dashed light ray goes from the treetop to the mirror and up to the eyes.'),
     P('m013', 'Similar triangles',
       r'Two similar triangles have areas $18$ and $50$. The smaller triangle has perimeter $21$. What is the perimeter of the larger triangle?',
@@ -170,7 +170,7 @@ PROBLEMS = [
        r'New height: $\sqrt{25^2 - 15^2} = \sqrt{400} = 20$.',
        r'The top slides down $24 - 20 = 4$ ft.'],
       diagram=svg(200, 192, line(20, 175, 190, 175) + line(30, 175, 30, 8) + line(30, 19, 75.5, 175)
-                  + line(30, 45, 127.5, 175, dash=True) + label(62, 92, '25') + label(52, 188, '7') + label(101, 188, '+8')),
+                  + line(30, 45, 127.5, 175, dash=True) + label(46, 140, '25') + label(52, 188, '7') + label(101, 188, '+8')),
       alt='A 25-foot ladder leaning against a wall with its foot 7 feet out. A dashed second position shows the foot moved 8 feet farther out and the top lower on the wall.'),
     P('m017', 'Pythagorean theorem',
       r'A box measures $4$ by $5$ by $20$. A spider at one corner walks *inside* the box straight to the opposite corner. A second spider walks the shortest path along the *outside* surface between the same two corners. How much longer, in units, is the outside path?',
@@ -283,7 +283,7 @@ PROBLEMS = [
        r'$CD = 4k + 9k = 13$.'],
       diagram=svg(200, 200, circle(100, 100, 80) + line(31, 140, 178, 81) + line(68, 27, 140, 170)
                   + circle(103, 111, 2.5, fill=True)
-                  + label(22, 148, 'A') + label(186, 80, 'B') + label(62, 20, 'C') + label(146, 184, 'D') + label(112, 124, 'E')),
+                  + label(22, 148, 'A') + label(186, 80, 'B') + label(62, 20, 'C') + label(146, 184, 'D') + label(120, 106, 'E')),
       alt='A circle with two chords, AB and CD, crossing at an interior point E.'),
     P('m029', 'Circles',
       r'A wheel of radius $30$ cm rolls without slipping along a straight road. Through what angle, in radians, does the wheel turn while it rolls $1$ meter?',

@@ -58,6 +58,7 @@ export function ProblemCard({ problem, state, index, onStart, onGuess, onHint }:
         </h2>
         <span className="muted small">{topic}</span>
       </header>
+      {!done && <LiveTimer elapsedMs={state.elapsedMs} targetMs={TARGET_MS[problem.difficulty]} />}
 
       <MathText className="prompt" text={problem.prompt} />
       {problem.diagram && <Diagram svg={problem.diagram} alt={problem.diagramAlt} />}
@@ -140,5 +141,21 @@ export function ProblemCard({ problem, state, index, onStart, onGuess, onHint }:
         </div>
       )}
     </section>
+  );
+}
+
+function LiveTimer({ elapsedMs, targetMs }: { elapsedMs: number; targetMs: number }) {
+  const over = elapsedMs > targetMs;
+  return (
+    <p className={`timer ${over ? 'over' : ''}`}>
+      <span aria-hidden="true">⏱ </span>
+      <span className="visually-hidden">Time on this problem: </span>
+      <span className="timer-value">{formatDuration(elapsedMs)}</span>
+      <span className="muted small">
+        {over
+          ? ' · points now shrinking (down to half at ' + formatDuration(3 * targetMs) + ')'
+          : ' · full points for ' + formatDuration(targetMs - elapsedMs) + ' more'}
+      </span>
+    </p>
   );
 }

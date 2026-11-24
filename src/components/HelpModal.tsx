@@ -27,7 +27,7 @@ export function HelpModal({ open, onClose }: { open: boolean; onClose: () => voi
         <li>The full worked solution appears once a problem is done.</li>
       </ul>
       <h3>Scoring</h3>
-      <p>Solve on guess 1/2/3 for 3/2/1 points, minus hints (never below 0.5). Then × a time factor: 1.0 within the target time (Easy 3 min, Medium 6, Hard 10), shrinking smoothly to 0.5 at 3× the target. Then × difficulty: Easy ×1, Medium ×2, Hard ×3. Best possible day: {MAX_DAILY_SCORE}.</p>
+      <p>Solve on guess 1/2/3 for 3/2/1 points, minus hints (never below 0.5). Then × a time factor: 1.0 within the target time (Easy 3 min, Medium 6, Hard 10), shrinking smoothly to 0.5 at 3× the target. Then × difficulty: Easy ×1, Medium ×2, Hard ×3. Best possible day: {MAX_DAILY_SCORE}. Each problem's timer starts when you reveal it and pauses when you switch problems, switch tabs, or open a menu.</p>
       <h3>Typing answers</h3>
       <p>Give exact answers like <code>3pi/4</code>, <code>2sqrt(5)</code> or <code>ln(3)</code>. Decimals with 6+ significant figures also work. Equivalent forms all count: <code>1/2</code>, <code>0.5</code>, <code>sin(pi/6)</code>. The preview shows how your input was read; a typo never costs a guess.</p>
       <table className="syntax">

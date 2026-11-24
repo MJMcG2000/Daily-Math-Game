@@ -286,7 +286,7 @@ PROBLEMS = [
        r'Total: $10 + 30 = 40$ m.'],
       diagram=svg(260, 120, line(10, 110, 250, 110)
                   + path('M 20 10 L 20 110 Q 50 -10 80 110 Q 104 38 128 110 Q 146 67 164 110 Q 177 84 190 110 Q 199 94 208 110')
-                  + label(30, 60, '10', anchor='start') + label(52, 40, '6')),
+                  + label(16, 64, '10', anchor='end') + label(52, 40, '6')),
       alt='A ball dropped from 10 m bounces repeatedly. Each arc is 3/5 the height of the one before it, starting with a 6 m rebound.'),
 
     # ---------------------------------------------------------------- vectors
