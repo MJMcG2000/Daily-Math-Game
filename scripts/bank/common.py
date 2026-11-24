@@ -104,3 +104,39 @@ def path(d: str, dash: bool = False, fill: str | None = None) -> str:
 
 def shade(d: str) -> str:
     return f'<path d="{d}" fill="currentColor" fill-opacity="0.15" stroke="none"/>'
+
+
+def roots_in(f, lo, hi, var=x, samples=20000, closed_right=False):
+    """All real roots of f on [lo, hi) found numerically (sign changes plus tangent zeros),
+    refined with mpmath. Independent of sympy's symbolic solvers, which can miss trig roots."""
+    import mpmath as mp
+    g = sp.lambdify(var, f, 'mpmath')
+    lo_f, hi_f = float(lo), float(hi)
+    xs = [lo_f + (hi_f - lo_f) * i / samples for i in range(samples + 1)]
+    vals = []
+    for xv in xs:
+        try:
+            vals.append(float(mp.re(g(xv))))
+        except (ZeroDivisionError, ValueError):
+            vals.append(float('nan'))
+    cands = []
+    for i in range(samples):
+        a1, b1 = vals[i], vals[i + 1]
+        if a1 != a1 or b1 != b1:
+            continue
+        if a1 == 0 or a1 * b1 < 0:
+            cands.append((xs[i] + xs[i + 1]) / 2)
+        elif 0 < i and vals[i - 1] == vals[i - 1] and abs(a1) < 1e-3 and abs(a1) <= abs(vals[i - 1]) and abs(a1) <= abs(b1):
+            cands.append(xs[i])  # tangent root
+    roots = []
+    for c0 in cands:
+        try:
+            rt = float(mp.findroot(g, c0, tol=1e-25))
+        except Exception:  # noqa: BLE001
+            continue
+        if abs(float(mp.re(g(rt)))) > 1e-9:
+            continue
+        inside = lo_f - 1e-12 <= rt < hi_f - 1e-12 or (closed_right and abs(rt - hi_f) < 1e-12)
+        if inside and all(abs(rt - q) > 1e-8 for q in roots):
+            roots.append(rt)
+    return sorted(roots)
