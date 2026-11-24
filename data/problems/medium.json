@@ -1,0 +1,1545 @@
+[
+  {
+    "id": "m001",
+    "difficulty": "medium",
+    "topic": "Area and volume",
+    "prompt": "A cylinder of height $8$ is inscribed in a sphere of radius $5$: both circular edges of the cylinder touch the sphere. Find the volume of the cylinder.",
+    "answer": "72pi",
+    "answerNumeric": 226.1946710584651,
+    "hint1": "Take a cross-section through the axis. You get a rectangle inscribed in a circle of radius $5$.",
+    "hint2": "Half the height is $4$, so the cylinder's radius satisfies $r^2 + 4^2 = 5^2$.",
+    "solutionSteps": [
+      "In the cross-section, a corner of the rectangle lies on the circle, $4$ above the center.",
+      "$r^2 + 4^2 = 25 \\Rightarrow r = 3$.",
+      "$V = \\pi r^2 h = \\pi\\cdot9\\cdot8 = 72\\pi$."
+    ],
+    "diagram": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><circle cx=\"100\" cy=\"100\" r=\"80\"/><polygon points=\"52,36 148,36 148,164 52,164\"/><line x1=\"100\" y1=\"100\" x2=\"148\" y2=\"36\" stroke-dasharray=\"5 4\"/><line x1=\"100\" y1=\"100\" x2=\"148\" y2=\"100\" stroke-dasharray=\"5 4\"/><circle cx=\"100\" cy=\"100\" r=\"2.5\" fill=\"currentColor\"/><text x=\"116\" y=\"62\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">5</text><text x=\"124\" y=\"116\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\" font-style=\"italic\">r</text><text x=\"162\" y=\"104\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">8</text></svg>",
+    "diagramAlt": "Cross-section: a circle of radius 5 with an inscribed rectangle of height 8. A dashed radius goes from the center to a corner of the rectangle."
+  },
+  {
+    "id": "m002",
+    "difficulty": "medium",
+    "topic": "Area and volume",
+    "prompt": "A solid cone has base radius $6$ and height $8$. Find its total surface area, including the base.",
+    "answer": "96pi",
+    "answerNumeric": 301.59289474462014,
+    "hint1": "Lateral area is $\\pi r \\ell$, where $\\ell$ is the slant height.",
+    "hint2": "The slant height is $\\ell = \\sqrt{6^2 + 8^2} = 10$.",
+    "solutionSteps": [
+      "Slant height: $\\ell = \\sqrt{36 + 64} = 10$.",
+      "Lateral area: $\\pi\\cdot6\\cdot10 = 60\\pi$. Base: $\\pi\\cdot6^2 = 36\\pi$.",
+      "Total: $96\\pi$."
+    ]
+  },
+  {
+    "id": "m003",
+    "difficulty": "medium",
+    "topic": "Area and volume",
+    "prompt": "Square $ABCD$ has side $10$. Quarter circles of radius $10$ are drawn inside the square, centered at $A$ and at $B$. Find the area of the region inside both quarter circles.",
+    "answer": "100pi/3 - 25sqrt(3)",
+    "answerNumeric": 61.41848493043784,
+    "hint1": "The arcs cross at a point $P$ with $PA = PB = AB = 10$, so triangle $ABP$ is equilateral.",
+    "hint2": "The region is two $60^\\circ$ sectors that overlap in the equilateral triangle: area $= 2\\cdot(\\text{sector}) - (\\text{triangle})$.",
+    "solutionSteps": [
+      "$PA = PB = AB = 10$, so $\\triangle ABP$ is equilateral and $\\angle PAB = \\angle PBA = 60^\\circ$.",
+      "Each $60^\\circ$ sector has area $\\tfrac16\\pi\\cdot10^2 = \\tfrac{50\\pi}{3}$.",
+      "The two sectors overlap in the triangle, whose area is $\\tfrac{\\sqrt3}{4}\\cdot100 = 25\\sqrt3$.",
+      "Region $= 2\\cdot\\tfrac{50\\pi}{3} - 25\\sqrt3 = \\tfrac{100\\pi}{3} - 25\\sqrt3$."
+    ],
+    "diagram": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><polygon points=\"30,170 170,170 170,30 30,30\"/><path d=\"M 170 170 A 140 140 0 0 0 30 30\"/><path d=\"M 30 170 A 140 140 0 0 1 170 30\"/><path d=\"M 30 170 L 170 170 A 140 140 0 0 0 100 48.76 A 140 140 0 0 0 30 170 Z\" fill=\"currentColor\" fill-opacity=\"0.15\" stroke=\"none\"/><text x=\"22\" y=\"186\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">A</text><text x=\"178\" y=\"186\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">B</text><text x=\"178\" y=\"26\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">C</text><text x=\"22\" y=\"26\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">D</text><text x=\"100\" y=\"40\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">P</text><text x=\"100\" y=\"188\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">10</text></svg>",
+    "diagramAlt": "A square ABCD with side 10. Two quarter-circle arcs of radius 10, centered at the bottom corners A and B, cross at point P. The lens-shaped region inside both arcs is shaded."
+  },
+  {
+    "id": "m004",
+    "difficulty": "medium",
+    "topic": "Area and volume",
+    "prompt": "A rectangular tank measuring $2$ m by $3$ m by $1.5$ m is full of water. All of the water is poured into an empty cylindrical tank of radius $1$ m. How deep, in meters, is the water in the cylinder?",
+    "answer": "9/pi",
+    "answerNumeric": 2.864788975654116,
+    "hint1": "The volume of water stays the same.",
+    "hint2": "The box holds $2\\cdot3\\cdot1.5 = 9$ m³, and a cylinder of radius $1$ holds $\\pi h$.",
+    "solutionSteps": [
+      "Volume of water: $2\\times3\\times1.5 = 9$ m³.",
+      "Cylinder: $\\pi(1)^2h = \\pi h$.",
+      "$\\pi h = 9 \\Rightarrow h = \\tfrac{9}{\\pi} \\approx 2.86$ m."
+    ]
+  },
+  {
+    "id": "m005",
+    "difficulty": "medium",
+    "topic": "Area and volume",
+    "prompt": "A circle is inscribed in a regular hexagon with side length $4$. Find the area of the region inside the hexagon but outside the circle.",
+    "answer": "24sqrt(3) - 12pi",
+    "answerNumeric": 3.870107538575536,
+    "hint1": "A regular hexagon splits into $6$ equilateral triangles. The inscribed circle's radius is the apothem.",
+    "hint2": "The apothem is the height of an equilateral triangle with side $4$: $2\\sqrt3$.",
+    "solutionSteps": [
+      "Hexagon area: $6\\cdot\\tfrac{\\sqrt3}{4}\\cdot4^2 = 24\\sqrt3$.",
+      "The apothem is $\\tfrac{\\sqrt3}{2}\\cdot4 = 2\\sqrt3$, so the circle's area is $\\pi(2\\sqrt3)^2 = 12\\pi$.",
+      "Region: $24\\sqrt3 - 12\\pi \\approx 3.87$."
+    ],
+    "diagram": "<svg viewBox=\"0 0 200 180\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><polygon points=\"180,90 140,20.7 60,20.7 20,90 60,159.3 140,159.3\"/><circle cx=\"100\" cy=\"90\" r=\"69.3\"/><line x1=\"100\" y1=\"90\" x2=\"100\" y2=\"20.7\" stroke-dasharray=\"5 4\"/><text x=\"112\" y=\"60\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\" font-style=\"italic\">a</text><text x=\"100\" y=\"176\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">4</text></svg>",
+    "diagramAlt": "A regular hexagon with side 4 and its inscribed circle. A dashed apothem a runs from the center to the middle of the top side."
+  },
+  {
+    "id": "m006",
+    "difficulty": "medium",
+    "topic": "Area and volume",
+    "prompt": "A sphere has surface area $144\\pi$. A cube is inscribed in the sphere, so its corners touch the sphere. Find the volume of the region inside the sphere but outside the cube.",
+    "answer": "288pi - 192sqrt(3)",
+    "answerNumeric": 572.224929180636,
+    "hint1": "From $4\\pi r^2 = 144\\pi$, $r = 6$. The cube's space diagonal is a diameter of the sphere.",
+    "hint2": "If the cube has edge $s$, its space diagonal is $s\\sqrt3 = 12$, so $s = 4\\sqrt3$.",
+    "solutionSteps": [
+      "$4\\pi r^2 = 144\\pi \\Rightarrow r = 6$, so the sphere's volume is $\\tfrac43\\pi\\cdot216 = 288\\pi$.",
+      "Space diagonal: $s\\sqrt3 = 12 \\Rightarrow s = 4\\sqrt3$.",
+      "Cube volume: $(4\\sqrt3)^3 = 64\\cdot3\\sqrt3 = 192\\sqrt3$.",
+      "Difference: $288\\pi - 192\\sqrt3 \\approx 572.2$."
+    ]
+  },
+  {
+    "id": "m007",
+    "difficulty": "medium",
+    "topic": "Area and volume",
+    "prompt": "An isosceles trapezoid has parallel sides $10$ and $22$ and legs of length $10$. Find the length of a diagonal.",
+    "answer": "8sqrt(5)",
+    "answerNumeric": 17.88854381999832,
+    "hint1": "Drop perpendiculars from the ends of the short base. Each one cuts off a right triangle with base $\\tfrac{22 - 10}{2} = 6$.",
+    "hint2": "The height is $\\sqrt{10^2 - 6^2} = 8$. A diagonal spans a horizontal distance of $10 + 6 = 16$.",
+    "solutionSteps": [
+      "Overhang on each side: $(22 - 10)/2 = 6$, so the height is $\\sqrt{100 - 36} = 8$.",
+      "A diagonal goes from a bottom corner to the far top corner: horizontal distance $6 + 10 = 16$, vertical distance $8$.",
+      "$d = \\sqrt{16^2 + 8^2} = \\sqrt{256 + 64} = \\sqrt{320} = 8\\sqrt5 \\approx 17.89$."
+    ]
+  },
+  {
+    "id": "m008",
+    "difficulty": "medium",
+    "topic": "Area and volume",
+    "prompt": "A $10$-by-$24$ rectangle is inscribed in a circle. Find the area of the region inside the circle but outside the rectangle.",
+    "answer": "169pi - 240",
+    "answerNumeric": 290.92915845667505,
+    "hint1": "The rectangle's diagonal is a diameter of the circle.",
+    "hint2": "The diagonal is $\\sqrt{10^2 + 24^2} = 26$, so the radius is $13$.",
+    "solutionSteps": [
+      "Diagonal $= \\sqrt{100 + 576} = 26$, so $r = 13$.",
+      "Circle area: $169\\pi$. Rectangle area: $240$.",
+      "Region: $169\\pi - 240 \\approx 290.9$."
+    ]
+  },
+  {
+    "id": "m009",
+    "difficulty": "medium",
+    "topic": "Similar triangles",
+    "prompt": "A $6$ ft person stands $12$ ft from a lamppost and casts a shadow $8$ ft long. How tall is the lamppost, in feet?",
+    "answer": "15",
+    "answerNumeric": 15.0,
+    "hint1": "The person and the lamppost form two similar right triangles that share the tip of the shadow.",
+    "hint2": "The big triangle's base is $12 + 8 = 20$ ft, so $\\dfrac{h}{20} = \\dfrac{6}{8}$.",
+    "solutionSteps": [
+      "The shadow tip, the person's feet and the lamppost's base are collinear. Both triangles share the angle at the shadow tip, so they are similar.",
+      "Small triangle: height $6$, base $8$. Large triangle: height $h$, base $12 + 8 = 20$.",
+      "$\\dfrac{h}{20} = \\dfrac{6}{8} \\Rightarrow h = 20\\cdot\\dfrac34 = 15$ ft."
+    ],
+    "diagram": "<svg viewBox=\"0 0 260 130\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><line x1=\"20\" y1=\"110\" x2=\"240\" y2=\"110\"/><line x1=\"30\" y1=\"110\" x2=\"30\" y2=\"20\"/><circle cx=\"30\" cy=\"18\" r=\"5\" fill=\"currentColor\"/><line x1=\"130\" y1=\"110\" x2=\"130\" y2=\"74\"/><line x1=\"30\" y1=\"20\" x2=\"196\" y2=\"110\" stroke-dasharray=\"5 4\"/><text x=\"16\" y=\"70\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\" font-style=\"italic\">h</text><text x=\"140\" y=\"96\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">6</text><text x=\"80\" y=\"125\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">12</text><text x=\"163\" y=\"125\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">8</text></svg>",
+    "diagramAlt": "A lamppost of height h on the left. 12 feet to its right stands a 6-foot person. A dashed line runs from the top of the lamp past the person's head to the end of the 8-foot shadow."
+  },
+  {
+    "id": "m010",
+    "difficulty": "medium",
+    "topic": "Similar triangles",
+    "prompt": "In $\\triangle ABC$, point $D$ is on $\\overline{AB}$ and $E$ is on $\\overline{AC}$ with $\\overline{DE}\\parallel\\overline{BC}$. If $AD = 4$, $DB = 6$ and $DE = 5$, find the area ratio $\\dfrac{[\\text{trapezoid } DBCE]}{[\\triangle ADE]}$.",
+    "answer": "21/4",
+    "answerNumeric": 5.25,
+    "hint1": "$\\triangle ADE \\sim \\triangle ABC$ with scale factor $\\dfrac{AB}{AD} = \\dfrac{10}{4}$.",
+    "hint2": "Areas scale by the square of the scale factor: $[ABC] = \\left(\\tfrac{5}{2}\\right)^2[ADE] = \\tfrac{25}{4}[ADE]$.",
+    "solutionSteps": [
+      "Scale factor $= \\tfrac{AB}{AD} = \\tfrac{10}{4} = \\tfrac52$.",
+      "$[ABC] = \\tfrac{25}{4}[ADE]$.",
+      "$[DBCE] = [ABC] - [ADE] = \\tfrac{21}{4}[ADE]$, so the ratio is $\\tfrac{21}{4}$."
+    ],
+    "diagram": "<svg viewBox=\"0 0 220 170\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><polygon points=\"110,15 20,155 200,155\"/><line x1=\"74\" y1=\"71\" x2=\"146\" y2=\"71\"/><text x=\"110\" y=\"11\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">A</text><text x=\"12\" y=\"165\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">B</text><text x=\"208\" y=\"165\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">C</text><text x=\"64\" y=\"72\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">D</text><text x=\"156\" y=\"72\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">E</text><text x=\"84\" y=\"45\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">4</text><text x=\"38\" y=\"115\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">6</text><text x=\"110\" y=\"66\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">5</text></svg>",
+    "diagramAlt": "Triangle ABC with A at the top. Segment DE is parallel to the base BC, with D on side AB and E on side AC. AD is 4, DB is 6 and DE is 5."
+  },
+  {
+    "id": "m011",
+    "difficulty": "medium",
+    "topic": "Similar triangles",
+    "prompt": "A right triangle has legs $6$ and $8$. The altitude from the right angle splits the hypotenuse into two pieces. How long is the shorter piece?",
+    "answer": "18/5",
+    "answerNumeric": 3.6,
+    "hint1": "The altitude creates two smaller triangles, each similar to the original.",
+    "hint2": "For the piece next to the leg of length $6$: $\\dfrac{p}{6} = \\dfrac{6}{10}$.",
+    "solutionSteps": [
+      "The hypotenuse is $\\sqrt{36 + 64} = 10$.",
+      "The small triangle containing the leg $6$ is similar to the whole triangle, so $\\dfrac{p}{6} = \\dfrac{6}{10}$.",
+      "$p = \\tfrac{36}{10} = \\tfrac{18}{5} = 3.6$."
+    ]
+  },
+  {
+    "id": "m012",
+    "difficulty": "medium",
+    "topic": "Similar triangles",
+    "prompt": "To measure a tree, Ria places a mirror flat on the ground $15$ m from the tree. She stands $2$ m from the mirror on the other side and sees the top of the tree in it. Her eyes are $1.6$ m above the ground. How tall is the tree, in meters?",
+    "answer": "12",
+    "answerNumeric": 12.0,
+    "hint1": "The angle of incidence equals the angle of reflection, so the two right triangles are similar.",
+    "hint2": "$\\dfrac{h}{15} = \\dfrac{1.6}{2}$.",
+    "solutionSteps": [
+      "Both triangles have a right angle and equal angles at the mirror, so they are similar.",
+      "$\\dfrac{h}{15} = \\dfrac{1.6}{2} = 0.8$.",
+      "$h = 12$ m."
+    ],
+    "diagram": "<svg viewBox=\"0 0 260 140\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><line x1=\"10\" y1=\"120\" x2=\"250\" y2=\"120\"/><line x1=\"30\" y1=\"120\" x2=\"30\" y2=\"20\"/><line x1=\"225\" y1=\"120\" x2=\"225\" y2=\"98\"/><polyline points=\"30,20 195,120 225,98\" stroke-dasharray=\"5 4\"/><line x1=\"187\" y1=\"120\" x2=\"203\" y2=\"120\"/><text x=\"18\" y=\"72\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\" font-style=\"italic\">h</text><text x=\"112\" y=\"135\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">15</text><text x=\"211\" y=\"135\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">2</text><text x=\"240\" y=\"112\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">1.6</text><text x=\"186\" y=\"135\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"end\">mirror</text></svg>",
+    "diagramAlt": "A tree of height h on the left, a mirror on the ground 15 m away, and a person 2 m beyond the mirror with eyes 1.6 m high. A dashed light ray goes from the treetop to the mirror and up to the eyes."
+  },
+  {
+    "id": "m013",
+    "difficulty": "medium",
+    "topic": "Similar triangles",
+    "prompt": "Two similar triangles have areas $18$ and $50$. The smaller triangle has perimeter $21$. What is the perimeter of the larger triangle?",
+    "answer": "35",
+    "answerNumeric": 35.0,
+    "hint1": "If lengths scale by $k$, areas scale by $k^2$.",
+    "hint2": "$k^2 = \\tfrac{50}{18} = \\tfrac{25}{9}$, so $k = \\tfrac53$.",
+    "solutionSteps": [
+      "$k^2 = \\tfrac{50}{18} = \\tfrac{25}{9} \\Rightarrow k = \\tfrac53$.",
+      "Perimeter is a length, so it scales by $k$.",
+      "$21\\cdot\\tfrac53 = 35$."
+    ]
+  },
+  {
+    "id": "m014",
+    "difficulty": "medium",
+    "topic": "Similar triangles",
+    "prompt": "Trapezoid $ABCD$ has $\\overline{AB}\\parallel\\overline{CD}$, $AB = 6$ and $CD = 15$. Diagonal $\\overline{AC}$ has length $14$ and crosses diagonal $\\overline{BD}$ at $E$. Find $AE$.",
+    "answer": "4",
+    "answerNumeric": 4.0,
+    "hint1": "Triangles $ABE$ and $CDE$ are similar: they have vertical angles at $E$ and alternate interior angles from the parallel sides.",
+    "hint2": "$\\dfrac{AE}{EC} = \\dfrac{AB}{CD} = \\dfrac{6}{15} = \\dfrac25$.",
+    "solutionSteps": [
+      "$\\triangle ABE \\sim \\triangle CDE$ with ratio $\\tfrac{6}{15} = \\tfrac25$.",
+      "So $AE : EC = 2 : 5$, and $AE = \\tfrac27\\cdot14$.",
+      "$AE = 4$."
+    ]
+  },
+  {
+    "id": "m015",
+    "difficulty": "medium",
+    "topic": "Similar triangles",
+    "prompt": "A right triangle has legs $6$ and $8$. A square sits inside it with one corner at the right angle, two sides along the legs, and the opposite corner on the hypotenuse. Find the side length of the square.",
+    "answer": "24/7",
+    "answerNumeric": 3.4285714285714284,
+    "hint1": "Put the right angle at the origin, with legs along the axes. The hypotenuse is the line $\\tfrac{x}{8} + \\tfrac{y}{6} = 1$.",
+    "hint2": "The square's far corner is $(s, s)$, which lies on the hypotenuse: $\\tfrac{s}{8} + \\tfrac{s}{6} = 1$.",
+    "solutionSteps": [
+      "Hypotenuse: $\\dfrac{x}{8} + \\dfrac{y}{6} = 1$.",
+      "The corner $(s, s)$ lies on it: $s\\left(\\tfrac18 + \\tfrac16\\right) = 1$.",
+      "$s\\cdot\\tfrac{7}{24} = 1 \\Rightarrow s = \\tfrac{24}{7}$."
+    ],
+    "diagram": "<svg viewBox=\"0 0 220 170\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><polygon points=\"20,150 200,150 20,15\"/><polygon points=\"20,150 97,150 97,73 20,73\"/><text x=\"110\" y=\"166\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">8</text><text x=\"10\" y=\"86\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">6</text><text x=\"58\" y=\"112\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\" font-style=\"italic\">s</text></svg>",
+    "diagramAlt": "A right triangle with horizontal leg 8 and vertical leg 6. A square of side s sits in the right-angle corner, with its opposite corner touching the hypotenuse."
+  },
+  {
+    "id": "m016",
+    "difficulty": "medium",
+    "topic": "Pythagorean theorem",
+    "prompt": "A $25$-foot ladder leans against a wall with its foot $7$ ft from the wall. The foot slides $8$ ft farther from the wall. How many feet does the top of the ladder slide down?",
+    "answer": "4",
+    "answerNumeric": 4.0,
+    "hint1": "Find the top's height before and after. The ladder is the hypotenuse both times.",
+    "hint2": "Before: $\\sqrt{625 - 49} = 24$. After, the foot is $15$ ft out.",
+    "solutionSteps": [
+      "Initial height: $\\sqrt{25^2 - 7^2} = \\sqrt{576} = 24$.",
+      "New height: $\\sqrt{25^2 - 15^2} = \\sqrt{400} = 20$.",
+      "The top slides down $24 - 20 = 4$ ft."
+    ],
+    "diagram": "<svg viewBox=\"0 0 200 192\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><line x1=\"20\" y1=\"175\" x2=\"190\" y2=\"175\"/><line x1=\"30\" y1=\"175\" x2=\"30\" y2=\"8\"/><line x1=\"30\" y1=\"19\" x2=\"75.5\" y2=\"175\"/><line x1=\"30\" y1=\"45\" x2=\"127.5\" y2=\"175\" stroke-dasharray=\"5 4\"/><text x=\"46\" y=\"140\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">25</text><text x=\"52\" y=\"188\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">7</text><text x=\"101\" y=\"188\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">+8</text></svg>",
+    "diagramAlt": "A 25-foot ladder leaning against a wall with its foot 7 feet out. A dashed second position shows the foot moved 8 feet farther out and the top lower on the wall."
+  },
+  {
+    "id": "m017",
+    "difficulty": "medium",
+    "topic": "Pythagorean theorem",
+    "prompt": "A box measures $4$ by $5$ by $20$. A spider at one corner walks *inside* the box straight to the opposite corner. A second spider walks the shortest path along the *outside* surface between the same two corners. How much longer, in units, is the outside path?",
+    "answer": "sqrt(481) - 21",
+    "answerNumeric": 0.9317121994613088,
+    "hint1": "The inside path is the space diagonal $\\sqrt{a^2 + b^2 + c^2}$. For the outside path, unfold two faces into a flat rectangle.",
+    "hint2": "The best unfolding puts the two short edges together: $\\sqrt{(4 + 5)^2 + 20^2}$.",
+    "solutionSteps": [
+      "Space diagonal: $\\sqrt{16 + 25 + 400} = 21$.",
+      "Unfolding two faces gives a rectangle. The candidates are $\\sqrt{9^2 + 20^2} = \\sqrt{481}$, $\\sqrt{24^2 + 5^2} = \\sqrt{601}$ and $\\sqrt{25^2 + 4^2} = \\sqrt{641}$.",
+      "The shortest is $\\sqrt{481} \\approx 21.93$.",
+      "Difference: $\\sqrt{481} - 21 \\approx 0.93$."
+    ]
+  },
+  {
+    "id": "m018",
+    "difficulty": "medium",
+    "topic": "Pythagorean theorem",
+    "prompt": "A triangle has sides $13$, $13$ and $10$. Find the radius of its inscribed circle.",
+    "answer": "10/3",
+    "answerNumeric": 3.3333333333333335,
+    "hint1": "Use $r = \\dfrac{\\text{Area}}{s}$, where $s$ is the semiperimeter.",
+    "hint2": "The altitude to the base is $\\sqrt{13^2 - 5^2} = 12$, so the area is $60$.",
+    "solutionSteps": [
+      "Altitude to the base: $\\sqrt{169 - 25} = 12$. Area $= \\tfrac12\\cdot10\\cdot12 = 60$.",
+      "Semiperimeter: $s = \\tfrac{13 + 13 + 10}{2} = 18$.",
+      "$r = \\tfrac{60}{18} = \\tfrac{10}{3}$."
+    ]
+  },
+  {
+    "id": "m019",
+    "difficulty": "medium",
+    "topic": "Pythagorean theorem",
+    "prompt": "A point $P$ inside rectangle $ABCD$ has $PA = 3$, $PB = 4$ and $PC = 5$. Find $PD$.",
+    "answer": "3sqrt(2)",
+    "answerNumeric": 4.242640687119285,
+    "hint1": "Set coordinates with $A$ at the origin. Each squared distance is a sum of two squares built from $P$'s distances to the sides.",
+    "hint2": "You'll find that $PA^2 + PC^2 = PB^2 + PD^2$.",
+    "solutionSteps": [
+      "Let $P$ be at distances $a, b$ from sides $AB, CD$ and $c, d$ from sides $AD, BC$.",
+      "$PA^2 = a^2 + c^2$, $PC^2 = b^2 + d^2$, $PB^2 = a^2 + d^2$, $PD^2 = b^2 + c^2$, so $PA^2 + PC^2 = PB^2 + PD^2$.",
+      "$9 + 25 = 16 + PD^2 \\Rightarrow PD^2 = 18$.",
+      "$PD = 3\\sqrt2$."
+    ]
+  },
+  {
+    "id": "m020",
+    "difficulty": "medium",
+    "topic": "Pythagorean theorem",
+    "prompt": "An ant walks on the outside surface of a cube with edge $2$, from one corner to the corner farthest from it. What is the length of the shortest possible path?",
+    "answer": "2sqrt(5)",
+    "answerNumeric": 4.47213595499958,
+    "hint1": "Unfold two adjacent faces into a flat $2\\times4$ rectangle.",
+    "hint2": "The path is the diagonal of that rectangle.",
+    "solutionSteps": [
+      "Unfold two adjacent faces: they form a $2\\times4$ rectangle with the two corners at opposite ends.",
+      "A straight line on the unfolded net is the shortest path.",
+      "$\\sqrt{2^2 + 4^2} = \\sqrt{20} = 2\\sqrt5$."
+    ]
+  },
+  {
+    "id": "m021",
+    "difficulty": "medium",
+    "topic": "Pythagorean theorem",
+    "prompt": "A right triangle has hypotenuse $26$, and its legs differ by $14$. What is its area?",
+    "answer": "120",
+    "answerNumeric": 120.0,
+    "hint1": "Let the legs be $a$ and $a + 14$, and apply the Pythagorean theorem.",
+    "hint2": "$a^2 + (a + 14)^2 = 676$ simplifies to $a^2 + 14a - 240 = 0$.",
+    "solutionSteps": [
+      "$2a^2 + 28a + 196 = 676 \\Rightarrow a^2 + 14a - 240 = 0$.",
+      "$(a + 24)(a - 10) = 0$, so $a = 10$ and the legs are $10$ and $24$.",
+      "Area $= \\tfrac12\\cdot10\\cdot24 = 120$."
+    ]
+  },
+  {
+    "id": "m022",
+    "difficulty": "medium",
+    "topic": "Pythagorean theorem",
+    "prompt": "An equilateral triangle has side $6$. How far is its center (the centroid) from each vertex?",
+    "answer": "2sqrt(3)",
+    "answerNumeric": 3.4641016151377544,
+    "hint1": "The centroid lies on each median, two-thirds of the way from the vertex.",
+    "hint2": "A median of this triangle is also an altitude: $\\sqrt{6^2 - 3^2} = 3\\sqrt3$.",
+    "solutionSteps": [
+      "Median length: $\\sqrt{36 - 9} = 3\\sqrt3$.",
+      "The centroid is $\\tfrac23$ of the way along the median from the vertex.",
+      "$\\tfrac23\\cdot3\\sqrt3 = 2\\sqrt3$."
+    ]
+  },
+  {
+    "id": "m023",
+    "difficulty": "medium",
+    "topic": "Circles",
+    "prompt": "In a circle, a chord of length $16$ is $6$ units from the center. A second chord in the same circle is $8$ units from the center. How long is the second chord?",
+    "answer": "12",
+    "answerNumeric": 12.0,
+    "hint1": "The perpendicular from the center bisects a chord. Use it to find the radius first.",
+    "hint2": "$r^2 = 8^2 + 6^2 = 100$, so $r = 10$.",
+    "solutionSteps": [
+      "Half of the first chord is $8$, so $r^2 = 8^2 + 6^2 = 100$.",
+      "For the second chord, half its length is $\\sqrt{100 - 8^2} = 6$.",
+      "The second chord has length $12$."
+    ]
+  },
+  {
+    "id": "m024",
+    "difficulty": "medium",
+    "topic": "Circles",
+    "prompt": "From a point $P$ that is $13$ units from the center $O$ of a circle of radius $5$, two tangent lines touch the circle at $A$ and $B$. Find the area of quadrilateral $PAOB$.",
+    "answer": "60",
+    "answerNumeric": 60.0,
+    "hint1": "A tangent is perpendicular to the radius at the point of tangency.",
+    "hint2": "$PA = \\sqrt{13^2 - 5^2} = 12$. The quadrilateral is two congruent right triangles.",
+    "solutionSteps": [
+      "$\\angle OAP = 90^\\circ$, so $PA = \\sqrt{169 - 25} = 12$.",
+      "$[OAP] = \\tfrac12\\cdot5\\cdot12 = 30$, and $[OBP]$ is the same.",
+      "Total area: $60$."
+    ],
+    "diagram": "<svg viewBox=\"0 0 240 160\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><circle cx=\"70\" cy=\"80\" r=\"55\"/><polygon points=\"213,80 91.2,29.2 70,80 91.2,130.8\"/><line x1=\"70\" y1=\"80\" x2=\"213\" y2=\"80\" stroke-dasharray=\"5 4\"/><circle cx=\"70\" cy=\"80\" r=\"2.5\" fill=\"currentColor\"/><text x=\"58\" y=\"84\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">O</text><text x=\"224\" y=\"84\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">P</text><text x=\"92\" y=\"20\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">A</text><text x=\"92\" y=\"150\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">B</text><text x=\"72\" y=\"54\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">5</text><text x=\"150\" y=\"74\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">13</text></svg>",
+    "diagramAlt": "A circle with center O and radius 5. Point P is 13 units from O. Tangent segments from P touch the circle at A and B, forming the kite PAOB with radii OA and OB."
+  },
+  {
+    "id": "m025",
+    "difficulty": "medium",
+    "topic": "Circles",
+    "prompt": "A circle has radius $8$. Find the area of the circular segment cut off by a chord that subtends a central angle of $135^\\circ$.",
+    "answer": "24pi - 16sqrt(2)",
+    "answerNumeric": 52.770806688185516,
+    "hint1": "Segment area $=$ sector area $-$ triangle area.",
+    "hint2": "Sector: $\\tfrac{135}{360}\\pi\\cdot64 = 24\\pi$. Triangle: $\\tfrac12 r^2\\sin135^\\circ$.",
+    "solutionSteps": [
+      "Sector area: $\\tfrac38\\cdot64\\pi = 24\\pi$.",
+      "Triangle area: $\\tfrac12\\cdot64\\cdot\\sin135^\\circ = 32\\cdot\\tfrac{\\sqrt2}{2} = 16\\sqrt2$.",
+      "Segment: $24\\pi - 16\\sqrt2 \\approx 52.77$."
+    ]
+  },
+  {
+    "id": "m026",
+    "difficulty": "medium",
+    "topic": "Circles",
+    "prompt": "Find the area of the circle $$x^2 + y^2 - 6x + 8y - 11 = 0.$$",
+    "answer": "36pi",
+    "answerNumeric": 113.09733552923255,
+    "hint1": "Complete the square in $x$ and in $y$.",
+    "hint2": "$(x - 3)^2 + (y + 4)^2 = 11 + 9 + 16$.",
+    "solutionSteps": [
+      "$(x^2 - 6x + 9) + (y^2 + 8y + 16) = 11 + 9 + 16$.",
+      "$(x - 3)^2 + (y + 4)^2 = 36$, so $r = 6$.",
+      "Area $= 36\\pi$."
+    ]
+  },
+  {
+    "id": "m027",
+    "difficulty": "medium",
+    "topic": "Circles",
+    "prompt": "Two circles with radii $9$ and $4$ touch each other externally. A line is tangent to both circles, touching them at $A$ and $B$ (on the same side of the line through the centers). Find $AB$.",
+    "answer": "12",
+    "answerNumeric": 12.0,
+    "hint1": "Join the centers ($13$ apart) and drop a perpendicular from the smaller center onto the larger radius at $A$.",
+    "hint2": "This makes a right triangle with hypotenuse $13$ and one leg $9 - 4 = 5$.",
+    "solutionSteps": [
+      "The distance between the centers is $9 + 4 = 13$.",
+      "The radii to $A$ and $B$ are both perpendicular to $AB$, so $AB$ is a leg of a right triangle with hypotenuse $13$ and other leg $5$.",
+      "$AB = \\sqrt{169 - 25} = 12$."
+    ],
+    "diagram": "<svg viewBox=\"0 0 220 150\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><circle cx=\"70\" cy=\"90\" r=\"54\"/><circle cx=\"148\" cy=\"90\" r=\"24\"/><line x1=\"70\" y1=\"90\" x2=\"148\" y2=\"90\" stroke-dasharray=\"5 4\"/><line x1=\"70\" y1=\"90\" x2=\"90.8\" y2=\"40.2\" stroke-dasharray=\"5 4\"/><line x1=\"148\" y1=\"90\" x2=\"157.2\" y2=\"67.8\" stroke-dasharray=\"5 4\"/><line x1=\"26.2\" y1=\"21.9\" x2=\"194.1\" y2=\"91.8\"/><text x=\"72\" y=\"66\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">9</text><text x=\"142\" y=\"82\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">4</text><text x=\"88\" y=\"32\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">A</text><text x=\"166\" y=\"64\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">B</text></svg>",
+    "diagramAlt": "Two circles of radii 9 and 4 touching each other. A common external tangent line touches the large circle at A and the small circle at B."
+  },
+  {
+    "id": "m028",
+    "difficulty": "medium",
+    "topic": "Circles",
+    "prompt": "Chords $\\overline{AB}$ and $\\overline{CD}$ of a circle cross at $E$, with $AE = 4$, $EB = 9$ and $CE : ED = 4 : 9$. Find $CD$.",
+    "answer": "13",
+    "answerNumeric": 13.0,
+    "hint1": "Intersecting chords: $AE\\cdot EB = CE\\cdot ED$.",
+    "hint2": "Write $CE = 4k$ and $ED = 9k$. Then $36 = 36k^2$.",
+    "solutionSteps": [
+      "$AE\\cdot EB = 36$.",
+      "$CE\\cdot ED = (4k)(9k) = 36k^2 = 36 \\Rightarrow k = 1$.",
+      "$CD = 4k + 9k = 13$."
+    ],
+    "diagram": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><circle cx=\"100\" cy=\"100\" r=\"80\"/><line x1=\"31\" y1=\"140\" x2=\"178\" y2=\"81\"/><line x1=\"68\" y1=\"27\" x2=\"140\" y2=\"170\"/><circle cx=\"103\" cy=\"111\" r=\"2.5\" fill=\"currentColor\"/><text x=\"22\" y=\"148\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">A</text><text x=\"186\" y=\"80\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">B</text><text x=\"62\" y=\"20\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">C</text><text x=\"146\" y=\"184\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">D</text><text x=\"120\" y=\"106\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">E</text></svg>",
+    "diagramAlt": "A circle with two chords, AB and CD, crossing at an interior point E."
+  },
+  {
+    "id": "m029",
+    "difficulty": "medium",
+    "topic": "Circles",
+    "prompt": "A wheel of radius $30$ cm rolls without slipping along a straight road. Through what angle, in radians, does the wheel turn while it rolls $1$ meter?",
+    "answer": "10/3",
+    "answerNumeric": 3.3333333333333335,
+    "hint1": "Rolling without slipping means the distance rolled equals the arc length turned: $s = r\\theta$.",
+    "hint2": "$1$ m $= 100$ cm, so $100 = 30\\theta$.",
+    "solutionSteps": [
+      "Arc length $s = r\\theta$, with $s = 100$ cm and $r = 30$ cm.",
+      "$\\theta = \\tfrac{100}{30}$.",
+      "$\\theta = \\tfrac{10}{3} \\approx 3.33$ radians."
+    ]
+  },
+  {
+    "id": "m030",
+    "difficulty": "medium",
+    "topic": "Circles",
+    "prompt": "A circle is inscribed in a right triangle with legs $9$ and $12$. Find the area of the circle.",
+    "answer": "9pi",
+    "answerNumeric": 28.274333882308138,
+    "hint1": "For a right triangle with legs $a$, $b$ and hypotenuse $c$, the inradius is $r = \\dfrac{a + b - c}{2}$.",
+    "hint2": "The hypotenuse is $15$, so $r = \\dfrac{9 + 12 - 15}{2} = 3$.",
+    "solutionSteps": [
+      "Hypotenuse: $\\sqrt{81 + 144} = 15$.",
+      "The two tangent segments from each acute vertex are equal, which gives $r = \\tfrac{a + b - c}{2} = 3$.",
+      "Area $= 9\\pi$."
+    ],
+    "diagram": "<svg viewBox=\"0 0 200 170\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><polygon points=\"20,150 180,150 20,30\"/><circle cx=\"60\" cy=\"110\" r=\"40\"/><polyline points=\"30,150 30,140 20,140\" stroke-width=\"1.5\"/><text x=\"100\" y=\"166\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">12</text><text x=\"10\" y=\"94\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">9</text></svg>",
+    "diagramAlt": "A right triangle with legs 9 and 12 and a circle inscribed in it, touching all three sides."
+  },
+  {
+    "id": "m031",
+    "difficulty": "medium",
+    "topic": "Logs and exponentials",
+    "prompt": "Solve for $x$: $$\\log_2 x + \\log_2(x - 6) = 4.$$",
+    "answer": "8",
+    "answerNumeric": 8.0,
+    "hint1": "Combine the logs: $\\log_2 a + \\log_2 b = \\log_2(ab)$.",
+    "hint2": "$x(x - 6) = 2^4 = 16$.",
+    "solutionSteps": [
+      "$\\log_2[x(x - 6)] = 4 \\Rightarrow x^2 - 6x - 16 = 0$.",
+      "$(x - 8)(x + 2) = 0$.",
+      "The log needs $x > 6$, so $x = 8$."
+    ]
+  },
+  {
+    "id": "m032",
+    "difficulty": "medium",
+    "topic": "Logs and exponentials",
+    "prompt": "Solve for $x$: $$5^{x+1} = 3^{2x}.$$ Give an exact answer.",
+    "answer": "ln(5)/ln(9/5)",
+    "answerNumeric": 2.7381327419228056,
+    "hint1": "Take the natural log of both sides and use $\\ln(a^b) = b\\ln a$.",
+    "hint2": "$(x + 1)\\ln5 = 2x\\ln3$. Collect the $x$ terms.",
+    "solutionSteps": [
+      "$(x + 1)\\ln5 = 2x\\ln3$.",
+      "$x(2\\ln3 - \\ln5) = \\ln5$.",
+      "$x = \\dfrac{\\ln5}{\\ln9 - \\ln5} = \\dfrac{\\ln5}{\\ln(9/5)} \\approx 2.738$."
+    ]
+  },
+  {
+    "id": "m033",
+    "difficulty": "medium",
+    "topic": "Logs and exponentials",
+    "prompt": "A radioactive sample decays from $80$ g to $10$ g in $15$ hours. How many hours after the start will exactly $1$ g remain?",
+    "answer": "5log_2(80)",
+    "answerNumeric": 31.609640474436812,
+    "hint1": "$80 \\to 10$ is three halvings, so the half-life is $5$ hours.",
+    "hint2": "Then $80\\left(\\tfrac12\\right)^{t/5} = 1$.",
+    "solutionSteps": [
+      "$80 \\to 40 \\to 20 \\to 10$: three half-lives in $15$ h, so the half-life is $5$ h.",
+      "$80\\cdot2^{-t/5} = 1 \\Rightarrow 2^{t/5} = 80$.",
+      "$t = 5\\log_2 80 \\approx 31.6$ hours."
+    ]
+  },
+  {
+    "id": "m034",
+    "difficulty": "medium",
+    "topic": "Logs and exponentials",
+    "prompt": "Solve for $x$: $$\\log_3(x + 1) - \\log_3(x - 1) = 2.$$",
+    "answer": "5/4",
+    "answerNumeric": 1.25,
+    "hint1": "$\\log_3 a - \\log_3 b = \\log_3\\tfrac{a}{b}$.",
+    "hint2": "$\\dfrac{x + 1}{x - 1} = 3^2 = 9$.",
+    "solutionSteps": [
+      "$\\log_3\\dfrac{x + 1}{x - 1} = 2 \\Rightarrow \\dfrac{x + 1}{x - 1} = 9$.",
+      "$x + 1 = 9x - 9 \\Rightarrow 8x = 10$.",
+      "$x = \\tfrac54$, and it satisfies $x > 1$."
+    ]
+  },
+  {
+    "id": "m035",
+    "difficulty": "medium",
+    "topic": "Logs and exponentials",
+    "prompt": "Money in an account grows with continuous compounding and doubles in $10$ years. How many years does it take to triple?",
+    "answer": "10ln(3)/ln(2)",
+    "answerNumeric": 15.849625007211563,
+    "hint1": "$A = A_0e^{rt}$. Use the doubling time to find $r$.",
+    "hint2": "$e^{10r} = 2 \\Rightarrow r = \\tfrac{\\ln2}{10}$.",
+    "solutionSteps": [
+      "$e^{10r} = 2 \\Rightarrow r = \\tfrac{\\ln 2}{10}$.",
+      "$e^{rt} = 3 \\Rightarrow t = \\tfrac{\\ln3}{r}$.",
+      "$t = \\tfrac{10\\ln3}{\\ln2} \\approx 15.85$ years."
+    ]
+  },
+  {
+    "id": "m036",
+    "difficulty": "medium",
+    "topic": "Logs and exponentials",
+    "prompt": "Evaluate $$\\log_2 48 - \\log_2 3 + 2\\log_2\\sqrt{8} - \\log_4 8.$$",
+    "answer": "11/2",
+    "answerNumeric": 5.5,
+    "hint1": "Combine the first two terms with the quotient rule, and use $2\\log_2\\sqrt8 = \\log_2 8$.",
+    "hint2": "$\\log_2 16 = 4$ and $\\log_2 8 = 3$. For $\\log_4 8$, write both numbers as powers of $2$.",
+    "solutionSteps": [
+      "$\\log_2 48 - \\log_2 3 = \\log_2 16 = 4$.",
+      "$2\\log_2\\sqrt8 = \\log_2 8 = 3$.",
+      "$\\log_4 8 = \\dfrac{\\log_2 8}{\\log_2 4} = \\tfrac32$.",
+      "$4 + 3 - \\tfrac32 = \\tfrac{11}{2}$."
+    ]
+  },
+  {
+    "id": "m037",
+    "difficulty": "medium",
+    "topic": "Logs and exponentials",
+    "prompt": "Find the sum of the solutions of $$e^{2x} - 5e^{x} + 6 = 0.$$",
+    "answer": "ln(6)",
+    "answerNumeric": 1.791759469228055,
+    "hint1": "Let $w = e^x$.",
+    "hint2": "$w^2 - 5w + 6 = (w - 2)(w - 3) = 0$.",
+    "solutionSteps": [
+      "$w = e^x$: $(w - 2)(w - 3) = 0$.",
+      "$x = \\ln2$ or $x = \\ln3$.",
+      "Sum: $\\ln2 + \\ln3 = \\ln6$."
+    ]
+  },
+  {
+    "id": "m038",
+    "difficulty": "medium",
+    "topic": "Logs and exponentials",
+    "prompt": "A town's population follows $P(t) = 2000e^{kt}$, with $t$ in years. If $P(3) = 3000$, in how many years will the population reach $8000$?",
+    "answer": "3ln(4)/ln(3/2)",
+    "answerNumeric": 10.257067748108728,
+    "hint1": "From $2000e^{3k} = 3000$, find $k$.",
+    "hint2": "$k = \\tfrac{\\ln1.5}{3}$. Then solve $e^{kt} = 4$.",
+    "solutionSteps": [
+      "$e^{3k} = \\tfrac32 \\Rightarrow k = \\tfrac13\\ln\\tfrac32$.",
+      "$e^{kt} = 4 \\Rightarrow t = \\tfrac{\\ln 4}{k}$.",
+      "$t = \\dfrac{3\\ln4}{\\ln(3/2)} \\approx 10.26$ years."
+    ]
+  },
+  {
+    "id": "m039",
+    "difficulty": "medium",
+    "topic": "Rational expressions",
+    "prompt": "Solve for $x$: $$\\frac{1}{x - 2} + \\frac{2}{x + 2} = \\frac{5}{x^2 - 4}.$$",
+    "answer": "7/3",
+    "answerNumeric": 2.3333333333333335,
+    "hint1": "The common denominator is $x^2 - 4 = (x - 2)(x + 2)$.",
+    "hint2": "Multiply through: $(x + 2) + 2(x - 2) = 5$.",
+    "solutionSteps": [
+      "$(x + 2) + 2(x - 2) = 5$.",
+      "$3x - 2 = 5 \\Rightarrow x = \\tfrac73$.",
+      "$x = \\tfrac73$ doesn't make any denominator zero, so it is valid."
+    ]
+  },
+  {
+    "id": "m040",
+    "difficulty": "medium",
+    "topic": "Rational expressions",
+    "prompt": "Constants $A$ and $B$ satisfy $$\\frac{5x + 1}{(x - 1)(x + 2)} = \\frac{A}{x - 1} + \\frac{B}{x + 2}$$ for all $x \\ne 1, -2$. Find $10A + B$.",
+    "answer": "23",
+    "answerNumeric": 23.0,
+    "hint1": "Multiply both sides by $(x - 1)(x + 2)$: $5x + 1 = A(x + 2) + B(x - 1)$.",
+    "hint2": "Plug in $x = 1$ to find $A$, and $x = -2$ to find $B$.",
+    "solutionSteps": [
+      "$5x + 1 = A(x + 2) + B(x - 1)$.",
+      "$x = 1$: $6 = 3A \\Rightarrow A = 2$.",
+      "$x = -2$: $-9 = -3B \\Rightarrow B = 3$.",
+      "$10A + B = 23$."
+    ]
+  },
+  {
+    "id": "m041",
+    "difficulty": "medium",
+    "topic": "Rational expressions",
+    "prompt": "The graph of $$f(x) = \\frac{2x^2 - 8}{x^2 - x - 2}$$ has a hole (a removable discontinuity). What is the $y$-coordinate of the hole?",
+    "answer": "8/3",
+    "answerNumeric": 2.6666666666666665,
+    "hint1": "Factor the top and the bottom. A factor that cancels gives a hole.",
+    "hint2": "$\\dfrac{2(x - 2)(x + 2)}{(x - 2)(x + 1)}$. The hole is at $x = 2$.",
+    "solutionSteps": [
+      "$f(x) = \\dfrac{2(x - 2)(x + 2)}{(x - 2)(x + 1)} = \\dfrac{2(x + 2)}{x + 1}$ for $x \\ne 2$.",
+      "The hole is at $x = 2$.",
+      "$y = \\dfrac{2\\cdot4}{3} = \\tfrac83$."
+    ]
+  },
+  {
+    "id": "m042",
+    "difficulty": "medium",
+    "topic": "Rational expressions",
+    "prompt": "Working together, two pipes fill a tank in $6$ hours. Alone, the slower pipe takes $5$ hours longer than the faster one. How many hours does the faster pipe take alone?",
+    "answer": "10",
+    "answerNumeric": 10.0,
+    "hint1": "Rates add: $\\dfrac1t + \\dfrac{1}{t + 5} = \\dfrac16$.",
+    "hint2": "Clear denominators: $6(t + 5) + 6t = t(t + 5)$.",
+    "solutionSteps": [
+      "$6(2t + 5) = t^2 + 5t \\Rightarrow t^2 - 7t - 30 = 0$.",
+      "$(t - 10)(t + 3) = 0$.",
+      "$t = 10$ hours."
+    ]
+  },
+  {
+    "id": "m043",
+    "difficulty": "medium",
+    "topic": "Rational expressions",
+    "prompt": "Solve for $x$: $$\\frac{x}{x - 3} - \\frac{2}{x + 1} = \\frac{12}{x^2 - 2x - 3}.$$",
+    "answer": "-2",
+    "answerNumeric": -2.0,
+    "hint1": "$x^2 - 2x - 3 = (x - 3)(x + 1)$. Multiply through and watch for extraneous roots.",
+    "hint2": "$x(x + 1) - 2(x - 3) = 12$ simplifies to $x^2 - x - 6 = 0$.",
+    "solutionSteps": [
+      "$x^2 + x - 2x + 6 = 12 \\Rightarrow x^2 - x - 6 = 0$.",
+      "$(x - 3)(x + 2) = 0$.",
+      "$x = 3$ makes a denominator zero, so it is rejected. The solution is $x = -2$."
+    ]
+  },
+  {
+    "id": "m044",
+    "difficulty": "medium",
+    "topic": "Rational expressions",
+    "prompt": "Find the sum of all integers $x$ that satisfy $$\\frac{x - 4}{x + 2} \\le 0.$$",
+    "answer": "9",
+    "answerNumeric": 9.0,
+    "hint1": "A quotient is $\\le 0$ when the top and bottom have opposite signs (or the top is $0$). The bottom can't be $0$.",
+    "hint2": "The critical points are $x = 4$ and $x = -2$. Test the intervals.",
+    "solutionSteps": [
+      "Sign chart: the quotient is negative for $-2 < x < 4$ and zero at $x = 4$. $x = -2$ is excluded.",
+      "The integers are $-1, 0, 1, 2, 3, 4$.",
+      "Sum: $9$."
+    ]
+  },
+  {
+    "id": "m045",
+    "difficulty": "medium",
+    "topic": "Rational expressions",
+    "prompt": "Let $f(x) = \\dfrac{3x + 5}{x - 1}$. Find $f^{-1}(4) + f^{-1}(-2)$.",
+    "answer": "42/5",
+    "answerNumeric": 8.4,
+    "hint1": "$f^{-1}(c)$ is the $x$ with $f(x) = c$.",
+    "hint2": "Solve $\\dfrac{3x + 5}{x - 1} = 4$ and $\\dfrac{3x + 5}{x - 1} = -2$ separately.",
+    "solutionSteps": [
+      "$3x + 5 = 4x - 4 \\Rightarrow x = 9$, so $f^{-1}(4) = 9$.",
+      "$3x + 5 = -2x + 2 \\Rightarrow 5x = -3 \\Rightarrow f^{-1}(-2) = -\\tfrac35$.",
+      "Sum: $9 - \\tfrac35 = \\tfrac{42}{5}$."
+    ]
+  },
+  {
+    "id": "m046",
+    "difficulty": "medium",
+    "topic": "Unit circle",
+    "prompt": "Evaluate $$\\sin\\frac{7\\pi}{6} + \\cos\\frac{5\\pi}{3} + \\tan\\frac{3\\pi}{4}.$$",
+    "answer": "-1",
+    "answerNumeric": -1.0,
+    "hint1": "Find each reference angle and the sign from its quadrant.",
+    "hint2": "$\\tfrac{7\\pi}{6}$ is in QIII, $\\tfrac{5\\pi}{3}$ in QIV and $\\tfrac{3\\pi}{4}$ in QII.",
+    "solutionSteps": [
+      "$\\sin\\tfrac{7\\pi}{6} = -\\tfrac12$.",
+      "$\\cos\\tfrac{5\\pi}{3} = \\tfrac12$.",
+      "$\\tan\\tfrac{3\\pi}{4} = -1$.",
+      "Sum: $-\\tfrac12 + \\tfrac12 - 1 = -1$."
+    ]
+  },
+  {
+    "id": "m047",
+    "difficulty": "medium",
+    "topic": "Unit circle",
+    "prompt": "Evaluate exactly: $$\\sec^2\\frac{5\\pi}{6} - \\cot\\frac{2\\pi}{3}\\cdot\\csc\\frac{\\pi}{6}.$$",
+    "answer": "4/3 + 2sqrt(3)/3",
+    "answerNumeric": 2.488033871712585,
+    "hint1": "$\\sec = 1/\\cos$, $\\csc = 1/\\sin$ and $\\cot = \\cos/\\sin$.",
+    "hint2": "$\\cos\\tfrac{5\\pi}6 = -\\tfrac{\\sqrt3}{2}$, $\\cot\\tfrac{2\\pi}{3} = -\\tfrac{1}{\\sqrt3}$ and $\\csc\\tfrac\\pi6 = 2$.",
+    "solutionSteps": [
+      "$\\sec^2\\tfrac{5\\pi}{6} = \\dfrac{1}{3/4} = \\tfrac43$.",
+      "$\\cot\\tfrac{2\\pi}{3}\\csc\\tfrac\\pi6 = -\\tfrac{1}{\\sqrt3}\\cdot2 = -\\tfrac{2\\sqrt3}{3}$.",
+      "$\\tfrac43 + \\tfrac{2\\sqrt3}{3} \\approx 2.488$."
+    ]
+  },
+  {
+    "id": "m048",
+    "difficulty": "medium",
+    "topic": "Unit circle",
+    "prompt": "Find the sum of all solutions in $[0, 2\\pi)$ of $$2\\cos^2 x - \\cos x - 1 = 0.$$",
+    "answer": "2pi",
+    "answerNumeric": 6.283185307179586,
+    "hint1": "Factor it as a quadratic in $\\cos x$.",
+    "hint2": "$(2\\cos x + 1)(\\cos x - 1) = 0$.",
+    "solutionSteps": [
+      "$\\cos x = 1$ or $\\cos x = -\\tfrac12$.",
+      "$\\cos x = 1$: $x = 0$. $\\cos x = -\\tfrac12$: $x = \\tfrac{2\\pi}{3}, \\tfrac{4\\pi}{3}$.",
+      "Sum: $0 + \\tfrac{2\\pi}{3} + \\tfrac{4\\pi}{3} = 2\\pi$."
+    ]
+  },
+  {
+    "id": "m049",
+    "difficulty": "medium",
+    "topic": "Unit circle",
+    "prompt": "If $\\sin\\theta = -\\tfrac35$ and $\\pi < \\theta < \\tfrac{3\\pi}{2}$, find $\\tan\\theta + \\cos\\theta$.",
+    "answer": "-1/20",
+    "answerNumeric": -0.05,
+    "hint1": "Use $\\sin^2\\theta + \\cos^2\\theta = 1$, and choose the sign of $\\cos\\theta$ from the quadrant.",
+    "hint2": "In QIII cosine is negative: $\\cos\\theta = -\\tfrac45$.",
+    "solutionSteps": [
+      "$\\cos\\theta = -\\sqrt{1 - \\tfrac{9}{25}} = -\\tfrac45$ (QIII).",
+      "$\\tan\\theta = \\dfrac{-3/5}{-4/5} = \\tfrac34$.",
+      "$\\tfrac34 - \\tfrac45 = \\tfrac{15 - 16}{20} = -\\tfrac{1}{20}$."
+    ]
+  },
+  {
+    "id": "m050",
+    "difficulty": "medium",
+    "topic": "Unit circle",
+    "prompt": "Find the sum of all solutions in $[0, 2\\pi)$ of $$2\\sin^2 x = 1 + \\cos x.$$",
+    "answer": "3pi",
+    "answerNumeric": 9.42477796076938,
+    "hint1": "Replace $\\sin^2 x$ with $1 - \\cos^2 x$.",
+    "hint2": "$2\\cos^2 x + \\cos x - 1 = 0$ factors as $(2\\cos x - 1)(\\cos x + 1) = 0$.",
+    "solutionSteps": [
+      "$2 - 2\\cos^2x = 1 + \\cos x \\Rightarrow 2\\cos^2 x + \\cos x - 1 = 0$.",
+      "$\\cos x = \\tfrac12 \\Rightarrow x = \\tfrac\\pi3, \\tfrac{5\\pi}{3}$. $\\cos x = -1 \\Rightarrow x = \\pi$.",
+      "Sum: $\\tfrac\\pi3 + \\tfrac{5\\pi}{3} + \\pi = 3\\pi$."
+    ]
+  },
+  {
+    "id": "m051",
+    "difficulty": "medium",
+    "topic": "Unit circle",
+    "prompt": "Evaluate exactly: $$\\sin\\!\\left(-\\frac{17\\pi}{6}\\right)\\cdot\\cos\\frac{11\\pi}{4}.$$",
+    "answer": "sqrt(2)/4",
+    "answerNumeric": 0.3535533905932738,
+    "hint1": "Add or subtract multiples of $2\\pi$ to land in $[0, 2\\pi)$.",
+    "hint2": "$-\\tfrac{17\\pi}{6} + 4\\pi = \\tfrac{7\\pi}{6}$ and $\\tfrac{11\\pi}{4} - 2\\pi = \\tfrac{3\\pi}{4}$.",
+    "solutionSteps": [
+      "$\\sin\\left(-\\tfrac{17\\pi}{6}\\right) = \\sin\\tfrac{7\\pi}{6} = -\\tfrac12$.",
+      "$\\cos\\tfrac{11\\pi}{4} = \\cos\\tfrac{3\\pi}{4} = -\\tfrac{\\sqrt2}{2}$.",
+      "Product: $\\tfrac{\\sqrt2}{4}$."
+    ]
+  },
+  {
+    "id": "m052",
+    "difficulty": "medium",
+    "topic": "Unit circle",
+    "prompt": "Find the smallest solution greater than $\\tfrac{\\pi}{2}$ of $$\\sin 2x = \\cos x.$$",
+    "answer": "5pi/6",
+    "answerNumeric": 2.6179938779914944,
+    "hint1": "Use $\\sin2x = 2\\sin x\\cos x$ and factor. Don't divide by $\\cos x$, or you'll lose solutions.",
+    "hint2": "$\\cos x(2\\sin x - 1) = 0$.",
+    "solutionSteps": [
+      "$2\\sin x\\cos x - \\cos x = \\cos x(2\\sin x - 1) = 0$.",
+      "$\\cos x = 0$: $x = \\tfrac\\pi2, \\tfrac{3\\pi}{2}, \\ldots$ and $\\sin x = \\tfrac12$: $x = \\tfrac\\pi6, \\tfrac{5\\pi}{6}, \\ldots$",
+      "The smallest solution greater than $\\tfrac\\pi2$ is $\\tfrac{5\\pi}{6}$."
+    ]
+  },
+  {
+    "id": "m053",
+    "difficulty": "medium",
+    "topic": "Trig identities",
+    "prompt": "If $\\tan\\theta = 2$ and $0 < \\theta < \\tfrac\\pi2$, find $\\sin 2\\theta + \\cos 2\\theta$.",
+    "answer": "1/5",
+    "answerNumeric": 0.2,
+    "hint1": "Draw a right triangle with opposite side $2$ and adjacent side $1$. The hypotenuse is $\\sqrt5$.",
+    "hint2": "$\\sin\\theta = \\tfrac{2}{\\sqrt5}$ and $\\cos\\theta = \\tfrac1{\\sqrt5}$. Use the double-angle formulas.",
+    "solutionSteps": [
+      "$\\sin\\theta = \\tfrac2{\\sqrt5}$, $\\cos\\theta = \\tfrac1{\\sqrt5}$.",
+      "$\\sin2\\theta = 2\\cdot\\tfrac2{\\sqrt5}\\cdot\\tfrac1{\\sqrt5} = \\tfrac45$.",
+      "$\\cos2\\theta = \\cos^2\\theta - \\sin^2\\theta = \\tfrac15 - \\tfrac45 = -\\tfrac35$.",
+      "Sum: $\\tfrac15$."
+    ]
+  },
+  {
+    "id": "m054",
+    "difficulty": "medium",
+    "topic": "Trig identities",
+    "prompt": "Evaluate exactly: $$\\sin\\frac{5\\pi}{12}\\cos\\frac{\\pi}{12}.$$",
+    "answer": "1/2 + sqrt(3)/4",
+    "answerNumeric": 0.9330127018922193,
+    "hint1": "Use the product-to-sum identity $\\sin A\\cos B = \\tfrac12[\\sin(A + B) + \\sin(A - B)]$.",
+    "hint2": "$A + B = \\tfrac\\pi2$ and $A - B = \\tfrac\\pi3$.",
+    "solutionSteps": [
+      "$\\sin\\tfrac{5\\pi}{12}\\cos\\tfrac{\\pi}{12} = \\tfrac12\\left[\\sin\\tfrac\\pi2 + \\sin\\tfrac\\pi3\\right]$.",
+      "$= \\tfrac12\\left[1 + \\tfrac{\\sqrt3}2\\right]$.",
+      "$= \\tfrac12 + \\tfrac{\\sqrt3}{4} \\approx 0.933$."
+    ]
+  },
+  {
+    "id": "m055",
+    "difficulty": "medium",
+    "topic": "Trig identities",
+    "prompt": "Find $\\tan\\dfrac{\\pi}{12}$ exactly.",
+    "answer": "2 - sqrt(3)",
+    "answerNumeric": 0.2679491924311227,
+    "hint1": "$\\tfrac{\\pi}{12} = \\tfrac\\pi3 - \\tfrac\\pi4$. Use the tangent difference formula.",
+    "hint2": "$\\tan(A - B) = \\dfrac{\\tan A - \\tan B}{1 + \\tan A\\tan B} = \\dfrac{\\sqrt3 - 1}{1 + \\sqrt3}$.",
+    "solutionSteps": [
+      "$\\tan\\tfrac\\pi{12} = \\dfrac{\\sqrt3 - 1}{1 + \\sqrt3}$.",
+      "Multiply the top and bottom by $\\sqrt3 - 1$: $\\dfrac{(\\sqrt3 - 1)^2}{3 - 1} = \\dfrac{4 - 2\\sqrt3}{2}$.",
+      "$= 2 - \\sqrt3 \\approx 0.268$."
+    ]
+  },
+  {
+    "id": "m056",
+    "difficulty": "medium",
+    "topic": "Trig identities",
+    "prompt": "If $\\sin x + \\cos x = \\tfrac75$ and $0 < x < \\tfrac\\pi4$, find $\\tan x$.",
+    "answer": "3/4",
+    "answerNumeric": 0.75,
+    "hint1": "Square both sides: $1 + 2\\sin x\\cos x = \\tfrac{49}{25}$.",
+    "hint2": "So $2\\sin x\\cos x = \\tfrac{24}{25}$ and $(\\cos x - \\sin x)^2 = 1 - \\tfrac{24}{25} = \\tfrac1{25}$.",
+    "solutionSteps": [
+      "$(\\sin x + \\cos x)^2 = 1 + 2\\sin x\\cos x = \\tfrac{49}{25} \\Rightarrow 2\\sin x\\cos x = \\tfrac{24}{25}$.",
+      "$(\\cos x - \\sin x)^2 = \\tfrac{1}{25}$. Since $x < \\tfrac\\pi4$, $\\cos x > \\sin x$, so $\\cos x - \\sin x = \\tfrac15$.",
+      "Solving with $\\sin x + \\cos x = \\tfrac75$: $\\cos x = \\tfrac45$ and $\\sin x = \\tfrac35$.",
+      "$\\tan x = \\tfrac34$."
+    ]
+  },
+  {
+    "id": "m057",
+    "difficulty": "medium",
+    "topic": "Trig identities",
+    "prompt": "Evaluate $$\\frac{\\sin 3x}{\\sin x} - \\frac{\\cos 3x}{\\cos x}$$ at $x = 0.3$ (radians), without a calculator.",
+    "answer": "2",
+    "answerNumeric": 2.0,
+    "hint1": "Combine into one fraction: $\\dfrac{\\sin3x\\cos x - \\cos3x\\sin x}{\\sin x\\cos x}$.",
+    "hint2": "The numerator is $\\sin(3x - x) = \\sin2x$.",
+    "solutionSteps": [
+      "$\\dfrac{\\sin3x\\cos x - \\cos3x\\sin x}{\\sin x\\cos x} = \\dfrac{\\sin 2x}{\\sin x\\cos x}$.",
+      "$\\sin2x = 2\\sin x\\cos x$, so the expression equals $2$ for every allowed $x$.",
+      "At $x = 0.3$ it is $2$."
+    ]
+  },
+  {
+    "id": "m058",
+    "difficulty": "medium",
+    "topic": "Trig identities",
+    "prompt": "If $\\cos2\\theta = \\tfrac{7}{25}$ and $0 < \\theta < \\tfrac\\pi2$, find $\\tan\\dfrac\\theta2$.",
+    "answer": "1/3",
+    "answerNumeric": 0.3333333333333333,
+    "hint1": "From $\\cos 2\\theta = 1 - 2\\sin^2\\theta$, find $\\sin\\theta$, then $\\cos\\theta$.",
+    "hint2": "$\\sin\\theta = \\tfrac35$ and $\\cos\\theta = \\tfrac45$. Use $\\tan\\tfrac\\theta2 = \\dfrac{\\sin\\theta}{1 + \\cos\\theta}$.",
+    "solutionSteps": [
+      "$1 - 2\\sin^2\\theta = \\tfrac{7}{25} \\Rightarrow \\sin^2\\theta = \\tfrac{9}{25} \\Rightarrow \\sin\\theta = \\tfrac35$.",
+      "$\\cos\\theta = \\tfrac45$.",
+      "$\\tan\\tfrac\\theta2 = \\dfrac{3/5}{1 + 4/5} = \\dfrac{3/5}{9/5} = \\tfrac13$."
+    ]
+  },
+  {
+    "id": "m059",
+    "difficulty": "medium",
+    "topic": "Trig identities",
+    "prompt": "What is the maximum value of $$5\\sin x - 12\\cos x - 3\\,?$$",
+    "answer": "10",
+    "answerNumeric": 10.0,
+    "hint1": "Write $a\\sin x + b\\cos x$ as $R\\sin(x - \\varphi)$, where $R = \\sqrt{a^2 + b^2}$.",
+    "hint2": "$R = \\sqrt{25 + 144} = 13$.",
+    "solutionSteps": [
+      "$5\\sin x - 12\\cos x = 13\\sin(x - \\varphi)$ for some angle $\\varphi$.",
+      "Its maximum is $13$.",
+      "The maximum of the whole expression is $13 - 3 = 10$."
+    ]
+  },
+  {
+    "id": "m060",
+    "difficulty": "medium",
+    "topic": "Trig identities",
+    "prompt": "Evaluate exactly: $$\\sin^4\\frac{\\pi}{8} + \\cos^4\\frac{\\pi}{8}.$$",
+    "answer": "3/4",
+    "answerNumeric": 0.75,
+    "hint1": "$a^4 + b^4 = (a^2 + b^2)^2 - 2a^2b^2$.",
+    "hint2": "With $a^2 + b^2 = 1$: $1 - 2\\sin^2\\tfrac\\pi8\\cos^2\\tfrac\\pi8 = 1 - \\tfrac12\\sin^2\\tfrac\\pi4$.",
+    "solutionSteps": [
+      "$\\sin^4 + \\cos^4 = (\\sin^2 + \\cos^2)^2 - 2\\sin^2\\cos^2 = 1 - \\tfrac12(2\\sin\\cos)^2$.",
+      "$= 1 - \\tfrac12\\sin^2\\tfrac\\pi4 = 1 - \\tfrac12\\cdot\\tfrac12$.",
+      "$= \\tfrac34$."
+    ]
+  },
+  {
+    "id": "m061",
+    "difficulty": "medium",
+    "topic": "Inverse trig",
+    "prompt": "Evaluate exactly: $$\\cos\\!\\left(\\arcsin\\frac35 + \\arctan\\frac12\\right).$$",
+    "answer": "sqrt(5)/5",
+    "answerNumeric": 0.4472135954999579,
+    "hint1": "Let $A = \\arcsin\\tfrac35$ and $B = \\arctan\\tfrac12$. Use $\\cos(A + B) = \\cos A\\cos B - \\sin A\\sin B$.",
+    "hint2": "$\\cos A = \\tfrac45$, $\\cos B = \\tfrac{2}{\\sqrt5}$ and $\\sin B = \\tfrac{1}{\\sqrt5}$.",
+    "solutionSteps": [
+      "$\\sin A = \\tfrac35$, $\\cos A = \\tfrac45$.",
+      "$\\tan B = \\tfrac12$: $\\sin B = \\tfrac{1}{\\sqrt5}$, $\\cos B = \\tfrac{2}{\\sqrt5}$.",
+      "$\\cos(A + B) = \\tfrac45\\cdot\\tfrac{2}{\\sqrt5} - \\tfrac35\\cdot\\tfrac1{\\sqrt5} = \\tfrac{5}{5\\sqrt5} = \\tfrac{1}{\\sqrt5} = \\tfrac{\\sqrt5}{5}$."
+    ]
+  },
+  {
+    "id": "m062",
+    "difficulty": "medium",
+    "topic": "Inverse trig",
+    "prompt": "Evaluate exactly: $$\\arctan 2 + \\arctan 3.$$",
+    "answer": "3pi/4",
+    "answerNumeric": 2.356194490192345,
+    "hint1": "Find $\\tan(A + B)$, then think about which quadrant $A + B$ is in.",
+    "hint2": "$\\tan(A + B) = \\dfrac{2 + 3}{1 - 6} = -1$, and both angles are between $\\tfrac\\pi4$ and $\\tfrac\\pi2$.",
+    "solutionSteps": [
+      "$\\tan(A + B) = \\dfrac{5}{-5} = -1$.",
+      "Each angle is in $\\left(\\tfrac\\pi4, \\tfrac\\pi2\\right)$, so $A + B \\in \\left(\\tfrac\\pi2, \\pi\\right)$.",
+      "The angle there with tangent $-1$ is $\\tfrac{3\\pi}{4}$."
+    ]
+  },
+  {
+    "id": "m063",
+    "difficulty": "medium",
+    "topic": "Inverse trig",
+    "prompt": "Evaluate exactly: $$\\sin\\!\\left(2\\arccos\\frac13\\right).$$",
+    "answer": "4sqrt(2)/9",
+    "answerNumeric": 0.6285393610547089,
+    "hint1": "Let $\\theta = \\arccos\\tfrac13$, so $\\cos\\theta = \\tfrac13$. Then $\\sin2\\theta = 2\\sin\\theta\\cos\\theta$.",
+    "hint2": "$\\sin\\theta = \\sqrt{1 - \\tfrac19} = \\tfrac{2\\sqrt2}{3}$.",
+    "solutionSteps": [
+      "$\\cos\\theta = \\tfrac13$ and $\\sin\\theta = \\tfrac{2\\sqrt2}{3}$ (since $\\theta \\in [0, \\pi]$).",
+      "$\\sin 2\\theta = 2\\cdot\\tfrac{2\\sqrt2}{3}\\cdot\\tfrac13$.",
+      "$= \\tfrac{4\\sqrt2}{9}$."
+    ]
+  },
+  {
+    "id": "m064",
+    "difficulty": "medium",
+    "topic": "Inverse trig",
+    "prompt": "Evaluate $$\\arcsin\\!\\left(\\sin\\frac{5\\pi}{6}\\right) + \\arccos\\!\\left(\\cos\\frac{7\\pi}{4}\\right).$$",
+    "answer": "5pi/12",
+    "answerNumeric": 1.3089969389957472,
+    "hint1": "$\\arcsin$ returns angles in $\\left[-\\tfrac\\pi2, \\tfrac\\pi2\\right]$ and $\\arccos$ returns angles in $[0, \\pi]$.",
+    "hint2": "$\\sin\\tfrac{5\\pi}6 = \\tfrac12$ and $\\cos\\tfrac{7\\pi}4 = \\tfrac{\\sqrt2}2$.",
+    "solutionSteps": [
+      "$\\arcsin\\left(\\tfrac12\\right) = \\tfrac\\pi6$ (not $\\tfrac{5\\pi}{6}$).",
+      "$\\arccos\\left(\\tfrac{\\sqrt2}2\\right) = \\tfrac\\pi4$ (not $\\tfrac{7\\pi}4$).",
+      "Sum: $\\tfrac\\pi6 + \\tfrac\\pi4 = \\tfrac{5\\pi}{12}$."
+    ]
+  },
+  {
+    "id": "m065",
+    "difficulty": "medium",
+    "topic": "Inverse trig",
+    "prompt": "Solve for $x$: $$\\arcsin x = \\arccos x + \\frac{\\pi}{6}.$$",
+    "answer": "sqrt(3)/2",
+    "answerNumeric": 0.8660254037844386,
+    "hint1": "Use the identity $\\arcsin x + \\arccos x = \\tfrac\\pi2$.",
+    "hint2": "Replace $\\arccos x$ with $\\tfrac\\pi2 - \\arcsin x$.",
+    "solutionSteps": [
+      "$\\arcsin x = \\tfrac\\pi2 - \\arcsin x + \\tfrac\\pi6$.",
+      "$2\\arcsin x = \\tfrac{2\\pi}{3} \\Rightarrow \\arcsin x = \\tfrac\\pi3$.",
+      "$x = \\sin\\tfrac\\pi3 = \\tfrac{\\sqrt3}{2}$."
+    ]
+  },
+  {
+    "id": "m066",
+    "difficulty": "medium",
+    "topic": "Inverse trig",
+    "prompt": "A $10$ m statue stands on a $5$ m pedestal. You stand $12$ m from the base, and your eye is at ground level. Find the angle the statue fills in your view, as a single inverse tangent.",
+    "answer": "arctan(40/73)",
+    "answerNumeric": 0.5012642648715825,
+    "hint1": "The angle is (angle to the top of the statue) $-$ (angle to the top of the pedestal).",
+    "hint2": "$\\theta = \\arctan\\tfrac{15}{12} - \\arctan\\tfrac{5}{12}$. Use the tangent difference formula.",
+    "solutionSteps": [
+      "$\\tan\\alpha = \\tfrac{15}{12} = \\tfrac54$ and $\\tan\\beta = \\tfrac{5}{12}$.",
+      "$\\tan(\\alpha - \\beta) = \\dfrac{\\tfrac54 - \\tfrac5{12}}{1 + \\tfrac54\\cdot\\tfrac5{12}} = \\dfrac{5/6}{73/48}$.",
+      "$= \\tfrac{240}{438} = \\tfrac{40}{73}$, so $\\theta = \\arctan\\tfrac{40}{73} \\approx 0.501$ rad."
+    ],
+    "diagram": "<svg viewBox=\"0 0 240 180\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><line x1=\"10\" y1=\"165\" x2=\"230\" y2=\"165\"/><polygon points=\"190,165 190,125 205,125 205,165\"/><polygon points=\"192,125 192,45 203,45 203,125\"/><line x1=\"30\" y1=\"165\" x2=\"192\" y2=\"45\" stroke-dasharray=\"5 4\"/><line x1=\"30\" y1=\"165\" x2=\"190\" y2=\"125\" stroke-dasharray=\"5 4\"/><circle cx=\"30\" cy=\"165\" r=\"3\" fill=\"currentColor\"/><text x=\"214\" y=\"148\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"start\">5</text><text x=\"214\" y=\"90\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"start\">10</text><text x=\"110\" y=\"178\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">12</text><text x=\"62\" y=\"156\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">θ</text></svg>",
+    "diagramAlt": "A statue 10 m tall on a 5 m pedestal. An observer at ground level 12 m away sights dashed lines to the top of the pedestal and to the top of the statue. The angle theta between the lines is marked."
+  },
+  {
+    "id": "m067",
+    "difficulty": "medium",
+    "topic": "Inverse trig",
+    "prompt": "Evaluate $$\\sec^2(\\arctan 3) + \\tan^2(\\operatorname{arcsec} 3).$$",
+    "answer": "18",
+    "answerNumeric": 18.0,
+    "hint1": "Use $\\sec^2\\theta = 1 + \\tan^2\\theta$ for both terms.",
+    "hint2": "If $\\tan\\theta = 3$ then $\\sec^2\\theta = 10$. If $\\sec\\varphi = 3$ then $\\tan^2\\varphi = 8$.",
+    "solutionSteps": [
+      "$\\sec^2(\\arctan3) = 1 + 3^2 = 10$.",
+      "$\\tan^2(\\operatorname{arcsec}3) = 3^2 - 1 = 8$.",
+      "Sum: $18$."
+    ]
+  },
+  {
+    "id": "m068",
+    "difficulty": "medium",
+    "topic": "Polar coordinates",
+    "prompt": "The polar point $\\left(6, \\tfrac{5\\pi}{6}\\right)$ has Cartesian coordinates $(x, y)$. Find $x + y$.",
+    "answer": "3 - 3sqrt(3)",
+    "answerNumeric": -2.196152422706632,
+    "hint1": "$x = r\\cos\\theta$ and $y = r\\sin\\theta$.",
+    "hint2": "$\\cos\\tfrac{5\\pi}6 = -\\tfrac{\\sqrt3}{2}$ and $\\sin\\tfrac{5\\pi}6 = \\tfrac12$.",
+    "solutionSteps": [
+      "$x = 6\\cdot\\left(-\\tfrac{\\sqrt3}{2}\\right) = -3\\sqrt3$.",
+      "$y = 6\\cdot\\tfrac12 = 3$.",
+      "$x + y = 3 - 3\\sqrt3$."
+    ]
+  },
+  {
+    "id": "m069",
+    "difficulty": "medium",
+    "topic": "Polar coordinates",
+    "prompt": "Find the distance between the polar points $\\left(4, \\tfrac{\\pi}{6}\\right)$ and $\\left(6, \\tfrac{5\\pi}{6}\\right)$.",
+    "answer": "2sqrt(19)",
+    "answerNumeric": 8.717797887081348,
+    "hint1": "The angle between the two rays is $\\tfrac{5\\pi}6 - \\tfrac\\pi6 = \\tfrac{2\\pi}{3}$. Use the law of cosines.",
+    "hint2": "$d^2 = 4^2 + 6^2 - 2\\cdot4\\cdot6\\cos\\tfrac{2\\pi}{3}$.",
+    "solutionSteps": [
+      "$d^2 = 16 + 36 - 48\\cdot\\left(-\\tfrac12\\right) = 76$.",
+      "$d = \\sqrt{76}$.",
+      "$d = 2\\sqrt{19}$."
+    ]
+  },
+  {
+    "id": "m070",
+    "difficulty": "medium",
+    "topic": "Polar coordinates",
+    "prompt": "The polar curve $r = 4\\cos\\theta - 6\\sin\\theta$ is a circle. Find its area.",
+    "answer": "13pi",
+    "answerNumeric": 40.840704496667314,
+    "hint1": "Multiply both sides by $r$ and use $r^2 = x^2 + y^2$, $r\\cos\\theta = x$, $r\\sin\\theta = y$.",
+    "hint2": "$x^2 + y^2 = 4x - 6y$. Complete the square.",
+    "solutionSteps": [
+      "$x^2 - 4x + y^2 + 6y = 0$.",
+      "$(x - 2)^2 + (y + 3)^2 = 13$, so $r^2 = 13$.",
+      "Area $= 13\\pi$."
+    ]
+  },
+  {
+    "id": "m071",
+    "difficulty": "medium",
+    "topic": "Polar coordinates",
+    "prompt": "The circles $r = 2\\sin\\theta$ and $r = 2\\cos\\theta$ cross at two points. Find the distance between those two points.",
+    "answer": "sqrt(2)",
+    "answerNumeric": 1.4142135623730951,
+    "hint1": "Set $2\\sin\\theta = 2\\cos\\theta$. One crossing is not found this way: check the pole $r = 0$.",
+    "hint2": "$\\theta = \\tfrac\\pi4$ gives $r = \\sqrt2$. Both curves also pass through the origin.",
+    "solutionSteps": [
+      "$\\tan\\theta = 1 \\Rightarrow \\theta = \\tfrac\\pi4$, $r = \\sqrt2$, which is the Cartesian point $(1, 1)$.",
+      "Both curves pass through the pole ($r = 0$ at $\\theta = 0$ and at $\\theta = \\tfrac\\pi2$).",
+      "The distance from $(0, 0)$ to $(1, 1)$ is $\\sqrt2$."
+    ]
+  },
+  {
+    "id": "m072",
+    "difficulty": "medium",
+    "topic": "Polar coordinates",
+    "prompt": "Convert $x^2 + y^2 - 6y = 0$ to polar form $r = f(\\theta)$. Find $r$ when $\\theta = \\tfrac\\pi3$.",
+    "answer": "3sqrt(3)",
+    "answerNumeric": 5.196152422706632,
+    "hint1": "$x^2 + y^2 = r^2$ and $y = r\\sin\\theta$.",
+    "hint2": "$r^2 = 6r\\sin\\theta \\Rightarrow r = 6\\sin\\theta$.",
+    "solutionSteps": [
+      "$r^2 - 6r\\sin\\theta = 0 \\Rightarrow r = 6\\sin\\theta$ (the pole is already on this curve).",
+      "At $\\theta = \\tfrac\\pi3$: $r = 6\\cdot\\tfrac{\\sqrt3}{2}$.",
+      "$r = 3\\sqrt3$."
+    ]
+  },
+  {
+    "id": "m073",
+    "difficulty": "medium",
+    "topic": "Polar coordinates",
+    "prompt": "Find the distance from the polar point $\\left(-4, \\tfrac{4\\pi}{3}\\right)$ to the Cartesian point $(5, 0)$.",
+    "answer": "sqrt(21)",
+    "answerNumeric": 4.58257569495584,
+    "hint1": "A negative $r$ means going the opposite way. Use $x = r\\cos\\theta$, $y = r\\sin\\theta$ as usual.",
+    "hint2": "$x = -4\\cos\\tfrac{4\\pi}3 = 2$ and $y = -4\\sin\\tfrac{4\\pi}{3} = 2\\sqrt3$.",
+    "solutionSteps": [
+      "$(x, y) = \\left(-4\\cdot(-\\tfrac12), -4\\cdot(-\\tfrac{\\sqrt3}{2})\\right) = (2, 2\\sqrt3)$.",
+      "$d^2 = (5 - 2)^2 + (0 - 2\\sqrt3)^2 = 9 + 12 = 21$.",
+      "$d = \\sqrt{21}$."
+    ]
+  },
+  {
+    "id": "m074",
+    "difficulty": "medium",
+    "topic": "Polar coordinates",
+    "prompt": "The polar curve $$r = \\frac{3}{\\cos\\theta + \\sin\\theta}$$ is a line. How close does it come to the origin?",
+    "answer": "3sqrt(2)/2",
+    "answerNumeric": 2.1213203435596424,
+    "hint1": "Multiply out: $r\\cos\\theta + r\\sin\\theta = 3$, which is $x + y = 3$.",
+    "hint2": "The distance from $(0,0)$ to $ax + by = c$ is $\\dfrac{|c|}{\\sqrt{a^2 + b^2}}$.",
+    "solutionSteps": [
+      "$r\\cos\\theta + r\\sin\\theta = 3 \\Rightarrow x + y = 3$.",
+      "Distance $= \\dfrac{3}{\\sqrt{1 + 1}} = \\dfrac{3}{\\sqrt2}$.",
+      "$= \\tfrac{3\\sqrt2}{2} \\approx 2.12$."
+    ]
+  },
+  {
+    "id": "m075",
+    "difficulty": "medium",
+    "topic": "Sequences and series",
+    "prompt": "In an arithmetic sequence, $a_5 = 17$ and $a_{12} = 45$. Find the sum of the first $20$ terms.",
+    "answer": "780",
+    "answerNumeric": 780.0,
+    "hint1": "$a_n = a_1 + (n - 1)d$. Seven steps take you from $a_5$ to $a_{12}$.",
+    "hint2": "$7d = 28 \\Rightarrow d = 4$ and $a_1 = 17 - 16 = 1$.",
+    "solutionSteps": [
+      "$d = \\tfrac{45 - 17}{7} = 4$ and $a_1 = 1$.",
+      "$a_{20} = 1 + 19\\cdot4 = 77$.",
+      "$S_{20} = \\tfrac{20}{2}(1 + 77) = 780$."
+    ]
+  },
+  {
+    "id": "m076",
+    "difficulty": "medium",
+    "topic": "Sequences and series",
+    "prompt": "A geometric sequence has $a_2 = 6$ and $a_5 = 162$. Find the sum of its first $6$ terms.",
+    "answer": "728",
+    "answerNumeric": 728.0,
+    "hint1": "$a_5 = a_2 r^3$.",
+    "hint2": "$r^3 = 27 \\Rightarrow r = 3$, so $a_1 = 2$.",
+    "solutionSteps": [
+      "$r^3 = \\tfrac{162}{6} = 27 \\Rightarrow r = 3$, $a_1 = 2$.",
+      "$S_6 = a_1\\dfrac{r^6 - 1}{r - 1} = 2\\cdot\\dfrac{729 - 1}{2}$.",
+      "$S_6 = 728$."
+    ]
+  },
+  {
+    "id": "m077",
+    "difficulty": "medium",
+    "topic": "Sequences and series",
+    "prompt": "Find the sum of the infinite series $$12 - 8 + \\frac{16}{3} - \\frac{32}{9} + \\cdots$$",
+    "answer": "36/5",
+    "answerNumeric": 7.2,
+    "hint1": "Find the common ratio, check that $|r| < 1$, and use $S = \\dfrac{a}{1 - r}$.",
+    "hint2": "$r = -\\tfrac{8}{12} = -\\tfrac23$.",
+    "solutionSteps": [
+      "$a = 12$, $r = -\\tfrac23$, and $|r| < 1$, so the series converges.",
+      "$S = \\dfrac{12}{1 + \\tfrac23} = \\dfrac{12}{5/3}$.",
+      "$S = \\tfrac{36}{5}$."
+    ]
+  },
+  {
+    "id": "m078",
+    "difficulty": "medium",
+    "topic": "Sequences and series",
+    "prompt": "Write the repeating decimal $0.4\\overline{27} = 0.4272727\\ldots$ as a fraction in lowest terms.",
+    "answer": "47/110",
+    "answerNumeric": 0.42727272727272725,
+    "hint1": "Split it as $0.4 + 0.0\\overline{27}$. The second part is a geometric series.",
+    "hint2": "$0.0\\overline{27} = \\dfrac{0.027}{1 - 0.01} = \\dfrac{27}{990}$.",
+    "solutionSteps": [
+      "$0.0\\overline{27} = 0.027 + 0.00027 + \\cdots = \\dfrac{0.027}{0.99} = \\dfrac{27}{990} = \\dfrac{3}{110}$.",
+      "$0.4 = \\dfrac{44}{110}$.",
+      "Sum: $\\dfrac{47}{110}$."
+    ]
+  },
+  {
+    "id": "m079",
+    "difficulty": "medium",
+    "topic": "Sequences and series",
+    "prompt": "Find the sum of all three-digit positive integers that are multiples of $7$.",
+    "answer": "70336",
+    "answerNumeric": 70336.0,
+    "hint1": "This is an arithmetic series. Find the first term, the last term and the number of terms.",
+    "hint2": "The first is $105$ and the last is $994$. There are $\\tfrac{994 - 105}{7} + 1 = 128$ terms.",
+    "solutionSteps": [
+      "First $105$, last $994$, $128$ terms.",
+      "$S = \\tfrac{128}{2}(105 + 994) = 64\\cdot1099$.",
+      "$S = 70336$."
+    ]
+  },
+  {
+    "id": "m080",
+    "difficulty": "medium",
+    "topic": "Sequences and series",
+    "prompt": "Evaluate $$\\sum_{k=1}^{10} k(k + 2).$$",
+    "answer": "495",
+    "answerNumeric": 495.0,
+    "hint1": "Split it into $\\sum k^2 + 2\\sum k$ and use the standard formulas.",
+    "hint2": "$\\sum_{k=1}^{n} k^2 = \\tfrac{n(n+1)(2n+1)}{6}$ and $\\sum_{k=1}^n k = \\tfrac{n(n+1)}{2}$.",
+    "solutionSteps": [
+      "$\\sum_{k=1}^{10} k^2 = \\tfrac{10\\cdot11\\cdot21}{6} = 385$.",
+      "$2\\sum_{k=1}^{10} k = 2\\cdot55 = 110$.",
+      "Total: $495$."
+    ]
+  },
+  {
+    "id": "m081",
+    "difficulty": "medium",
+    "topic": "Sequences and series",
+    "prompt": "A sequence has $a_1 = 2$ and $a_{n+1} = 3a_n - 2$. Find $a_8$.",
+    "answer": "2188",
+    "answerNumeric": 2188.0,
+    "hint1": "Look at $b_n = a_n - 1$. What recursion does $b_n$ satisfy?",
+    "hint2": "$a_{n+1} - 1 = 3(a_n - 1)$, so $b_n$ is geometric with $b_1 = 1$ and ratio $3$.",
+    "solutionSteps": [
+      "$b_{n+1} = 3b_n$ with $b_1 = 1$, so $b_n = 3^{n-1}$.",
+      "$a_n = 3^{n-1} + 1$.",
+      "$a_8 = 3^7 + 1 = 2188$."
+    ]
+  },
+  {
+    "id": "m082",
+    "difficulty": "medium",
+    "topic": "Sequences and series",
+    "prompt": "A ball is dropped from a height of $10$ m. After each bounce it rises to $\\tfrac35$ of the height it fell from. If it bounces forever, what total vertical distance does it travel, in meters?",
+    "answer": "40",
+    "answerNumeric": 40.0,
+    "hint1": "The first fall is $10$ m. After that, each rebound height is traveled twice: once up and once down.",
+    "hint2": "The rebound heights are $6, \\tfrac{18}{5}, \\ldots$, a geometric series with sum $\\dfrac{6}{1 - 3/5}$.",
+    "solutionSteps": [
+      "Rebound heights: $6 + 3.6 + 2.16 + \\cdots = \\dfrac{6}{2/5} = 15$.",
+      "Each is traveled up and down: $2\\cdot15 = 30$.",
+      "Total: $10 + 30 = 40$ m."
+    ],
+    "diagram": "<svg viewBox=\"0 0 260 120\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><line x1=\"10\" y1=\"110\" x2=\"250\" y2=\"110\"/><path d=\"M 20 10 L 20 110 Q 50 -10 80 110 Q 104 38 128 110 Q 146 67 164 110 Q 177 84 190 110 Q 199 94 208 110\"/><text x=\"16\" y=\"64\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"end\">10</text><text x=\"52\" y=\"40\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">6</text></svg>",
+    "diagramAlt": "A ball dropped from 10 m bounces repeatedly. Each arc is 3/5 the height of the one before it, starting with a 6 m rebound."
+  },
+  {
+    "id": "m083",
+    "difficulty": "medium",
+    "topic": "Vectors",
+    "prompt": "Find the angle, in radians, between $\\mathbf{u} = \\langle 1, \\sqrt3\\rangle$ and $\\mathbf{v} = \\langle -1, \\sqrt3 \\rangle$.",
+    "answer": "pi/3",
+    "answerNumeric": 1.0471975511965979,
+    "hint1": "$\\cos\\theta = \\dfrac{\\mathbf u\\cdot\\mathbf v}{|\\mathbf u||\\mathbf v|}$.",
+    "hint2": "$\\mathbf u\\cdot\\mathbf v = -1 + 3 = 2$ and $|\\mathbf u| = |\\mathbf v| = 2$.",
+    "solutionSteps": [
+      "$\\mathbf u\\cdot\\mathbf v = 2$.",
+      "$\\cos\\theta = \\tfrac{2}{2\\cdot2} = \\tfrac12$.",
+      "$\\theta = \\tfrac\\pi3$."
+    ]
+  },
+  {
+    "id": "m084",
+    "difficulty": "medium",
+    "topic": "Vectors",
+    "prompt": "Find the scalar projection (component) of $\\mathbf a = \\langle 3, 4\\rangle$ onto $\\mathbf b = \\langle 1, 2\\rangle$.",
+    "answer": "11sqrt(5)/5",
+    "answerNumeric": 4.919349550499537,
+    "hint1": "$\\operatorname{comp}_{\\mathbf b}\\mathbf a = \\dfrac{\\mathbf a\\cdot\\mathbf b}{|\\mathbf b|}$.",
+    "hint2": "$\\mathbf a\\cdot\\mathbf b = 11$ and $|\\mathbf b| = \\sqrt5$.",
+    "solutionSteps": [
+      "$\\mathbf a\\cdot\\mathbf b = 3 + 8 = 11$.",
+      "$|\\mathbf b| = \\sqrt5$.",
+      "$\\tfrac{11}{\\sqrt5} = \\tfrac{11\\sqrt5}{5}$."
+    ]
+  },
+  {
+    "id": "m085",
+    "difficulty": "medium",
+    "topic": "Vectors",
+    "prompt": "Find the area of the triangle with vertices $A(1, 0, 2)$, $B(3, 1, 0)$ and $C(0, 2, 1)$.",
+    "answer": "5sqrt(2)/2",
+    "answerNumeric": 3.5355339059327378,
+    "hint1": "Area $= \\tfrac12\\left|\\overrightarrow{AB}\\times\\overrightarrow{AC}\\right|$.",
+    "hint2": "$\\overrightarrow{AB} = \\langle 2, 1, -2\\rangle$ and $\\overrightarrow{AC} = \\langle -1, 2, -1\\rangle$.",
+    "solutionSteps": [
+      "$\\overrightarrow{AB}\\times\\overrightarrow{AC} = \\langle 1\\cdot(-1) - (-2)(2),\\ (-2)(-1) - 2(-1),\\ 2\\cdot2 - 1\\cdot(-1)\\rangle = \\langle 3, 4, 5\\rangle$.",
+      "$|\\langle3,4,5\\rangle| = \\sqrt{50} = 5\\sqrt2$.",
+      "Area $= \\tfrac{5\\sqrt2}{2}$."
+    ]
+  },
+  {
+    "id": "m086",
+    "difficulty": "medium",
+    "topic": "Vectors",
+    "prompt": "For what value of $k$ are $\\langle k, 2, -1\\rangle$ and $\\langle 3, k, 4\\rangle$ perpendicular?",
+    "answer": "4/5",
+    "answerNumeric": 0.8,
+    "hint1": "Perpendicular vectors have a dot product of $0$.",
+    "hint2": "$3k + 2k - 4 = 0$.",
+    "solutionSteps": [
+      "Dot product: $3k + 2k - 4$.",
+      "$5k - 4 = 0$.",
+      "$k = \\tfrac45$."
+    ]
+  },
+  {
+    "id": "m087",
+    "difficulty": "medium",
+    "topic": "Vectors",
+    "prompt": "A plane flies with an airspeed of $450$ km/h heading due north. A $50$ km/h wind blows from west to east. What is the plane's speed over the ground, in km/h?",
+    "answer": "50sqrt(82)",
+    "answerNumeric": 452.76925690687085,
+    "hint1": "Add the velocity vectors: $\\langle 0, 450\\rangle + \\langle 50, 0\\rangle$.",
+    "hint2": "The ground velocity is $\\langle 50, 450\\rangle$. Find its length.",
+    "solutionSteps": [
+      "Ground velocity: $\\langle 50, 450\\rangle$.",
+      "$|\\mathbf v| = \\sqrt{50^2 + 450^2} = 50\\sqrt{1 + 81}$.",
+      "$= 50\\sqrt{82} \\approx 452.8$ km/h."
+    ],
+    "diagram": "<svg viewBox=\"0 0 200 190\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><defs><marker id=\"ah\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"currentColor\" stroke=\"none\"/></marker></defs><line x1=\"60\" y1=\"175\" x2=\"60\" y2=\"20\" marker-end=\"url(#ah)\"/><line x1=\"60\" y1=\"20\" x2=\"100\" y2=\"20\" marker-end=\"url(#ah)\"/><line x1=\"60\" y1=\"175\" x2=\"100\" y2=\"20\" stroke-dasharray=\"5 4\" marker-end=\"url(#ah)\"/><text x=\"48\" y=\"100\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"end\">450</text><text x=\"80\" y=\"14\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">50</text><text x=\"90\" y=\"110\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"start\">ground</text></svg>",
+    "diagramAlt": "Vector diagram: a 450 km/h northward airspeed vector, a 50 km/h eastward wind vector placed at its tip, and a dashed resultant ground-velocity vector."
+  },
+  {
+    "id": "m088",
+    "difficulty": "medium",
+    "topic": "Vectors",
+    "prompt": "Vectors $\\mathbf u$ and $\\mathbf v$ have $|\\mathbf u| = 3$, $|\\mathbf v| = 5$ and $|\\mathbf u + \\mathbf v| = 7$. Find $|\\mathbf u - \\mathbf v|$.",
+    "answer": "sqrt(19)",
+    "answerNumeric": 4.358898943540674,
+    "hint1": "Expand $|\\mathbf u + \\mathbf v|^2 = |\\mathbf u|^2 + 2\\,\\mathbf u\\cdot\\mathbf v + |\\mathbf v|^2$.",
+    "hint2": "$49 = 9 + 25 + 2\\,\\mathbf u\\cdot\\mathbf v$, so $\\mathbf u\\cdot\\mathbf v = \\tfrac{15}{2}$.",
+    "solutionSteps": [
+      "$\\mathbf u\\cdot\\mathbf v = \\tfrac{49 - 34}{2} = \\tfrac{15}{2}$.",
+      "$|\\mathbf u - \\mathbf v|^2 = 9 + 25 - 2\\cdot\\tfrac{15}{2} = 19$.",
+      "$|\\mathbf u - \\mathbf v| = \\sqrt{19}$."
+    ]
+  },
+  {
+    "id": "m089",
+    "difficulty": "medium",
+    "topic": "Vectors",
+    "prompt": "A rope pulls a sled $20$ m across level ground with a constant force of $10$ N, angled $\\tfrac{\\pi}{6}$ above the horizontal. How much work, in joules, does the rope do?",
+    "answer": "100sqrt(3)",
+    "answerNumeric": 173.20508075688772,
+    "hint1": "Work $= \\mathbf F\\cdot\\mathbf d = |\\mathbf F||\\mathbf d|\\cos\\theta$.",
+    "hint2": "$W = 10\\cdot20\\cdot\\cos\\tfrac\\pi6$.",
+    "solutionSteps": [
+      "$\\mathbf F = \\langle 10\\cos\\tfrac\\pi6, 10\\sin\\tfrac\\pi6\\rangle = \\langle 5\\sqrt3, 5\\rangle$ and $\\mathbf d = \\langle 20, 0\\rangle$.",
+      "$W = 5\\sqrt3\\cdot20 + 5\\cdot0$.",
+      "$W = 100\\sqrt3 \\approx 173.2$ J."
+    ]
+  },
+  {
+    "id": "m090",
+    "difficulty": "medium",
+    "topic": "Vectors",
+    "prompt": "Find the volume of the parallelepiped spanned by $\\langle 1, 2, 3\\rangle$, $\\langle 0, 1, 4\\rangle$ and $\\langle 5, 6, 0\\rangle$.",
+    "answer": "1",
+    "answerNumeric": 1.0,
+    "hint1": "The volume is the absolute value of the scalar triple product, which is a $3\\times3$ determinant.",
+    "hint2": "Expand along the first row: $1(0 - 24) - 2(0 - 20) + 3(0 - 5)$.",
+    "solutionSteps": [
+      "$\\det = 1(1\\cdot0 - 4\\cdot6) - 2(0\\cdot0 - 4\\cdot5) + 3(0\\cdot6 - 1\\cdot5)$.",
+      "$= -24 + 40 - 15 = 1$.",
+      "Volume $= |1| = 1$."
+    ]
+  },
+  {
+    "id": "m091",
+    "difficulty": "medium",
+    "topic": "Conic sections",
+    "prompt": "Point $P$ lies on the ellipse $9x^2 + 25y^2 = 225$ and is $3$ units from one focus. How far is $P$ from the other focus?",
+    "answer": "7",
+    "answerNumeric": 7.0,
+    "hint1": "Divide by $225$ to get standard form. For an ellipse, the distances to the two foci add to $2a$.",
+    "hint2": "$\\tfrac{x^2}{25} + \\tfrac{y^2}{9} = 1$, so $a = 5$ and $2a = 10$.",
+    "solutionSteps": [
+      "$\\dfrac{x^2}{25} + \\dfrac{y^2}{9} = 1$, so $a = 5$.",
+      "$PF_1 + PF_2 = 2a = 10$.",
+      "The other distance is $10 - 3 = 7$."
+    ]
+  },
+  {
+    "id": "m092",
+    "difficulty": "medium",
+    "topic": "Conic sections",
+    "prompt": "Find the shortest distance from the point $(9, 0)$ to the parabola $y^2 = 12x$.",
+    "answer": "6sqrt(2)",
+    "answerNumeric": 8.48528137423857,
+    "hint1": "For a point $(x, y)$ on the parabola, $d^2 = (x - 9)^2 + y^2 = (x - 9)^2 + 12x$.",
+    "hint2": "$d^2 = x^2 - 6x + 81$, minimized at $x = 3$.",
+    "solutionSteps": [
+      "$d^2 = x^2 - 18x + 81 + 12x = x^2 - 6x + 81$.",
+      "The minimum is at $x = 3$ (allowed, since $x \\ge 0$): $d^2 = 9 - 18 + 81 = 72$.",
+      "$d = \\sqrt{72} = 6\\sqrt2$."
+    ]
+  },
+  {
+    "id": "m093",
+    "difficulty": "medium",
+    "topic": "Conic sections",
+    "prompt": "$P$ is on the right branch of the hyperbola $\\dfrac{x^2}{16} - \\dfrac{y^2}{9} = 1$ and is $13$ units from the left focus. How far is it from the right focus?",
+    "answer": "5",
+    "answerNumeric": 5.0,
+    "hint1": "For a hyperbola, the difference of the distances to the foci is $2a$.",
+    "hint2": "$a = 4$. On the right branch, a point is closer to the right focus: $PF_1 - PF_2 = 8$.",
+    "solutionSteps": [
+      "$a = 4$, $b = 3$, $c = 5$.",
+      "On the right branch: $PF_{\\text{left}} - PF_{\\text{right}} = 2a = 8$.",
+      "$PF_{\\text{right}} = 13 - 8 = 5$."
+    ]
+  },
+  {
+    "id": "m094",
+    "difficulty": "medium",
+    "topic": "Conic sections",
+    "prompt": "Find the area enclosed by the ellipse $$4x^2 + 9y^2 - 16x + 54y + 61 = 0.$$",
+    "answer": "6pi",
+    "answerNumeric": 18.84955592153876,
+    "hint1": "Complete the square in $x$ and $y$. An ellipse with semi-axes $a$, $b$ has area $\\pi ab$.",
+    "hint2": "$4(x - 2)^2 + 9(y + 3)^2 = 36$.",
+    "solutionSteps": [
+      "$4(x^2 - 4x + 4) + 9(y^2 + 6y + 9) = -61 + 16 + 81 = 36$.",
+      "$\\dfrac{(x - 2)^2}{9} + \\dfrac{(y + 3)^2}{4} = 1$, so $a = 3$, $b = 2$.",
+      "Area $= \\pi\\cdot3\\cdot2 = 6\\pi$."
+    ]
+  },
+  {
+    "id": "m095",
+    "difficulty": "medium",
+    "topic": "Conic sections",
+    "prompt": "A parabola has vertex $(2, -1)$ and focus $(2, 1)$. It crosses the line $y = 7$ at two points. How far apart are they?",
+    "answer": "16",
+    "answerNumeric": 16.0,
+    "hint1": "The focus is $p = 2$ above the vertex, so $(x - h)^2 = 4p(y - k)$.",
+    "hint2": "$(x - 2)^2 = 8(y + 1)$. Put in $y = 7$.",
+    "solutionSteps": [
+      "$(x - 2)^2 = 8(y + 1)$.",
+      "$y = 7$: $(x - 2)^2 = 64 \\Rightarrow x = 10$ or $x = -6$.",
+      "Distance: $16$."
+    ]
+  },
+  {
+    "id": "m096",
+    "difficulty": "medium",
+    "topic": "Conic sections",
+    "prompt": "A satellite dish is a paraboloid $3$ m across and $0.5$ m deep. The receiver sits at the focus. How far from the vertex is the receiver, in meters?",
+    "answer": "9/8",
+    "answerNumeric": 1.125,
+    "hint1": "Put the vertex at the origin: $x^2 = 4py$. The rim point $(1.5, 0.5)$ lies on it.",
+    "hint2": "$1.5^2 = 4p(0.5)$.",
+    "solutionSteps": [
+      "Model the cross-section as $x^2 = 4py$.",
+      "$2.25 = 2p$.",
+      "$p = \\tfrac98 = 1.125$ m."
+    ],
+    "diagram": "<svg viewBox=\"0 0 220 140\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><path d=\"M 20 20 Q 110 220 200 20\"/><line x1=\"20\" y1=\"20\" x2=\"200\" y2=\"20\" stroke-dasharray=\"5 4\"/><line x1=\"110\" y1=\"120\" x2=\"110\" y2=\"20\" stroke-dasharray=\"5 4\"/><circle cx=\"110\" cy=\"52\" r=\"3.5\" fill=\"currentColor\"/><text x=\"110\" y=\"14\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">3 m</text><text x=\"118\" y=\"86\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"start\">0.5 m</text><text x=\"118\" y=\"56\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"start\">F</text></svg>",
+    "diagramAlt": "Cross-section of a parabolic dish 3 m across the rim and 0.5 m deep, with the focus F marked on the axis above the vertex."
+  },
+  {
+    "id": "m097",
+    "difficulty": "medium",
+    "topic": "Conic sections",
+    "prompt": "An ellipse has foci $(\\pm3, 0)$ and passes through $(0, 4)$. Find the area it encloses.",
+    "answer": "20pi",
+    "answerNumeric": 62.83185307179586,
+    "hint1": "$(0, 4)$ is the end of the minor axis, so $b = 4$. Also $a^2 = b^2 + c^2$.",
+    "hint2": "$a^2 = 16 + 9 = 25$, so $a = 5$.",
+    "solutionSteps": [
+      "$b = 4$ and $c = 3$.",
+      "$a = \\sqrt{16 + 9} = 5$.",
+      "Area $= \\pi ab = 20\\pi$."
+    ]
+  },
+  {
+    "id": "m098",
+    "difficulty": "medium",
+    "topic": "Conic sections",
+    "prompt": "A hyperbola centered at the origin has a vertex at $(4, 0)$ and asymptotes $y = \\pm\\tfrac34x$. Find its eccentricity.",
+    "answer": "5/4",
+    "answerNumeric": 1.25,
+    "hint1": "For $\\tfrac{x^2}{a^2} - \\tfrac{y^2}{b^2} = 1$, the asymptotes are $y = \\pm\\tfrac ba x$, and $c^2 = a^2 + b^2$.",
+    "hint2": "$a = 4$ and $b = 3$, so $c = 5$.",
+    "solutionSteps": [
+      "$a = 4$ and $\\tfrac ba = \\tfrac34 \\Rightarrow b = 3$.",
+      "$c = \\sqrt{16 + 9} = 5$.",
+      "$e = \\tfrac ca = \\tfrac54$."
+    ]
+  },
+  {
+    "id": "m099",
+    "difficulty": "medium",
+    "topic": "Area and volume",
+    "prompt": "Find the area of a regular octagon with side length $2$.",
+    "answer": "8 + 8sqrt(2)",
+    "answerNumeric": 19.31370849898476,
+    "hint1": "Put the octagon inside a square by extending four of its sides. The four corner pieces are isosceles right triangles.",
+    "hint2": "Each corner triangle has hypotenuse $2$, so its legs are $\\sqrt2$. The square has side $2 + 2\\sqrt2$.",
+    "solutionSteps": [
+      "Square side: $\\sqrt2 + 2 + \\sqrt2 = 2 + 2\\sqrt2$, area $(2 + 2\\sqrt2)^2 = 12 + 8\\sqrt2$.",
+      "Four corner triangles, each of area $\\tfrac12(\\sqrt2)^2 = 1$: total $4$.",
+      "Octagon area: $12 + 8\\sqrt2 - 4 = 8 + 8\\sqrt2$."
+    ]
+  },
+  {
+    "id": "m100",
+    "difficulty": "medium",
+    "topic": "Trig identities",
+    "prompt": "Two sides of a triangle are $7$ and $8$, and the angle between them is $\\tfrac{\\pi}{3}$. Find the radius of the triangle's circumscribed circle.",
+    "answer": "sqrt(19)",
+    "answerNumeric": 4.358898943540674,
+    "hint1": "Find the third side with the law of cosines, then use the law of sines: $\\dfrac{c}{\\sin C} = 2R$.",
+    "hint2": "$c^2 = 49 + 64 - 2\\cdot7\\cdot8\\cdot\\tfrac12 = 57$.",
+    "solutionSteps": [
+      "$c = \\sqrt{57}$.",
+      "$2R = \\dfrac{\\sqrt{57}}{\\sin(\\pi/3)} = \\dfrac{2\\sqrt{57}}{\\sqrt3} = 2\\sqrt{19}$.",
+      "$R = \\sqrt{19} \\approx 4.36$."
+    ],
+    "diagram": "<svg viewBox=\"0 0 220 150\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><polygon points=\"20,130 180,130 90,8.8\"/><path d=\"M 45 130 A 25 25 0 0 0 32.5 108.3\"/><text x=\"100\" y=\"146\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">8</text><text x=\"44\" y=\"66\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">7</text><text x=\"56\" y=\"122\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">π/3</text><text x=\"146\" y=\"66\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\" font-style=\"italic\">c</text></svg>",
+    "diagramAlt": "A triangle with sides 7 and 8 meeting at a marked angle of pi over 3. The third side is c."
+  }
+]
