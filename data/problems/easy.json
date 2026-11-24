@@ -2,10 +2,555 @@
   {
     "id": "e001",
     "difficulty": "easy",
+    "topic": "Order of operations",
+    "prompt": "Evaluate $$\\frac{2^5 - 3\\cdot(4-7)^2}{5 - 2\\cdot 3^2 + 4^2}.$$",
+    "answer": "5/3",
+    "answerNumeric": 1.6666666666666667,
+    "hint1": "Work the numerator and denominator separately. Do exponents before multiplication.",
+    "hint2": "The numerator is $32 - 27 = 5$ and the denominator is $5 - 18 + 16 = 3$.",
+    "solutionSteps": [
+      "Numerator: $(4-7)^2 = 9$, so $2^5 - 3\\cdot 9 = 32 - 27 = 5$.",
+      "Denominator: $3^2 = 9$, so $5 - 2\\cdot 9 + 16 = 3$.",
+      "The value is $\\dfrac{5}{3}$."
+    ]
+  },
+  {
+    "id": "e002",
+    "difficulty": "easy",
+    "topic": "Order of operations",
+    "prompt": "Evaluate $$6 - \\left[\\,4^2 \\div (5-3)^3 - 7\\,\\right]\\cdot\\left(-\\tfrac{1}{2}\\right)^2.$$",
+    "answer": "29/4",
+    "answerNumeric": 7.25,
+    "hint1": "Simplify inside the brackets first: $4^2 \\div (5-3)^3$.",
+    "hint2": "$16 \\div 8 = 2$, so the brackets equal $2 - 7 = -5$, and $\\left(-\\tfrac12\\right)^2 = \\tfrac14$.",
+    "solutionSteps": [
+      "$(5-3)^3 = 8$ and $4^2 = 16$, so $16 \\div 8 = 2$.",
+      "Brackets: $2 - 7 = -5$.",
+      "$\\left(-\\tfrac12\\right)^2 = \\tfrac14$, so the product is $-5\\cdot\\tfrac14 = -\\tfrac54$.",
+      "$6 - \\left(-\\tfrac54\\right) = \\tfrac{24}{4} + \\tfrac54 = \\tfrac{29}{4}$."
+    ]
+  },
+  {
+    "id": "e003",
+    "difficulty": "easy",
+    "topic": "Order of operations",
+    "prompt": "Evaluate $$\\frac{3}{4} + \\frac{5}{6}\\div\\frac{10}{9} - \\frac{2}{3}\\cdot\\frac{9}{8}.$$",
+    "answer": "3/4",
+    "answerNumeric": 0.75,
+    "hint1": "Division and multiplication come before addition and subtraction. Dividing by $\\tfrac{10}{9}$ means multiplying by $\\tfrac{9}{10}$.",
+    "hint2": "$\\tfrac56\\cdot\\tfrac{9}{10} = \\tfrac34$ and $\\tfrac23\\cdot\\tfrac98 = \\tfrac34$.",
+    "solutionSteps": [
+      "$\\tfrac56 \\div \\tfrac{10}{9} = \\tfrac56\\cdot\\tfrac{9}{10} = \\tfrac{45}{60} = \\tfrac34$.",
+      "$\\tfrac23\\cdot\\tfrac98 = \\tfrac{18}{24} = \\tfrac34$.",
+      "$\\tfrac34 + \\tfrac34 - \\tfrac34 = \\tfrac34$."
+    ]
+  },
+  {
+    "id": "e004",
+    "difficulty": "easy",
+    "topic": "Order of operations",
+    "prompt": "Evaluate $$\\frac{(-2)^3 + 4\\cdot 5 - 6^2 \\div 4}{\\left(1 - \\tfrac{1}{3}\\right)^{-1}}.$$",
+    "answer": "2",
+    "answerNumeric": 2.0,
+    "hint1": "A negative exponent flips a fraction: $\\left(\\tfrac23\\right)^{-1} = \\tfrac32$.",
+    "hint2": "The numerator is $-8 + 20 - 9 = 3$.",
+    "solutionSteps": [
+      "Numerator: $(-2)^3 = -8$, $4\\cdot5 = 20$, $36\\div4 = 9$, so $-8+20-9 = 3$.",
+      "Denominator: $1-\\tfrac13 = \\tfrac23$, and $\\left(\\tfrac23\\right)^{-1} = \\tfrac32$.",
+      "$3 \\div \\tfrac32 = 2$."
+    ]
+  },
+  {
+    "id": "e005",
+    "difficulty": "easy",
+    "topic": "Order of operations",
+    "prompt": "Evaluate $$2\\left[\\,3 - 4\\left(5 - 2^3\\right)\\right]^2 \\div \\left(-6\\right) + 7^0.$$",
+    "answer": "-74",
+    "answerNumeric": -74.0,
+    "hint1": "Work from the innermost parentheses outward. Remember $7^0 = 1$.",
+    "hint2": "$5 - 2^3 = -3$, so the bracket is $3 - 4(-3) = 15$.",
+    "solutionSteps": [
+      "Innermost: $5 - 8 = -3$.",
+      "Bracket: $3 - 4(-3) = 3 + 12 = 15$, and $15^2 = 225$.",
+      "$2\\cdot225 = 450$ and $450 \\div (-6) = -75$.",
+      "$-75 + 1 = -74$."
+    ]
+  },
+  {
+    "id": "e006",
+    "difficulty": "easy",
+    "topic": "Order of operations",
+    "prompt": "Evaluate $$\\frac{1 - \\dfrac{1}{1 + \\dfrac{1}{2}}}{1 + \\dfrac{1}{1 - \\dfrac{1}{3}}}.$$",
+    "answer": "2/15",
+    "answerNumeric": 0.13333333333333333,
+    "hint1": "Simplify the innermost fractions first, in both the top and the bottom.",
+    "hint2": "The top is $1 - \\tfrac23 = \\tfrac13$ and the bottom is $1 + \\tfrac32 = \\tfrac52$.",
+    "solutionSteps": [
+      "Top: $1 + \\tfrac12 = \\tfrac32$, so $\\tfrac{1}{3/2} = \\tfrac23$ and $1 - \\tfrac23 = \\tfrac13$.",
+      "Bottom: $1 - \\tfrac13 = \\tfrac23$, so $\\tfrac{1}{2/3} = \\tfrac32$ and $1 + \\tfrac32 = \\tfrac52$.",
+      "$\\tfrac13 \\div \\tfrac52 = \\tfrac13\\cdot\\tfrac25 = \\tfrac{2}{15}$."
+    ]
+  },
+  {
+    "id": "e007",
+    "difficulty": "easy",
+    "topic": "Order of operations",
+    "prompt": "Evaluate $$\\left(\\frac{2}{3}\\right)^{-2} - \\left(\\frac{3}{2}\\right)^{3}\\cdot\\frac{4}{9} + 2^{-1}.$$",
+    "answer": "5/4",
+    "answerNumeric": 1.25,
+    "hint1": "$\\left(\\tfrac23\\right)^{-2} = \\left(\\tfrac32\\right)^2$.",
+    "hint2": "$\\left(\\tfrac32\\right)^2 = \\tfrac94$ and $\\tfrac{27}{8}\\cdot\\tfrac49 = \\tfrac32$.",
+    "solutionSteps": [
+      "$\\left(\\tfrac23\\right)^{-2} = \\tfrac94$.",
+      "$\\left(\\tfrac32\\right)^3\\cdot\\tfrac49 = \\tfrac{27}{8}\\cdot\\tfrac49 = \\tfrac{108}{72} = \\tfrac32$.",
+      "$\\tfrac94 - \\tfrac32 + \\tfrac12 = \\tfrac94 - 1 = \\tfrac54$."
+    ]
+  },
+  {
+    "id": "e008",
+    "difficulty": "easy",
+    "topic": "Order of operations",
+    "prompt": "Evaluate $$\\frac{|3 - 8| \\cdot 2 - (-3)^2}{4 - |2 - 5|\\cdot 3} \\;-\\; \\frac{12 - 2\\cdot(-3)}{9}.$$",
+    "answer": "-11/5",
+    "answerNumeric": -2.2,
+    "hint1": "Treat absolute value bars like parentheses: evaluate inside them first.",
+    "hint2": "The first fraction is $\\dfrac{10 - 9}{4 - 9} = -\\tfrac15$. The second is $\\tfrac{18}{9} = 2$.",
+    "solutionSteps": [
+      "$|3-8| = 5$, so the first numerator is $5\\cdot2 - 9 = 1$.",
+      "$|2-5| = 3$, so the first denominator is $4 - 9 = -5$, giving $-\\tfrac15$.",
+      "Second fraction: $12 - 2(-3) = 18$ and $\\tfrac{18}{9} = 2$.",
+      "$-\\tfrac15 - 2 = -\\tfrac{11}{5}$."
+    ]
+  },
+  {
+    "id": "e009",
+    "difficulty": "easy",
+    "topic": "Order of operations",
+    "prompt": "Evaluate $$\\frac{5^2 - 3^2}{5 - 3} \\cdot \\frac{2^{-2} + 2^{-3}}{3^{-1}} - 2^4 \\div 8.$$",
+    "answer": "7",
+    "answerNumeric": 7.0,
+    "hint1": "Negative exponents mean reciprocals: $2^{-2} = \\tfrac14$.",
+    "hint2": "The first fraction is $\\tfrac{16}{2} = 8$. The second is $\\dfrac{3/8}{1/3} = \\tfrac98$.",
+    "solutionSteps": [
+      "$\\dfrac{25-9}{2} = 8$.",
+      "$2^{-2} + 2^{-3} = \\tfrac14 + \\tfrac18 = \\tfrac38$, and dividing by $\\tfrac13$ gives $\\tfrac98$.",
+      "$8\\cdot\\tfrac98 = 9$ and $16 \\div 8 = 2$.",
+      "$9 - 2 = 7$."
+    ]
+  },
+  {
+    "id": "e010",
+    "difficulty": "easy",
+    "topic": "Fractions",
+    "prompt": "Simplify $$\\frac{\\tfrac{3}{4} - \\tfrac{2}{5}}{\\tfrac{7}{10} + \\tfrac{1}{4}}.$$",
+    "answer": "7/19",
+    "answerNumeric": 0.3684210526315789,
+    "hint1": "Multiply the top and bottom by the least common denominator, $20$.",
+    "hint2": "You get $\\dfrac{15 - 8}{14 + 5}$.",
+    "solutionSteps": [
+      "Multiply the top and bottom by $20$.",
+      "Top: $20\\cdot\\tfrac34 - 20\\cdot\\tfrac25 = 15 - 8 = 7$.",
+      "Bottom: $20\\cdot\\tfrac{7}{10} + 20\\cdot\\tfrac14 = 14 + 5 = 19$.",
+      "The result is $\\tfrac{7}{19}$."
+    ]
+  },
+  {
+    "id": "e011",
+    "difficulty": "easy",
+    "topic": "Fractions",
+    "prompt": "Compute $$2\\tfrac{1}{3} \\div 1\\tfrac{5}{9} - \\tfrac{3}{8}\\cdot 2\\tfrac{2}{3}.$$",
+    "answer": "1/2",
+    "answerNumeric": 0.5,
+    "hint1": "Convert the mixed numbers to improper fractions first.",
+    "hint2": "$2\\tfrac13 = \\tfrac73$, $1\\tfrac59 = \\tfrac{14}{9}$ and $2\\tfrac23 = \\tfrac83$.",
+    "solutionSteps": [
+      "$\\tfrac73 \\div \\tfrac{14}{9} = \\tfrac73\\cdot\\tfrac{9}{14} = \\tfrac{63}{42} = \\tfrac32$.",
+      "$\\tfrac38\\cdot\\tfrac83 = 1$.",
+      "$\\tfrac32 - 1 = \\tfrac12$."
+    ]
+  },
+  {
+    "id": "e012",
+    "difficulty": "easy",
+    "topic": "Fractions",
+    "prompt": "A recipe uses $\\tfrac{2}{3}$ cup of sugar per batch. Maya has $4\\tfrac{1}{2}$ cups of sugar. She makes as many full batches as she can, then uses $\\tfrac{3}{4}$ of the leftover sugar in tea. How many cups of sugar remain?",
+    "answer": "1/8",
+    "answerNumeric": 0.125,
+    "hint1": "First find how many full batches fit: divide $4\\tfrac12$ by $\\tfrac23$.",
+    "hint2": "$\\tfrac92 \\div \\tfrac23 = \\tfrac{27}{4} = 6.75$, so she makes 6 batches and has $\\tfrac92 - 4 = \\tfrac12$ cup left.",
+    "solutionSteps": [
+      "$\\tfrac92 \\div \\tfrac23 = \\tfrac{27}{4} = 6\\tfrac34$, so 6 full batches.",
+      "Six batches use $6\\cdot\\tfrac23 = 4$ cups, leaving $\\tfrac12$ cup.",
+      "She uses $\\tfrac34$ of that, so $\\tfrac14\\cdot\\tfrac12 = \\tfrac18$ cup remains."
+    ]
+  },
+  {
+    "id": "e013",
+    "difficulty": "easy",
+    "topic": "Fractions",
+    "prompt": "Simplify $$\\left(\\frac{1}{2} + \\frac{1}{3} + \\frac{1}{6}\\right)\\div\\left(\\frac{1}{2} - \\frac{1}{3}\\right) \\cdot \\frac{5}{12}.$$",
+    "answer": "5/2",
+    "answerNumeric": 2.5,
+    "hint1": "Simplify each set of parentheses with a common denominator of $6$.",
+    "hint2": "The first group is $1$ and the second is $\\tfrac16$.",
+    "solutionSteps": [
+      "$\\tfrac12+\\tfrac13+\\tfrac16 = \\tfrac{3+2+1}{6} = 1$.",
+      "$\\tfrac12-\\tfrac13 = \\tfrac16$.",
+      "$1 \\div \\tfrac16 = 6$, then $6\\cdot\\tfrac{5}{12} = \\tfrac52$."
+    ]
+  },
+  {
+    "id": "e014",
+    "difficulty": "easy",
+    "topic": "Fractions",
+    "prompt": "Find the value of $x$ that makes $$\\frac{2}{3} + \\frac{x}{4} = \\frac{5}{6} - \\frac{x}{12}.$$",
+    "answer": "1/2",
+    "answerNumeric": 0.5,
+    "hint1": "Multiply every term by $12$ to clear the fractions.",
+    "hint2": "You get $8 + 3x = 10 - x$.",
+    "solutionSteps": [
+      "Multiply by $12$: $8 + 3x = 10 - x$.",
+      "$4x = 2$.",
+      "$x = \\tfrac12$."
+    ]
+  },
+  {
+    "id": "e015",
+    "difficulty": "easy",
+    "topic": "Fractions",
+    "prompt": "On a number line, point $P$ lies between $A = \\tfrac{3}{7}$ and $B = \\tfrac{5}{9}$ so that $AP : PB = 1 : 2$. Find $P$.",
+    "answer": "89/189",
+    "answerNumeric": 0.4708994708994709,
+    "hint1": "$P$ is one third of the way from $A$ to $B$: $P = A + \\tfrac13(B - A)$.",
+    "hint2": "$B - A = \\tfrac{35}{63} - \\tfrac{27}{63} = \\tfrac{8}{63}$.",
+    "solutionSteps": [
+      "$AP:PB = 1:2$ means $P$ is $\\tfrac13$ of the way from $A$ to $B$.",
+      "$B - A = \\tfrac{35 - 27}{63} = \\tfrac{8}{63}$, and a third of that is $\\tfrac{8}{189}$.",
+      "$P = \\tfrac{3}{7} + \\tfrac{8}{189} = \\tfrac{81}{189} + \\tfrac{8}{189} = \\tfrac{89}{189}$."
+    ]
+  },
+  {
+    "id": "e016",
+    "difficulty": "easy",
+    "topic": "Fractions",
+    "prompt": "A tank is $\\tfrac{3}{8}$ full. After $15$ liters are added, it is $\\tfrac{5}{6}$ full. What is the capacity of the tank, in liters?",
+    "answer": "360/11",
+    "answerNumeric": 32.72727272727273,
+    "hint1": "Let $C$ be the capacity. The $15$ liters fill the gap between $\\tfrac38$ and $\\tfrac56$ of the tank.",
+    "hint2": "$\\tfrac56 - \\tfrac38 = \\tfrac{20-9}{24} = \\tfrac{11}{24}$, so $\\tfrac{11}{24}C = 15$.",
+    "solutionSteps": [
+      "$\\tfrac38 C + 15 = \\tfrac56 C$.",
+      "$\\left(\\tfrac56 - \\tfrac38\\right)C = 15$, so $\\tfrac{11}{24}C = 15$.",
+      "$C = \\tfrac{15\\cdot24}{11} = \\tfrac{360}{11} \\approx 32.7$ liters."
+    ]
+  },
+  {
+    "id": "e017",
+    "difficulty": "easy",
+    "topic": "Fractions",
+    "prompt": "Evaluate $$\\frac{1}{1\\cdot 2} + \\frac{1}{2\\cdot 3} + \\frac{1}{3\\cdot 4} + \\frac{1}{4\\cdot 5} + \\frac{1}{5\\cdot 6}.$$",
+    "answer": "5/6",
+    "answerNumeric": 0.8333333333333334,
+    "hint1": "Each term can be split: $\\dfrac{1}{n(n+1)} = \\dfrac1n - \\dfrac{1}{n+1}$.",
+    "hint2": "The sum becomes $\\left(1 - \\tfrac12\\right) + \\left(\\tfrac12 - \\tfrac13\\right) + \\cdots + \\left(\\tfrac15 - \\tfrac16\\right)$.",
+    "solutionSteps": [
+      "Write each term as $\\tfrac1n - \\tfrac1{n+1}$.",
+      "The middle terms cancel in pairs (telescoping).",
+      "What is left is $1 - \\tfrac16 = \\tfrac56$."
+    ]
+  },
+  {
+    "id": "e018",
+    "difficulty": "easy",
+    "topic": "Fractions",
+    "prompt": "Simplify $$\\frac{\\tfrac{5}{8}\\cdot\\tfrac{12}{25} - \\tfrac{1}{10}}{\\tfrac{3}{5} \\div \\tfrac{9}{4}}.$$",
+    "answer": "3/4",
+    "answerNumeric": 0.75,
+    "hint1": "Simplify the numerator and denominator separately, cancelling before you multiply.",
+    "hint2": "The numerator is $\\tfrac{3}{10} - \\tfrac{1}{10} = \\tfrac15$. The denominator is $\\tfrac35\\cdot\\tfrac49 = \\tfrac{4}{15}$.",
+    "solutionSteps": [
+      "$\\tfrac58\\cdot\\tfrac{12}{25} = \\tfrac{60}{200} = \\tfrac{3}{10}$, and $\\tfrac3{10} - \\tfrac1{10} = \\tfrac15$.",
+      "$\\tfrac35 \\div \\tfrac94 = \\tfrac35\\cdot\\tfrac49 = \\tfrac{4}{15}$.",
+      "$\\tfrac15 \\div \\tfrac4{15} = \\tfrac15\\cdot\\tfrac{15}4 = \\tfrac34$."
+    ]
+  },
+  {
+    "id": "e019",
+    "difficulty": "easy",
+    "topic": "Ratios",
+    "prompt": "The ratio of red to blue marbles in a bag is $5:3$. After $12$ red marbles are removed, the ratio becomes $1:1$. How many marbles were in the bag originally?",
+    "answer": "48",
+    "answerNumeric": 48.0,
+    "hint1": "Write the counts as $5k$ red and $3k$ blue.",
+    "hint2": "After removing $12$ red marbles: $5k - 12 = 3k$.",
+    "solutionSteps": [
+      "Let the counts be $5k$ red and $3k$ blue.",
+      "$5k - 12 = 3k \\Rightarrow k = 6$.",
+      "Originally there were $5k + 3k = 8k = 48$ marbles."
+    ]
+  },
+  {
+    "id": "e020",
+    "difficulty": "easy",
+    "topic": "Ratios",
+    "prompt": "Concrete is mixed from cement, sand and gravel in the ratio $1 : 2\\tfrac12 : 4$ by weight. How many kilograms of sand are in $600$ kg of concrete?",
+    "answer": "200",
+    "answerNumeric": 200.0,
+    "hint1": "Add up the parts of the ratio: $1 + 2.5 + 4$.",
+    "hint2": "There are $7.5$ parts in total, so one part is $600 \\div 7.5 = 80$ kg.",
+    "solutionSteps": [
+      "Total parts: $1 + 2.5 + 4 = 7.5$.",
+      "One part weighs $600 \\div 7.5 = 80$ kg.",
+      "Sand: $2.5\\cdot 80 = 200$ kg."
+    ]
+  },
+  {
+    "id": "e021",
+    "difficulty": "easy",
+    "topic": "Ratios",
+    "prompt": "$A : B = 3 : 4$ and $B : C = 6 : 5$. If $A + B + C = 124$, find $C$.",
+    "answer": "40",
+    "answerNumeric": 40.0,
+    "hint1": "Rewrite both ratios so that $B$ is the same number in each. The LCM (least common multiple) of $4$ and $6$ is $12$.",
+    "hint2": "$A:B = 9:12$ and $B:C = 12:10$, so $A:B:C = 9:12:10$.",
+    "solutionSteps": [
+      "Scale so $B$ matches: $A:B = 9:12$ and $B:C = 12:10$.",
+      "So $A:B:C = 9:12:10$, which is $31$ parts.",
+      "One part is $124 \\div 31 = 4$, so $C = 10\\cdot4 = 40$."
+    ]
+  },
+  {
+    "id": "e022",
+    "difficulty": "easy",
+    "topic": "Ratios",
+    "prompt": "A map uses the scale $1 : 25{,}000$. A rectangular park measures $6$ cm by $4.8$ cm on the map. What is the park\\'s real area in square kilometers?",
+    "answer": "9/5",
+    "answerNumeric": 1.8,
+    "hint1": "Convert each map length to a real length in kilometers first. $1$ km $= 100{,}000$ cm.",
+    "hint2": "$6$ cm on the map is $150{,}000$ cm $= 1.5$ km, and $4.8$ cm is $1.2$ km.",
+    "solutionSteps": [
+      "$6 \\times 25{,}000 = 150{,}000$ cm $= 1.5$ km.",
+      "$4.8 \\times 25{,}000 = 120{,}000$ cm $= 1.2$ km.",
+      "Area: $1.5 \\times 1.2 = 1.8 = \\tfrac95$ km²."
+    ]
+  },
+  {
+    "id": "e023",
+    "difficulty": "easy",
+    "topic": "Ratios",
+    "prompt": "Three friends split a prize in the ratio $2:3:7$. The largest share is \\$200 more than the other two shares combined. How large was the prize, in dollars?",
+    "answer": "1200",
+    "answerNumeric": 1200.0,
+    "hint1": "Let the shares be $2k$, $3k$ and $7k$.",
+    "hint2": "$7k - (2k + 3k) = 2k = 200$.",
+    "solutionSteps": [
+      "Shares: $2k$, $3k$, $7k$.",
+      "$7k - 5k = 2k = 200$, so $k = 100$.",
+      "Total prize: $12k = \\$1200$."
+    ]
+  },
+  {
+    "id": "e024",
+    "difficulty": "easy",
+    "topic": "Ratios",
+    "prompt": "Machine A fills $3$ boxes in $4$ minutes. Machine B fills $5$ boxes in $6$ minutes. Working together, how many minutes do they take to fill $95$ boxes?",
+    "answer": "60",
+    "answerNumeric": 60.0,
+    "hint1": "Find each machine\\'s rate in boxes per minute, then add the rates.",
+    "hint2": "The rates are $\\tfrac34$ and $\\tfrac56$ boxes/min. Together that is $\\tfrac{19}{12}$ boxes/min.",
+    "solutionSteps": [
+      "A: $\\tfrac34$ box/min. B: $\\tfrac56$ box/min.",
+      "Combined: $\\tfrac{9}{12} + \\tfrac{10}{12} = \\tfrac{19}{12}$ box/min.",
+      "Time $= 95 \\div \\tfrac{19}{12} = 95\\cdot\\tfrac{12}{19} = 60$ minutes."
+    ]
+  },
+  {
+    "id": "e025",
+    "difficulty": "easy",
+    "topic": "Ratios",
+    "prompt": "A $40$-liter solution is $15\\%$ acid. How many liters of pure acid must be added to make it $25\\%$ acid?",
+    "answer": "16/3",
+    "answerNumeric": 5.333333333333333,
+    "hint1": "Track the amount of acid: before, plus what is added, equals $25\\%$ of the new total.",
+    "hint2": "$6 + x = 0.25(40 + x)$.",
+    "solutionSteps": [
+      "Acid at the start: $0.15 \\times 40 = 6$ L.",
+      "$6 + x = 0.25(40 + x) = 10 + 0.25x$.",
+      "$0.75x = 4 \\Rightarrow x = \\tfrac{16}{3} \\approx 5.33$ L."
+    ]
+  },
+  {
+    "id": "e026",
+    "difficulty": "easy",
+    "topic": "Ratios",
+    "prompt": "The ages of a parent and child are in the ratio $7:2$. In $10$ years the ratio will be $9:4$. How old is the parent now?",
+    "answer": "35",
+    "answerNumeric": 35.0,
+    "hint1": "Let the ages be $7k$ and $2k$. Write the future ratio as a proportion.",
+    "hint2": "$\\dfrac{7k + 10}{2k + 10} = \\dfrac94$, so $4(7k+10) = 9(2k+10)$.",
+    "solutionSteps": [
+      "Ages now: $7k$ and $2k$.",
+      "$4(7k + 10) = 9(2k + 10) \\Rightarrow 28k + 40 = 18k + 90$.",
+      "$10k = 50 \\Rightarrow k = 5$, so the parent is $35$."
+    ]
+  },
+  {
+    "id": "e027",
+    "difficulty": "easy",
+    "topic": "Ratios",
+    "prompt": "A car travels $180$ km at $60$ km/h and then $180$ km at $90$ km/h. What is its average speed for the whole trip, in km/h?",
+    "answer": "72",
+    "answerNumeric": 72.0,
+    "hint1": "Average speed is total distance divided by total time. It is not the average of the two speeds.",
+    "hint2": "The first leg takes $3$ h and the second takes $2$ h.",
+    "solutionSteps": [
+      "Time for leg 1: $180/60 = 3$ h. Time for leg 2: $180/90 = 2$ h.",
+      "Total: $360$ km in $5$ h.",
+      "Average speed $= 360/5 = 72$ km/h."
+    ]
+  },
+  {
+    "id": "e028",
+    "difficulty": "easy",
+    "topic": "Percents",
+    "prompt": "A jacket\\'s price is raised by $25\\%$, then the new price is discounted by $20\\%$, and then a $10\\%$ sales tax is added. The final price is \\$99. What was the original price, in dollars?",
+    "answer": "90",
+    "answerNumeric": 90.0,
+    "hint1": "Each percentage change multiplies the price by a factor: $1.25$, then $0.80$, then $1.10$.",
+    "hint2": "$1.25 \\times 0.8 \\times 1.1 = 1.1$, so $1.1P = 99$.",
+    "solutionSteps": [
+      "The factors are $1.25$, $0.80$ and $1.10$.",
+      "Their product is $1.25\\times0.8 = 1$, and $1\\times1.1 = 1.1$.",
+      "$1.1P = 99 \\Rightarrow P = \\$90$."
+    ]
+  },
+  {
+    "id": "e029",
+    "difficulty": "easy",
+    "topic": "Percents",
+    "prompt": "A town\\'s population fell $20\\%$ one year. By what percent must it grow the next year to return to its original size? Give the percent as a number.",
+    "answer": "25",
+    "answerNumeric": 25.0,
+    "hint1": "After a $20\\%$ drop the population is $0.8P$. Find the factor that brings $0.8P$ back to $P$.",
+    "hint2": "You need $0.8P \\cdot f = P$, so $f = \\tfrac{1}{0.8} = 1.25$.",
+    "solutionSteps": [
+      "After the drop: $0.8P$.",
+      "The growth factor needed is $\\tfrac{1}{0.8} = 1.25$.",
+      "That is a $25\\%$ increase."
+    ]
+  },
+  {
+    "id": "e030",
+    "difficulty": "easy",
+    "topic": "Percents",
+    "prompt": "In a class, $40\\%$ of students are boys. $25\\%$ of the boys and $50\\%$ of the girls joined the math club. What percent of the club\\'s members are boys?",
+    "answer": "25",
+    "answerNumeric": 25.0,
+    "hint1": "Imagine the class has $100$ students: $40$ boys and $60$ girls.",
+    "hint2": "The club has $10$ boys and $30$ girls.",
+    "solutionSteps": [
+      "Out of 100 students: 40 boys and 60 girls.",
+      "Club: $0.25\\cdot40 = 10$ boys and $0.5\\cdot60 = 30$ girls.",
+      "Boys make up $\\tfrac{10}{40} = 25\\%$ of the club."
+    ]
+  },
+  {
+    "id": "e031",
+    "difficulty": "easy",
+    "topic": "Percents",
+    "prompt": "\\$5000 is invested at $4\\%$ interest compounded annually. Separately, \\$5000 earns $4.5\\%$ simple interest per year. After $2$ years, how many dollars more does the simple-interest account hold?",
+    "answer": "42",
+    "answerNumeric": 42.0,
+    "hint1": "Compound: $5000(1.04)^2$. Simple: $5000 + 2(0.045)(5000)$.",
+    "hint2": "Compound gives $5408$. Simple gives $5450$.",
+    "solutionSteps": [
+      "Compound: $5000\\times1.04^2 = 5000\\times1.0816 = 5408$.",
+      "Simple: $5000 + 2\\times225 = 5450$.",
+      "Difference: $5450 - 5408 = \\$42$."
+    ]
+  },
+  {
+    "id": "e032",
+    "difficulty": "easy",
+    "topic": "Percents",
+    "prompt": "A store marks up its cost by $60\\%$ to set the list price, then runs a sale at $30\\%$ off the list price. What is the store\\'s profit as a percent of cost?",
+    "answer": "12",
+    "answerNumeric": 12.0,
+    "hint1": "Take the cost to be \\$100.",
+    "hint2": "List price: \\$160. Sale price: $0.7\\times160 = \\$112$.",
+    "solutionSteps": [
+      "Cost \\$100 means a list price of \\$160.",
+      "Sale price: $160 \\times 0.7 = \\$112$.",
+      "Profit is \\$12 on \\$100, which is $12\\%$."
+    ]
+  },
+  {
+    "id": "e033",
+    "difficulty": "easy",
+    "topic": "Percents",
+    "prompt": "A number is increased by $30\\%$, and the result is decreased by $30\\%$. The final number is $27$ less than the original. What was the original number?",
+    "answer": "300",
+    "answerNumeric": 300.0,
+    "hint1": "The net factor is $1.3 \\times 0.7$.",
+    "hint2": "$1.3\\times0.7 = 0.91$, so the number drops by $9\\%$: $0.09N = 27$.",
+    "solutionSteps": [
+      "Net factor: $1.3 \\times 0.7 = 0.91$.",
+      "The decrease is $0.09N = 27$.",
+      "$N = 27/0.09 = 300$."
+    ]
+  },
+  {
+    "id": "e034",
+    "difficulty": "easy",
+    "topic": "Percents",
+    "prompt": "A $200$-gram mixture of nuts is $30\\%$ almonds. How many grams of almonds must be added so the mixture is $44\\%$ almonds?",
+    "answer": "50",
+    "answerNumeric": 50.0,
+    "hint1": "The almonds before, plus the amount added, must equal $44\\%$ of the new total weight.",
+    "hint2": "$60 + x = 0.44(200 + x)$.",
+    "solutionSteps": [
+      "Almonds at the start: $0.3 \\times 200 = 60$ g.",
+      "$60 + x = 88 + 0.44x$.",
+      "$0.56x = 28 \\Rightarrow x = 50$ g."
+    ]
+  },
+  {
+    "id": "e035",
+    "difficulty": "easy",
+    "topic": "Percents",
+    "prompt": "After a $15\\%$ discount and then an extra \\$12 off, a game costs \\$56. What was the original price, in dollars?",
+    "answer": "80",
+    "answerNumeric": 80.0,
+    "hint1": "Work backwards: add back the \\$12 first.",
+    "hint2": "$0.85P = 68$.",
+    "solutionSteps": [
+      "Before the \\$12 coupon the price was $56 + 12 = \\$68$.",
+      "$0.85P = 68$.",
+      "$P = 68/0.85 = \\$80$."
+    ]
+  },
+  {
+    "id": "e036",
+    "difficulty": "easy",
+    "topic": "Percents",
+    "prompt": "A rectangle\\'s length is increased by $20\\%$ and its width is decreased by $25\\%$. By what percent does its area decrease? Give the percent as a number.",
+    "answer": "10",
+    "answerNumeric": 10.0,
+    "hint1": "Area scales by the product of the two factors.",
+    "hint2": "$1.2 \\times 0.75 = 0.9$.",
+    "solutionSteps": [
+      "New area $= (1.2L)(0.75W) = 0.9LW$.",
+      "The area is $90\\%$ of the original.",
+      "It decreases by $10\\%$."
+    ]
+  },
+  {
+    "id": "e037",
+    "difficulty": "easy",
     "topic": "Multi-step linear equations",
-    "prompt": "Solve for $x$: $$\\frac{3x-4}{5} - \\frac{x+2}{3} = 2$$",
+    "prompt": "Solve for $x$: $$\\frac{3x-4}{5} - \\frac{x+2}{3} = 2.$$",
     "answer": "13",
-    "answerNumeric": 13,
+    "answerNumeric": 13.0,
     "hint1": "Clear the fractions by multiplying every term by the least common denominator, $15$.",
     "hint2": "You should get $3(3x-4) - 5(x+2) = 30$.",
     "solutionSteps": [
@@ -13,6 +558,962 @@
       "Expand: $9x - 12 - 5x - 10 = 30$.",
       "Combine like terms: $4x - 22 = 30$.",
       "So $4x = 52$ and $x = 13$."
+    ]
+  },
+  {
+    "id": "e038",
+    "difficulty": "easy",
+    "topic": "Multi-step linear equations",
+    "prompt": "Solve for $x$: $$4(2x - 3) - 3(x + 5) = 2(x - 1) + 7.$$",
+    "answer": "32/3",
+    "answerNumeric": 10.666666666666666,
+    "hint1": "Distribute on both sides, then collect the $x$ terms on one side.",
+    "hint2": "Left: $5x - 27$. Right: $2x + 5$.",
+    "solutionSteps": [
+      "Left: $8x - 12 - 3x - 15 = 5x - 27$.",
+      "Right: $2x - 2 + 7 = 2x + 5$.",
+      "$3x = 32 \\Rightarrow x = \\tfrac{32}{3}$."
+    ]
+  },
+  {
+    "id": "e039",
+    "difficulty": "easy",
+    "topic": "Multi-step linear equations",
+    "prompt": "Solve for $x$: $$0.4(x - 5) + 1.2 = 0.15(2x + 8) - 0.5.$$",
+    "answer": "15",
+    "answerNumeric": 15.0,
+    "hint1": "Multiply everything by $100$ to get rid of the decimals.",
+    "hint2": "$40(x-5) + 120 = 15(2x+8) - 50$.",
+    "solutionSteps": [
+      "Multiply by 100: $40x - 200 + 120 = 30x + 120 - 50$.",
+      "$40x - 80 = 30x + 70$.",
+      "$10x = 150 \\Rightarrow x = 15$."
+    ]
+  },
+  {
+    "id": "e040",
+    "difficulty": "easy",
+    "topic": "Multi-step linear equations",
+    "prompt": "Solve for $x$: $$\\frac{x}{2} - \\frac{x - 1}{3} = \\frac{x + 3}{4} - 1.$$",
+    "answer": "7",
+    "answerNumeric": 7.0,
+    "hint1": "Multiply through by $12$.",
+    "hint2": "$6x - 4(x-1) = 3(x+3) - 12$.",
+    "solutionSteps": [
+      "Multiply by 12: $6x - 4x + 4 = 3x + 9 - 12$.",
+      "$2x + 4 = 3x - 3$.",
+      "$x = 7$."
+    ]
+  },
+  {
+    "id": "e041",
+    "difficulty": "easy",
+    "topic": "Multi-step linear equations",
+    "prompt": "The sum of three consecutive odd integers is $48$ more than the smallest one. What is the largest of the three?",
+    "answer": "25",
+    "answerNumeric": 25.0,
+    "hint1": "Call the integers $n$, $n+2$ and $n+4$.",
+    "hint2": "$3n + 6 = n + 48$.",
+    "solutionSteps": [
+      "$n + (n+2) + (n+4) = n + 48$.",
+      "$3n + 6 = n + 48 \\Rightarrow 2n = 42 \\Rightarrow n = 21$.",
+      "The integers are $21, 23, 25$, so the largest is $25$."
+    ]
+  },
+  {
+    "id": "e042",
+    "difficulty": "easy",
+    "topic": "Multi-step linear equations",
+    "prompt": "Solve for $x$: $$\\frac{2x + 1}{3} - \\frac{5 - x}{6} = \\frac{x}{2} + 1.$$",
+    "answer": "9/2",
+    "answerNumeric": 4.5,
+    "hint1": "Multiply every term by $6$.",
+    "hint2": "$2(2x+1) - (5-x) = 3x + 6$.",
+    "solutionSteps": [
+      "Multiply by 6: $4x + 2 - 5 + x = 3x + 6$.",
+      "$5x - 3 = 3x + 6$.",
+      "$2x = 9 \\Rightarrow x = \\tfrac92$."
+    ]
+  },
+  {
+    "id": "e043",
+    "difficulty": "easy",
+    "topic": "Multi-step linear equations",
+    "prompt": "A phone plan charges \\$18 a month plus \\$0.06 per text. Another charges \\$30 a month plus \\$0.025 per text. For how many texts per month do the two plans cost the same?",
+    "answer": "2400/7",
+    "answerNumeric": 342.85714285714283,
+    "hint1": "Set the two costs equal: $18 + 0.06n = 30 + 0.025n$.",
+    "hint2": "$0.035n = 12$.",
+    "solutionSteps": [
+      "$18 + 0.06n = 30 + 0.025n$.",
+      "$0.035n = 12$.",
+      "$n = \\tfrac{12}{0.035} = \\tfrac{2400}{7} \\approx 342.9$ texts."
+    ]
+  },
+  {
+    "id": "e044",
+    "difficulty": "easy",
+    "topic": "Multi-step linear equations",
+    "prompt": "Solve for $x$: $$5 - 2\\left[\\,x - 3(2 - x)\\,\\right] = 4(1 - x) + 3.$$",
+    "answer": "5/2",
+    "answerNumeric": 2.5,
+    "hint1": "Simplify the inner bracket first: $x - 3(2-x) = 4x - 6$.",
+    "hint2": "The left side becomes $5 - 2(4x - 6) = 17 - 8x$.",
+    "solutionSteps": [
+      "$x - 3(2-x) = x - 6 + 3x = 4x - 6$.",
+      "Left: $5 - 8x + 12 = 17 - 8x$. Right: $7 - 4x$.",
+      "$17 - 8x = 7 - 4x \\Rightarrow 10 = 4x \\Rightarrow x = \\tfrac52$."
+    ]
+  },
+  {
+    "id": "e045",
+    "difficulty": "easy",
+    "topic": "Multi-step linear equations",
+    "prompt": "Two trains leave the same station at the same time in opposite directions. One travels $15$ km/h faster than the other. After $2.5$ hours they are $412.5$ km apart. What is the speed of the faster train, in km/h?",
+    "answer": "90",
+    "answerNumeric": 90.0,
+    "hint1": "Their distance apart grows at the sum of their speeds.",
+    "hint2": "$2.5(s + s + 15) = 412.5$.",
+    "solutionSteps": [
+      "Let the slower speed be $s$, so the faster is $s+15$.",
+      "$2.5(2s + 15) = 412.5 \\Rightarrow 2s + 15 = 165$.",
+      "$s = 75$, so the faster train goes $90$ km/h."
+    ]
+  },
+  {
+    "id": "e046",
+    "difficulty": "easy",
+    "topic": "Exponents",
+    "prompt": "Simplify $$\\frac{(2^3)^4 \\cdot 4^{-3}}{8^{2}\\cdot 2^{-5}}.$$",
+    "answer": "32",
+    "answerNumeric": 32.0,
+    "hint1": "Rewrite everything as a power of $2$.",
+    "hint2": "$4^{-3} = 2^{-6}$ and $8^2 = 2^6$.",
+    "solutionSteps": [
+      "Numerator: $2^{12}\\cdot2^{-6} = 2^{6}$.",
+      "Denominator: $2^{6}\\cdot2^{-5} = 2^{1}$.",
+      "$2^{6}/2^{1} = 2^5 = 32$."
+    ]
+  },
+  {
+    "id": "e047",
+    "difficulty": "easy",
+    "topic": "Exponents",
+    "prompt": "Solve for $x$: $$9^{x+1} = 27^{\\,2x - 3}.$$",
+    "answer": "11/4",
+    "answerNumeric": 2.75,
+    "hint1": "Write both sides as powers of $3$.",
+    "hint2": "$3^{2(x+1)} = 3^{3(2x-3)}$, so the exponents must be equal.",
+    "solutionSteps": [
+      "$9^{x+1} = 3^{2x+2}$ and $27^{2x-3} = 3^{6x-9}$.",
+      "$2x + 2 = 6x - 9$.",
+      "$4x = 11 \\Rightarrow x = \\tfrac{11}{4}$."
+    ]
+  },
+  {
+    "id": "e048",
+    "difficulty": "easy",
+    "topic": "Exponents",
+    "prompt": "Evaluate $$\\frac{16^{3/4} - 27^{2/3}}{125^{-1/3}\\cdot 25^{1/2}}.$$",
+    "answer": "-1",
+    "answerNumeric": -1.0,
+    "hint1": "$a^{m/n}$ means take the $n$th root, then raise to the $m$th power.",
+    "hint2": "$16^{3/4} = 8$ and $27^{2/3} = 9$. The denominator is $\\tfrac15\\cdot5 = 1$.",
+    "solutionSteps": [
+      "$16^{3/4} = (\\sqrt[4]{16})^3 = 2^3 = 8$.",
+      "$27^{2/3} = (\\sqrt[3]{27})^2 = 9$.",
+      "Denominator: $125^{-1/3} = \\tfrac15$ and $25^{1/2} = 5$, so it equals $1$.",
+      "$(8 - 9)/1 = -1$."
+    ]
+  },
+  {
+    "id": "e049",
+    "difficulty": "easy",
+    "topic": "Exponents",
+    "prompt": "If $2^{a} = 5$, what is $$\\frac{8^{a} + 4^{a+1}}{2^{a+2}}\\,?$$",
+    "answer": "45/4",
+    "answerNumeric": 11.25,
+    "hint1": "Write each term using $2^a$: $8^a = (2^a)^3$ and $4^{a+1} = 4(2^a)^2$.",
+    "hint2": "The numerator is $125 + 4\\cdot25 = 225$ and the denominator is $4\\cdot5 = 20$.",
+    "solutionSteps": [
+      "$8^a = (2^a)^3 = 125$.",
+      "$4^{a+1} = 4\\cdot(2^a)^2 = 100$.",
+      "$2^{a+2} = 4\\cdot 2^a = 20$.",
+      "$(125 + 100)/20 = \\tfrac{225}{20} = \\tfrac{45}{4}$."
+    ]
+  },
+  {
+    "id": "e050",
+    "difficulty": "easy",
+    "topic": "Exponents",
+    "prompt": "Simplify $$\\frac{3^{n+2} - 3^{n}}{3^{n+1} + 3^{n-1}}.$$",
+    "answer": "12/5",
+    "answerNumeric": 2.4,
+    "hint1": "Factor $3^{n-1}$ out of every term.",
+    "hint2": "The top is $3^{n-1}(27 - 3)$ and the bottom is $3^{n-1}(9 + 1)$.",
+    "solutionSteps": [
+      "Top: $3^{n-1}(3^3 - 3^1) = 24\\cdot3^{n-1}$.",
+      "Bottom: $3^{n-1}(3^2 + 1) = 10\\cdot3^{n-1}$.",
+      "The ratio is $\\tfrac{24}{10} = \\tfrac{12}{5}$."
+    ]
+  },
+  {
+    "id": "e051",
+    "difficulty": "easy",
+    "topic": "Exponents",
+    "prompt": "Simplify $$\\frac{\\left(2x^{3}y^{-2}\\right)^{3}}{\\left(4x^{-1}y\\right)^{2}}$$ and then evaluate it at $x = 2$, $y = 2$.",
+    "answer": "4",
+    "answerNumeric": 4.0,
+    "hint1": "Use $(ab)^n = a^n b^n$ and $(a^m)^n = a^{mn}$ on the top and the bottom first.",
+    "hint2": "The top is $8x^{9}y^{-6}$ and the bottom is $16x^{-2}y^{2}$, so the expression is $\\tfrac12 x^{11}y^{-8}$.",
+    "solutionSteps": [
+      "Numerator: $2^3x^{9}y^{-6} = 8x^9y^{-6}$.",
+      "Denominator: $4^2x^{-2}y^{2} = 16x^{-2}y^2$.",
+      "Quotient: $\\tfrac{8}{16}x^{9-(-2)}y^{-6-2} = \\tfrac12 x^{11}y^{-8}$.",
+      "At $x = y = 2$: $\\tfrac12\\cdot2^{11}\\cdot2^{-8} = \\tfrac12\\cdot 2^3 = 4$."
+    ]
+  },
+  {
+    "id": "e052",
+    "difficulty": "easy",
+    "topic": "Exponents",
+    "prompt": "Solve for $x$: $$3\\cdot 2^{x-1} + 2^{x+2} - 2^{x} = 72.$$",
+    "answer": "4",
+    "answerNumeric": 4.0,
+    "hint1": "Write every term as a multiple of $2^x$: $2^{x-1} = \\tfrac12\\cdot2^x$ and $2^{x+2} = 4\\cdot2^x$.",
+    "hint2": "The left side is $2^x\\left(\\tfrac32 + 4 - 1\\right) = \\tfrac92\\cdot 2^x$.",
+    "solutionSteps": [
+      "$3\\cdot2^{x-1} = \\tfrac32\\cdot2^x$ and $2^{x+2} = 4\\cdot2^x$.",
+      "$\\left(\\tfrac32 + 4 - 1\\right)2^x = \\tfrac92\\cdot2^x = 72$.",
+      "$2^x = 16 = 2^4$, so $x = 4$."
+    ]
+  },
+  {
+    "id": "e053",
+    "difficulty": "easy",
+    "topic": "Exponents",
+    "prompt": "Find the sum of all real solutions of $$4^{x} - 3\\cdot2^{x+1} + 8 = 0.$$",
+    "answer": "3",
+    "answerNumeric": 3.0,
+    "hint1": "Let $w = 2^x$. Then $4^x = w^2$ and $2^{x+1} = 2w$.",
+    "hint2": "The equation becomes $w^2 - 6w + 8 = 0$.",
+    "solutionSteps": [
+      "With $w = 2^x$: $w^2 - 6w + 8 = 0$.",
+      "$(w - 2)(w - 4) = 0$, so $w = 2$ or $w = 4$.",
+      "$2^x = 2 \\Rightarrow x = 1$ and $2^x = 4 \\Rightarrow x = 2$.",
+      "The sum is $1 + 2 = 3$."
+    ]
+  },
+  {
+    "id": "e054",
+    "difficulty": "easy",
+    "topic": "Exponents",
+    "prompt": "Evaluate $$(0.25)^{-3/2}\\cdot 8^{-2/3} + \\left(\\tfrac{1}{27}\\right)^{-1/3}.$$",
+    "answer": "5",
+    "answerNumeric": 5.0,
+    "hint1": "Write $0.25$ as $\\tfrac14$. A negative exponent flips the base.",
+    "hint2": "$(\\tfrac14)^{-3/2} = 4^{3/2} = 8$, $8^{-2/3} = \\tfrac14$, and $(\\tfrac1{27})^{-1/3} = 3$.",
+    "solutionSteps": [
+      "$\\left(\\tfrac14\\right)^{-3/2} = 4^{3/2} = (\\sqrt4)^3 = 8$.",
+      "$8^{-2/3} = \\dfrac{1}{(\\sqrt[3]{8})^2} = \\tfrac14$.",
+      "$\\left(\\tfrac1{27}\\right)^{-1/3} = 27^{1/3} = 3$.",
+      "$8\\cdot\\tfrac14 + 3 = 2 + 3 = 5$."
+    ]
+  },
+  {
+    "id": "e055",
+    "difficulty": "easy",
+    "topic": "Systems of equations",
+    "prompt": "Solve the system and find $x + y$: $$\\begin{aligned} 3x + 2y &= 16 \\\\ 5x - 3y &= 14 \\end{aligned}$$",
+    "answer": "6",
+    "answerNumeric": 6.0,
+    "hint1": "Eliminate $y$: multiply the first equation by $3$ and the second by $2$, then add.",
+    "hint2": "$9x + 6y = 48$ and $10x - 6y = 28$ add to $19x = 76$.",
+    "solutionSteps": [
+      "$3\\times$(first) $+ 2\\times$(second): $19x = 76$, so $x = 4$.",
+      "Substitute: $12 + 2y = 16 \\Rightarrow y = 2$.",
+      "$x + y = 6$."
+    ]
+  },
+  {
+    "id": "e056",
+    "difficulty": "easy",
+    "topic": "Systems of equations",
+    "prompt": "A theater sold $150$ tickets. Adult tickets cost \\$12 and child tickets cost \\$7. Total sales were \\$1450. How many adult tickets were sold?",
+    "answer": "80",
+    "answerNumeric": 80.0,
+    "hint1": "Let $a$ and $c$ be the numbers of adult and child tickets. Write one equation for the count and one for the money.",
+    "hint2": "$a + c = 150$ and $12a + 7c = 1450$. Substitute $c = 150 - a$.",
+    "solutionSteps": [
+      "$a + c = 150$ and $12a + 7c = 1450$.",
+      "$12a + 7(150 - a) = 1450 \\Rightarrow 5a + 1050 = 1450$.",
+      "$5a = 400$, so $a = 80$ adult tickets."
+    ]
+  },
+  {
+    "id": "e057",
+    "difficulty": "easy",
+    "topic": "Systems of equations",
+    "prompt": "Solve the system and find $xy$: $$\\begin{aligned} \\tfrac{x}{2} + \\tfrac{y}{3} &= 5 \\\\ \\tfrac{x}{4} - \\tfrac{y}{6} &= \\tfrac12 \\end{aligned}$$",
+    "answer": "36",
+    "answerNumeric": 36.0,
+    "hint1": "Clear fractions: multiply the first equation by $6$ and the second by $12$.",
+    "hint2": "You get $3x + 2y = 30$ and $3x - 2y = 6$.",
+    "solutionSteps": [
+      "$3x + 2y = 30$ and $3x - 2y = 6$.",
+      "Adding: $6x = 36 \\Rightarrow x = 6$.",
+      "Then $18 + 2y = 30 \\Rightarrow y = 6$.",
+      "$xy = 36$."
+    ]
+  },
+  {
+    "id": "e058",
+    "difficulty": "easy",
+    "topic": "Systems of equations",
+    "prompt": "Solve the system and find $x + 2y + 3z$: $$\\begin{aligned} x + y + z &= 6 \\\\ 2x - y + z &= 3 \\\\ x + 2y - z &= 2 \\end{aligned}$$",
+    "answer": "14",
+    "answerNumeric": 14.0,
+    "hint1": "Add the third equation to each of the first two to eliminate $z$.",
+    "hint2": "You get $2x + 3y = 8$ and $3x + y = 5$.",
+    "solutionSteps": [
+      "(1)+(3): $2x + 3y = 8$. (2)+(3): $3x + y = 5$.",
+      "From $y = 5 - 3x$: $2x + 15 - 9x = 8 \\Rightarrow x = 1$, so $y = 2$.",
+      "Then $z = 6 - 1 - 2 = 3$.",
+      "$x + 2y + 3z = 1 + 4 + 9 = 14$."
+    ]
+  },
+  {
+    "id": "e059",
+    "difficulty": "easy",
+    "topic": "Systems of equations",
+    "prompt": "A jar holds $30$ coins, all nickels and quarters, worth \\$4.50 in total. How many quarters are in the jar?",
+    "answer": "15",
+    "answerNumeric": 15.0,
+    "hint1": "Work in cents. With $n$ nickels and $q$ quarters: $n + q = 30$ and $5n + 25q = 450$.",
+    "hint2": "Divide the money equation by $5$: $n + 5q = 90$. Subtract the count equation.",
+    "solutionSteps": [
+      "$n + q = 30$ and $5n + 25q = 450 \\Rightarrow n + 5q = 90$.",
+      "Subtracting: $4q = 60$.",
+      "$q = 15$ quarters."
+    ]
+  },
+  {
+    "id": "e060",
+    "difficulty": "easy",
+    "topic": "Systems of equations",
+    "prompt": "A boat travels $36$ km downstream in $2$ hours and makes the return trip upstream in $3$ hours. What is the speed of the current, in km/h?",
+    "answer": "3",
+    "answerNumeric": 3.0,
+    "hint1": "Downstream speed is $b + c$ and upstream speed is $b - c$, where $b$ is the boat\\'s speed in still water.",
+    "hint2": "$b + c = 18$ and $b - c = 12$.",
+    "solutionSteps": [
+      "Downstream: $b + c = 36/2 = 18$. Upstream: $b - c = 36/3 = 12$.",
+      "Subtracting: $2c = 6$.",
+      "The current flows at $c = 3$ km/h."
+    ]
+  },
+  {
+    "id": "e061",
+    "difficulty": "easy",
+    "topic": "Systems of equations",
+    "prompt": "The lines $2x - 3y = 7$ and $4x + y = 7$ meet at the point $(p, q)$. Find $p - q$.",
+    "answer": "3",
+    "answerNumeric": 3.0,
+    "hint1": "Solve the second equation for $y$ and substitute it into the first.",
+    "hint2": "$y = 7 - 4x$, so $2x - 3(7 - 4x) = 7$.",
+    "solutionSteps": [
+      "$y = 7 - 4x$.",
+      "$2x - 21 + 12x = 7 \\Rightarrow 14x = 28 \\Rightarrow x = 2$.",
+      "$y = 7 - 8 = -1$.",
+      "$p - q = 2 - (-1) = 3$."
+    ]
+  },
+  {
+    "id": "e062",
+    "difficulty": "easy",
+    "topic": "Systems of equations",
+    "prompt": "Two numbers add to $47$. Three times the smaller number is $9$ more than the larger number. What is the product of the two numbers?",
+    "answer": "462",
+    "answerNumeric": 462.0,
+    "hint1": "Let $S$ be the smaller number and $L$ the larger: $S + L = 47$ and $3S - L = 9$.",
+    "hint2": "Adding the equations gives $4S = 56$.",
+    "solutionSteps": [
+      "$S + L = 47$ and $3S - L = 9$.",
+      "Add: $4S = 56 \\Rightarrow S = 14$, so $L = 33$.",
+      "$14 \\cdot 33 = 462$."
+    ]
+  },
+  {
+    "id": "e063",
+    "difficulty": "easy",
+    "topic": "Systems of equations",
+    "prompt": "\\$10,000 is split between an account paying $3\\%$ and one paying $5\\%$ simple interest. After one year the total interest is \\$420. How many dollars were put in the $5\\%$ account?",
+    "answer": "6000",
+    "answerNumeric": 6000.0,
+    "hint1": "Let $A$ dollars earn $3\\%$ and $B$ earn $5\\%$: $A + B = 10000$ and $0.03A + 0.05B = 420$.",
+    "hint2": "Substitute $A = 10000 - B$: $300 + 0.02B = 420$.",
+    "solutionSteps": [
+      "$A + B = 10000$ and $0.03A + 0.05B = 420$.",
+      "$0.03(10000 - B) + 0.05B = 420 \\Rightarrow 300 + 0.02B = 420$.",
+      "$0.02B = 120$, so $B = 6000$ dollars."
+    ]
+  },
+  {
+    "id": "e064",
+    "difficulty": "easy",
+    "topic": "Factoring",
+    "prompt": "$6x^2 - 7x - 20$ factors as $(ax + b)(cx + d)$, where $a$, $b$, $c$, $d$ are integers and $a, c > 0$. Find $a + b + c + d$.",
+    "answer": "4",
+    "answerNumeric": 4.0,
+    "hint1": "Look for two numbers that multiply to $6\\cdot(-20) = -120$ and add to $-7$.",
+    "hint2": "$-15$ and $8$ work. Split: $6x^2 - 15x + 8x - 20$.",
+    "solutionSteps": [
+      "$ac = -120$ and the pair $-15, 8$ adds to $-7$.",
+      "$6x^2 - 15x + 8x - 20 = 3x(2x - 5) + 4(2x - 5) = (3x + 4)(2x - 5)$.",
+      "$a + b + c + d = 3 + 4 + 2 - 5 = 4$."
+    ]
+  },
+  {
+    "id": "e065",
+    "difficulty": "easy",
+    "topic": "Factoring",
+    "prompt": "Evaluate $$\\frac{x^2 - 9}{x^2 + 5x + 6}\\cdot\\frac{x^2 + 4x + 4}{x - 3}$$ at $x = 47$.",
+    "answer": "49",
+    "answerNumeric": 49.0,
+    "hint1": "Factor everything before plugging in.",
+    "hint2": "$x^2 - 9 = (x-3)(x+3)$, $x^2 + 5x + 6 = (x+2)(x+3)$ and $x^2 + 4x + 4 = (x+2)^2$.",
+    "solutionSteps": [
+      "$\\dfrac{(x-3)(x+3)}{(x+2)(x+3)}\\cdot\\dfrac{(x+2)^2}{x-3}$.",
+      "Cancel $(x-3)$, $(x+3)$ and one $(x+2)$: the expression is $x + 2$.",
+      "At $x = 47$: $49$."
+    ]
+  },
+  {
+    "id": "e066",
+    "difficulty": "easy",
+    "topic": "Factoring",
+    "prompt": "Find the sum of the squares of the solutions of $$x^3 - 2x^2 - 9x + 18 = 0.$$",
+    "answer": "22",
+    "answerNumeric": 22.0,
+    "hint1": "Factor by grouping: group the first two terms and the last two terms.",
+    "hint2": "$x^2(x - 2) - 9(x - 2) = (x^2 - 9)(x - 2)$.",
+    "solutionSteps": [
+      "Group: $x^2(x - 2) - 9(x - 2) = (x - 2)(x^2 - 9)$.",
+      "$(x - 2)(x - 3)(x + 3) = 0$, so the solutions are $2$, $3$ and $-3$.",
+      "$4 + 9 + 9 = 22$."
+    ]
+  },
+  {
+    "id": "e067",
+    "difficulty": "easy",
+    "topic": "Factoring",
+    "prompt": "Find the sum of the positive solutions of $$x^4 - 13x^2 + 36 = 0.$$",
+    "answer": "5",
+    "answerNumeric": 5.0,
+    "hint1": "This is a quadratic in $x^2$. Let $w = x^2$.",
+    "hint2": "$w^2 - 13w + 36 = (w - 4)(w - 9)$.",
+    "solutionSteps": [
+      "With $w = x^2$: $w^2 - 13w + 36 = (w - 4)(w - 9) = 0$.",
+      "$x^2 = 4$ or $x^2 = 9$, so $x = \\pm2$ or $x = \\pm3$.",
+      "The positive solutions add to $2 + 3 = 5$."
+    ]
+  },
+  {
+    "id": "e068",
+    "difficulty": "easy",
+    "topic": "Factoring",
+    "prompt": "If $a + b = 7$ and $ab = 10$, find $a^3 + b^3$.",
+    "answer": "133",
+    "answerNumeric": 133.0,
+    "hint1": "Use the identity $a^3 + b^3 = (a + b)(a^2 - ab + b^2)$.",
+    "hint2": "$a^2 + b^2 = (a + b)^2 - 2ab = 49 - 20 = 29$.",
+    "solutionSteps": [
+      "$a^2 + b^2 = (a+b)^2 - 2ab = 29$.",
+      "$a^2 - ab + b^2 = 29 - 10 = 19$.",
+      "$a^3 + b^3 = (a + b)\\cdot19 = 7\\cdot19 = 133$."
+    ]
+  },
+  {
+    "id": "e069",
+    "difficulty": "easy",
+    "topic": "Factoring",
+    "prompt": "If $x - \\dfrac{1}{x} = 3$, find $x^4 + \\dfrac{1}{x^4}$.",
+    "answer": "119",
+    "answerNumeric": 119.0,
+    "hint1": "Square both sides: $\\left(x - \\tfrac1x\\right)^2 = x^2 - 2 + \\tfrac1{x^2}$.",
+    "hint2": "$x^2 + \\tfrac1{x^2} = 9 + 2 = 11$. Now square again.",
+    "solutionSteps": [
+      "$\\left(x - \\tfrac1x\\right)^2 = 9 \\Rightarrow x^2 + \\tfrac1{x^2} = 11$.",
+      "$\\left(x^2 + \\tfrac1{x^2}\\right)^2 = x^4 + 2 + \\tfrac1{x^4} = 121$.",
+      "$x^4 + \\tfrac1{x^4} = 119$."
+    ]
+  },
+  {
+    "id": "e070",
+    "difficulty": "easy",
+    "topic": "Factoring",
+    "prompt": "The expression $$\\frac{x^3 - 8}{x^2 - 4}$$ is undefined at $x = 2$. What value does it get closer and closer to as $x$ approaches $2$?",
+    "answer": "3",
+    "answerNumeric": 3.0,
+    "hint1": "Factor the numerator as a difference of cubes and the denominator as a difference of squares.",
+    "hint2": "$x^3 - 8 = (x - 2)(x^2 + 2x + 4)$ and $x^2 - 4 = (x - 2)(x + 2)$.",
+    "solutionSteps": [
+      "Factor: $\\dfrac{(x - 2)(x^2 + 2x + 4)}{(x - 2)(x + 2)}$.",
+      "For $x \\neq 2$ this equals $\\dfrac{x^2 + 2x + 4}{x + 2}$.",
+      "At $x = 2$ that is $\\dfrac{4 + 4 + 4}{4} = 3$."
+    ]
+  },
+  {
+    "id": "e071",
+    "difficulty": "easy",
+    "topic": "Factoring",
+    "prompt": "Find the positive difference between the two solutions of $$12x^2 + 5x - 2 = 0.$$",
+    "answer": "11/12",
+    "answerNumeric": 0.9166666666666666,
+    "hint1": "Factor: look for two numbers with product $12\\cdot(-2) = -24$ and sum $5$.",
+    "hint2": "$8$ and $-3$. The factorization is $(4x - 1)(3x + 2)$.",
+    "solutionSteps": [
+      "$12x^2 + 8x - 3x - 2 = 4x(3x + 2) - (3x + 2) = (4x - 1)(3x + 2)$.",
+      "The solutions are $x = \\tfrac14$ and $x = -\\tfrac23$.",
+      "Their difference is $\\tfrac14 + \\tfrac23 = \\tfrac{3 + 8}{12} = \\tfrac{11}{12}$."
+    ]
+  },
+  {
+    "id": "e072",
+    "difficulty": "easy",
+    "topic": "Factoring",
+    "prompt": "Simplify and then evaluate at $x = 10$: $$\\frac{x^2 - x - 6}{x^2 - 9}\\div\\frac{x^2 + 4x + 4}{x^2 + 5x + 6}.$$",
+    "answer": "1",
+    "answerNumeric": 1.0,
+    "hint1": "Dividing by a fraction is multiplying by its reciprocal. Factor all four quadratics.",
+    "hint2": "$x^2 - x - 6 = (x-3)(x+2)$, $x^2 - 9 = (x-3)(x+3)$, $x^2 + 4x + 4 = (x+2)^2$, $x^2 + 5x + 6 = (x+2)(x+3)$.",
+    "solutionSteps": [
+      "$\\dfrac{(x-3)(x+2)}{(x-3)(x+3)}\\cdot\\dfrac{(x+2)(x+3)}{(x+2)^2}$.",
+      "Everything cancels: the expression equals $1$ wherever it is defined.",
+      "So at $x = 10$ the value is $1$."
+    ]
+  },
+  {
+    "id": "e073",
+    "difficulty": "easy",
+    "topic": "Quadratics",
+    "prompt": "Let $r$ and $s$ be the solutions of $2x^2 - 5x - 3 = 0$. Find $r^2 + s^2$.",
+    "answer": "37/4",
+    "answerNumeric": 9.25,
+    "hint1": "Factor the quadratic, or use $r^2 + s^2 = (r + s)^2 - 2rs$.",
+    "hint2": "$(2x + 1)(x - 3) = 0$, so the solutions are $-\\tfrac12$ and $3$.",
+    "solutionSteps": [
+      "$2x^2 - 5x - 3 = (2x + 1)(x - 3)$.",
+      "The solutions are $-\\tfrac12$ and $3$.",
+      "$\\tfrac14 + 9 = \\tfrac{37}{4}$."
+    ]
+  },
+  {
+    "id": "e074",
+    "difficulty": "easy",
+    "topic": "Quadratics",
+    "prompt": "Find the larger solution of $$x^2 - 6x + 4 = 0.$$",
+    "answer": "3+sqrt(5)",
+    "answerNumeric": 5.23606797749979,
+    "hint1": "It doesn\\'t factor nicely. Complete the square or use the quadratic formula.",
+    "hint2": "$x^2 - 6x + 9 = 5$, so $(x - 3)^2 = 5$.",
+    "solutionSteps": [
+      "Add $5$ to both sides: $x^2 - 6x + 9 = 5$.",
+      "$(x - 3)^2 = 5 \\Rightarrow x - 3 = \\pm\\sqrt5$.",
+      "The larger solution is $3 + \\sqrt5$."
+    ]
+  },
+  {
+    "id": "e075",
+    "difficulty": "easy",
+    "topic": "Quadratics",
+    "prompt": "What is the maximum value of $$y = -2x^2 + 12x - 7\\,?$$",
+    "answer": "11",
+    "answerNumeric": 11.0,
+    "hint1": "The vertex of $ax^2 + bx + c$ is at $x = -\\dfrac{b}{2a}$.",
+    "hint2": "$x = -\\dfrac{12}{2(-2)} = 3$.",
+    "solutionSteps": [
+      "The parabola opens downward, so the maximum is at the vertex.",
+      "$x = -\\dfrac{12}{-4} = 3$.",
+      "$y(3) = -18 + 36 - 7 = 11$."
+    ]
+  },
+  {
+    "id": "e076",
+    "difficulty": "easy",
+    "topic": "Quadratics",
+    "prompt": "For what positive value of $k$ does $x^2 + kx + 49 = 0$ have exactly one solution? For that $k$, call the solution $s$. Find $k + s$.",
+    "answer": "7",
+    "answerNumeric": 7.0,
+    "hint1": "A quadratic has exactly one solution when its discriminant $b^2 - 4ac$ is $0$.",
+    "hint2": "$k^2 - 196 = 0$ gives $k = 14$. Then $x^2 + 14x + 49 = (x + 7)^2$.",
+    "solutionSteps": [
+      "Discriminant: $k^2 - 4\\cdot49 = 0 \\Rightarrow k = 14$.",
+      "$x^2 + 14x + 49 = (x + 7)^2 = 0 \\Rightarrow s = -7$.",
+      "$k + s = 14 - 7 = 7$."
+    ]
+  },
+  {
+    "id": "e077",
+    "difficulty": "easy",
+    "topic": "Quadratics",
+    "prompt": "A ball is thrown upward from a $80$-foot roof. Its height after $t$ seconds is $h(t) = -16t^2 + 64t + 80$ feet. After how many seconds does it hit the ground?",
+    "answer": "5",
+    "answerNumeric": 5.0,
+    "hint1": "Set $h(t) = 0$ and divide everything by $-16$.",
+    "hint2": "$t^2 - 4t - 5 = 0$.",
+    "solutionSteps": [
+      "$-16t^2 + 64t + 80 = 0 \\Rightarrow t^2 - 4t - 5 = 0$.",
+      "$(t - 5)(t + 1) = 0$.",
+      "Time must be positive, so $t = 5$ seconds."
+    ]
+  },
+  {
+    "id": "e078",
+    "difficulty": "easy",
+    "topic": "Quadratics",
+    "prompt": "A rectangle has perimeter $34$ and a diagonal of length $13$. What is its area?",
+    "answer": "60",
+    "answerNumeric": 60.0,
+    "hint1": "With side lengths $\\ell$ and $w$: $\\ell + w = 17$ and $\\ell^2 + w^2 = 169$.",
+    "hint2": "$(\\ell + w)^2 = \\ell^2 + 2\\ell w + w^2$, so $289 = 169 + 2\\ell w$.",
+    "solutionSteps": [
+      "$\\ell + w = 17$ and, by Pythagoras, $\\ell^2 + w^2 = 13^2 = 169$.",
+      "$(\\ell + w)^2 = 289 = 169 + 2\\ell w$.",
+      "$2\\ell w = 120$, so the area is $\\ell w = 60$."
+    ]
+  },
+  {
+    "id": "e079",
+    "difficulty": "easy",
+    "topic": "Quadratics",
+    "prompt": "Find the sum of all solutions of $$\\frac{x + 1}{x - 2} = \\frac{2x - 1}{x + 2}.$$",
+    "answer": "8",
+    "answerNumeric": 8.0,
+    "hint1": "Cross-multiply, then check that no solution makes a denominator zero.",
+    "hint2": "$(x + 1)(x + 2) = (2x - 1)(x - 2)$ simplifies to $x^2 - 8x = 0$.",
+    "solutionSteps": [
+      "$x^2 + 3x + 2 = 2x^2 - 5x + 2$.",
+      "$0 = x^2 - 8x = x(x - 8)$, so $x = 0$ or $x = 8$.",
+      "Neither makes a denominator zero, so the sum is $0 + 8 = 8$."
+    ]
+  },
+  {
+    "id": "e080",
+    "difficulty": "easy",
+    "topic": "Quadratics",
+    "prompt": "Solve for $x$: $$\\sqrt{x + 7} = x - 5.$$",
+    "answer": "9",
+    "answerNumeric": 9.0,
+    "hint1": "Square both sides, solve, and then check for extraneous solutions.",
+    "hint2": "$x + 7 = x^2 - 10x + 25$, so $x^2 - 11x + 18 = 0$.",
+    "solutionSteps": [
+      "Square: $x + 7 = x^2 - 10x + 25 \\Rightarrow x^2 - 11x + 18 = 0$.",
+      "$(x - 2)(x - 9) = 0$.",
+      "Check: $x = 2$ gives $\\sqrt9 = -3$, which is false. $x = 9$ gives $\\sqrt{16} = 4$, which is true.",
+      "So $x = 9$."
+    ]
+  },
+  {
+    "id": "e081",
+    "difficulty": "easy",
+    "topic": "Quadratics",
+    "prompt": "Find the smaller solution of $$x^2 + 10x + 7 = 0.$$",
+    "answer": "-5-3sqrt(2)",
+    "answerNumeric": -9.242640687119286,
+    "hint1": "Complete the square: $x^2 + 10x + 25 = 18$.",
+    "hint2": "$(x + 5)^2 = 18$ and $\\sqrt{18} = 3\\sqrt2$.",
+    "solutionSteps": [
+      "$x^2 + 10x = -7 \\Rightarrow x^2 + 10x + 25 = 18$.",
+      "$(x + 5)^2 = 18 \\Rightarrow x + 5 = \\pm3\\sqrt2$.",
+      "The smaller solution is $-5 - 3\\sqrt2$."
+    ]
+  },
+  {
+    "id": "e082",
+    "difficulty": "easy",
+    "topic": "Quadratics",
+    "prompt": "The product of two consecutive positive odd integers is $1$ less than seven times their sum. What is the larger integer?",
+    "answer": "15",
+    "answerNumeric": 15.0,
+    "hint1": "Call the integers $n$ and $n + 2$. Their sum is $2n + 2$.",
+    "hint2": "$n(n + 2) = 7(2n + 2) - 1$ simplifies to $n^2 - 12n - 13 = 0$.",
+    "solutionSteps": [
+      "$n^2 + 2n = 14n + 13$.",
+      "$n^2 - 12n - 13 = (n - 13)(n + 1) = 0$, so $n = 13$ (it must be positive).",
+      "The integers are $13$ and $15$; the larger is $15$."
+    ]
+  },
+  {
+    "id": "e083",
+    "difficulty": "easy",
+    "topic": "Slope",
+    "prompt": "A line passes through $(-2, 5)$ and $(4, -7)$. At what $x$-value does it cross the $x$-axis?",
+    "answer": "1/2",
+    "answerNumeric": 0.5,
+    "hint1": "Find the slope first: $m = \\dfrac{-7 - 5}{4 - (-2)}$.",
+    "hint2": "$m = -2$, so the line is $y = -2x + 1$.",
+    "solutionSteps": [
+      "$m = \\dfrac{-12}{6} = -2$.",
+      "$5 = -2(-2) + b \\Rightarrow b = 1$, so $y = -2x + 1$.",
+      "$0 = -2x + 1 \\Rightarrow x = \\tfrac12$."
+    ]
+  },
+  {
+    "id": "e084",
+    "difficulty": "easy",
+    "topic": "Slope",
+    "prompt": "Line $L$ is perpendicular to $3x - 4y = 12$ and passes through $(6, -1)$. What is the $y$-intercept of $L$?",
+    "answer": "7",
+    "answerNumeric": 7.0,
+    "hint1": "Find the slope of $3x - 4y = 12$ by solving for $y$. A perpendicular slope is the negative reciprocal.",
+    "hint2": "The given line has slope $\\tfrac34$, so $L$ has slope $-\\tfrac43$.",
+    "solutionSteps": [
+      "$y = \\tfrac34x - 3$, so the slope is $\\tfrac34$.",
+      "$L$ has slope $-\\tfrac43$: $y + 1 = -\\tfrac43(x - 6)$.",
+      "$y = -\\tfrac43x + 8 - 1 = -\\tfrac43x + 7$. The $y$-intercept is $7$."
+    ]
+  },
+  {
+    "id": "e085",
+    "difficulty": "easy",
+    "topic": "Slope",
+    "prompt": "The points $(1, 2)$, $(4, 8)$ and $(k, 20)$ lie on one line. Find $k$.",
+    "answer": "10",
+    "answerNumeric": 10.0,
+    "hint1": "Collinear points give the same slope between any two pairs.",
+    "hint2": "The slope from $(1, 2)$ to $(4, 8)$ is $2$, so $\\dfrac{20 - 2}{k - 1} = 2$.",
+    "solutionSteps": [
+      "Slope $= \\dfrac{8 - 2}{4 - 1} = 2$.",
+      "$\\dfrac{18}{k - 1} = 2 \\Rightarrow k - 1 = 9$.",
+      "$k = 10$."
+    ]
+  },
+  {
+    "id": "e086",
+    "difficulty": "easy",
+    "topic": "Slope",
+    "prompt": "Find the area of the triangle enclosed by the line $3x + 5y = 30$ and the two coordinate axes.",
+    "answer": "30",
+    "answerNumeric": 30.0,
+    "hint1": "Find where the line crosses each axis.",
+    "hint2": "Setting $y = 0$ gives $x = 10$. Setting $x = 0$ gives $y = 6$.",
+    "solutionSteps": [
+      "$x$-intercept: $3x = 30 \\Rightarrow x = 10$.",
+      "$y$-intercept: $5y = 30 \\Rightarrow y = 6$.",
+      "Area $= \\tfrac12\\cdot10\\cdot6 = 30$."
+    ]
+  },
+  {
+    "id": "e087",
+    "difficulty": "easy",
+    "topic": "Slope",
+    "prompt": "For what value of $k$ are the lines $2x + ky = 5$ and $6x - 4y = 1$ parallel?",
+    "answer": "-4/3",
+    "answerNumeric": -1.3333333333333333,
+    "hint1": "Parallel lines have equal slopes. The slope of $Ax + By = C$ is $-A/B$.",
+    "hint2": "The slopes are $-\\tfrac{2}{k}$ and $\\tfrac{6}{4} = \\tfrac32$.",
+    "solutionSteps": [
+      "Slope of $2x + ky = 5$ is $-\\tfrac2k$. Slope of $6x - 4y = 1$ is $\\tfrac32$.",
+      "$-\\tfrac2k = \\tfrac32 \\Rightarrow 3k = -4$.",
+      "$k = -\\tfrac43$."
+    ]
+  },
+  {
+    "id": "e088",
+    "difficulty": "easy",
+    "topic": "Slope",
+    "prompt": "Find the $y$-intercept of the perpendicular bisector of the segment from $A(-1, 3)$ to $B(5, -5)$.",
+    "answer": "-5/2",
+    "answerNumeric": -2.5,
+    "hint1": "The perpendicular bisector passes through the midpoint of $AB$ and is perpendicular to $AB$.",
+    "hint2": "The midpoint is $(2, -1)$. The slope of $AB$ is $-\\tfrac43$, so the bisector has slope $\\tfrac34$.",
+    "solutionSteps": [
+      "Midpoint: $\\left(\\tfrac{-1+5}{2}, \\tfrac{3-5}{2}\\right) = (2, -1)$.",
+      "Slope of $AB = \\tfrac{-8}{6} = -\\tfrac43$, so the perpendicular slope is $\\tfrac34$.",
+      "$y + 1 = \\tfrac34(x - 2) \\Rightarrow y = \\tfrac34x - \\tfrac32 - 1$.",
+      "The $y$-intercept is $-\\tfrac52$."
+    ]
+  },
+  {
+    "id": "e089",
+    "difficulty": "easy",
+    "topic": "Slope",
+    "prompt": "A made-up temperature scale Z reads $20$ when water freezes ($0^\\circ$C) and $220$ when water boils ($100^\\circ$C). The scale is linear. What Celsius temperature reads $65$ on scale Z?",
+    "answer": "45/2",
+    "answerNumeric": 22.5,
+    "hint1": "Find the linear relationship $Z = mC + b$ from the two given points.",
+    "hint2": "$m = \\dfrac{220 - 20}{100 - 0} = 2$ and $b = 20$, so $Z = 2C + 20$.",
+    "solutionSteps": [
+      "$Z = 2C + 20$.",
+      "$65 = 2C + 20 \\Rightarrow 2C = 45$.",
+      "$C = \\tfrac{45}{2} = 22.5^\\circ$."
+    ]
+  },
+  {
+    "id": "e090",
+    "difficulty": "easy",
+    "topic": "Slope",
+    "prompt": "Line $L$ passes through $(-3, 1)$ and $(5, 7)$. Line $M$ is perpendicular to $L$ and passes through $(5, 7)$. Where does $M$ cross the $x$-axis?",
+    "answer": "41/4",
+    "answerNumeric": 10.25,
+    "hint1": "Find the slope of $L$, then take the negative reciprocal for $M$.",
+    "hint2": "The slope of $L$ is $\\tfrac68 = \\tfrac34$, so $M$: $y - 7 = -\\tfrac43(x - 5)$.",
+    "solutionSteps": [
+      "$m_L = \\tfrac{6}{8} = \\tfrac34$, so $m_M = -\\tfrac43$.",
+      "$M$: $y - 7 = -\\tfrac43(x - 5)$.",
+      "Set $y = 0$: $-7 = -\\tfrac43(x - 5) \\Rightarrow x - 5 = \\tfrac{21}{4}$.",
+      "$x = \\tfrac{41}{4}$."
+    ]
+  },
+  {
+    "id": "e091",
+    "difficulty": "easy",
+    "topic": "Slope",
+    "prompt": "A car is worth \\$24,000 new and \\$15,600 after $3$ years. Its value falls linearly. After how many years will it be worth \\$5,000?",
+    "answer": "95/14",
+    "answerNumeric": 6.785714285714286,
+    "hint1": "Find the rate of change in dollars per year.",
+    "hint2": "$\\dfrac{15600 - 24000}{3} = -2800$ dollars/year, so $V = 24000 - 2800t$.",
+    "solutionSteps": [
+      "Slope $= \\dfrac{-8400}{3} = -2800$ dollars per year.",
+      "$24000 - 2800t = 5000 \\Rightarrow 2800t = 19000$.",
+      "$t = \\tfrac{19000}{2800} = \\tfrac{95}{14} \\approx 6.79$ years."
+    ]
+  },
+  {
+    "id": "e092",
+    "difficulty": "easy",
+    "topic": "Word problems",
+    "prompt": "Pipe A fills a pool in $6$ hours and pipe B fills it in $9$ hours. A drain empties a full pool in $12$ hours. Starting empty, with both pipes and the drain open, how many hours does it take to fill the pool?",
+    "answer": "36/7",
+    "answerNumeric": 5.142857142857143,
+    "hint1": "Add the rates in pools per hour. The drain\\'s rate counts as negative.",
+    "hint2": "$\\tfrac16 + \\tfrac19 - \\tfrac1{12} = \\tfrac{6 + 4 - 3}{36} = \\tfrac{7}{36}$ pool per hour.",
+    "solutionSteps": [
+      "Combined rate: $\\tfrac16 + \\tfrac19 - \\tfrac1{12}$.",
+      "With a denominator of $36$: $\\tfrac{6 + 4 - 3}{36} = \\tfrac{7}{36}$.",
+      "Time $= 1 \\div \\tfrac{7}{36} = \\tfrac{36}{7} \\approx 5.14$ hours."
+    ]
+  },
+  {
+    "id": "e093",
+    "difficulty": "easy",
+    "topic": "Word problems",
+    "prompt": "Ana is $7$ years older than Ben. In $5$ years, Ana will be twice as old as Ben was $3$ years ago. How old is Ben now?",
+    "answer": "18",
+    "answerNumeric": 18.0,
+    "hint1": "Let Ben be $B$ now, so Ana is $B + 7$. Translate the second sentence into an equation.",
+    "hint2": "$(B + 7) + 5 = 2(B - 3)$.",
+    "solutionSteps": [
+      "$B + 12 = 2(B - 3) = 2B - 6$.",
+      "$B = 18$.",
+      "Check: Ana is $25$. In 5 years she\\'ll be $30 = 2(18 - 3)$. ✓ Ben is $18$."
+    ]
+  },
+  {
+    "id": "e094",
+    "difficulty": "easy",
+    "topic": "Word problems",
+    "prompt": "A jogger leaves home running at $6$ km/h. Thirty minutes later a cyclist leaves the same place along the same route at $15$ km/h. How many minutes after the cyclist starts does the cyclist catch the jogger?",
+    "answer": "20",
+    "answerNumeric": 20.0,
+    "hint1": "When they meet they have covered the same distance. The jogger has been moving $\\tfrac12$ hour longer.",
+    "hint2": "$6\\left(t + \\tfrac12\\right) = 15t$, with $t$ in hours.",
+    "solutionSteps": [
+      "$6t + 3 = 15t$.",
+      "$9t = 3 \\Rightarrow t = \\tfrac13$ hour.",
+      "$\\tfrac13$ hour $= 20$ minutes."
+    ]
+  },
+  {
+    "id": "e095",
+    "difficulty": "easy",
+    "topic": "Word problems",
+    "prompt": "A rectangular garden is $3$ m longer than twice its width. Its area is $90$ m². What is its perimeter, in meters?",
+    "answer": "42",
+    "answerNumeric": 42.0,
+    "hint1": "With width $w$, the length is $2w + 3$ and $w(2w + 3) = 90$.",
+    "hint2": "$2w^2 + 3w - 90 = 0$ factors as $(2w + 15)(w - 6) = 0$.",
+    "solutionSteps": [
+      "$2w^2 + 3w - 90 = 0$.",
+      "$(2w + 15)(w - 6) = 0$, so $w = 6$ and the length is $15$.",
+      "Perimeter $= 2(6 + 15) = 42$ m."
+    ]
+  },
+  {
+    "id": "e096",
+    "difficulty": "easy",
+    "topic": "Word problems",
+    "prompt": "Coffee costing \\$8 per pound is mixed with coffee costing \\$12 per pound to make $20$ pounds of a blend worth \\$9.50 per pound. How many pounds of the \\$8 coffee are used?",
+    "answer": "25/2",
+    "answerNumeric": 12.5,
+    "hint1": "Let $x$ pounds be the \\$8 coffee, so $20 - x$ pounds are the \\$12 coffee. The values add up.",
+    "hint2": "$8x + 12(20 - x) = 9.5 \\times 20 = 190$.",
+    "solutionSteps": [
+      "$8x + 240 - 12x = 190$.",
+      "$-4x = -50$.",
+      "$x = 12.5 = \\tfrac{25}{2}$ pounds."
+    ]
+  },
+  {
+    "id": "e097",
+    "difficulty": "easy",
+    "topic": "Word problems",
+    "prompt": "The digits of a two-digit number add to $11$. Reversing the digits makes a number $27$ larger. What is the original number?",
+    "answer": "47",
+    "answerNumeric": 47.0,
+    "hint1": "Write the number as $10t + u$ with tens digit $t$ and units digit $u$. The reversed number is $10u + t$.",
+    "hint2": "$(10u + t) - (10t + u) = 9(u - t) = 27$, so $u - t = 3$.",
+    "solutionSteps": [
+      "$t + u = 11$ and $9(u - t) = 27 \\Rightarrow u - t = 3$.",
+      "Adding: $2u = 14 \\Rightarrow u = 7$ and $t = 4$.",
+      "The number is $47$. (Check: $74 - 47 = 27$.)"
+    ]
+  },
+  {
+    "id": "e098",
+    "difficulty": "easy",
+    "topic": "Word problems",
+    "prompt": "A shop sells pens at $3$ for \\$2 and notebooks at $2$ for \\$5. Lena buys $15$ items for exactly \\$21. How many notebooks does she buy?",
+    "answer": "6",
+    "answerNumeric": 6.0,
+    "hint1": "One pen costs \\$$\\tfrac23$ and one notebook costs \\$$\\tfrac52$. Write a count equation and a cost equation.",
+    "hint2": "$p + q = 15$ and $\\tfrac23p + \\tfrac52q = 21$. Multiply the second by $6$: $4p + 15q = 126$.",
+    "solutionSteps": [
+      "$p + q = 15$ and $4p + 15q = 126$.",
+      "$4(15 - q) + 15q = 126 \\Rightarrow 60 + 11q = 126$.",
+      "$11q = 66 \\Rightarrow q = 6$ notebooks (and $9$ pens)."
+    ]
+  },
+  {
+    "id": "e099",
+    "difficulty": "easy",
+    "topic": "Word problems",
+    "prompt": "Kai reads $\\tfrac14$ of a book on Monday and $\\tfrac13$ of the remaining pages on Tuesday. After reading $60$ more pages on Wednesday, Kai has finished $\\tfrac34$ of the book. How many pages does the book have?",
+    "answer": "240",
+    "answerNumeric": 240.0,
+    "hint1": "After Monday, $\\tfrac34$ of the book is left. Tuesday\\'s reading is $\\tfrac13$ of that.",
+    "hint2": "Monday plus Tuesday is $\\tfrac14 + \\tfrac14 = \\tfrac12$ of the book.",
+    "solutionSteps": [
+      "Tuesday: $\\tfrac13\\cdot\\tfrac34 = \\tfrac14$ of the book.",
+      "$\\tfrac12N + 60 = \\tfrac34N$.",
+      "$\\tfrac14N = 60 \\Rightarrow N = 240$ pages."
+    ]
+  },
+  {
+    "id": "e100",
+    "difficulty": "easy",
+    "topic": "Word problems",
+    "prompt": "Five test scores average $84$. If the lowest score is dropped, the other four average $88$. A sixth test is then taken, and those four scores together with the new one average $90$. What was the sixth score?",
+    "answer": "98",
+    "answerNumeric": 98.0,
+    "hint1": "Turn each average into a total: average $\\times$ count.",
+    "hint2": "The four kept scores total $4\\times88 = 352$.",
+    "solutionSteps": [
+      "The four kept scores total $352$ (so the dropped score was $420 - 352 = 68$).",
+      "The new set of five must total $5\\times90 = 450$.",
+      "The sixth score is $450 - 352 = 98$."
     ]
   }
 ]

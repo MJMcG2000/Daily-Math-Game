@@ -1,19 +1,15 @@
 import { memo, useMemo } from 'react';
 import katex from 'katex';
+import { splitMath } from '../lib/mixed';
 
 /** Render text containing $inline$ and $$display$$ LaTeX. */
 export function renderMixed(text: string): string {
-  const parts = text.split(/(\$\$[\s\S]+?\$\$|\$[^$]+?\$)/g);
-  return parts
-    .map((part) => {
-      if (part.startsWith('$$')) {
-        return katex.renderToString(part.slice(2, -2), { displayMode: true, throwOnError: false });
-      }
-      if (part.startsWith('$') && part.length > 1) {
-        return katex.renderToString(part.slice(1, -1), { throwOnError: false });
-      }
-      return part.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]!);
-    })
+  return splitMath(text)
+    .map((seg) =>
+      seg.kind === 'text'
+        ? seg.value.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]!)
+        : katex.renderToString(seg.value, { displayMode: seg.kind === 'display', throwOnError: false }),
+    )
     .join('');
 }
 
