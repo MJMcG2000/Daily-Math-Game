@@ -7,7 +7,7 @@
     "answer": "72pi",
     "answerNumeric": 226.1946710584651,
     "hint1": "Take a cross-section through the axis. You get a rectangle inscribed in a circle of radius $5$.",
-    "hint2": "Half the height is $4$, so the cylinder\\'s radius satisfies $r^2 + 4^2 = 5^2$.",
+    "hint2": "Half the height is $4$, so the cylinder's radius satisfies $r^2 + 4^2 = 5^2$.",
     "solutionSteps": [
       "In the cross-section, a corner of the rectangle lies on the circle, $4$ above the center.",
       "$r^2 + 4^2 = 25 \\Rightarrow r = 3$.",
@@ -71,11 +71,11 @@
     "prompt": "A circle is inscribed in a regular hexagon with side length $4$. Find the area of the region inside the hexagon but outside the circle.",
     "answer": "24sqrt(3) - 12pi",
     "answerNumeric": 3.870107538575536,
-    "hint1": "A regular hexagon splits into $6$ equilateral triangles. The inscribed circle\\'s radius is the apothem.",
+    "hint1": "A regular hexagon splits into $6$ equilateral triangles. The inscribed circle's radius is the apothem.",
     "hint2": "The apothem is the height of an equilateral triangle with side $4$: $2\\sqrt3$.",
     "solutionSteps": [
       "Hexagon area: $6\\cdot\\tfrac{\\sqrt3}{4}\\cdot4^2 = 24\\sqrt3$.",
-      "The apothem is $\\tfrac{\\sqrt3}{2}\\cdot4 = 2\\sqrt3$, so the circle\\'s area is $\\pi(2\\sqrt3)^2 = 12\\pi$.",
+      "The apothem is $\\tfrac{\\sqrt3}{2}\\cdot4 = 2\\sqrt3$, so the circle's area is $\\pi(2\\sqrt3)^2 = 12\\pi$.",
       "Region: $24\\sqrt3 - 12\\pi \\approx 3.87$."
     ],
     "diagram": "<svg viewBox=\"0 0 200 180\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><polygon points=\"180,90 140,20.7 60,20.7 20,90 60,159.3 140,159.3\"/><circle cx=\"100\" cy=\"90\" r=\"69.3\"/><line x1=\"100\" y1=\"90\" x2=\"100\" y2=\"20.7\" stroke-dasharray=\"5 4\"/><text x=\"112\" y=\"60\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\" font-style=\"italic\">a</text><text x=\"100\" y=\"176\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">4</text></svg>",
@@ -88,10 +88,10 @@
     "prompt": "A sphere has surface area $144\\pi$. A cube is inscribed in the sphere, so its corners touch the sphere. Find the volume of the region inside the sphere but outside the cube.",
     "answer": "288pi - 192sqrt(3)",
     "answerNumeric": 572.224929180636,
-    "hint1": "From $4\\pi r^2 = 144\\pi$, $r = 6$. The cube\\'s space diagonal is a diameter of the sphere.",
+    "hint1": "From $4\\pi r^2 = 144\\pi$, $r = 6$. The cube's space diagonal is a diameter of the sphere.",
     "hint2": "If the cube has edge $s$, its space diagonal is $s\\sqrt3 = 12$, so $s = 4\\sqrt3$.",
     "solutionSteps": [
-      "$4\\pi r^2 = 144\\pi \\Rightarrow r = 6$, so the sphere\\'s volume is $\\tfrac43\\pi\\cdot216 = 288\\pi$.",
+      "$4\\pi r^2 = 144\\pi \\Rightarrow r = 6$, so the sphere's volume is $\\tfrac43\\pi\\cdot216 = 288\\pi$.",
       "Space diagonal: $s\\sqrt3 = 12 \\Rightarrow s = 4\\sqrt3$.",
       "Cube volume: $(4\\sqrt3)^3 = 64\\cdot3\\sqrt3 = 192\\sqrt3$.",
       "Difference: $288\\pi - 192\\sqrt3 \\approx 572.2$."
@@ -119,7 +119,7 @@
     "prompt": "A $10$-by-$24$ rectangle is inscribed in a circle. Find the area of the region inside the circle but outside the rectangle.",
     "answer": "169pi - 240",
     "answerNumeric": 290.92915845667505,
-    "hint1": "The rectangle\\'s diagonal is a diameter of the circle.",
+    "hint1": "The rectangle's diagonal is a diameter of the circle.",
     "hint2": "The diagonal is $\\sqrt{10^2 + 24^2} = 26$, so the radius is $13$.",
     "solutionSteps": [
       "Diagonal $= \\sqrt{100 + 576} = 26$, so $r = 13$.",
@@ -135,9 +135,9 @@
     "answer": "15",
     "answerNumeric": 15.0,
     "hint1": "The person and the lamppost form two similar right triangles that share the tip of the shadow.",
-    "hint2": "The big triangle\\'s base is $12 + 8 = 20$ ft, so $\\dfrac{h}{20} = \\dfrac{6}{8}$.",
+    "hint2": "The big triangle's base is $12 + 8 = 20$ ft, so $\\dfrac{h}{20} = \\dfrac{6}{8}$.",
     "solutionSteps": [
-      "The shadow tip, the person\\'s feet and the lamppost\\'s base are collinear. Both triangles share the angle at the shadow tip, so they are similar.",
+      "The shadow tip, the person's feet and the lamppost's base are collinear. Both triangles share the angle at the shadow tip, so they are similar.",
       "Small triangle: height $6$, base $8$. Large triangle: height $h$, base $12 + 8 = 20$.",
       "$\\dfrac{h}{20} = \\dfrac{6}{8} \\Rightarrow h = 20\\cdot\\dfrac34 = 15$ ft."
     ],
@@ -231,7 +231,7 @@
     "answer": "24/7",
     "answerNumeric": 3.4285714285714284,
     "hint1": "Put the right angle at the origin, with legs along the axes. The hypotenuse is the line $\\tfrac{x}{8} + \\tfrac{y}{6} = 1$.",
-    "hint2": "The square\\'s far corner is $(s, s)$, which lies on the hypotenuse: $\\tfrac{s}{8} + \\tfrac{s}{6} = 1$.",
+    "hint2": "The square's far corner is $(s, s)$, which lies on the hypotenuse: $\\tfrac{s}{8} + \\tfrac{s}{6} = 1$.",
     "solutionSteps": [
       "Hypotenuse: $\\dfrac{x}{8} + \\dfrac{y}{6} = 1$.",
       "The corner $(s, s)$ lies on it: $s\\left(\\tfrac18 + \\tfrac16\\right) = 1$.",
@@ -247,7 +247,7 @@
     "prompt": "A $25$-foot ladder leans against a wall with its foot $7$ ft from the wall. The foot slides $8$ ft farther from the wall. How many feet does the top of the ladder slide down?",
     "answer": "4",
     "answerNumeric": 4.0,
-    "hint1": "Find the top\\'s height before and after. The ladder is the hypotenuse both times.",
+    "hint1": "Find the top's height before and after. The ladder is the hypotenuse both times.",
     "hint2": "Before: $\\sqrt{625 - 49} = 24$. After, the foot is $15$ ft out.",
     "solutionSteps": [
       "Initial height: $\\sqrt{25^2 - 7^2} = \\sqrt{576} = 24$.",
@@ -295,8 +295,8 @@
     "prompt": "A point $P$ inside rectangle $ABCD$ has $PA = 3$, $PB = 4$ and $PC = 5$. Find $PD$.",
     "answer": "3sqrt(2)",
     "answerNumeric": 4.242640687119285,
-    "hint1": "Set coordinates with $A$ at the origin. Each squared distance is a sum of two squares built from $P$\\'s distances to the sides.",
-    "hint2": "You\\'ll find that $PA^2 + PC^2 = PB^2 + PD^2$.",
+    "hint1": "Set coordinates with $A$ at the origin. Each squared distance is a sum of two squares built from $P$'s distances to the sides.",
+    "hint2": "You'll find that $PA^2 + PC^2 = PB^2 + PD^2$.",
     "solutionSteps": [
       "Let $P$ be at distances $a, b$ from sides $AB, CD$ and $c, d$ from sides $AD, BC$.",
       "$PA^2 = a^2 + c^2$, $PC^2 = b^2 + d^2$, $PB^2 = a^2 + d^2$, $PD^2 = b^2 + c^2$, so $PA^2 + PC^2 = PB^2 + PD^2$.",
@@ -587,7 +587,7 @@
     "id": "m038",
     "difficulty": "medium",
     "topic": "Logs and exponentials",
-    "prompt": "A town\\'s population follows $P(t) = 2000e^{kt}$, with $t$ in years. If $P(3) = 3000$, in how many years will the population reach $8000$?",
+    "prompt": "A town's population follows $P(t) = 2000e^{kt}$, with $t$ in years. If $P(3) = 3000$, in how many years will the population reach $8000$?",
     "answer": "3ln(4)/ln(3/2)",
     "answerNumeric": 10.257067748108728,
     "hint1": "From $2000e^{3k} = 3000$, find $k$.",
@@ -610,7 +610,7 @@
     "solutionSteps": [
       "$(x + 2) + 2(x - 2) = 5$.",
       "$3x - 2 = 5 \\Rightarrow x = \\tfrac73$.",
-      "$x = \\tfrac73$ doesn\\'t make any denominator zero, so it is valid."
+      "$x = \\tfrac73$ doesn't make any denominator zero, so it is valid."
     ]
   },
   {
@@ -681,7 +681,7 @@
     "prompt": "Find the sum of all integers $x$ that satisfy $$\\frac{x - 4}{x + 2} \\le 0.$$",
     "answer": "9",
     "answerNumeric": 9.0,
-    "hint1": "A quotient is $\\le 0$ when the top and bottom have opposite signs (or the top is $0$). The bottom can\\'t be $0$.",
+    "hint1": "A quotient is $\\le 0$ when the top and bottom have opposite signs (or the top is $0$). The bottom can't be $0$.",
     "hint2": "The critical points are $x = 4$ and $x = -2$. Test the intervals.",
     "solutionSteps": [
       "Sign chart: the quotient is negative for $-2 < x < 4$ and zero at $x = 4$. $x = -2$ is excluded.",
@@ -802,7 +802,7 @@
     "prompt": "Find the smallest solution greater than $\\tfrac{\\pi}{2}$ of $$\\sin 2x = \\cos x.$$",
     "answer": "5pi/6",
     "answerNumeric": 2.6179938779914944,
-    "hint1": "Use $\\sin2x = 2\\sin x\\cos x$ and factor. Don\\'t divide by $\\cos x$, or you\\'ll lose solutions.",
+    "hint1": "Use $\\sin2x = 2\\sin x\\cos x$ and factor. Don't divide by $\\cos x$, or you'll lose solutions.",
     "hint2": "$\\cos x(2\\sin x - 1) = 0$.",
     "solutionSteps": [
       "$2\\sin x\\cos x - \\cos x = \\cos x(2\\sin x - 1) = 0$.",
@@ -1330,7 +1330,7 @@
     "id": "m087",
     "difficulty": "medium",
     "topic": "Vectors",
-    "prompt": "A plane flies with an airspeed of $450$ km/h heading due north. A $50$ km/h wind blows from west to east. What is the plane\\'s speed over the ground, in km/h?",
+    "prompt": "A plane flies with an airspeed of $450$ km/h heading due north. A $50$ km/h wind blows from west to east. What is the plane's speed over the ground, in km/h?",
     "answer": "50sqrt(82)",
     "answerNumeric": 452.76925690687085,
     "hint1": "Add the velocity vectors: $\\langle 0, 450\\rangle + \\langle 50, 0\\rangle$.",
@@ -1529,7 +1529,7 @@
     "id": "m100",
     "difficulty": "medium",
     "topic": "Trig identities",
-    "prompt": "Two sides of a triangle are $7$ and $8$, and the angle between them is $\\tfrac{\\pi}{3}$. Find the radius of the triangle\\'s circumscribed circle.",
+    "prompt": "Two sides of a triangle are $7$ and $8$, and the angle between them is $\\tfrac{\\pi}{3}$. Find the radius of the triangle's circumscribed circle.",
     "answer": "sqrt(19)",
     "answerNumeric": 4.358898943540674,
     "hint1": "Find the third side with the law of cosines, then use the law of sines: $\\dfrac{c}{\\sin C} = 2R$.",

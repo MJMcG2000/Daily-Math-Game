@@ -131,7 +131,7 @@ def roots_in(f, lo, hi, var=x, samples=20000, closed_right=False):
     roots = []
     for c0 in cands:
         try:
-            rt = float(mp.findroot(g, c0, tol=1e-25))
+            rt = float(mp.re(mp.findroot(g, c0, tol=1e-25)))
         except Exception:  # noqa: BLE001
             continue
         if abs(float(mp.re(g(rt)))) > 1e-9:

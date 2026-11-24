@@ -44,7 +44,16 @@ def numeric(answer: str):
     return float(sp.N(v, 30))
 
 
+def clean(text: str) -> str:
+    # Authoring modules use raw strings, where \' (needed for apostrophes and primes) stays literal.
+    return text.replace("\\'", "'")
+
+
 def to_json(p, difficulty):
+    p.prompt, p.hint1, p.hint2 = clean(p.prompt), clean(p.hint1), clean(p.hint2)
+    p.steps = [clean(s) for s in p.steps]
+    if p.alt:
+        p.alt = clean(p.alt)
     d = {
         'id': p.id,
         'difficulty': difficulty,

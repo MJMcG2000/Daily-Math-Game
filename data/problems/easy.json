@@ -323,7 +323,7 @@
     "id": "e022",
     "difficulty": "easy",
     "topic": "Ratios",
-    "prompt": "A map uses the scale $1 : 25{,}000$. A rectangular park measures $6$ cm by $4.8$ cm on the map. What is the park\\'s real area in square kilometers?",
+    "prompt": "A map uses the scale $1 : 25{,}000$. A rectangular park measures $6$ cm by $4.8$ cm on the map. What is the park's real area in square kilometers?",
     "answer": "9/5",
     "answerNumeric": 1.8,
     "hint1": "Convert each map length to a real length in kilometers first. $1$ km $= 100{,}000$ cm.",
@@ -356,7 +356,7 @@
     "prompt": "Machine A fills $3$ boxes in $4$ minutes. Machine B fills $5$ boxes in $6$ minutes. Working together, how many minutes do they take to fill $95$ boxes?",
     "answer": "60",
     "answerNumeric": 60.0,
-    "hint1": "Find each machine\\'s rate in boxes per minute, then add the rates.",
+    "hint1": "Find each machine's rate in boxes per minute, then add the rates.",
     "hint2": "The rates are $\\tfrac34$ and $\\tfrac56$ boxes/min. Together that is $\\tfrac{19}{12}$ boxes/min.",
     "solutionSteps": [
       "A: $\\tfrac34$ box/min. B: $\\tfrac56$ box/min.",
@@ -413,7 +413,7 @@
     "id": "e028",
     "difficulty": "easy",
     "topic": "Percents",
-    "prompt": "A jacket\\'s price is raised by $25\\%$, then the new price is discounted by $20\\%$, and then a $10\\%$ sales tax is added. The final price is \\$99. What was the original price, in dollars?",
+    "prompt": "A jacket's price is raised by $25\\%$, then the new price is discounted by $20\\%$, and then a $10\\%$ sales tax is added. The final price is \\$99. What was the original price, in dollars?",
     "answer": "90",
     "answerNumeric": 90.0,
     "hint1": "Each percentage change multiplies the price by a factor: $1.25$, then $0.80$, then $1.10$.",
@@ -428,7 +428,7 @@
     "id": "e029",
     "difficulty": "easy",
     "topic": "Percents",
-    "prompt": "A town\\'s population fell $20\\%$ one year. By what percent must it grow the next year to return to its original size? Give the percent as a number.",
+    "prompt": "A town's population fell $20\\%$ one year. By what percent must it grow the next year to return to its original size? Give the percent as a number.",
     "answer": "25",
     "answerNumeric": 25.0,
     "hint1": "After a $20\\%$ drop the population is $0.8P$. Find the factor that brings $0.8P$ back to $P$.",
@@ -443,7 +443,7 @@
     "id": "e030",
     "difficulty": "easy",
     "topic": "Percents",
-    "prompt": "In a class, $40\\%$ of students are boys. $25\\%$ of the boys and $50\\%$ of the girls joined the math club. What percent of the club\\'s members are boys?",
+    "prompt": "In a class, $40\\%$ of students are boys. $25\\%$ of the boys and $50\\%$ of the girls joined the math club. What percent of the club's members are boys?",
     "answer": "25",
     "answerNumeric": 25.0,
     "hint1": "Imagine the class has $100$ students: $40$ boys and $60$ girls.",
@@ -473,7 +473,7 @@
     "id": "e032",
     "difficulty": "easy",
     "topic": "Percents",
-    "prompt": "A store marks up its cost by $60\\%$ to set the list price, then runs a sale at $30\\%$ off the list price. What is the store\\'s profit as a percent of cost?",
+    "prompt": "A store marks up its cost by $60\\%$ to set the list price, then runs a sale at $30\\%$ off the list price. What is the store's profit as a percent of cost?",
     "answer": "12",
     "answerNumeric": 12.0,
     "hint1": "Take the cost to be \\$100.",
@@ -533,7 +533,7 @@
     "id": "e036",
     "difficulty": "easy",
     "topic": "Percents",
-    "prompt": "A rectangle\\'s length is increased by $20\\%$ and its width is decreased by $25\\%$. By what percent does its area decrease? Give the percent as a number.",
+    "prompt": "A rectangle's length is increased by $20\\%$ and its width is decreased by $25\\%$. By what percent does its area decrease? Give the percent as a number.",
     "answer": "10",
     "answerNumeric": 10.0,
     "hint1": "Area scales by the product of the two factors.",
@@ -904,7 +904,7 @@
     "prompt": "A boat travels $36$ km downstream in $2$ hours and makes the return trip upstream in $3$ hours. What is the speed of the current, in km/h?",
     "answer": "3",
     "answerNumeric": 3.0,
-    "hint1": "Downstream speed is $b + c$ and upstream speed is $b - c$, where $b$ is the boat\\'s speed in still water.",
+    "hint1": "Downstream speed is $b + c$ and upstream speed is $b - c$, where $b$ is the boat's speed in still water.",
     "hint2": "$b + c = 18$ and $b - c = 12$.",
     "solutionSteps": [
       "Downstream: $b + c = 36/2 = 18$. Upstream: $b - c = 36/3 = 12$.",
@@ -1115,7 +1115,7 @@
     "prompt": "Find the larger solution of $$x^2 - 6x + 4 = 0.$$",
     "answer": "3+sqrt(5)",
     "answerNumeric": 5.23606797749979,
-    "hint1": "It doesn\\'t factor nicely. Complete the square or use the quadratic formula.",
+    "hint1": "It doesn't factor nicely. Complete the square or use the quadratic formula.",
     "hint2": "$x^2 - 6x + 9 = 5$, so $(x - 3)^2 = 5$.",
     "solutionSteps": [
       "Add $5$ to both sides: $x^2 - 6x + 9 = 5$.",
@@ -1388,7 +1388,7 @@
     "prompt": "Pipe A fills a pool in $6$ hours and pipe B fills it in $9$ hours. A drain empties a full pool in $12$ hours. Starting empty, with both pipes and the drain open, how many hours does it take to fill the pool?",
     "answer": "36/7",
     "answerNumeric": 5.142857142857143,
-    "hint1": "Add the rates in pools per hour. The drain\\'s rate counts as negative.",
+    "hint1": "Add the rates in pools per hour. The drain's rate counts as negative.",
     "hint2": "$\\tfrac16 + \\tfrac19 - \\tfrac1{12} = \\tfrac{6 + 4 - 3}{36} = \\tfrac{7}{36}$ pool per hour.",
     "solutionSteps": [
       "Combined rate: $\\tfrac16 + \\tfrac19 - \\tfrac1{12}$.",
@@ -1408,7 +1408,7 @@
     "solutionSteps": [
       "$B + 12 = 2(B - 3) = 2B - 6$.",
       "$B = 18$.",
-      "Check: Ana is $25$. In 5 years she\\'ll be $30 = 2(18 - 3)$. ✓ Ben is $18$."
+      "Check: Ana is $25$. In 5 years she'll be $30 = 2(18 - 3)$. ✓ Ben is $18$."
     ]
   },
   {
@@ -1493,7 +1493,7 @@
     "prompt": "Kai reads $\\tfrac14$ of a book on Monday and $\\tfrac13$ of the remaining pages on Tuesday. After reading $60$ more pages on Wednesday, Kai has finished $\\tfrac34$ of the book. How many pages does the book have?",
     "answer": "240",
     "answerNumeric": 240.0,
-    "hint1": "After Monday, $\\tfrac34$ of the book is left. Tuesday\\'s reading is $\\tfrac13$ of that.",
+    "hint1": "After Monday, $\\tfrac34$ of the book is left. Tuesday's reading is $\\tfrac13$ of that.",
     "hint2": "Monday plus Tuesday is $\\tfrac14 + \\tfrac14 = \\tfrac12$ of the book.",
     "solutionSteps": [
       "Tuesday: $\\tfrac13\\cdot\\tfrac34 = \\tfrac14$ of the book.",
