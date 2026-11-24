@@ -1,0 +1,144 @@
+import { useEffect, useRef, useState } from 'react';
+import type { Problem, ProblemState } from '../types';
+import { MAX_GUESSES, MAX_HINTS, scoreProblem, formatDuration, TARGET_MS } from '../lib/scoring';
+import { parseAnswer } from '../lib/parse';
+import { AnswerInput } from './AnswerInput';
+import { Diagram } from './Diagram';
+import { MathText, TeX } from './MathText';
+
+const LABEL = { easy: 'Easy', medium: 'Medium', hard: 'Hard' } as const;
+const MARK_ICON = { correct: '✓', close: '≈', wrong: '✗' } as const;
+const MARK_TEXT = { correct: 'Correct', close: 'Close', wrong: 'Wrong' } as const;
+
+export function ProblemCard({ problem, state, index, onStart, onGuess, onHint }: {
+  problem: Problem;
+  state: ProblemState;
+  index: number;
+  onStart: () => void;
+  onGuess: (input: string, value: number) => void;
+  onHint: () => void;
+}) {
+  const done = state.status !== 'playing';
+  const score = scoreProblem(state, problem.difficulty);
+  const answerTex = parseAnswer(problem.answer);
+  const [stepsShown, setStepsShown] = useState(1);
+  const resultRef = useRef<HTMLDivElement>(null);
+  const wasDone = useRef(done);
+
+  useEffect(() => {
+    // Move focus to the result when the problem finishes, so screen readers announce it.
+    if (done && !wasDone.current) resultRef.current?.focus();
+    wasDone.current = done;
+  }, [done]);
+
+  const topic = problem.course ? `${problem.topic} · ${problem.course === 'calc1' ? 'Calc 1' : 'Calc 2'}` : problem.topic;
+
+  if (!state.started) {
+    return (
+      <section className="card start-card" aria-labelledby={`p${index}-title`}>
+        <h2 id={`p${index}-title`} className="card-title">
+          Problem {index + 1} · {LABEL[problem.difficulty]}
+        </h2>
+        <p className="muted">{topic}</p>
+        <p>
+          The timer starts when you reveal the problem. Full points if solved within{' '}
+          <strong>{TARGET_MS[problem.difficulty] / 60000} min</strong>; after that points shrink
+          gradually, down to half at {(3 * TARGET_MS[problem.difficulty]) / 60000} min.
+        </p>
+        <button className="btn primary big" onClick={onStart}>Reveal problem {index + 1}</button>
+      </section>
+    );
+  }
+
+  return (
+    <section className="card" aria-labelledby={`p${index}-title`}>
+      <header className="card-head">
+        <h2 id={`p${index}-title`} className="card-title">
+          Problem {index + 1} · {LABEL[problem.difficulty]}
+        </h2>
+        <span className="muted small">{topic}</span>
+      </header>
+
+      <MathText className="prompt" text={problem.prompt} />
+      {problem.diagram && <Diagram svg={problem.diagram} alt={problem.diagramAlt} />}
+
+      {state.guesses.length > 0 && (
+        <ol className="guesses" aria-label="Your guesses">
+          {state.guesses.map((g, i) => {
+            const p = parseAnswer(g.input);
+            return (
+              <li key={i} className={`guess ${g.mark}`}>
+                <span className="mark" aria-hidden="true">{MARK_ICON[g.mark]}</span>
+                <span className="guess-expr">{p.ok ? <TeX tex={p.tex} /> : g.input}</span>
+                <span className="guess-fb">
+                  {MARK_TEXT[g.mark]}
+                  {g.direction && (
+                    <>
+                      {' · answer is '}
+                      <strong>{g.direction}</strong> <span aria-hidden="true">{g.direction === 'higher' ? '↑' : '↓'}</span>
+                    </>
+                  )}
+                </span>
+              </li>
+            );
+          })}
+        </ol>
+      )}
+
+      <div className="hints">
+        {state.hintsUsed >= 1 && (
+          <div className="hint"><strong>Hint 1.</strong> <MathText as="span" text={problem.hint1} /></div>
+        )}
+        {state.hintsUsed >= 2 && (
+          <div className="hint"><strong>Hint 2.</strong> <MathText as="span" text={problem.hint2} /></div>
+        )}
+        {!done && state.hintsUsed < MAX_HINTS && (
+          <button className="btn ghost" onClick={onHint}>
+            <span aria-hidden="true">💡</span> Show hint {state.hintsUsed + 1}
+            <span className="muted small"> (−0.5 pt)</span>
+          </button>
+        )}
+      </div>
+
+      {!done && (
+        <AnswerInput onSubmit={onGuess} guessesLeft={MAX_GUESSES - state.guesses.length} />
+      )}
+
+      <div aria-live="polite" className="visually-hidden">
+        {state.guesses.length > 0 && !done &&
+          `${MARK_TEXT[state.guesses[state.guesses.length - 1].mark]}. The answer is ${state.guesses[state.guesses.length - 1].direction}. ${MAX_GUESSES - state.guesses.length} guesses left.`}
+      </div>
+
+      {done && (
+        <div className={`result ${state.status}`} ref={resultRef} tabIndex={-1}>
+          <p className="result-line">
+            {state.status === 'solved' ? (
+              <><span aria-hidden="true">🎉 </span>Solved in {state.guesses.length} {state.guesses.length === 1 ? 'guess' : 'guesses'}</>
+            ) : (
+              <>Out of guesses. The answer was</>
+            )}{' '}
+            {answerTex.ok && <TeX tex={answerTex.tex} />}
+          </p>
+          <p className="muted small">
+            Time {formatDuration(state.elapsedMs)} ·{' '}
+            {state.status === 'solved'
+              ? `${score.afterHints} base × ${score.timeMult.toFixed(2)} time × ${score.weight} difficulty = ${score.total} pts`
+              : '0 pts'}
+          </p>
+          <h3>Worked solution</h3>
+          <ol className="steps">
+            {problem.solutionSteps.slice(0, stepsShown).map((s, i) => (
+              <MathText as="li" key={i} text={s} />
+            ))}
+          </ol>
+          {stepsShown < problem.solutionSteps.length && (
+            <div className="row">
+              <button className="btn" onClick={() => setStepsShown((n) => n + 1)}>Next step</button>
+              <button className="btn ghost" onClick={() => setStepsShown(problem.solutionSteps.length)}>Show all</button>
+            </div>
+          )}
+        </div>
+      )}
+    </section>
+  );
+}

@@ -1,0 +1,19 @@
+[
+  {
+    "id": "m001",
+    "difficulty": "medium",
+    "topic": "Similar triangles",
+    "prompt": "A 6 ft person stands 12 ft from a lamppost and casts a shadow 8 ft long. How tall, in feet, is the lamppost?",
+    "answer": "15",
+    "answerNumeric": 15,
+    "hint1": "The person and the lamppost form two similar right triangles that share the tip of the shadow.",
+    "hint2": "The big triangle's base is $12 + 8 = 20$ ft, so $\\frac{h}{20} = \\frac{6}{8}$.",
+    "solutionSteps": [
+      "The shadow tip, the person's feet, and the lamppost's base are collinear. Both triangles share the angle at the shadow tip, so they are similar.",
+      "Small triangle: height $6$, base $8$. Large triangle: height $h$, base $12 + 8 = 20$.",
+      "$\\dfrac{h}{20} = \\dfrac{6}{8} \\Rightarrow h = 20 \\cdot \\dfrac{3}{4} = 15$ ft."
+    ],
+    "diagram": "<svg viewBox=\"0 0 260 130\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" font-size=\"12\" font-family=\"inherit\"><line x1=\"20\" y1=\"110\" x2=\"240\" y2=\"110\"/><line x1=\"30\" y1=\"110\" x2=\"30\" y2=\"20\"/><circle cx=\"30\" cy=\"18\" r=\"5\" fill=\"currentColor\"/><line x1=\"130\" y1=\"110\" x2=\"130\" y2=\"74\"/><line x1=\"30\" y1=\"20\" x2=\"196\" y2=\"110\" stroke-dasharray=\"4 4\"/><g fill=\"currentColor\" stroke=\"none\"><text x=\"12\" y=\"70\">h</text><text x=\"136\" y=\"96\">6</text><text x=\"74\" y=\"125\">12</text><text x=\"158\" y=\"125\">8</text></g></svg>",
+    "diagramAlt": "A lamppost of height h on the left. 12 feet to its right stands a 6-foot person. A dashed line runs from the top of the lamp past the person's head to the end of the 8-foot shadow."
+  }
+]

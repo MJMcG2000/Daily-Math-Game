@@ -1,0 +1,18 @@
+[
+  {
+    "id": "e001",
+    "difficulty": "easy",
+    "topic": "Multi-step linear equations",
+    "prompt": "Solve for $x$: $$\\frac{3x-4}{5} - \\frac{x+2}{3} = 2$$",
+    "answer": "13",
+    "answerNumeric": 13,
+    "hint1": "Clear the fractions by multiplying every term by the least common denominator, $15$.",
+    "hint2": "You should get $3(3x-4) - 5(x+2) = 30$.",
+    "solutionSteps": [
+      "Multiply both sides by $15$: $3(3x-4) - 5(x+2) = 30$.",
+      "Expand: $9x - 12 - 5x - 10 = 30$.",
+      "Combine like terms: $4x - 22 = 30$.",
+      "So $4x = 52$ and $x = 13$."
+    ]
+  }
+]
