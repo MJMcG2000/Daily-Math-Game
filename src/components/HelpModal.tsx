@@ -24,8 +24,10 @@ export function HelpModal({ open, onClose }: { open: boolean; onClose: () => voi
         <li><strong>3 guesses</strong> per problem. A wrong guess tells you whether the answer is higher <span aria-hidden="true">↑</span> or lower <span aria-hidden="true">↓</span>.</li>
         <li><span className="chip close">≈ Close</span> means within 10% of the answer. <span className="chip wrong">✗ Wrong</span> means further off.</li>
         <li><strong>2 hints</strong> per problem, each costs 0.5 points.</li>
-        <li>The full worked solution appears once a problem is done.</li>
+        <li>The full worked solution, with the key idea and a reason for every step, appears once a problem is done.</li>
       </ul>
+      <h3>Endless mode</h3>
+      <p>Want more? Switch to <strong>Endless</strong> at the top. <strong>Practice</strong> serves problems one after another at the difficulty you pick, and tracks your streak. <strong>Survival</strong> starts easy and gets harder: three Easy problems, three Medium, then Hard ones until you miss one. Endless mode never shows today&apos;s daily problems and doesn&apos;t affect your daily stats.</p>
       <h3>Scoring</h3>
       <p>Solve on guess 1/2/3 for 3/2/1 points, minus hints (never below 0.5). Then × a time factor: 1.0 within the target time (Easy 3 min, Medium 6, Hard 10), shrinking smoothly to 0.5 at 3× the target. Then × difficulty: Easy ×1, Medium ×2, Hard ×3. Best possible day: {MAX_DAILY_SCORE}. Each problem's timer starts when you reveal it and pauses when you switch problems, switch tabs, or open a menu.</p>
       <h3>Typing answers</h3>

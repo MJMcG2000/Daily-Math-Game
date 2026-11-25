@@ -3,15 +3,19 @@
     "id": "h001",
     "difficulty": "hard",
     "topic": "Limits",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Evaluate $$\\lim_{x\\to0}\\frac{1 - \\cos 3x}{x\\sin 2x}.$$",
     "answer": "9/4",
     "answerNumeric": 2.25,
     "hint1": "Use the standard limits $\\dfrac{1 - \\cos u}{u^2} \\to \\tfrac12$ and $\\dfrac{\\sin u}{u} \\to 1$. Rewrite with matching arguments.",
     "hint2": "$\\dfrac{1 - \\cos3x}{x\\sin2x} = \\dfrac{1 - \\cos3x}{(3x)^2}\\cdot\\dfrac{2x}{\\sin2x}\\cdot\\dfrac{9x^2}{2x^2}$.",
+    "keyIdea": "Rewrite the expression so it is built from the two standard trig limits, $\\dfrac{\\sin u}{u} \\to 1$ and $\\dfrac{1 - \\cos u}{u^2} \\to \\tfrac12$, each with the *same* $u$ in the top and bottom.",
     "solutionSteps": [
-      "Write $\\dfrac{1 - \\cos3x}{x\\sin2x} = \\dfrac{1 - \\cos3x}{9x^2}\\cdot\\dfrac{2x}{\\sin2x}\\cdot\\dfrac{9}{2}$.",
-      "As $x \\to 0$: $\\dfrac{1 - \\cos3x}{9x^2} \\to \\tfrac12$ and $\\dfrac{2x}{\\sin2x} \\to 1$.",
-      "The limit is $\\tfrac12\\cdot1\\cdot\\tfrac92 = \\tfrac94$."
+      "**Why we can't just plug in.** At $x = 0$ the expression is $\\tfrac00$, so we need to rewrite it before taking the limit.",
+      "**Match the arguments.** The cosine has $3x$ inside, so we want $(3x)^2 = 9x^2$ under it. The sine has $2x$, so we want $2x$ under it. Multiplying and dividing by the right factors: $\\dfrac{1 - \\cos3x}{x\\sin2x} = \\dfrac{1 - \\cos3x}{9x^2}\\cdot\\dfrac{2x}{\\sin2x}\\cdot\\dfrac{9x^2}{2x\\cdot x}$.",
+      "**The leftover factor** simplifies to $\\dfrac{9x^2}{2x^2} = \\dfrac92$, a constant.",
+      "**Take limits of each piece.** $\\dfrac{1 - \\cos3x}{9x^2} \\to \\tfrac12$ and $\\dfrac{2x}{\\sin2x} \\to 1$, so the limit is $\\tfrac12\\cdot1\\cdot\\tfrac92 = \\tfrac94$."
     ],
     "course": "calc1"
   },
@@ -19,15 +23,19 @@
     "id": "h002",
     "difficulty": "hard",
     "topic": "Limits",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Evaluate $$\\lim_{x\\to\\infty}\\left(\\sqrt{x^2 + 6x} - x\\right).$$",
     "answer": "3",
     "answerNumeric": 3.0,
     "hint1": "This is an $\\infty - \\infty$ form. Multiply by the conjugate.",
     "hint2": "$\\dfrac{(x^2 + 6x) - x^2}{\\sqrt{x^2 + 6x} + x} = \\dfrac{6x}{\\sqrt{x^2 + 6x} + x}$.",
+    "keyIdea": "$\\infty - \\infty$ is not automatically $0$. Multiply by the conjugate to turn the difference into a fraction, then divide by the highest power of $x$.",
     "solutionSteps": [
-      "Multiply by the conjugate: $\\dfrac{6x}{\\sqrt{x^2 + 6x} + x}$.",
-      "Divide the top and bottom by $x$: $\\dfrac{6}{\\sqrt{1 + 6/x} + 1}$.",
-      "As $x \\to \\infty$: $\\dfrac{6}{1 + 1} = 3$."
+      "**Conjugate.** Multiply the top and bottom by $\\sqrt{x^2 + 6x} + x$: $\\dfrac{(x^2 + 6x) - x^2}{\\sqrt{x^2 + 6x} + x} = \\dfrac{6x}{\\sqrt{x^2 + 6x} + x}$.",
+      "**Divide by $x$.** For $x > 0$, $\\sqrt{x^2 + 6x} = x\\sqrt{1 + 6/x}$, so the expression is $\\dfrac{6}{\\sqrt{1 + 6/x} + 1}$.",
+      "**Let $x \\to \\infty$.** $\\tfrac6x \\to 0$, so the limit is $\\dfrac{6}{1 + 1} = 3$.",
+      "**Intuition.** For large $x$, $\\sqrt{x^2 + 6x} \\approx x + 3$ (because $(x + 3)^2 = x^2 + 6x + 9$), so the difference tends to $3$."
     ],
     "course": "calc1"
   },
@@ -35,15 +43,20 @@
     "id": "h003",
     "difficulty": "hard",
     "topic": "Limits",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Evaluate $$\\lim_{x\\to0}\\frac{\\tan x - \\sin x}{x^3}.$$",
     "answer": "1/2",
     "answerNumeric": 0.5,
     "hint1": "Factor: $\\tan x - \\sin x = \\tan x\\,(1 - \\cos x)$.",
     "hint2": "$\\dfrac{\\tan x}{x}\\cdot\\dfrac{1 - \\cos x}{x^2} \\to 1\\cdot\\tfrac12$.",
+    "keyIdea": "Factor $\\tan x$ out of the numerator: $\\tan x - \\sin x = \\tan x\\,(1 - \\cos x)$. That splits the expression into standard limits.",
     "solutionSteps": [
-      "$\\tan x - \\sin x = \\dfrac{\\sin x}{\\cos x}(1 - \\cos x)$.",
-      "$\\dfrac{\\tan x - \\sin x}{x^3} = \\dfrac{\\sin x}{x}\\cdot\\dfrac{1}{\\cos x}\\cdot\\dfrac{1 - \\cos x}{x^2}$.",
-      "Limit: $1\\cdot1\\cdot\\tfrac12 = \\tfrac12$."
+      "**Why the obvious approach stalls.** At $x = 0$ the expression is $\\tfrac00$. Applying L'Hôpital would take three rounds, so factoring is quicker.",
+      "**Factor the numerator.** Write $\\tan x$ as $\\tfrac{\\sin x}{\\cos x}$ and pull out the common factor: $\\tan x - \\sin x = \\dfrac{\\sin x}{\\cos x}(1 - \\cos x)$.",
+      "**Split $x^3$ into $x\\cdot x^2$** so that each piece matches a standard limit: $\\dfrac{\\tan x - \\sin x}{x^3} = \\dfrac{\\sin x}{x}\\cdot\\dfrac{1}{\\cos x}\\cdot\\dfrac{1 - \\cos x}{x^2}$.",
+      "**Take each limit.** As $x \\to 0$, $\\dfrac{\\sin x}{x} \\to 1$, $\\dfrac{1}{\\cos x} \\to 1$ and $\\dfrac{1 - \\cos x}{x^2} \\to \\tfrac12$. The product of the limits is $\\tfrac12$.",
+      "**Check with series.** $\\tan x \\approx x + \\tfrac{x^3}{3}$ and $\\sin x \\approx x - \\tfrac{x^3}{6}$, so the difference is about $\\tfrac{x^3}{2}$, which gives $\\tfrac12$ again."
     ],
     "course": "calc1"
   },
@@ -51,15 +64,19 @@
     "id": "h004",
     "difficulty": "hard",
     "topic": "Limits",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Evaluate $$\\lim_{x\\to\\infty}\\left(1 + \\frac{3}{x}\\right)^{2x}.$$",
     "answer": "e^6",
     "answerNumeric": 403.4287934927351,
     "hint1": "This is a $1^\\infty$ form. Take the log: $L = \\lim 2x\\ln\\left(1 + \\tfrac3x\\right)$.",
     "hint2": "Let $t = \\tfrac3x$. Then $2x\\ln(1 + t) = 6\\cdot\\dfrac{\\ln(1 + t)}{t} \\to 6$.",
+    "keyIdea": "For a $1^\\infty$ form, take the natural log. That turns the exponent into a product, which you can handle with a known limit or L'Hôpital's rule.",
     "solutionSteps": [
-      "$\\ln y = 2x\\ln\\left(1 + \\tfrac3x\\right)$.",
-      "With $t = 3/x \\to 0^+$: $\\ln y = 6\\,\\dfrac{\\ln(1 + t)}{t} \\to 6$.",
-      "So $y \\to e^6$."
+      "**Log of the expression.** Let $y = \\left(1 + \\tfrac3x\\right)^{2x}$. Then $\\ln y = 2x\\ln\\left(1 + \\tfrac3x\\right)$, which is an $\\infty\\cdot0$ form.",
+      "**Substitute $t = \\tfrac3x$.** As $x \\to \\infty$, $t \\to 0^+$, and $2x = \\tfrac6t$. So $\\ln y = 6\\cdot\\dfrac{\\ln(1 + t)}{t}$.",
+      "**Known limit.** $\\dfrac{\\ln(1 + t)}{t} \\to 1$ as $t \\to 0$ (L'Hôpital: $\\dfrac{1/(1 + t)}{1} \\to 1$). So $\\ln y \\to 6$.",
+      "**Undo the log.** $y \\to e^6 \\approx 403$. This matches the pattern $\\left(1 + \\tfrac ax\\right)^{bx} \\to e^{ab}$."
     ],
     "course": "calc1"
   },
@@ -67,15 +84,19 @@
     "id": "h005",
     "difficulty": "hard",
     "topic": "Limits",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Evaluate $$\\lim_{x\\to1}\\frac{\\sqrt[3]{x} - 1}{\\sqrt{x} - 1}.$$",
     "answer": "2/3",
     "answerNumeric": 0.6666666666666666,
     "hint1": "Substitute $x = u^6$ so both roots become whole powers of $u$.",
     "hint2": "The limit becomes $\\lim_{u\\to1}\\dfrac{u^2 - 1}{u^3 - 1}$.",
+    "keyIdea": "Both roots go to $1$, giving $\\tfrac00$. Substituting $x = u^6$ turns both roots into whole powers of $u$, and the problem becomes ordinary factoring.",
     "solutionSteps": [
-      "With $x = u^6$: $\\dfrac{u^2 - 1}{u^3 - 1} = \\dfrac{(u - 1)(u + 1)}{(u - 1)(u^2 + u + 1)}$.",
-      "Cancel: $\\dfrac{u + 1}{u^2 + u + 1}$.",
-      "At $u = 1$: $\\tfrac23$."
+      "**Substitute.** Let $x = u^6$, so $\\sqrt[3]{x} = u^2$ and $\\sqrt x = u^3$. As $x \\to 1$, $u \\to 1$.",
+      "**New limit.** $\\lim_{u\\to1}\\dfrac{u^2 - 1}{u^3 - 1}$.",
+      "**Factor and cancel.** $\\dfrac{(u - 1)(u + 1)}{(u - 1)(u^2 + u + 1)} = \\dfrac{u + 1}{u^2 + u + 1}$.",
+      "**Evaluate at $u = 1$.** $\\dfrac{2}{3}$. (Or L'Hôpital in $x$: $\\dfrac{\\frac13x^{-2/3}}{\\frac12x^{-1/2}} \\to \\dfrac{1/3}{1/2} = \\dfrac23$.)"
     ],
     "course": "calc1"
   },
@@ -83,15 +104,19 @@
     "id": "h006",
     "difficulty": "hard",
     "topic": "Limits",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Evaluate $$\\lim_{x\\to0}\\frac{e^{2x} - 1 - 2x}{1 - \\cos x}.$$",
     "answer": "4",
     "answerNumeric": 4.0,
     "hint1": "It is $\\tfrac00$. Apply L'Hôpital's rule, twice if needed.",
     "hint2": "After one application: $\\dfrac{2e^{2x} - 2}{\\sin x}$, which is still $\\tfrac00$.",
+    "keyIdea": "This is a $\\tfrac00$ form, so use L'Hôpital's rule: differentiate the top and bottom separately. You need to apply it twice.",
     "solutionSteps": [
-      "L'Hôpital: $\\dfrac{2e^{2x} - 2}{\\sin x}$, still $\\tfrac00$.",
-      "Again: $\\dfrac{4e^{2x}}{\\cos x}$.",
-      "At $x = 0$: $\\tfrac41 = 4$."
+      "**Check the form.** At $x = 0$ the top is $1 - 1 - 0 = 0$ and the bottom is $1 - 1 = 0$.",
+      "**First application.** $\\dfrac{2e^{2x} - 2}{\\sin x}$, which is still $\\tfrac00$ at $0$.",
+      "**Second application.** $\\dfrac{4e^{2x}}{\\cos x}$. At $0$ this is $\\tfrac41 = 4$.",
+      "**Check with series.** The top is $\\approx 2x^2$ and the bottom is $\\approx \\tfrac{x^2}{2}$, and $\\tfrac{2}{1/2} = 4$. ✓"
     ],
     "course": "calc1"
   },
@@ -99,15 +124,18 @@
     "id": "h007",
     "difficulty": "hard",
     "topic": "Limits",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Evaluate $$\\lim_{x\\to0^+}(1 + \\sin x)^{1/x}.$$",
     "answer": "e",
     "answerNumeric": 2.718281828459045,
     "hint1": "Take the log: $\\ln y = \\dfrac{\\ln(1 + \\sin x)}{x}$.",
     "hint2": "L'Hôpital: $\\dfrac{\\cos x/(1 + \\sin x)}{1} \\to 1$.",
+    "keyIdea": "A variable raised to a variable power: take the log so the exponent comes down, find that limit, then exponentiate.",
     "solutionSteps": [
-      "$\\ln y = \\dfrac{\\ln(1 + \\sin x)}{x}$, a $\\tfrac00$ form.",
-      "L'Hôpital: $\\dfrac{\\cos x}{1 + \\sin x} \\to 1$.",
-      "So $y \\to e^1 = e$."
+      "**Log.** $\\ln y = \\dfrac{\\ln(1 + \\sin x)}{x}$. As $x \\to 0^+$ this is $\\tfrac00$.",
+      "**L'Hôpital.** Differentiate the top and bottom: $\\dfrac{\\cos x/(1 + \\sin x)}{1} \\to \\dfrac{1}{1} = 1$.",
+      "**Exponentiate.** $\\ln y \\to 1$, so $y \\to e$. Intuitively, $\\sin x \\approx x$ for small $x$, so this behaves like the classic $(1 + x)^{1/x} \\to e$."
     ],
     "course": "calc1"
   },
@@ -115,15 +143,19 @@
     "id": "h008",
     "difficulty": "hard",
     "topic": "Limits",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Evaluate $$\\lim_{x\\to\\infty} x\\left(\\frac{\\pi}{2} - \\arctan x\\right).$$",
     "answer": "1",
     "answerNumeric": 1.0,
     "hint1": "Rewrite it as $\\dfrac{\\pi/2 - \\arctan x}{1/x}$, a $\\tfrac00$ form.",
     "hint2": "L'Hôpital: $\\dfrac{-1/(1 + x^2)}{-1/x^2} = \\dfrac{x^2}{1 + x^2}$.",
+    "keyIdea": "Rewrite $\\infty\\cdot0$ as a fraction, $\\dfrac{0}{0}$, so L'Hôpital applies. Put the $x$ in the denominator as $\\tfrac1x$.",
     "solutionSteps": [
-      "$\\dfrac{\\pi/2 - \\arctan x}{1/x}$ is $\\tfrac00$ as $x \\to \\infty$.",
-      "Differentiate the top and bottom: $\\dfrac{-\\frac{1}{1 + x^2}}{-\\frac{1}{x^2}} = \\dfrac{x^2}{1 + x^2}$.",
-      "This tends to $1$."
+      "**Rewrite.** $x\\left(\\tfrac\\pi2 - \\arctan x\\right) = \\dfrac{\\frac\\pi2 - \\arctan x}{1/x}$. Both parts go to $0$.",
+      "**Differentiate.** The top gives $-\\dfrac{1}{1 + x^2}$ and the bottom gives $-\\dfrac{1}{x^2}$.",
+      "**Ratio.** $\\dfrac{-1/(1 + x^2)}{-1/x^2} = \\dfrac{x^2}{1 + x^2} \\to 1$.",
+      "**Interpretation.** $\\tfrac\\pi2 - \\arctan x = \\arctan\\tfrac1x \\approx \\tfrac1x$ for large $x$, so the product tends to $1$."
     ],
     "course": "calc1"
   },
@@ -131,16 +163,19 @@
     "id": "h009",
     "difficulty": "hard",
     "topic": "Limits",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Evaluate $$\\lim_{x\\to0}\\left(\\frac{1}{\\sin^2 x} - \\frac{1}{x^2}\\right).$$",
     "answer": "1/3",
     "answerNumeric": 0.3333333333333333,
     "hint1": "Combine into one fraction: $\\dfrac{x^2 - \\sin^2x}{x^2\\sin^2x}$. Use Taylor expansions.",
     "hint2": "$\\sin^2 x = x^2 - \\tfrac{x^4}{3} + O(x^6)$.",
+    "keyIdea": "Combine into one fraction, then use the Taylor expansion of $\\sin x$. The difference is tiny, of order $x^4$, and you have to keep enough terms to see it.",
     "solutionSteps": [
-      "$\\dfrac{x^2 - \\sin^2 x}{x^2\\sin^2 x}$.",
-      "$\\sin x = x - \\tfrac{x^3}{6} + \\cdots \\Rightarrow \\sin^2x = x^2 - \\tfrac{x^4}{3} + O(x^6)$.",
-      "Numerator $\\approx \\tfrac{x^4}{3}$ and denominator $\\approx x^4$.",
-      "Limit: $\\tfrac13$."
+      "**One fraction.** $\\dfrac{1}{\\sin^2x} - \\dfrac{1}{x^2} = \\dfrac{x^2 - \\sin^2x}{x^2\\sin^2x}$.",
+      "**Expand $\\sin^2x$.** $\\sin x = x - \\tfrac{x^3}{6} + O(x^5)$, so $\\sin^2x = x^2 - \\tfrac{x^4}{3} + O(x^6)$.",
+      "**Numerator and denominator.** The top is $\\tfrac{x^4}{3} + O(x^6)$. The bottom is $x^2\\cdot x^2(1 + O(x^2)) = x^4 + O(x^6)$.",
+      "**Limit.** $\\dfrac{x^4/3}{x^4} \\to \\tfrac13$. (L'Hôpital also works, but needs four rounds.)"
     ],
     "course": "calc1"
   },
@@ -148,15 +183,19 @@
     "id": "h010",
     "difficulty": "hard",
     "topic": "Product rule",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Let $f(x) = x^2e^{-x}\\sin x$. Find $f'(\\pi)$.",
     "answer": "-pi^2 e^(-pi)",
     "answerNumeric": -0.4265042778844424,
     "hint1": "Use the product rule for three factors: $(uvw)' = u'vw + uv'w + uvw'$.",
     "hint2": "At $x = \\pi$, $\\sin\\pi = 0$ kills two of the three terms.",
+    "keyIdea": "For a product of three factors, the derivative is a sum of three terms, each with one factor differentiated. At $x = \\pi$, $\\sin\\pi = 0$ wipes out two of them.",
     "solutionSteps": [
-      "$f' = 2xe^{-x}\\sin x - x^2e^{-x}\\sin x + x^2e^{-x}\\cos x$.",
-      "At $\\pi$: $\\sin\\pi = 0$ and $\\cos\\pi = -1$.",
-      "$f'(\\pi) = -\\pi^2e^{-\\pi} \\approx -0.426$."
+      "**Three-factor product rule.** $(uvw)' = u'vw + uv'w + uvw'$ with $u = x^2$, $v = e^{-x}$ and $w = \\sin x$.",
+      "**Each term.** $2x\\,e^{-x}\\sin x \\;-\\; x^2e^{-x}\\sin x \\;+\\; x^2e^{-x}\\cos x$. The middle term is negative because $(e^{-x})' = -e^{-x}$.",
+      "**Evaluate at $\\pi$.** $\\sin\\pi = 0$ kills the first two terms, and $\\cos\\pi = -1$.",
+      "**Result.** $f'(\\pi) = \\pi^2e^{-\\pi}(-1) = -\\pi^2e^{-\\pi} \\approx -0.426$."
     ],
     "course": "calc1"
   },
@@ -164,15 +203,19 @@
     "id": "h011",
     "difficulty": "hard",
     "topic": "Chain rule",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Let $f(x) = \\ln\\sqrt{\\dfrac{1 + x^2}{1 - x^2}}$. Find $f'\\!\\left(\\tfrac12\\right)$.",
     "answer": "16/15",
     "answerNumeric": 1.0666666666666667,
     "hint1": "Simplify with log rules before differentiating: $f(x) = \\tfrac12\\ln(1 + x^2) - \\tfrac12\\ln(1 - x^2)$.",
     "hint2": "$f'(x) = \\dfrac{x}{1 + x^2} + \\dfrac{x}{1 - x^2}$.",
+    "keyIdea": "Before differentiating, use log rules to break the expression into simple pieces. $\\ln\\sqrt{\\tfrac{A}{B}} = \\tfrac12\\ln A - \\tfrac12\\ln B$.",
     "solutionSteps": [
-      "$f(x) = \\tfrac12\\ln(1 + x^2) - \\tfrac12\\ln(1 - x^2)$.",
-      "$f'(x) = \\dfrac{x}{1 + x^2} + \\dfrac{x}{1 - x^2}$.",
-      "At $\\tfrac12$: $\\dfrac{1/2}{5/4} + \\dfrac{1/2}{3/4} = \\tfrac25 + \\tfrac23 = \\tfrac{16}{15}$."
+      "**Simplify with log rules before differentiating.** A square root is a power of $\\tfrac12$, and the log of a quotient is a difference of logs. So $f(x) = \\tfrac12\\ln(1 + x^2) - \\tfrac12\\ln(1 - x^2)$.",
+      "**Differentiate each log with the chain rule,** using $(\\ln u)' = \\tfrac{u'}{u}$. The first gives $\\tfrac12\\cdot\\tfrac{2x}{1 + x^2}$. The second gives $-\\tfrac12\\cdot\\tfrac{-2x}{1 - x^2}$, where the two minus signs combine into a plus.",
+      "**So** $f'(x) = \\dfrac{x}{1 + x^2} + \\dfrac{x}{1 - x^2}$.",
+      "**Evaluate at $x = \\tfrac12$.** $\\dfrac{1/2}{5/4} + \\dfrac{1/2}{3/4} = \\tfrac25 + \\tfrac23 = \\tfrac{16}{15}$."
     ],
     "course": "calc1"
   },
@@ -180,15 +223,19 @@
     "id": "h012",
     "difficulty": "hard",
     "topic": "Quotient rule",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Let $y = \\dfrac{(x^2 + 1)^3}{(2x - 1)^2}$. Find $y'(1)$.",
     "answer": "-8",
     "answerNumeric": -8.0,
     "hint1": "Logarithmic differentiation is cleanest: $\\ln y = 3\\ln(x^2 + 1) - 2\\ln(2x - 1)$.",
     "hint2": "$\\dfrac{y'}{y} = \\dfrac{6x}{x^2 + 1} - \\dfrac{4}{2x - 1}$.",
+    "keyIdea": "For a messy quotient of powers, *logarithmic differentiation* is cleaner than the quotient rule. Take $\\ln$ of both sides, differentiate, then multiply back by $y$.",
     "solutionSteps": [
-      "$\\dfrac{y'}{y} = \\dfrac{6x}{x^2 + 1} - \\dfrac{4}{2x - 1}$.",
-      "At $x = 1$: $\\dfrac{y'}{y} = 3 - 4 = -1$, and $y(1) = \\tfrac{8}{1} = 8$.",
-      "$y'(1) = -8$."
+      "**Take logs.** $\\ln y = 3\\ln(x^2 + 1) - 2\\ln(2x - 1)$.",
+      "**Differentiate.** $\\dfrac{y'}{y} = \\dfrac{3\\cdot2x}{x^2 + 1} - \\dfrac{2\\cdot2}{2x - 1} = \\dfrac{6x}{x^2 + 1} - \\dfrac{4}{2x - 1}$.",
+      "**At $x = 1$.** $\\dfrac{y'}{y} = 3 - 4 = -1$, and $y(1) = \\dfrac{2^3}{1^2} = 8$.",
+      "**Solve.** $y'(1) = -1\\cdot8 = -8$."
     ],
     "course": "calc1"
   },
@@ -196,15 +243,19 @@
     "id": "h013",
     "difficulty": "hard",
     "topic": "Chain rule",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Let $f(x) = x^x$ for $x > 0$. Find $f'(2)$.",
     "answer": "4 + 4ln(2)",
     "answerNumeric": 6.772588722239782,
     "hint1": "Write $x^x = e^{x\\ln x}$, or take logs of both sides.",
     "hint2": "$\\dfrac{d}{dx}(x\\ln x) = \\ln x + 1$, so $f'(x) = x^x(\\ln x + 1)$.",
+    "keyIdea": "When both the base and the exponent vary, neither the power rule nor the exponential rule applies. Rewrite $x^x = e^{x\\ln x}$, or take logs, and use the chain rule.",
     "solutionSteps": [
-      "$\\ln f = x\\ln x \\Rightarrow \\dfrac{f'}{f} = \\ln x + 1$.",
-      "$f'(x) = x^x(\\ln x + 1)$.",
-      "$f'(2) = 4(\\ln2 + 1) = 4 + 4\\ln2$."
+      "**Why the usual rules fail.** The power rule assumes a constant exponent, and the exponential rule assumes a constant base. Here both vary.",
+      "**Logs.** $\\ln f = x\\ln x$. Differentiating both sides: $\\dfrac{f'}{f} = \\ln x + x\\cdot\\tfrac1x = \\ln x + 1$.",
+      "**Derivative.** $f'(x) = x^x(\\ln x + 1)$.",
+      "**At $x = 2$.** $4(\\ln2 + 1) = 4 + 4\\ln2 \\approx 6.77$."
     ],
     "course": "calc1"
   },
@@ -212,15 +263,19 @@
     "id": "h014",
     "difficulty": "hard",
     "topic": "Chain rule",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Let $f(x) = \\sin^3(2x)\\cos(3x)$. Find $f'\\!\\left(\\tfrac{\\pi}{6}\\right)$.",
     "answer": "-9sqrt(3)/8",
     "answerNumeric": -1.948557158514987,
     "hint1": "Product rule, with the chain rule on each factor.",
     "hint2": "$f' = 6\\sin^2(2x)\\cos(2x)\\cos(3x) - 3\\sin^3(2x)\\sin(3x)$.",
+    "keyIdea": "This is a product, and each factor needs the chain rule. At $x = \\tfrac\\pi6$ the factor $\\cos3x$ is zero, which simplifies the evaluation a lot.",
     "solutionSteps": [
-      "$f' = 6\\sin^2(2x)\\cos(2x)\\cos(3x) - 3\\sin^3(2x)\\sin(3x)$.",
-      "At $\\tfrac\\pi6$: $\\cos(3x) = \\cos\\tfrac\\pi2 = 0$, so the first term vanishes.",
-      "$\\sin(2x) = \\tfrac{\\sqrt3}{2}$ and $\\sin(3x) = 1$: $f' = -3\\cdot\\tfrac{3\\sqrt3}{8} = -\\tfrac{9\\sqrt3}{8}$."
+      "**Product rule.** $f' = (\\sin^32x)'\\cos3x + \\sin^32x\\,(\\cos3x)'$.",
+      "**Chain rule on each.** $(\\sin^32x)' = 3\\sin^22x\\cdot\\cos2x\\cdot2$ and $(\\cos3x)' = -3\\sin3x$. So $f' = 6\\sin^22x\\cos2x\\cos3x - 3\\sin^32x\\sin3x$.",
+      "**Evaluate at $\\tfrac\\pi6$.** $2x = \\tfrac\\pi3$ and $3x = \\tfrac\\pi2$. Since $\\cos\\tfrac\\pi2 = 0$, the first term vanishes.",
+      "**Second term.** $-3\\left(\\tfrac{\\sqrt3}{2}\\right)^3\\cdot1 = -3\\cdot\\tfrac{3\\sqrt3}{8} = -\\tfrac{9\\sqrt3}{8} \\approx -1.95$."
     ],
     "course": "calc1"
   },
@@ -228,15 +283,19 @@
     "id": "h015",
     "difficulty": "hard",
     "topic": "Chain rule",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Let $f(x) = x^3 + 2x + 1$, and let $g = f^{-1}$. Find $g''(4)$.",
     "answer": "-6/125",
     "answerNumeric": -0.048,
     "hint1": "Find $a$ with $f(a) = 4$. Then $g'(y) = \\dfrac{1}{f'(g(y))}$. Differentiate that again with the chain rule.",
     "hint2": "$g''(y) = -\\dfrac{f''(g(y))\\,g'(y)}{f'(g(y))^2} = -\\dfrac{f''(a)}{f'(a)^3}$.",
+    "keyIdea": "The inverse function's derivative is the reciprocal of $f'$ at the matching point, $g'(y) = \\dfrac{1}{f'(g(y))}$. Differentiating that once more, with the chain rule, gives the second derivative.",
     "solutionSteps": [
-      "$f(1) = 4$, so $g(4) = 1$. $f'(x) = 3x^2 + 2$ and $f''(x) = 6x$.",
-      "$g'(y) = \\dfrac{1}{f'(g(y))}$, so $g''(y) = -\\dfrac{f''(g(y))g'(y)}{f'(g(y))^2} = -\\dfrac{f''(g(y))}{f'(g(y))^3}$.",
-      "$g''(4) = -\\dfrac{6}{5^3} = -\\tfrac{6}{125}$."
+      "**Matching point.** Solve $f(a) = 4$: $a^3 + 2a + 1 = 4$ gives $a = 1$ (try small integers). So $g(4) = 1$.",
+      "**Derivatives of $f$.** $f'(x) = 3x^2 + 2$, so $f'(1) = 5$. And $f''(x) = 6x$, so $f''(1) = 6$.",
+      "**Differentiate $g' = \\dfrac{1}{f'(g)}$.** $g'' = -\\dfrac{f''(g)\\cdot g'}{f'(g)^2}$. Substituting $g' = \\tfrac{1}{f'(g)}$ gives $g'' = -\\dfrac{f''(g)}{f'(g)^3}$.",
+      "**Evaluate.** $g''(4) = -\\dfrac{6}{5^3} = -\\tfrac{6}{125}$."
     ],
     "course": "calc1"
   },
@@ -244,15 +303,19 @@
     "id": "h016",
     "difficulty": "hard",
     "topic": "Chain rule",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "The tangent line to $y = \\arctan(x^2)$ at $x = 1$ crosses the $x$-axis at what $x$-value?",
     "answer": "1 - pi/4",
     "answerNumeric": 0.2146018366025517,
     "hint1": "$\\dfrac{d}{dx}\\arctan(u) = \\dfrac{u'}{1 + u^2}$.",
     "hint2": "$y'(1) = \\dfrac{2}{1 + 1} = 1$ and $y(1) = \\tfrac\\pi4$.",
+    "keyIdea": "A tangent line needs a point and a slope. Get the slope by differentiating $\\arctan(x^2)$ with the chain rule, then find where the line hits $y = 0$.",
     "solutionSteps": [
-      "$y' = \\dfrac{2x}{1 + x^4}$, so $y'(1) = 1$ and $y(1) = \\tfrac\\pi4$.",
-      "Tangent: $y = \\tfrac\\pi4 + (x - 1)$.",
-      "$y = 0 \\Rightarrow x = 1 - \\tfrac\\pi4 \\approx 0.215$."
+      "**Point.** $y(1) = \\arctan1 = \\tfrac\\pi4$.",
+      "**Slope.** $\\dfrac{d}{dx}\\arctan(u) = \\dfrac{u'}{1 + u^2}$ with $u = x^2$: $y' = \\dfrac{2x}{1 + x^4}$, so $y'(1) = \\tfrac22 = 1$.",
+      "**Tangent line.** $y = \\tfrac\\pi4 + 1\\cdot(x - 1)$.",
+      "**$x$-intercept.** $0 = \\tfrac\\pi4 + x - 1$, so $x = 1 - \\tfrac\\pi4 \\approx 0.215$."
     ],
     "course": "calc1"
   },
@@ -260,15 +323,19 @@
     "id": "h017",
     "difficulty": "hard",
     "topic": "Product rule",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Let $f(x) = e^x\\cos x$. Find $f''\\!\\left(\\tfrac{\\pi}{2}\\right)$.",
     "answer": "-2e^(pi/2)",
     "answerNumeric": -9.620954761930703,
     "hint1": "$f' = e^x(\\cos x - \\sin x)$. Differentiate once more.",
     "hint2": "$f'' = e^x(\\cos x - \\sin x) + e^x(-\\sin x - \\cos x) = -2e^x\\sin x$.",
+    "keyIdea": "Differentiate the product twice. Grouping the $e^x$ factor out after each step keeps the algebra tidy.",
     "solutionSteps": [
-      "$f' = e^x(\\cos x - \\sin x)$.",
-      "$f'' = e^x[(\\cos x - \\sin x) + (-\\sin x - \\cos x)] = -2e^x\\sin x$.",
-      "$f''\\left(\\tfrac\\pi2\\right) = -2e^{\\pi/2} \\approx -9.62$."
+      "**First derivative.** $f' = e^x\\cos x + e^x(-\\sin x) = e^x(\\cos x - \\sin x)$.",
+      "**Second derivative.** Apply the product rule again: $f'' = e^x(\\cos x - \\sin x) + e^x(-\\sin x - \\cos x)$.",
+      "**Simplify.** The $\\cos x$ terms cancel: $f'' = -2e^x\\sin x$.",
+      "**At $\\tfrac\\pi2$.** $\\sin\\tfrac\\pi2 = 1$, so $f''\\left(\\tfrac\\pi2\\right) = -2e^{\\pi/2} \\approx -9.62$."
     ],
     "course": "calc1"
   },
@@ -276,15 +343,19 @@
     "id": "h018",
     "difficulty": "hard",
     "topic": "Chain rule",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Let $h(x) = \\sin\\!\\left(\\dfrac{\\pi x}{x^2 + 1}\\right)$. Find $h'(2)$. (Use $\\cos\\tfrac{2\\pi}{5} = \\tfrac{\\sqrt5 - 1}{4}$.)",
     "answer": "-3pi(sqrt(5) - 1)/100",
     "answerNumeric": -0.116496662323528,
     "hint1": "Chain rule: $h'(x) = \\cos(u)\\,u'$ with $u = \\dfrac{\\pi x}{x^2 + 1}$.",
     "hint2": "Quotient rule: $u' = \\dfrac{\\pi(1 - x^2)}{(x^2 + 1)^2}$, so $u'(2) = -\\tfrac{3\\pi}{25}$ and $u(2) = \\tfrac{2\\pi}{5}$.",
+    "keyIdea": "Use the chain rule (outer sine, inner quotient) and the quotient rule for the inner function. The given value $\\cos\\tfrac{2\\pi}{5} = \\tfrac{\\sqrt5 - 1}{4}$ handles the trig part.",
     "solutionSteps": [
-      "$u(2) = \\tfrac{2\\pi}{5}$ and $u'(x) = \\dfrac{\\pi(x^2 + 1) - \\pi x(2x)}{(x^2 + 1)^2} = \\dfrac{\\pi(1 - x^2)}{(x^2 + 1)^2}$.",
-      "$u'(2) = \\dfrac{-3\\pi}{25}$.",
-      "$h'(2) = \\cos\\tfrac{2\\pi}{5}\\cdot\\left(-\\tfrac{3\\pi}{25}\\right) = -\\dfrac{3\\pi(\\sqrt5 - 1)}{100} \\approx -0.116$."
+      "**Name the inner function.** $u = \\dfrac{\\pi x}{x^2 + 1}$, so $h = \\sin u$ and $h' = \\cos u\\cdot u'$.",
+      "**Quotient rule.** $u' = \\dfrac{\\pi(x^2 + 1) - \\pi x\\cdot2x}{(x^2 + 1)^2} = \\dfrac{\\pi(1 - x^2)}{(x^2 + 1)^2}$.",
+      "**At $x = 2$.** $u(2) = \\tfrac{2\\pi}{5}$ and $u'(2) = \\dfrac{\\pi(1 - 4)}{25} = -\\tfrac{3\\pi}{25}$.",
+      "**Combine.** $h'(2) = \\tfrac{\\sqrt5 - 1}{4}\\cdot\\left(-\\tfrac{3\\pi}{25}\\right) = -\\dfrac{3\\pi(\\sqrt5 - 1)}{100} \\approx -0.116$."
     ],
     "course": "calc1"
   },
@@ -292,16 +363,20 @@
     "id": "h019",
     "difficulty": "hard",
     "topic": "Implicit differentiation",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "The curve $x^3 + y^3 = 6xy$ passes through $(3, 3)$. Find $\\dfrac{d^2y}{dx^2}$ at that point.",
     "answer": "-16/3",
     "answerNumeric": -5.333333333333333,
     "hint1": "Differentiate implicitly to get $y' = \\dfrac{2y - x^2}{y^2 - 2x}$, and evaluate it at $(3, 3)$.",
     "hint2": "$y'(3, 3) = -1$. Differentiate the quotient again, putting in $y' = -1$.",
+    "keyIdea": "Implicit differentiation gives $y'$ as a quotient in $x$ and $y$. Differentiate that quotient again (it contains $y'$), then substitute the point *and* the known $y'$.",
     "solutionSteps": [
-      "$3x^2 + 3y^2y' = 6y + 6xy' \\Rightarrow y' = \\dfrac{2y - x^2}{y^2 - 2x}$, so $y' = \\dfrac{6 - 9}{9 - 6} = -1$.",
-      "$y'' = \\dfrac{(2y' - 2x)(y^2 - 2x) - (2y - x^2)(2yy' - 2)}{(y^2 - 2x)^2}$.",
-      "At $(3, 3)$ with $y' = -1$: $\\dfrac{(-8)(3) - (-3)(-8)}{9} = \\dfrac{-48}{9}$.",
-      "$y'' = -\\tfrac{16}{3}$."
+      "**First derivative.** $3x^2 + 3y^2y' = 6y + 6xy'$, so $y' = \\dfrac{2y - x^2}{y^2 - 2x}$. At $(3, 3)$: $y' = \\dfrac{6 - 9}{9 - 6} = -1$.",
+      "**Second derivative (quotient rule).** $y'' = \\dfrac{(2y' - 2x)(y^2 - 2x) - (2y - x^2)(2yy' - 2)}{(y^2 - 2x)^2}$.",
+      "**Plug in $x = y = 3$ and $y' = -1$.** $2y' - 2x = -8$, $y^2 - 2x = 3$, $2y - x^2 = -3$ and $2yy' - 2 = -8$.",
+      "**Evaluate.** $\\dfrac{(-8)(3) - (-3)(-8)}{3^2} = \\dfrac{-24 - 24}{9} = -\\tfrac{48}{9}$.",
+      "**Simplify.** $y'' = -\\tfrac{16}{3}$. It is negative, so the curve bends downward at that point."
     ],
     "course": "calc1"
   },
@@ -309,15 +384,19 @@
     "id": "h020",
     "difficulty": "hard",
     "topic": "Implicit differentiation",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Find the $x$-intercept of the line tangent to $x^2 + xy + y^2 = 7$ at the point $(1, 2)$.",
     "answer": "7/2",
     "answerNumeric": 3.5,
     "hint1": "Differentiate implicitly: $2x + y + xy' + 2yy' = 0$.",
     "hint2": "$y' = -\\dfrac{2x + y}{x + 2y} = -\\tfrac45$ at $(1, 2)$.",
+    "keyIdea": "Differentiate implicitly, treating $y$ as a function of $x$ (so $xy$ needs the product rule). Then use the slope to write the tangent line and find its $x$-intercept.",
     "solutionSteps": [
-      "$y' = -\\dfrac{2x + y}{x + 2y} = -\\dfrac{4}{5}$.",
-      "Tangent: $y - 2 = -\\tfrac45(x - 1)$.",
-      "Set $y = 0$: $x - 1 = \\tfrac52$, so $x = \\tfrac72$."
+      "**Differentiate.** $2x + (y + xy') + 2yy' = 0$, so $y'(x + 2y) = -(2x + y)$.",
+      "**Slope at $(1, 2)$.** $y' = -\\dfrac{2 + 2}{1 + 4} = -\\tfrac45$.",
+      "**Tangent line.** $y - 2 = -\\tfrac45(x - 1)$.",
+      "**$x$-intercept.** Set $y = 0$: $-2 = -\\tfrac45(x - 1)$, so $x - 1 = \\tfrac52$ and $x = \\tfrac72$."
     ],
     "course": "calc1"
   },
@@ -325,16 +404,19 @@
     "id": "h021",
     "difficulty": "hard",
     "topic": "Implicit differentiation",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "The curve $e^{xy} + y = x + 1$ passes through the origin. Find $y''$ at $(0, 0)$.",
     "answer": "-2",
     "answerNumeric": -2.0,
     "hint1": "First find $y'(0)$ by differentiating once: $e^{xy}(y + xy') + y' = 1$.",
     "hint2": "At the origin, $y'(0) = 1$. Differentiate again: $e^{xy}(y + xy')^2 + e^{xy}(2y' + xy'') + y'' = 0$.",
+    "keyIdea": "Differentiate the equation twice, keeping $y'$ and $y''$ as unknowns. At the origin most terms vanish, which makes each step easy to solve.",
     "solutionSteps": [
-      "$e^{xy}(y + xy') + y' = 1$. At $(0, 0)$: $y' = 1$.",
-      "Differentiate again: $e^{xy}(y + xy')^2 + e^{xy}(2y' + xy'') + y'' = 0$.",
-      "At $(0, 0)$: $0 + 2(1) + y'' = 0$.",
-      "$y'' = -2$."
+      "**First derivative.** $e^{xy}(y + xy') + y' = 1$. At $(0, 0)$: $1\\cdot0 + y' = 1$, so $y' = 1$.",
+      "**Differentiate again.** The first term is a product, $e^{xy}\\cdot(y + xy')$: $e^{xy}(y + xy')^2 + e^{xy}(2y' + xy'') + y'' = 0$.",
+      "**Evaluate at the origin.** $(y + xy')^2 = 0$, $2y' = 2$ and $xy'' = 0$, so $0 + 2 + y'' = 0$.",
+      "**Result.** $y'' = -2$."
     ],
     "course": "calc1"
   },
@@ -342,15 +424,19 @@
     "id": "h022",
     "difficulty": "hard",
     "topic": "Implicit differentiation",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "On the ellipse $x^2 - xy + y^2 = 3$, the tangent line is horizontal at two points. Find the larger of the two $y$-values.",
     "answer": "2",
     "answerNumeric": 2.0,
     "hint1": "Implicit differentiation: $2x - y - xy' + 2yy' = 0$, so $y' = \\dfrac{y - 2x}{2y - x}$.",
     "hint2": "Horizontal tangents need $y = 2x$. Substitute into the curve.",
+    "keyIdea": "Horizontal tangents happen where $y' = 0$, which means the numerator of the implicit derivative is zero. That gives a line to intersect with the curve.",
     "solutionSteps": [
-      "$y' = 0 \\iff y = 2x$.",
-      "$x^2 - 2x^2 + 4x^2 = 3 \\Rightarrow 3x^2 = 3 \\Rightarrow x = \\pm1$.",
-      "The points are $(1, 2)$ and $(-1, -2)$. The larger $y$ is $2$."
+      "**Implicit derivative.** $2x - (y + xy') + 2yy' = 0$, so $y' = \\dfrac{y - 2x}{2y - x}$.",
+      "**Horizontal means $y' = 0$.** The numerator must vanish: $y = 2x$ (with $2y - x \\ne 0$ there).",
+      "**Intersect with the curve.** $x^2 - x(2x) + (2x)^2 = 3$, so $3x^2 = 3$ and $x = \\pm1$.",
+      "**Points.** $(1, 2)$ and $(-1, -2)$. These are the top and bottom of the tilted ellipse, and the larger $y$ is $2$."
     ],
     "course": "calc1"
   },
@@ -358,15 +444,19 @@
     "id": "h023",
     "difficulty": "hard",
     "topic": "Implicit differentiation",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Find the area of the triangle formed by the coordinate axes and the line tangent to $\\sqrt{x} + \\sqrt{y} = 5$ at $(4, 9)$.",
     "answer": "75",
     "answerNumeric": 75.0,
     "hint1": "$\\dfrac{1}{2\\sqrt x} + \\dfrac{y'}{2\\sqrt y} = 0 \\Rightarrow y' = -\\sqrt{\\dfrac yx}$.",
     "hint2": "$y' = -\\tfrac32$ at $(4, 9)$. Find both intercepts of $y - 9 = -\\tfrac32(x - 4)$.",
+    "keyIdea": "Implicit differentiation gives the slope. The tangent line's two intercepts are the legs of a right triangle with the axes.",
     "solutionSteps": [
-      "Slope: $-\\sqrt{9/4} = -\\tfrac32$.",
-      "Tangent: $y = -\\tfrac32x + 15$. Intercepts: $(10, 0)$ and $(0, 15)$.",
-      "Area $= \\tfrac12\\cdot10\\cdot15 = 75$."
+      "**Differentiate.** $\\dfrac{1}{2\\sqrt x} + \\dfrac{y'}{2\\sqrt y} = 0$, so $y' = -\\sqrt{\\dfrac yx}$.",
+      "**Slope at $(4, 9)$.** $-\\sqrt{\\tfrac94} = -\\tfrac32$.",
+      "**Tangent line.** $y = 9 - \\tfrac32(x - 4) = -\\tfrac32x + 15$. The intercepts are $(0, 15)$ and $(10, 0)$.",
+      "**Area.** $\\tfrac12\\cdot10\\cdot15 = 75$. (For this curve the intercepts always add to $25$, since $\\sqrt{4\\cdot25} + \\sqrt{9\\cdot25} = 25$.)"
     ],
     "course": "calc1"
   },
@@ -374,15 +464,19 @@
     "id": "h024",
     "difficulty": "hard",
     "topic": "Implicit differentiation",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Find $\\dfrac{dy}{dx}$ at $(1, 2)$ for the curve $xy^3 + x^3y = 10$.",
     "answer": "-14/13",
     "answerNumeric": -1.0769230769230769,
     "hint1": "Use the product rule on each term: $y^3 + 3xy^2y' + 3x^2y + x^3y' = 0$.",
     "hint2": "At $(1, 2)$: $8 + 12y' + 6 + y' = 0$.",
+    "keyIdea": "Each term is a product of a power of $x$ and a power of $y$, so it needs the product rule, with the chain rule on the $y$ part. Collect the $y'$ terms and solve.",
     "solutionSteps": [
-      "$y^3 + 3xy^2y' + 3x^2y + x^3y' = 0$.",
-      "At $(1, 2)$: $8 + 12y' + 6 + y' = 0$.",
-      "$13y' = -14 \\Rightarrow y' = -\\tfrac{14}{13}$."
+      "**Differentiate $xy^3$.** $y^3 + x\\cdot3y^2y'$.",
+      "**Differentiate $x^3y$.** $3x^2y + x^3y'$.",
+      "**At $(1, 2)$.** $8 + 12y' + 6 + y' = 0$.",
+      "**Solve.** $13y' = -14$, so $y' = -\\tfrac{14}{13}$."
     ],
     "course": "calc1"
   },
@@ -390,15 +484,20 @@
     "id": "h025",
     "difficulty": "hard",
     "topic": "Related rates",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Water pours at $5$ ft³/min into a conical tank, vertex down, with top radius $4$ ft and height $10$ ft. How fast (in ft/min) is the water level rising when the water is $6$ ft deep?",
     "answer": "125/(144pi)",
     "answerNumeric": 0.27631066509009605,
     "hint1": "By similar triangles, the water's surface radius is $r = \\tfrac{4}{10}h = \\tfrac25h$. Write $V$ in terms of $h$ alone.",
     "hint2": "$V = \\tfrac13\\pi\\left(\\tfrac25h\\right)^2h = \\tfrac{4\\pi}{75}h^3$, so $\\dfrac{dV}{dt} = \\tfrac{4\\pi}{25}h^2\\dfrac{dh}{dt}$.",
+    "keyIdea": "Use similar triangles to tie the water's surface radius to its depth. That turns $V$ into a function of $h$ alone, which you can differentiate with respect to time.",
     "solutionSteps": [
-      "$r = \\tfrac25h \\Rightarrow V = \\tfrac{4\\pi}{75}h^3$.",
-      "$\\dfrac{dV}{dt} = \\tfrac{4\\pi}{25}h^2\\dfrac{dh}{dt}$.",
-      "$5 = \\tfrac{4\\pi}{25}\\cdot36\\cdot\\dfrac{dh}{dt} \\Rightarrow \\dfrac{dh}{dt} = \\dfrac{125}{144\\pi} \\approx 0.276$ ft/min."
+      "**Similar triangles.** The water forms a smaller cone with the same shape as the tank: $\\tfrac rh = \\tfrac{4}{10}$, so $r = \\tfrac25h$.",
+      "**Volume in terms of $h$.** $V = \\tfrac13\\pi r^2h = \\tfrac13\\pi\\cdot\\tfrac{4}{25}h^2\\cdot h = \\tfrac{4\\pi}{75}h^3$.",
+      "**Differentiate with respect to $t$.** $\\dfrac{dV}{dt} = \\tfrac{4\\pi}{25}h^2\\dfrac{dh}{dt}$.",
+      "**Plug in $h = 6$ and $\\tfrac{dV}{dt} = 5$.** $5 = \\tfrac{4\\pi\\cdot36}{25}\\dfrac{dh}{dt}$, so $\\dfrac{dh}{dt} = \\dfrac{125}{144\\pi} \\approx 0.276$ ft/min.",
+      "**Why it slows down.** The tank widens as it fills, so the same inflow raises the level more slowly at greater depth."
     ],
     "course": "calc1",
     "diagram": "<svg viewBox=\"0 0 220 190\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><polygon points=\"30,20 190,20 110,180\"/><line x1=\"54\" y1=\"68\" x2=\"166\" y2=\"68\"/><path d=\"M 54 68 L 166 68 L 110 180 Z\" fill=\"currentColor\" fill-opacity=\"0.15\" stroke=\"none\"/><line x1=\"110\" y1=\"20\" x2=\"110\" y2=\"180\" stroke-dasharray=\"5 4\"/><text x=\"70\" y=\"14\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">4</text><text x=\"200\" y=\"104\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">10</text><text x=\"124\" y=\"128\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\" font-style=\"italic\">h</text><text x=\"140\" y=\"62\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\" font-style=\"italic\">r</text></svg>",
@@ -408,15 +507,19 @@
     "id": "h026",
     "difficulty": "hard",
     "topic": "Related rates",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "A $13$ ft ladder slides down a wall. Its foot moves away from the wall at $2$ ft/s. How fast, in rad/s, is the angle between the ladder and the ground changing when the foot is $5$ ft from the wall?",
     "answer": "-1/6",
     "answerNumeric": -0.16666666666666666,
     "hint1": "Let $\\theta$ be the angle at the ground. Then $x = 13\\cos\\theta$.",
     "hint2": "$\\dfrac{dx}{dt} = -13\\sin\\theta\\dfrac{d\\theta}{dt}$, and $\\sin\\theta = \\tfrac{12}{13}$ when $x = 5$.",
+    "keyIdea": "Link the moving foot to the angle with $x = 13\\cos\\theta$, then differentiate with respect to time.",
     "solutionSteps": [
-      "$x = 13\\cos\\theta \\Rightarrow \\dfrac{dx}{dt} = -13\\sin\\theta\\,\\dfrac{d\\theta}{dt}$.",
-      "When $x = 5$, the height is $12$, so $\\sin\\theta = \\tfrac{12}{13}$.",
-      "$2 = -12\\dfrac{d\\theta}{dt} \\Rightarrow \\dfrac{d\\theta}{dt} = -\\tfrac16$ rad/s."
+      "**Relationship.** With the angle $\\theta$ at the ground, the foot is $x = 13\\cos\\theta$ from the wall.",
+      "**Differentiate.** $\\dfrac{dx}{dt} = -13\\sin\\theta\\,\\dfrac{d\\theta}{dt}$.",
+      "**At $x = 5$.** The top is at height $\\sqrt{169 - 25} = 12$, so $\\sin\\theta = \\tfrac{12}{13}$.",
+      "**Solve.** $2 = -13\\cdot\\tfrac{12}{13}\\cdot\\dfrac{d\\theta}{dt} = -12\\dfrac{d\\theta}{dt}$, so $\\dfrac{d\\theta}{dt} = -\\tfrac16$ rad/s. It is negative because the ladder flattens."
     ],
     "course": "calc1"
   },
@@ -424,15 +527,19 @@
     "id": "h027",
     "difficulty": "hard",
     "topic": "Related rates",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Car A is $3$ km north of an intersection, driving north at $60$ km/h. Car B is $4$ km east of the intersection, driving west toward it at $80$ km/h. At what rate (km/h) is the distance between the cars changing? (Negative means decreasing.)",
     "answer": "-28",
     "answerNumeric": -28.0,
     "hint1": "$D^2 = a^2 + b^2$, so $D D' = aa' + bb'$.",
     "hint2": "$a = 3$, $a' = 60$, $b = 4$, $b' = -80$ and $D = 5$.",
+    "keyIdea": "The distance between the cars is the hypotenuse $D = \\sqrt{a^2 + b^2}$. Differentiate $D^2 = a^2 + b^2$ implicitly with respect to time, minding the signs of the rates.",
     "solutionSteps": [
-      "$DD' = aa' + bb'$.",
-      "$5D' = 3(60) + 4(-80) = -140$.",
-      "$D' = -28$ km/h."
+      "**Relationship.** $D^2 = a^2 + b^2$, so $DD' = aa' + bb'$.",
+      "**Signs.** A moves away, so $a' = +60$. B moves toward the intersection, so $b$ is shrinking: $b' = -80$.",
+      "**Values.** $a = 3$, $b = 4$, $D = 5$.",
+      "**Solve.** $5D' = 3\\cdot60 + 4\\cdot(-80) = -140$, so $D' = -28$ km/h. The cars are getting closer."
     ],
     "course": "calc1"
   },
@@ -440,15 +547,19 @@
     "id": "h028",
     "difficulty": "hard",
     "topic": "Related rates",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "A spherical balloon is inflated at $100$ cm³/s. How fast, in cm²/s, is its surface area increasing when the radius is $5$ cm?",
     "answer": "40",
     "answerNumeric": 40.0,
     "hint1": "$V = \\tfrac43\\pi r^3$ and $A = 4\\pi r^2$. Find $r'$ from $V'$, then use it to get $A'$.",
     "hint2": "$100 = 4\\pi(25)r' \\Rightarrow r' = \\tfrac1\\pi$.",
+    "keyIdea": "Volume and surface area both depend on $r$. Use the volume rate to find $\\tfrac{dr}{dt}$, then use that to find $\\tfrac{dA}{dt}$.",
     "solutionSteps": [
-      "$V' = 4\\pi r^2r' \\Rightarrow r' = \\dfrac{100}{100\\pi} = \\tfrac{1}{\\pi}$.",
-      "$A' = 8\\pi rr' = 8\\pi\\cdot5\\cdot\\tfrac1\\pi$.",
-      "$A' = 40$ cm²/s."
+      "**Volume.** $V = \\tfrac43\\pi r^3$, so $V' = 4\\pi r^2r'$. At $r = 5$: $100 = 100\\pi r'$, so $r' = \\tfrac1\\pi$ cm/s.",
+      "**Area.** $A = 4\\pi r^2$, so $A' = 8\\pi rr'$.",
+      "**Evaluate.** $A' = 8\\pi\\cdot5\\cdot\\tfrac1\\pi = 40$ cm²/s.",
+      "**Shortcut.** $\\tfrac{dA}{dV} = \\tfrac{8\\pi r}{4\\pi r^2} = \\tfrac2r$, so $A' = \\tfrac25\\cdot100 = 40$. ✓"
     ],
     "course": "calc1"
   },
@@ -456,15 +567,19 @@
     "id": "h029",
     "difficulty": "hard",
     "topic": "Related rates",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "A $6$ ft person walks away from a $15$ ft lamppost at $5$ ft/s. How fast, in ft/s, is the tip of the shadow moving?",
     "answer": "25/3",
     "answerNumeric": 8.333333333333334,
     "hint1": "Let $x$ be the person's distance from the post and $s$ the shadow's length. Similar triangles: $\\dfrac{s}{6} = \\dfrac{x + s}{15}$.",
     "hint2": "$s = \\tfrac23x$, so the tip is at $x + s = \\tfrac53x$.",
+    "keyIdea": "Similar triangles (lamp, person, shadow tip) give the shadow length in terms of the person's position. The tip's position is a constant multiple of $x$, so its speed is constant.",
     "solutionSteps": [
-      "$15s = 6x + 6s \\Rightarrow s = \\tfrac23x$.",
-      "Tip position: $x + s = \\tfrac53x$.",
-      "Speed of tip: $\\tfrac53\\cdot5 = \\tfrac{25}{3}$ ft/s (independent of position)."
+      "**Similar triangles.** The big triangle has height $15$ and base $x + s$. The small one has height $6$ and base $s$. So $\\dfrac{s}{6} = \\dfrac{x + s}{15}$.",
+      "**Solve for $s$.** $15s = 6x + 6s$, so $s = \\tfrac23x$.",
+      "**Tip position.** $x + s = \\tfrac53x$.",
+      "**Speed.** $\\tfrac{d}{dt}\\left(\\tfrac53x\\right) = \\tfrac53\\cdot5 = \\tfrac{25}{3} \\approx 8.33$ ft/s. That is faster than the person walks, and the same at every moment."
     ],
     "course": "calc1",
     "diagram": "<svg viewBox=\"0 0 260 130\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><line x1=\"20\" y1=\"110\" x2=\"240\" y2=\"110\"/><line x1=\"30\" y1=\"110\" x2=\"30\" y2=\"20\"/><circle cx=\"30\" cy=\"18\" r=\"5\" fill=\"currentColor\"/><line x1=\"120\" y1=\"110\" x2=\"120\" y2=\"74\"/><line x1=\"30\" y1=\"20\" x2=\"180\" y2=\"110\" stroke-dasharray=\"5 4\"/><text x=\"18\" y=\"70\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">15</text><text x=\"130\" y=\"96\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">6</text><text x=\"75\" y=\"125\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\" font-style=\"italic\">x</text><text x=\"150\" y=\"125\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\" font-style=\"italic\">s</text></svg>",
@@ -474,15 +589,19 @@
     "id": "h030",
     "difficulty": "hard",
     "topic": "Related rates",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "A trough is $10$ ft long. Its ends are isosceles triangles, $3$ ft across the top and $1$ ft deep, vertex down. Water flows in at $12$ ft³/min. How fast (ft/min) is the water level rising when the water is $\\tfrac12$ ft deep?",
     "answer": "4/5",
     "answerNumeric": 0.8,
     "hint1": "At depth $h$, the water surface is $3h$ wide (similar triangles).",
     "hint2": "$V = \\tfrac12(3h)(h)(10) = 15h^2$.",
+    "keyIdea": "At depth $h$, the water's cross-section is a triangle similar to the trough's end. Write the volume in terms of $h$ and differentiate with respect to time.",
     "solutionSteps": [
-      "Width at depth $h$: $3h$, so $V = 15h^2$.",
-      "$V' = 30hh'$.",
-      "$12 = 30\\cdot\\tfrac12\\cdot h' \\Rightarrow h' = \\tfrac45$ ft/min."
+      "**Width at depth $h$.** The end is $3$ wide at depth $1$, so by similar triangles the width is $3h$.",
+      "**Volume.** Cross-sectional area $\\tfrac12(3h)(h) = \\tfrac32h^2$, times length $10$: $V = 15h^2$.",
+      "**Differentiate.** $\\dfrac{dV}{dt} = 30h\\dfrac{dh}{dt}$.",
+      "**Solve at $h = \\tfrac12$.** $12 = 30\\cdot\\tfrac12\\cdot\\dfrac{dh}{dt}$, so $\\dfrac{dh}{dt} = \\tfrac{12}{15} = \\tfrac45$ ft/min."
     ],
     "course": "calc1"
   },
@@ -490,15 +609,19 @@
     "id": "h031",
     "difficulty": "hard",
     "topic": "Related rates",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "A rocket rises straight up from a pad $4$ km from an observer. When the rocket is $3$ km high, its angle of elevation from the observer is increasing at $0.12$ rad/s. How fast is the rocket rising, in km/s?",
     "answer": "3/4",
     "answerNumeric": 0.75,
     "hint1": "$\\tan\\theta = \\dfrac{y}{4}$. Differentiate with respect to $t$.",
     "hint2": "$\\sec^2\\theta\\,\\theta' = \\dfrac{y'}{4}$, and $\\sec^2\\theta = 1 + \\left(\\tfrac34\\right)^2 = \\tfrac{25}{16}$.",
+    "keyIdea": "The height and the angle are linked by $\\tan\\theta = \\tfrac{y}{4}$. Differentiate with respect to time and solve for $\\tfrac{dy}{dt}$.",
     "solutionSteps": [
-      "$\\sec^2\\theta\\cdot\\theta' = \\tfrac{y'}{4}$.",
-      "At $y = 3$: $\\sec^2\\theta = \\tfrac{25}{16}$.",
-      "$y' = 4\\cdot\\tfrac{25}{16}\\cdot0.12 = 0.75$ km/s."
+      "**Relationship.** $\\tan\\theta = \\dfrac{y}{4}$, since the observer is $4$ km away horizontally.",
+      "**Differentiate.** $\\sec^2\\theta\\,\\dfrac{d\\theta}{dt} = \\dfrac14\\dfrac{dy}{dt}$.",
+      "**At $y = 3$.** $\\tan\\theta = \\tfrac34$, so $\\sec^2\\theta = 1 + \\tfrac{9}{16} = \\tfrac{25}{16}$.",
+      "**Solve.** $\\dfrac{dy}{dt} = 4\\cdot\\tfrac{25}{16}\\cdot0.12 = 0.75$ km/s."
     ],
     "course": "calc1"
   },
@@ -506,15 +629,19 @@
     "id": "h032",
     "difficulty": "hard",
     "topic": "Related rates",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "A particle moves along $y = \\sqrt x$, with its $x$-coordinate increasing at $3$ units/s. How fast is its distance to the point $(4, 0)$ changing when $x = 1$?",
     "answer": "-3sqrt(10)/4",
     "answerNumeric": -2.3717082451262845,
     "hint1": "$D^2 = (x - 4)^2 + y^2 = (x - 4)^2 + x$.",
     "hint2": "$2DD' = (2(x - 4) + 1)x'$, and $D = \\sqrt{10}$ at $x = 1$.",
+    "keyIdea": "Write the squared distance using only $x$ (substitute $y^2 = x$ from the curve), then differentiate with respect to time.",
     "solutionSteps": [
-      "$D^2 = (x - 4)^2 + x$, so $2DD' = (2x - 7)x'$.",
-      "At $x = 1$: $D = \\sqrt{10}$ and $2\\sqrt{10}D' = -5\\cdot3$.",
-      "$D' = -\\dfrac{15}{2\\sqrt{10}} = -\\dfrac{3\\sqrt{10}}{4} \\approx -2.37$."
+      "**Squared distance.** $D^2 = (x - 4)^2 + y^2 = (x - 4)^2 + x$.",
+      "**Differentiate.** $2D\\dfrac{dD}{dt} = [2(x - 4) + 1]\\dfrac{dx}{dt} = (2x - 7)\\dfrac{dx}{dt}$.",
+      "**At $x = 1$.** $D = \\sqrt{9 + 1} = \\sqrt{10}$, and $(2 - 7)\\cdot3 = -15$.",
+      "**Solve.** $\\dfrac{dD}{dt} = -\\dfrac{15}{2\\sqrt{10}} = -\\dfrac{3\\sqrt{10}}{4} \\approx -2.37$. The particle is approaching $(4, 0)$."
     ],
     "course": "calc1"
   },
@@ -522,15 +649,19 @@
     "id": "h033",
     "difficulty": "hard",
     "topic": "Optimization",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "An open box is made from a $12\\times12$ sheet by cutting equal squares from the corners and folding up the sides. What is the largest possible volume?",
     "answer": "128",
     "answerNumeric": 128.0,
     "hint1": "With cut size $x$, $V(x) = x(12 - 2x)^2$ for $0 < x < 6$.",
     "hint2": "$V'(x) = (12 - 2x)(12 - 6x)$, so the critical point inside the interval is $x = 2$.",
+    "keyIdea": "Write the volume as a function of the cut size $x$, find the critical points, and check that the one inside the allowed interval gives the maximum.",
     "solutionSteps": [
-      "$V = x(12 - 2x)^2$.",
-      "$V' = (12 - 2x)^2 - 4x(12 - 2x) = (12 - 2x)(12 - 6x)$, so $x = 2$.",
-      "$V(2) = 2\\cdot8^2 = 128$."
+      "**Model.** Cutting $x \\times x$ corners leaves a base of $(12 - 2x)\\times(12 - 2x)$ and a height of $x$: $V(x) = x(12 - 2x)^2$ for $0 < x < 6$.",
+      "**Derivative.** $V' = (12 - 2x)^2 - 4x(12 - 2x) = (12 - 2x)(12 - 6x)$.",
+      "**Critical points.** $x = 6$ (a degenerate box with volume $0$) or $x = 2$.",
+      "**Maximum.** $V(2) = 2\\cdot8^2 = 128$. It is a maximum because $V \\to 0$ at both ends of the interval."
     ],
     "course": "calc1",
     "diagram": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><polygon points=\"20,20 180,20 180,180 20,180\"/><polygon points=\"20,20 47,20 47,47 20,47\" stroke-dasharray=\"5 4\"/><polygon points=\"153,20 180,20 180,47 153,47\" stroke-dasharray=\"5 4\"/><polygon points=\"20,153 47,153 47,180 20,180\" stroke-dasharray=\"5 4\"/><polygon points=\"153,153 180,153 180,180 153,180\" stroke-dasharray=\"5 4\"/><text x=\"33\" y=\"60\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\" font-style=\"italic\">x</text><text x=\"100\" y=\"196\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">12</text></svg>",
@@ -540,15 +671,19 @@
     "id": "h034",
     "difficulty": "hard",
     "topic": "Optimization",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "A closed cylindrical can must hold $250\\pi$ cm³. What is the smallest possible total surface area, in cm²?",
     "answer": "150pi",
     "answerNumeric": 471.23889803846896,
     "hint1": "From $\\pi r^2h = 250\\pi$, $h = \\dfrac{250}{r^2}$. Write $A$ in terms of $r$ only.",
     "hint2": "$A = 2\\pi r^2 + \\dfrac{500\\pi}{r}$. Setting $A' = 0$ gives $r^3 = 125$.",
+    "keyIdea": "Use the volume constraint to remove $h$, so the area depends on $r$ only. Then minimize with the derivative.",
     "solutionSteps": [
-      "$A(r) = 2\\pi r^2 + \\dfrac{500\\pi}{r}$.",
-      "$A' = 4\\pi r - \\dfrac{500\\pi}{r^2} = 0 \\Rightarrow r = 5$ and $h = 10$.",
-      "$A = 50\\pi + 100\\pi = 150\\pi$."
+      "**Constraint.** $\\pi r^2h = 250\\pi$, so $h = \\dfrac{250}{r^2}$.",
+      "**Area function.** $A = 2\\pi r^2 + 2\\pi rh = 2\\pi r^2 + \\dfrac{500\\pi}{r}$.",
+      "**Critical point.** $A' = 4\\pi r - \\dfrac{500\\pi}{r^2} = 0$, so $r^3 = 125$ and $r = 5$. Then $h = 10$. The best can has height equal to its diameter.",
+      "**Minimum area.** $A = 50\\pi + 100\\pi = 150\\pi$. It is a minimum because $A \\to \\infty$ as $r \\to 0$ and as $r \\to \\infty$."
     ],
     "course": "calc1"
   },
@@ -556,15 +691,19 @@
     "id": "h035",
     "difficulty": "hard",
     "topic": "Optimization",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Find the shortest distance from the point $(0, 3)$ to the parabola $y = x^2$.",
     "answer": "sqrt(11)/2",
     "answerNumeric": 1.6583123951777,
     "hint1": "Minimize $D^2 = x^2 + (x^2 - 3)^2$. It has the same minimizer as $D$ and is easier to work with.",
     "hint2": "$\\dfrac{d}{dx}D^2 = 2x + 4x(x^2 - 3) = 2x(2x^2 - 5)$.",
+    "keyIdea": "Minimize the *squared* distance. It has the same minimizer as the distance itself, but no square root to differentiate.",
     "solutionSteps": [
-      "Critical points: $x = 0$ or $x^2 = \\tfrac52$.",
-      "$D^2(0) = 9$ and $D^2 = \\tfrac52 + \\tfrac14 = \\tfrac{11}{4}$ at $x^2 = \\tfrac52$.",
-      "The minimum is $D = \\tfrac{\\sqrt{11}}{2}$."
+      "**Squared distance.** A point on the parabola is $(x, x^2)$, so $D^2 = x^2 + (x^2 - 3)^2$.",
+      "**Derivative.** $\\dfrac{d}{dx}D^2 = 2x + 4x(x^2 - 3) = 2x(2x^2 - 5)$.",
+      "**Critical points.** $x = 0$ gives $D^2 = 9$. $x^2 = \\tfrac52$ gives $D^2 = \\tfrac52 + \\tfrac14 = \\tfrac{11}{4}$.",
+      "**Minimum.** $D = \\tfrac{\\sqrt{11}}{2} \\approx 1.66$. The point $(0, 0)$ looks closest but isn't: $(0, 0)$ is $3$ away."
     ],
     "course": "calc1"
   },
@@ -572,15 +711,19 @@
     "id": "h036",
     "difficulty": "hard",
     "topic": "Optimization",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "A rectangle has its base on the diameter of a semicircle of radius $5$ and its top two corners on the arc. What is its largest possible area?",
     "answer": "25",
     "answerNumeric": 25.0,
     "hint1": "With corners at $(\\pm x, y)$ and $y = \\sqrt{25 - x^2}$, the area is $A = 2x\\sqrt{25 - x^2}$.",
     "hint2": "Maximize $A^2 = 4x^2(25 - x^2)$, which is easier.",
+    "keyIdea": "Put the semicircle on the $x$-axis. A rectangle with top corners $(\\pm x, y)$ on the arc has area $2xy$ with $y = \\sqrt{25 - x^2}$. Maximize the squared area to avoid square roots.",
     "solutionSteps": [
-      "$A^2 = 4(25x^2 - x^4)$, and its derivative $4(50x - 4x^3) = 0 \\Rightarrow x^2 = \\tfrac{25}{2}$.",
-      "$y = \\sqrt{25 - 12.5} = \\tfrac{5}{\\sqrt2}$ as well.",
-      "$A = 2\\cdot\\tfrac5{\\sqrt2}\\cdot\\tfrac{5}{\\sqrt2} = 25$."
+      "**Area.** $A = 2x\\sqrt{25 - x^2}$ for $0 \\le x \\le 5$.",
+      "**Squared area.** $A^2 = 4x^2(25 - x^2) = 4(25x^2 - x^4)$, and $\\dfrac{d}{dx}A^2 = 4(50x - 4x^3) = 0$ gives $x^2 = \\tfrac{25}{2}$.",
+      "**Dimensions.** $x = y = \\tfrac{5}{\\sqrt2}$, so the rectangle is $5\\sqrt2$ wide and $\\tfrac{5}{\\sqrt2}$ tall.",
+      "**Maximum area.** $A = 2\\cdot\\tfrac{25}{2} = 25$, which is $r^2$."
     ],
     "course": "calc1"
   },
@@ -588,15 +731,19 @@
     "id": "h037",
     "difficulty": "hard",
     "topic": "Optimization",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "A Norman window is a rectangle topped by a semicircle. If the total perimeter is $20$ m, what is the largest possible area, in m²?",
     "answer": "200/(4+pi)",
     "answerNumeric": 28.00495767557787,
     "hint1": "With semicircle radius $r$ and rectangle height $h$: $2r + 2h + \\pi r = 20$.",
     "hint2": "$A = 2rh + \\tfrac{\\pi r^2}{2} = r(20 - 2r - \\pi r) + \\tfrac\\pi2r^2 = 20r - \\left(2 + \\tfrac\\pi2\\right)r^2$.",
+    "keyIdea": "Use the perimeter to write $h$ in terms of $r$. The area then becomes a downward-opening quadratic in $r$, maximized at its vertex.",
     "solutionSteps": [
-      "$A(r) = 20r - \\left(2 + \\tfrac\\pi2\\right)r^2$.",
-      "$A' = 0 \\Rightarrow r = \\dfrac{20}{4 + \\pi}$.",
-      "$A_{\\max} = \\dfrac{20^2}{4(2 + \\pi/2)} = \\dfrac{400}{8 + 2\\pi} = \\dfrac{200}{4 + \\pi} \\approx 28.0$ m²."
+      "**Perimeter.** Base $2r$, two sides $h$, and a semicircle $\\pi r$: $2r + 2h + \\pi r = 20$, so $2h = 20 - 2r - \\pi r$.",
+      "**Area.** $A = 2rh + \\tfrac12\\pi r^2 = r(20 - 2r - \\pi r) + \\tfrac\\pi2r^2 = 20r - \\left(2 + \\tfrac\\pi2\\right)r^2$.",
+      "**Maximize.** $A' = 20 - (4 + \\pi)r = 0$, so $r = \\dfrac{20}{4 + \\pi}$.",
+      "**Maximum area.** At the vertex $A = \\dfrac{20^2}{4(2 + \\pi/2)} = \\dfrac{400}{8 + 2\\pi} = \\dfrac{200}{4 + \\pi} \\approx 28.0$ m². (Also, $h = r$ at the optimum.)"
     ],
     "course": "calc1"
   },
@@ -604,15 +751,19 @@
     "id": "h038",
     "difficulty": "hard",
     "topic": "Optimization",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "An $8$ ft fence stands $1$ ft from a tall building. What is the length of the shortest ladder that reaches from the ground, over the fence, to the building?",
     "answer": "5sqrt(5)",
     "answerNumeric": 11.180339887498949,
     "hint1": "Let $\\theta$ be the angle the ladder makes with the ground. Split the ladder at the top of the fence.",
     "hint2": "$L(\\theta) = \\dfrac{8}{\\sin\\theta} + \\dfrac{1}{\\cos\\theta}$. Setting $L' = 0$ gives $\\tan^3\\theta = 8$.",
+    "keyIdea": "Describe the ladder by its angle $\\theta$ with the ground. The fence splits it into two pieces whose lengths are simple trig expressions. Minimize their sum.",
     "solutionSteps": [
-      "$L' = -\\dfrac{8\\cos\\theta}{\\sin^2\\theta} + \\dfrac{\\sin\\theta}{\\cos^2\\theta} = 0 \\Rightarrow \\tan^3\\theta = 8 \\Rightarrow \\tan\\theta = 2$.",
-      "$\\sin\\theta = \\tfrac{2}{\\sqrt5}$ and $\\cos\\theta = \\tfrac{1}{\\sqrt5}$.",
-      "$L = 8\\cdot\\tfrac{\\sqrt5}{2} + \\sqrt5 = 5\\sqrt5 \\approx 11.18$ ft."
+      "**Two pieces.** From the ground to the fence top: $\\dfrac{8}{\\sin\\theta}$. From the fence top to the wall, crossing $1$ ft horizontally: $\\dfrac{1}{\\cos\\theta}$.",
+      "**Derivative.** $L'(\\theta) = -\\dfrac{8\\cos\\theta}{\\sin^2\\theta} + \\dfrac{\\sin\\theta}{\\cos^2\\theta} = 0$, so $\\sin^3\\theta = 8\\cos^3\\theta$ and $\\tan\\theta = 2$.",
+      "**Trig values.** $\\sin\\theta = \\tfrac{2}{\\sqrt5}$ and $\\cos\\theta = \\tfrac{1}{\\sqrt5}$.",
+      "**Shortest ladder.** $L = 8\\cdot\\tfrac{\\sqrt5}{2} + \\sqrt5 = 5\\sqrt5 \\approx 11.18$ ft. (In general the answer is $(a^{2/3} + b^{2/3})^{3/2}$.)"
     ],
     "course": "calc1",
     "diagram": "<svg viewBox=\"0 0 220 180\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><line x1=\"10\" y1=\"165\" x2=\"210\" y2=\"165\"/><line x1=\"190\" y1=\"165\" x2=\"190\" y2=\"10\"/><line x1=\"170\" y1=\"165\" x2=\"170\" y2=\"85\"/><line x1=\"130\" y1=\"165\" x2=\"190\" y2=\"45\"/><text x=\"158\" y=\"128\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">8</text><text x=\"180\" y=\"178\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">1</text><text x=\"150\" y=\"158\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">θ</text></svg>",
@@ -622,15 +773,19 @@
     "id": "h039",
     "difficulty": "hard",
     "topic": "Optimization",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "A company sells $q = 1200 - 30p$ units when the price is $p$ dollars. Each unit costs \\$4 to make, plus a fixed cost of \\$2000. What is the maximum possible profit, in dollars?",
     "answer": "7720",
     "answerNumeric": 7720.0,
     "hint1": "Profit $= (\\text{price} - \\text{unit cost})\\times\\text{quantity} - \\text{fixed cost} = (p - 4)(1200 - 30p) - 2000$.",
     "hint2": "Expand to $-30p^2 + 1320p - 6800$. The vertex is at $p = 22$.",
+    "keyIdea": "Profit is revenue minus cost. Write it as a function of price, which gives a downward-opening parabola, and find its vertex.",
     "solutionSteps": [
-      "$\\Pi(p) = (p - 4)(1200 - 30p) - 2000 = -30p^2 + 1320p - 6800$.",
-      "$\\Pi'(p) = -60p + 1320 = 0 \\Rightarrow p = 22$.",
-      "$\\Pi(22) = 18\\cdot540 - 2000 = 7720$ dollars."
+      "**Profit function.** Each unit earns $p - 4$ and $q = 1200 - 30p$ units sell: $\\Pi(p) = (p - 4)(1200 - 30p) - 2000$.",
+      "**Expand.** $\\Pi = -30p^2 + 1320p - 6800$.",
+      "**Vertex.** $\\Pi'(p) = -60p + 1320 = 0$, so $p = \\$22$.",
+      "**Maximum profit.** $(22 - 4)(1200 - 660) - 2000 = 18\\cdot540 - 2000 = \\$7720$."
     ],
     "course": "calc1"
   },
@@ -638,15 +793,19 @@
     "id": "h040",
     "difficulty": "hard",
     "topic": "Optimization",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "An oil well is $3$ km offshore. The nearest point on the straight coast is $8$ km from a refinery. Pipe costs \\$5M per km underwater and \\$3M per km on land. What is the minimum cost, in millions of dollars?",
     "answer": "36",
     "answerNumeric": 36.0,
     "hint1": "Let the pipe reach the shore $x$ km from the nearest point. Cost: $C(x) = 5\\sqrt{9 + x^2} + 3(8 - x)$.",
     "hint2": "$C'(x) = \\dfrac{5x}{\\sqrt{9 + x^2}} - 3 = 0 \\Rightarrow 16x^2 = 81$.",
+    "keyIdea": "The pipe goes underwater to some shore point, then along the coast. Write the cost as a function of where it lands, then minimize.",
     "solutionSteps": [
-      "$C' = 0 \\Rightarrow 25x^2 = 9(9 + x^2) \\Rightarrow x = \\tfrac94$.",
-      "$\\sqrt{9 + \\tfrac{81}{16}} = \\tfrac{15}{4}$.",
-      "$C = 5\\cdot\\tfrac{15}{4} + 3\\cdot\\tfrac{23}{4} = \\tfrac{144}{4} = 36$ million dollars (and this beats both endpoints)."
+      "**Cost function.** If the pipe lands $x$ km along the shore, the underwater part is $\\sqrt{9 + x^2}$ km and the land part is $8 - x$ km: $C(x) = 5\\sqrt{9 + x^2} + 3(8 - x)$.",
+      "**Derivative.** $C'(x) = \\dfrac{5x}{\\sqrt{9 + x^2}} - 3 = 0$, so $5x = 3\\sqrt{9 + x^2}$, $25x^2 = 81 + 9x^2$ and $x = \\tfrac94$.",
+      "**Evaluate.** $\\sqrt{9 + \\tfrac{81}{16}} = \\tfrac{15}{4}$, so $C = 5\\cdot\\tfrac{15}{4} + 3\\cdot\\tfrac{23}{4} = \\tfrac{75 + 69}{4} = 36$.",
+      "**Compare the endpoints.** $C(0) = 15 + 24 = 39$ and $C(8) = 5\\sqrt{73} \\approx 42.7$, so $36$ million dollars is the minimum."
     ],
     "course": "calc1",
     "diagram": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><line x1=\"10\" y1=\"90\" x2=\"230\" y2=\"90\"/><circle cx=\"30\" cy=\"20\" r=\"4\" fill=\"currentColor\"/><circle cx=\"210\" cy=\"90\" r=\"4\" fill=\"currentColor\"/><line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"90\" stroke-dasharray=\"5 4\"/><line x1=\"30\" y1=\"20\" x2=\"80\" y2=\"90\"/><line x1=\"80\" y1=\"90\" x2=\"210\" y2=\"90\"/><text x=\"40\" y=\"16\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"start\">well</text><text x=\"210\" y=\"108\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">refinery</text><text x=\"20\" y=\"58\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">3</text><text x=\"55\" y=\"106\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\" font-style=\"italic\">x</text><text x=\"120\" y=\"114\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">8 total</text></svg>",
@@ -656,15 +815,19 @@
     "id": "h041",
     "difficulty": "hard",
     "topic": "Optimization",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "A right circular cone is inscribed in a sphere of radius $3$. What is the largest possible volume of the cone?",
     "answer": "32pi/3",
     "answerNumeric": 33.51032163829113,
     "hint1": "Put the cone's apex at the top of the sphere, with height $h$. Its base radius satisfies $\\rho^2 + (h - 3)^2 = 9$.",
     "hint2": "$\\rho^2 = 6h - h^2$, so $V = \\tfrac\\pi3(6h - h^2)h$.",
+    "keyIdea": "Use the cone's height $h$ as the variable. The sphere fixes the cone's base radius through a right triangle from the sphere's center.",
     "solutionSteps": [
-      "$V(h) = \\tfrac\\pi3(6h^2 - h^3)$.",
-      "$V' = \\tfrac\\pi3(12h - 3h^2) = 0 \\Rightarrow h = 4$.",
-      "$\\rho^2 = 8$, so $V = \\tfrac\\pi3\\cdot8\\cdot4 = \\tfrac{32\\pi}{3}$."
+      "**Geometry.** With the apex at the top of the sphere, the base is at distance $h - 3$ from the center. So $\\rho^2 + (h - 3)^2 = 9$, giving $\\rho^2 = 6h - h^2$.",
+      "**Volume.** $V(h) = \\tfrac13\\pi\\rho^2h = \\tfrac\\pi3(6h^2 - h^3)$ for $0 < h < 6$.",
+      "**Maximize.** $V' = \\tfrac\\pi3(12h - 3h^2) = 0$, so $h = 4$ and $\\rho^2 = 8$.",
+      "**Maximum volume.** $\\tfrac\\pi3\\cdot8\\cdot4 = \\tfrac{32\\pi}{3}$. That is $\\tfrac{8}{27}$ of the sphere's volume."
     ],
     "course": "calc1"
   },
@@ -672,15 +835,19 @@
     "id": "h042",
     "difficulty": "hard",
     "topic": "u-substitution",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Evaluate $$\\int_0^{\\sqrt{3}}\\frac{4x}{x^2 + 1}\\,dx.$$",
     "answer": "4ln(2)",
     "answerNumeric": 2.772588722239781,
     "hint1": "Try substitution: let $u = x^2 + 1$.",
     "hint2": "After substituting, the integral becomes $2\\displaystyle\\int_1^4 u^{-1}\\,du$.",
+    "keyIdea": "The numerator is a constant multiple of the derivative of the denominator. That is the signal for $u$-substitution with $u = $ the denominator.",
     "solutionSteps": [
-      "Let $u = x^2 + 1$, so $du = 2x\\,dx$ and $4x\\,dx = 2\\,du$.",
-      "Change the limits: $x = 0 \\Rightarrow u = 1$ and $x = \\sqrt3 \\Rightarrow u = 4$.",
-      "$\\displaystyle\\int_1^4\\frac2u\\,du = 2\\ln u\\,\\Big|_1^4 = 2\\ln4 = 4\\ln2.$"
+      "**Substitute.** $u = x^2 + 1$, so $du = 2x\\,dx$ and $4x\\,dx = 2\\,du$.",
+      "**Change the limits.** $x = 0 \\to u = 1$ and $x = \\sqrt3 \\to u = 4$. Then you don't need to switch back to $x$.",
+      "**Integrate.** $\\displaystyle\\int_1^4\\frac{2}{u}\\,du = 2\\ln u\\Big|_1^4 = 2\\ln4$.",
+      "**Simplify.** $2\\ln4 = 4\\ln2 \\approx 2.77$."
     ],
     "course": "calc1"
   },
@@ -688,15 +855,19 @@
     "id": "h043",
     "difficulty": "hard",
     "topic": "u-substitution",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Evaluate $$\\int_1^4\\frac{e^{\\sqrt x}}{\\sqrt x}\\,dx.$$",
     "answer": "2e^2 - 2e",
     "answerNumeric": 9.34154854094321,
     "hint1": "Let $u = \\sqrt x$. Then $du = \\dfrac{dx}{2\\sqrt x}$.",
     "hint2": "The integral becomes $2\\displaystyle\\int_1^2 e^u\\,du$.",
+    "keyIdea": "$\\sqrt x$ appears inside the exponential, and its derivative $\\tfrac{1}{2\\sqrt x}$ is also present. Substitute $u = \\sqrt x$.",
     "solutionSteps": [
-      "$u = \\sqrt x$, $\\dfrac{dx}{\\sqrt x} = 2\\,du$, and the limits become $1$ to $2$.",
-      "$2\\displaystyle\\int_1^2e^u\\,du = 2(e^2 - e)$.",
-      "$= 2e^2 - 2e \\approx 9.34$."
+      "**Spot the substitution.** The integrand contains $\\sqrt x$ inside the exponential, and also $\\tfrac{1}{\\sqrt x}$, which is (up to a factor of $2$) the derivative of $\\sqrt x$. So let $u = \\sqrt x$.",
+      "**Convert $dx$.** $du = \\dfrac{1}{2\\sqrt x}dx$, so $\\dfrac{dx}{\\sqrt x} = 2\\,du$. The whole integrand $\\dfrac{e^{\\sqrt x}}{\\sqrt x}dx$ becomes $2e^u\\,du$.",
+      "**Convert the limits** so you never have to switch back to $x$: $x = 1$ gives $u = 1$, and $x = 4$ gives $u = 2$.",
+      "**Integrate.** $2\\displaystyle\\int_1^2e^u\\,du = 2(e^2 - e) = 2e^2 - 2e \\approx 9.34$."
     ],
     "course": "calc1"
   },
@@ -704,15 +875,19 @@
     "id": "h044",
     "difficulty": "hard",
     "topic": "u-substitution",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Evaluate $$\\int_0^{\\ln 2}\\frac{e^x}{1 + e^{2x}}\\,dx.$$",
     "answer": "arctan(2) - pi/4",
     "answerNumeric": 0.3217505543966422,
     "hint1": "Let $u = e^x$. Then $e^{2x} = u^2$.",
     "hint2": "$\\displaystyle\\int_1^2\\frac{du}{1 + u^2}$.",
+    "keyIdea": "Rewrite $e^{2x} = (e^x)^2$. With $u = e^x$, the integral becomes the arctangent form $\\int\\frac{du}{1 + u^2}$.",
     "solutionSteps": [
-      "$u = e^x$, $du = e^x\\,dx$, and the limits become $1$ to $2$.",
-      "$\\displaystyle\\int_1^2\\frac{du}{1 + u^2} = \\arctan u\\,\\Big|_1^2$.",
-      "$= \\arctan2 - \\tfrac\\pi4 \\approx 0.322$."
+      "**Rewrite the denominator.** $e^{2x}$ is the square of $e^x$, so the integrand is $\\dfrac{e^x}{1 + (e^x)^2}$. That looks like the derivative of $\\arctan$ once we substitute.",
+      "**Substitute $u = e^x$.** Then $du = e^x\\,dx$, which is exactly the numerator. The integrand becomes $\\dfrac{du}{1 + u^2}$.",
+      "**Convert the limits.** $x = 0$ gives $u = e^0 = 1$, and $x = \\ln2$ gives $u = e^{\\ln2} = 2$.",
+      "**Integrate.** $\\displaystyle\\int_1^2\\frac{du}{1 + u^2} = \\arctan2 - \\arctan1 = \\arctan2 - \\tfrac\\pi4 \\approx 0.322$."
     ],
     "course": "calc1"
   },
@@ -720,15 +895,19 @@
     "id": "h045",
     "difficulty": "hard",
     "topic": "u-substitution",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Evaluate $$\\int_0^1 x(1 - x)^9\\,dx.$$",
     "answer": "1/110",
     "answerNumeric": 0.00909090909090909,
     "hint1": "Let $u = 1 - x$, so $x = 1 - u$.",
     "hint2": "The integral becomes $\\displaystyle\\int_0^1(1 - u)u^9\\,du$.",
+    "keyIdea": "Expanding $(1 - x)^9$ would be painful. Substitute $u = 1 - x$ to move the ninth power onto a single variable, and the integrand becomes two simple powers.",
     "solutionSteps": [
-      "$u = 1 - x$: $\\displaystyle\\int_1^0(1 - u)u^9(-du) = \\int_0^1(u^9 - u^{10})\\,du$.",
-      "$= \\tfrac1{10} - \\tfrac1{11}$.",
-      "$= \\tfrac{1}{110}$."
+      "**Substitute.** $u = 1 - x$, so $x = 1 - u$ and $dx = -du$. The limits $0 \\to 1$ become $1 \\to 0$.",
+      "**Rewrite.** $\\displaystyle\\int_1^0(1 - u)u^9(-du) = \\int_0^1(u^9 - u^{10})\\,du$. Flipping the limits absorbs the minus sign.",
+      "**Integrate.** $\\tfrac{1}{10} - \\tfrac{1}{11}$.",
+      "**Value.** $\\tfrac{11 - 10}{110} = \\tfrac{1}{110}$."
     ],
     "course": "calc1"
   },
@@ -736,15 +915,19 @@
     "id": "h046",
     "difficulty": "hard",
     "topic": "Fundamental Theorem of Calculus",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Let $$g(x) = \\int_{x^2}^{x^3}\\sqrt{1 + t^2}\\,dt.$$ Find $g'(1)$.",
     "answer": "sqrt(2)",
     "answerNumeric": 1.4142135623730951,
     "hint1": "FTC with the chain rule: $\\dfrac{d}{dx}\\displaystyle\\int_{a(x)}^{b(x)}f(t)\\,dt = f(b)b' - f(a)a'$.",
     "hint2": "$g'(x) = 3x^2\\sqrt{1 + x^6} - 2x\\sqrt{1 + x^4}$.",
+    "keyIdea": "By the Fundamental Theorem of Calculus with the chain rule, $\\dfrac{d}{dx}\\displaystyle\\int_{a(x)}^{b(x)}f(t)\\,dt = f(b(x))b'(x) - f(a(x))a'(x)$.",
     "solutionSteps": [
-      "$g'(x) = \\sqrt{1 + x^6}\\cdot3x^2 - \\sqrt{1 + x^4}\\cdot2x$.",
-      "At $x = 1$: $3\\sqrt2 - 2\\sqrt2$.",
-      "$g'(1) = \\sqrt2$."
+      "**Why it works.** If $F' = f$, then $g(x) = F(x^3) - F(x^2)$. Differentiating with the chain rule gives $f(x^3)\\cdot3x^2 - f(x^2)\\cdot2x$.",
+      "**Apply it.** $g'(x) = 3x^2\\sqrt{1 + x^6} - 2x\\sqrt{1 + x^4}$.",
+      "**At $x = 1$.** $3\\sqrt2 - 2\\sqrt2 = \\sqrt2$.",
+      "**Note.** You never need an antiderivative of $\\sqrt{1 + t^2}$. That is the power of the FTC (Fundamental Theorem of Calculus)."
     ],
     "course": "calc1"
   },
@@ -752,15 +935,19 @@
     "id": "h047",
     "difficulty": "hard",
     "topic": "Fundamental Theorem of Calculus",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Evaluate $$\\lim_{x\\to0}\\frac{1}{x^3}\\int_0^x\\sin(t^2)\\,dt.$$",
     "answer": "1/3",
     "answerNumeric": 0.3333333333333333,
     "hint1": "It is $\\tfrac00$. Use L'Hôpital, with the FTC to differentiate the integral.",
     "hint2": "Its derivative is $\\sin(x^2)$, so you need $\\lim\\dfrac{\\sin(x^2)}{3x^2}$.",
+    "keyIdea": "The limit is $\\tfrac00$, and the numerator is an integral. L'Hôpital plus the FTC turns the integral into its integrand.",
     "solutionSteps": [
-      "L'Hôpital: $\\lim\\dfrac{\\sin(x^2)}{3x^2}$.",
-      "$\\dfrac{\\sin(x^2)}{x^2} \\to 1$.",
-      "The limit is $\\tfrac13$."
+      "**Form.** At $x = 0$ the integral is $0$ and so is $x^3$.",
+      "**L'Hôpital.** Differentiate the top with the FTC, giving $\\sin(x^2)$, and the bottom, giving $3x^2$.",
+      "**Simplify.** $\\dfrac{\\sin(x^2)}{3x^2} = \\dfrac13\\cdot\\dfrac{\\sin u}{u}$ with $u = x^2 \\to 0$, so the limit is $\\tfrac13$.",
+      "**Series check.** $\\sin(t^2) \\approx t^2$, so the integral is $\\approx \\tfrac{x^3}{3}$. ✓"
     ],
     "course": "calc1"
   },
@@ -768,15 +955,19 @@
     "id": "h048",
     "difficulty": "hard",
     "topic": "Fundamental Theorem of Calculus",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Find the average value of $f(x) = x\\sqrt{x^2 + 9}$ on $[0, 4]$.",
     "answer": "49/6",
     "answerNumeric": 8.166666666666666,
     "hint1": "Average $= \\dfrac{1}{4 - 0}\\displaystyle\\int_0^4x\\sqrt{x^2 + 9}\\,dx$. Use $u = x^2 + 9$.",
     "hint2": "$\\displaystyle\\int_0^4x\\sqrt{x^2 + 9}\\,dx = \\tfrac13(x^2 + 9)^{3/2}\\Big|_0^4 = \\tfrac13(125 - 27)$.",
+    "keyIdea": "The average value of $f$ on $[a, b]$ is $\\dfrac{1}{b - a}\\displaystyle\\int_a^bf(x)\\,dx$. The integral itself needs a $u$-substitution.",
     "solutionSteps": [
-      "$\\displaystyle\\int x\\sqrt{x^2 + 9}\\,dx = \\tfrac13(x^2 + 9)^{3/2}$.",
-      "From $0$ to $4$: $\\tfrac13(125 - 27) = \\tfrac{98}{3}$.",
-      "Average: $\\tfrac14\\cdot\\tfrac{98}{3} = \\tfrac{49}{6}$."
+      "**Recall the definition.** The average value of a function on $[a, b]$ is $\\dfrac{1}{b - a}\\displaystyle\\int_a^b f(x)\\,dx$: the total area divided by the width of the interval.",
+      "**Find an antiderivative with $u$-substitution.** Let $u = x^2 + 9$, so $du = 2x\\,dx$. Then $\\displaystyle\\int x\\sqrt{x^2 + 9}\\,dx = \\tfrac12\\int u^{1/2}\\,du = \\tfrac13u^{3/2} = \\tfrac13(x^2 + 9)^{3/2}$.",
+      "**Evaluate from $0$ to $4$.** $\\tfrac13\\left(25^{3/2} - 9^{3/2}\\right) = \\tfrac13(125 - 27) = \\tfrac{98}{3}$.",
+      "**Divide by the width, $4$.** The average value is $\\tfrac{98}{12} = \\tfrac{49}{6} \\approx 8.17$. It lies between $f(0) = 0$ and $f(4) = 20$, as it should."
     ],
     "course": "calc1"
   },
@@ -784,15 +975,19 @@
     "id": "h049",
     "difficulty": "hard",
     "topic": "Fundamental Theorem of Calculus",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "Find the area of the region between $y = x^2$ and $y = 2x + 3$.",
     "answer": "32/3",
     "answerNumeric": 10.666666666666666,
     "hint1": "Find where the curves cross: $x^2 = 2x + 3$.",
     "hint2": "They cross at $x = -1$ and $x = 3$. The line is on top in between.",
+    "keyIdea": "The area between two curves is $\\displaystyle\\int(\\text{top} - \\text{bottom})\\,dx$ between their intersection points.",
     "solutionSteps": [
-      "$x^2 - 2x - 3 = 0 \\Rightarrow x = -1, 3$.",
-      "Area $= \\displaystyle\\int_{-1}^3(2x + 3 - x^2)\\,dx = \\left[x^2 + 3x - \\tfrac{x^3}3\\right]_{-1}^3$.",
-      "$= 9 - \\left(-\\tfrac53\\right) = \\tfrac{32}{3}$."
+      "**Intersections.** $x^2 = 2x + 3$, so $(x - 3)(x + 1) = 0$ and $x = -1, 3$.",
+      "**Which is on top?** At $x = 0$ the line gives $3$ and the parabola $0$, so the line is on top.",
+      "**Integrate.** $\\displaystyle\\int_{-1}^3(2x + 3 - x^2)\\,dx = \\left[x^2 + 3x - \\tfrac{x^3}{3}\\right]_{-1}^{3} = 9 - \\left(-\\tfrac53\\right)$.",
+      "**Area.** $\\tfrac{32}{3}$."
     ],
     "course": "calc1"
   },
@@ -800,15 +995,18 @@
     "id": "h050",
     "difficulty": "hard",
     "topic": "Fundamental Theorem of Calculus",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
     "prompt": "A continuous function $f$ satisfies $$\\int_0^x f(t)\\,dt = x^2\\sin(\\pi x)$$ for all $x$. Find $f\\!\\left(\\tfrac13\\right)$.",
     "answer": "sqrt(3)/3 + pi/18",
     "answerNumeric": 0.7518831943890587,
     "hint1": "By the FTC, $f(x)$ is the derivative of the right side.",
     "hint2": "$f(x) = 2x\\sin(\\pi x) + \\pi x^2\\cos(\\pi x)$.",
+    "keyIdea": "If $\\int_0^x f(t)\\,dt$ equals a known function, then by the FTC $f$ is that function's derivative.",
     "solutionSteps": [
-      "$f(x) = \\dfrac{d}{dx}\\left[x^2\\sin(\\pi x)\\right] = 2x\\sin(\\pi x) + \\pi x^2\\cos(\\pi x)$.",
-      "At $\\tfrac13$: $\\tfrac23\\cdot\\tfrac{\\sqrt3}{2} + \\pi\\cdot\\tfrac19\\cdot\\tfrac12$.",
-      "$f\\left(\\tfrac13\\right) = \\tfrac{\\sqrt3}{3} + \\tfrac{\\pi}{18} \\approx 0.752$."
+      "**Differentiate both sides.** The left side gives $f(x)$ by the FTC. The right side, by the product rule, gives $2x\\sin(\\pi x) + \\pi x^2\\cos(\\pi x)$.",
+      "**Evaluate at $x = \\tfrac13$.** $\\sin\\tfrac\\pi3 = \\tfrac{\\sqrt3}{2}$ and $\\cos\\tfrac\\pi3 = \\tfrac12$.",
+      "**Combine.** $\\tfrac23\\cdot\\tfrac{\\sqrt3}{2} + \\pi\\cdot\\tfrac19\\cdot\\tfrac12 = \\tfrac{\\sqrt3}{3} + \\tfrac{\\pi}{18} \\approx 0.752$."
     ],
     "course": "calc1"
   },
@@ -816,15 +1014,19 @@
     "id": "h051",
     "difficulty": "hard",
     "topic": "Integration by parts",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Evaluate $$\\int_0^1 xe^{2x}\\,dx.$$",
     "answer": "(e^2 + 1)/4",
     "answerNumeric": 2.0972640247326626,
     "hint1": "Use parts with $u = x$ and $dv = e^{2x}\\,dx$.",
     "hint2": "$\\displaystyle\\int xe^{2x}\\,dx = \\tfrac{x}{2}e^{2x} - \\tfrac14e^{2x}$.",
+    "keyIdea": "Integration by parts, $\\int u\\,dv = uv - \\int v\\,du$, trades the integral for an easier one. Choose $u = x$, because differentiating it makes it simpler, and $dv = e^{2x}dx$, because it is easy to integrate.",
     "solutionSteps": [
-      "$u = x$, $v = \\tfrac12e^{2x}$: $\\displaystyle\\int xe^{2x}dx = \\tfrac x2e^{2x} - \\int\\tfrac12e^{2x}dx = \\tfrac x2e^{2x} - \\tfrac14e^{2x}$.",
-      "At $1$: $\\tfrac{e^2}{2} - \\tfrac{e^2}{4} = \\tfrac{e^2}{4}$. At $0$: $-\\tfrac14$.",
-      "Result: $\\tfrac{e^2}{4} + \\tfrac14 = \\tfrac{e^2 + 1}{4} \\approx 2.097$."
+      "**Choose the parts.** $u = x$ gives $du = dx$. $dv = e^{2x}dx$ gives $v = \\tfrac12e^{2x}$.",
+      "**Apply the formula.** $\\displaystyle\\int xe^{2x}dx = \\tfrac x2e^{2x} - \\int\\tfrac12e^{2x}dx = \\tfrac x2e^{2x} - \\tfrac14e^{2x}$. The leftover integral has no $x$ factor, so it is easy.",
+      "**Evaluate from $0$ to $1$.** At $1$: $\\tfrac{e^2}{2} - \\tfrac{e^2}{4} = \\tfrac{e^2}{4}$. At $0$: $0 - \\tfrac14 = -\\tfrac14$.",
+      "**Subtract.** $\\tfrac{e^2}{4} + \\tfrac14 = \\tfrac{e^2 + 1}{4} \\approx 2.097$."
     ],
     "course": "calc2"
   },
@@ -832,15 +1034,19 @@
     "id": "h052",
     "difficulty": "hard",
     "topic": "Integration by parts",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Evaluate $$\\int_1^e x^2\\ln x\\,dx.$$",
     "answer": "(2e^3 + 1)/9",
     "answerNumeric": 4.5745637607083705,
     "hint1": "Let $u = \\ln x$ and $dv = x^2\\,dx$.",
     "hint2": "$\\displaystyle\\int x^2\\ln x\\,dx = \\tfrac{x^3}{3}\\ln x - \\tfrac{x^3}{9}$.",
+    "keyIdea": "With a logarithm in the integrand, let $u = \\ln x$. Its derivative $\\tfrac1x$ cancels a power of $x$, which leaves a simple power to integrate.",
     "solutionSteps": [
-      "$u = \\ln x$, $v = \\tfrac{x^3}{3}$: $\\tfrac{x^3}{3}\\ln x - \\displaystyle\\int\\tfrac{x^2}{3}\\,dx = \\tfrac{x^3}{3}\\ln x - \\tfrac{x^3}{9}$.",
-      "At $e$: $\\tfrac{e^3}{3} - \\tfrac{e^3}{9} = \\tfrac{2e^3}{9}$. At $1$: $-\\tfrac19$.",
-      "Result: $\\tfrac{2e^3 + 1}{9} \\approx 4.57$."
+      "**Choose the parts.** $u = \\ln x$ gives $du = \\tfrac{dx}{x}$. $dv = x^2dx$ gives $v = \\tfrac{x^3}{3}$.",
+      "**Apply the formula.** $\\tfrac{x^3}{3}\\ln x - \\displaystyle\\int\\tfrac{x^3}{3}\\cdot\\tfrac1x\\,dx = \\tfrac{x^3}{3}\\ln x - \\tfrac{x^3}{9}$.",
+      "**At $e$.** $\\ln e = 1$: $\\tfrac{e^3}{3} - \\tfrac{e^3}{9} = \\tfrac{2e^3}{9}$. **At $1$.** $\\ln1 = 0$: $0 - \\tfrac19$.",
+      "**Subtract.** $\\tfrac{2e^3}{9} + \\tfrac19 = \\tfrac{2e^3 + 1}{9} \\approx 4.57$."
     ],
     "course": "calc2"
   },
@@ -848,16 +1054,20 @@
     "id": "h053",
     "difficulty": "hard",
     "topic": "Integration by parts",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Evaluate $$\\int_0^{\\pi}e^x\\sin x\\,dx.$$",
     "answer": "(e^pi + 1)/2",
     "answerNumeric": 12.070346316389635,
     "hint1": "Integrate by parts twice. The original integral comes back, so solve for it.",
     "hint2": "$\\displaystyle\\int e^x\\sin x\\,dx = \\tfrac12e^x(\\sin x - \\cos x) + C$.",
+    "keyIdea": "Integrating by parts twice brings back the original integral. Call it $I$ and solve the resulting equation for $I$ algebraically.",
     "solutionSteps": [
-      "Let $I = \\int e^x\\sin x\\,dx$. Parts twice: $I = e^x\\sin x - e^x\\cos x - I$.",
-      "$I = \\tfrac12e^x(\\sin x - \\cos x)$.",
-      "$\\left[\\tfrac12e^x(\\sin x - \\cos x)\\right]_0^\\pi = \\tfrac12e^\\pi(0 + 1) - \\tfrac12(0 - 1)$.",
-      "$= \\tfrac{e^\\pi + 1}{2} \\approx 12.07$."
+      "**First round.** $u = \\sin x$, $dv = e^xdx$: $I = e^x\\sin x - \\displaystyle\\int e^x\\cos x\\,dx$.",
+      "**Second round.** $u = \\cos x$, $dv = e^xdx$: $\\displaystyle\\int e^x\\cos x\\,dx = e^x\\cos x + \\int e^x\\sin x\\,dx = e^x\\cos x + I$.",
+      "**Solve for $I$.** $I = e^x\\sin x - e^x\\cos x - I$, so $I = \\tfrac12e^x(\\sin x - \\cos x)$.",
+      "**Evaluate from $0$ to $\\pi$.** At $\\pi$: $\\tfrac12e^\\pi(0 - (-1)) = \\tfrac{e^\\pi}{2}$. At $0$: $\\tfrac12(0 - 1) = -\\tfrac12$.",
+      "**Result.** $\\tfrac{e^\\pi + 1}{2} \\approx 12.07$."
     ],
     "course": "calc2"
   },
@@ -865,15 +1075,19 @@
     "id": "h054",
     "difficulty": "hard",
     "topic": "Integration by parts",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Evaluate $$\\int_0^1\\arctan x\\,dx.$$",
     "answer": "pi/4 - ln(2)/2",
     "answerNumeric": 0.43882457311747564,
     "hint1": "Use parts with $u = \\arctan x$ and $dv = dx$.",
     "hint2": "$\\displaystyle\\int\\arctan x\\,dx = x\\arctan x - \\int\\frac{x}{1 + x^2}\\,dx$.",
+    "keyIdea": "There is no obvious product here, but you can treat $\\arctan x$ as $u$ and $dx$ as $dv$. Differentiating $\\arctan$ gives a rational function, which is much easier to integrate.",
     "solutionSteps": [
-      "$\\displaystyle\\int\\arctan x\\,dx = x\\arctan x - \\tfrac12\\ln(1 + x^2)$.",
-      "At $1$: $\\tfrac\\pi4 - \\tfrac12\\ln2$. At $0$: $0$.",
-      "Result: $\\tfrac\\pi4 - \\tfrac{\\ln 2}{2} \\approx 0.439$."
+      "**Choose the parts.** $u = \\arctan x$ gives $du = \\tfrac{dx}{1 + x^2}$. $dv = dx$ gives $v = x$.",
+      "**Apply the formula.** $x\\arctan x - \\displaystyle\\int\\frac{x}{1 + x^2}dx$.",
+      "**Leftover integral.** With $w = 1 + x^2$, $\\displaystyle\\int\\frac{x}{1 + x^2}dx = \\tfrac12\\ln(1 + x^2)$.",
+      "**Evaluate from $0$ to $1$.** $\\left(1\\cdot\\tfrac\\pi4 - \\tfrac12\\ln2\\right) - 0 = \\tfrac\\pi4 - \\tfrac{\\ln2}{2} \\approx 0.439$."
     ],
     "course": "calc2"
   },
@@ -881,15 +1095,19 @@
     "id": "h055",
     "difficulty": "hard",
     "topic": "Integration by parts",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Evaluate $$\\int_0^{\\pi/2}x^2\\cos x\\,dx.$$",
     "answer": "pi^2/4 - 2",
     "answerNumeric": 0.46740110027233966,
     "hint1": "Integrate by parts twice, lowering the power of $x$ each time. Tabular integration helps.",
     "hint2": "An antiderivative is $x^2\\sin x + 2x\\cos x - 2\\sin x$.",
+    "keyIdea": "A polynomial times sine or cosine: keep differentiating the polynomial until it disappears. The *tabular method* organizes these repeated integrations by parts.",
     "solutionSteps": [
-      "Tabular: $x^2\\sin x - (2x)(-\\cos x) + 2(-\\sin x) = x^2\\sin x + 2x\\cos x - 2\\sin x$.",
-      "At $\\tfrac\\pi2$: $\\tfrac{\\pi^2}{4} + 0 - 2$. At $0$: $0$.",
-      "Result: $\\tfrac{\\pi^2}{4} - 2 \\approx 0.467$."
+      "**Table.** Derivatives of $x^2$: $x^2, 2x, 2, 0$. Integrals of $\\cos x$: $\\sin x, -\\cos x, -\\sin x$. The signs alternate $+, -, +$.",
+      "**Antiderivative.** $x^2\\sin x - 2x(-\\cos x) + 2(-\\sin x) = x^2\\sin x + 2x\\cos x - 2\\sin x$.",
+      "**At $\\tfrac\\pi2$.** $\\tfrac{\\pi^2}{4}\\cdot1 + 0 - 2 = \\tfrac{\\pi^2}{4} - 2$. **At $0$.** Every term is $0$.",
+      "**Result.** $\\tfrac{\\pi^2}{4} - 2 \\approx 0.467$."
     ],
     "course": "calc2"
   },
@@ -897,15 +1115,19 @@
     "id": "h056",
     "difficulty": "hard",
     "topic": "Integration by parts",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Evaluate $$\\int_1^e(\\ln x)^2\\,dx.$$",
     "answer": "e - 2",
     "answerNumeric": 0.7182818284590452,
     "hint1": "Parts with $u = (\\ln x)^2$, $dv = dx$. Then you need $\\int\\ln x\\,dx$, which is parts again.",
     "hint2": "$\\displaystyle\\int(\\ln x)^2dx = x(\\ln x)^2 - 2\\int\\ln x\\,dx = x(\\ln x)^2 - 2x\\ln x + 2x$.",
+    "keyIdea": "Use parts with $u = (\\ln x)^2$ and $dv = dx$. That lowers the power of the log by one. The remaining $\\int\\ln x\\,dx$ is a standard parts integral.",
     "solutionSteps": [
-      "Antiderivative: $x(\\ln x)^2 - 2x\\ln x + 2x$.",
-      "At $e$: $e - 2e + 2e = e$. At $1$: $0 - 0 + 2 = 2$.",
-      "Result: $e - 2 \\approx 0.718$."
+      "**First round.** $u = (\\ln x)^2$ gives $du = \\tfrac{2\\ln x}{x}dx$, and $v = x$: $x(\\ln x)^2 - 2\\displaystyle\\int\\ln x\\,dx$.",
+      "**Second round.** $\\displaystyle\\int\\ln x\\,dx = x\\ln x - x$, also by parts.",
+      "**Antiderivative.** $x(\\ln x)^2 - 2x\\ln x + 2x$.",
+      "**Evaluate from $1$ to $e$.** At $e$: $e - 2e + 2e = e$. At $1$: $0 - 0 + 2 = 2$. Result: $e - 2 \\approx 0.718$."
     ],
     "course": "calc2"
   },
@@ -913,15 +1135,19 @@
     "id": "h057",
     "difficulty": "hard",
     "topic": "Integration by parts",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Evaluate $$\\int_0^{1/2}\\arcsin x\\,dx.$$",
     "answer": "pi/12 + sqrt(3)/2 - 1",
     "answerNumeric": 0.1278247915835881,
     "hint1": "Use parts with $u = \\arcsin x$, $dv = dx$. The leftover integral $\\int\\frac{x}{\\sqrt{1 - x^2}}dx$ needs a substitution.",
     "hint2": "$\\displaystyle\\int\\arcsin x\\,dx = x\\arcsin x + \\sqrt{1 - x^2}$.",
+    "keyIdea": "Integrate $\\arcsin x$ by parts with $dv = dx$. The leftover integral $\\int\\frac{x}{\\sqrt{1 - x^2}}dx$ needs a simple substitution.",
     "solutionSteps": [
-      "$x\\arcsin x - \\displaystyle\\int\\frac{x\\,dx}{\\sqrt{1 - x^2}} = x\\arcsin x + \\sqrt{1 - x^2}$.",
-      "At $\\tfrac12$: $\\tfrac12\\cdot\\tfrac\\pi6 + \\tfrac{\\sqrt3}{2}$. At $0$: $1$.",
-      "Result: $\\tfrac{\\pi}{12} + \\tfrac{\\sqrt3}{2} - 1 \\approx 0.128$."
+      "**Set up integration by parts** with $u = \\arcsin x$, because its derivative $\\tfrac{1}{\\sqrt{1 - x^2}}$ is algebraic and simpler. Take $dv = dx$, so $v = x$. That gives $x\\arcsin x - \\displaystyle\\int\\frac{x\\,dx}{\\sqrt{1 - x^2}}$.",
+      "**Handle the leftover integral with a substitution.** Let $w = 1 - x^2$, so $dw = -2x\\,dx$. Then $\\displaystyle\\int\\frac{x\\,dx}{\\sqrt{1 - x^2}} = -\\tfrac12\\int w^{-1/2}dw = -\\sqrt{1 - x^2}$.",
+      "**Put it together.** The antiderivative is $x\\arcsin x + \\sqrt{1 - x^2}$. Differentiating it gives back $\\arcsin x$.",
+      "**Evaluate from $0$ to $\\tfrac12$.** At $\\tfrac12$: $\\tfrac12\\cdot\\tfrac\\pi6 + \\tfrac{\\sqrt3}{2}$. At $0$: $0 + 1$. The difference is $\\tfrac{\\pi}{12} + \\tfrac{\\sqrt3}{2} - 1 \\approx 0.128$."
     ],
     "course": "calc2"
   },
@@ -929,15 +1155,19 @@
     "id": "h058",
     "difficulty": "hard",
     "topic": "Partial fractions",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Evaluate $$\\int_2^4\\frac{dx}{x^2 - 1}.$$",
     "answer": "ln(9/5)/2",
     "answerNumeric": 0.29389333245105953,
     "hint1": "$\\dfrac{1}{x^2 - 1} = \\dfrac{1/2}{x - 1} - \\dfrac{1/2}{x + 1}$.",
     "hint2": "The antiderivative is $\\tfrac12\\ln\\left|\\dfrac{x - 1}{x + 1}\\right|$.",
+    "keyIdea": "Factor the denominator, $x^2 - 1 = (x - 1)(x + 1)$, and split into partial fractions. Each piece integrates to a logarithm.",
     "solutionSteps": [
-      "$\\displaystyle\\int\\frac{dx}{x^2 - 1} = \\tfrac12\\ln\\left|\\frac{x - 1}{x + 1}\\right|$.",
-      "At $4$: $\\tfrac12\\ln\\tfrac35$. At $2$: $\\tfrac12\\ln\\tfrac13$.",
-      "Difference: $\\tfrac12\\ln\\left(\\tfrac35\\cdot3\\right) = \\tfrac12\\ln\\tfrac95 \\approx 0.294$."
+      "**Partial fractions.** $\\dfrac{1}{(x - 1)(x + 1)} = \\dfrac{A}{x - 1} + \\dfrac{B}{x + 1}$. The cover-up method gives $A = \\tfrac12$ (at $x = 1$) and $B = -\\tfrac12$ (at $x = -1$).",
+      "**Integrate.** $\\tfrac12\\ln|x - 1| - \\tfrac12\\ln|x + 1| = \\tfrac12\\ln\\left|\\dfrac{x - 1}{x + 1}\\right|$.",
+      "**Evaluate.** At $4$: $\\tfrac12\\ln\\tfrac35$. At $2$: $\\tfrac12\\ln\\tfrac13$.",
+      "**Subtract.** $\\tfrac12\\left(\\ln\\tfrac35 - \\ln\\tfrac13\\right) = \\tfrac12\\ln\\tfrac95 \\approx 0.294$."
     ],
     "course": "calc2"
   },
@@ -945,15 +1175,19 @@
     "id": "h059",
     "difficulty": "hard",
     "topic": "Partial fractions",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Evaluate $$\\int_0^1\\frac{3x + 1}{(x + 1)(x + 2)}\\,dx.$$",
     "answer": "5ln(3) - 7ln(2)",
     "answerNumeric": 0.6410311794209312,
     "hint1": "Write it as $\\dfrac{A}{x + 1} + \\dfrac{B}{x + 2}$ and find $A$ and $B$ with the cover-up method.",
     "hint2": "$A = \\dfrac{3(-1) + 1}{-1 + 2} = -2$ and $B = \\dfrac{3(-2) + 1}{-2 + 1} = 5$.",
+    "keyIdea": "Split the fraction into two simple fractions with constant numerators. The cover-up method finds each constant: plug in the root of that factor's denominator.",
     "solutionSteps": [
-      "$\\dfrac{3x + 1}{(x + 1)(x + 2)} = \\dfrac{-2}{x + 1} + \\dfrac{5}{x + 2}$.",
-      "$\\left[-2\\ln(x + 1) + 5\\ln(x + 2)\\right]_0^1 = (-2\\ln2 + 5\\ln3) - 5\\ln2$.",
-      "$= 5\\ln3 - 7\\ln2 \\approx 0.641$."
+      "**Cover-up for $A$.** Cover $(x + 1)$ and plug in $x = -1$: $A = \\dfrac{3(-1) + 1}{-1 + 2} = -2$.",
+      "**Cover-up for $B$.** Cover $(x + 2)$ and plug in $x = -2$: $B = \\dfrac{-6 + 1}{-2 + 1} = 5$.",
+      "**Integrate.** $\\displaystyle\\int_0^1\\left(\\frac{-2}{x + 1} + \\frac{5}{x + 2}\\right)dx = \\Big[-2\\ln(x + 1) + 5\\ln(x + 2)\\Big]_0^1$.",
+      "**Evaluate.** $(-2\\ln2 + 5\\ln3) - (0 + 5\\ln2) = 5\\ln3 - 7\\ln2 \\approx 0.641$."
     ],
     "course": "calc2"
   },
@@ -961,15 +1195,19 @@
     "id": "h060",
     "difficulty": "hard",
     "topic": "Partial fractions",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Evaluate $$\\int_1^2\\frac{x^2 + 1}{x(x + 1)^2}\\,dx.$$",
     "answer": "ln(2) - 1/3",
     "answerNumeric": 0.35981384722661197,
     "hint1": "Use $\\dfrac{A}{x} + \\dfrac{B}{x + 1} + \\dfrac{C}{(x + 1)^2}$.",
     "hint2": "$A = 1$ and $C = -2$. Comparing $x^2$ coefficients gives $A + B = 1$, so $B = 0$.",
+    "keyIdea": "A repeated factor $(x + 1)^2$ needs two partial fractions, $\\frac{B}{x + 1}$ and $\\frac{C}{(x + 1)^2}$. Plug in convenient $x$-values for some constants and compare coefficients for the rest.",
     "solutionSteps": [
-      "$x^2 + 1 = A(x + 1)^2 + Bx(x + 1) + Cx$: $x = 0$ gives $A = 1$, $x = -1$ gives $C = -2$, and the $x^2$ terms give $B = 0$.",
-      "$\\displaystyle\\int_1^2\\left(\\frac1x - \\frac{2}{(x + 1)^2}\\right)dx = \\left[\\ln x + \\frac{2}{x + 1}\\right]_1^2$.",
-      "$= \\ln2 + \\tfrac23 - 1 = \\ln2 - \\tfrac13 \\approx 0.360$."
+      "**Set up.** $x^2 + 1 = A(x + 1)^2 + Bx(x + 1) + Cx$.",
+      "**Find the constants.** $x = 0$: $1 = A$. $x = -1$: $2 = -C$, so $C = -2$. Comparing the $x^2$ coefficients: $1 = A + B$, so $B = 0$.",
+      "**Integrate.** $\\displaystyle\\int_1^2\\left(\\frac1x - \\frac{2}{(x + 1)^2}\\right)dx = \\left[\\ln x + \\frac{2}{x + 1}\\right]_1^2$.",
+      "**Evaluate.** $\\left(\\ln2 + \\tfrac23\\right) - (0 + 1) = \\ln2 - \\tfrac13 \\approx 0.360$."
     ],
     "course": "calc2"
   },
@@ -977,15 +1215,18 @@
     "id": "h061",
     "difficulty": "hard",
     "topic": "Partial fractions",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Evaluate $$\\int_0^1\\frac{x^3}{x^2 + 1}\\,dx.$$",
     "answer": "1/2 - ln(2)/2",
     "answerNumeric": 0.15342640972002736,
     "hint1": "The numerator has a higher degree. Divide first.",
     "hint2": "$\\dfrac{x^3}{x^2 + 1} = x - \\dfrac{x}{x^2 + 1}$.",
+    "keyIdea": "When the numerator's degree is at least the denominator's, divide first. What remains is a polynomial plus a proper fraction.",
     "solutionSteps": [
-      "$\\dfrac{x^3}{x^2 + 1} = x - \\dfrac{x}{x^2 + 1}$.",
-      "$\\left[\\tfrac{x^2}{2} - \\tfrac12\\ln(x^2 + 1)\\right]_0^1$.",
-      "$= \\tfrac12 - \\tfrac12\\ln2 \\approx 0.153$."
+      "**Divide.** $x^3 = x(x^2 + 1) - x$, so $\\dfrac{x^3}{x^2 + 1} = x - \\dfrac{x}{x^2 + 1}$.",
+      "**Integrate each part.** $\\int x\\,dx = \\tfrac{x^2}{2}$. For the second, $w = x^2 + 1$ gives $\\int\\frac{x}{x^2 + 1}dx = \\tfrac12\\ln(x^2 + 1)$.",
+      "**Evaluate from $0$ to $1$.** $\\tfrac12 - \\tfrac12\\ln2 \\approx 0.153$."
     ],
     "course": "calc2"
   },
@@ -993,15 +1234,19 @@
     "id": "h062",
     "difficulty": "hard",
     "topic": "Partial fractions",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Evaluate $$\\int_0^1\\frac{dx}{x^2 + 2x + 5}.$$",
     "answer": "pi/8 - arctan(1/2)/2",
     "answerNumeric": 0.1608752771983211,
     "hint1": "The quadratic is irreducible. Complete the square: $(x + 1)^2 + 4$.",
     "hint2": "$\\displaystyle\\int\\frac{dx}{(x + 1)^2 + 4} = \\tfrac12\\arctan\\frac{x + 1}{2}$.",
+    "keyIdea": "The denominator has no real roots, so it can't be factored. Complete the square to reach the arctangent form $\\int\\frac{du}{u^2 + a^2} = \\tfrac1a\\arctan\\tfrac ua$.",
     "solutionSteps": [
-      "$x^2 + 2x + 5 = (x + 1)^2 + 2^2$.",
-      "Antiderivative: $\\tfrac12\\arctan\\dfrac{x + 1}{2}$.",
-      "$\\tfrac12\\left(\\arctan1 - \\arctan\\tfrac12\\right) = \\tfrac\\pi8 - \\tfrac12\\arctan\\tfrac12 \\approx 0.161$."
+      "**Complete the square.** $x^2 + 2x + 5 = (x + 1)^2 + 4$, so $a = 2$.",
+      "**Antiderivative.** $\\tfrac12\\arctan\\dfrac{x + 1}{2}$.",
+      "**Evaluate.** At $1$: $\\tfrac12\\arctan1 = \\tfrac\\pi8$. At $0$: $\\tfrac12\\arctan\\tfrac12$.",
+      "**Result.** $\\tfrac\\pi8 - \\tfrac12\\arctan\\tfrac12 \\approx 0.161$."
     ],
     "course": "calc2"
   },
@@ -1009,15 +1254,19 @@
     "id": "h063",
     "difficulty": "hard",
     "topic": "Partial fractions",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Evaluate $$\\int_1^2\\frac{5x^2 + 3x - 2}{x^3 + 2x^2}\\,dx.$$",
     "answer": "8ln(2) - 3ln(3) - 1/2",
     "answerNumeric": 1.7493405784752334,
     "hint1": "Factor the denominator: $x^2(x + 2)$. Use $\\dfrac{A}{x} + \\dfrac{B}{x^2} + \\dfrac{C}{x + 2}$.",
     "hint2": "$B = -1$, $C = 3$, and $A = 2$.",
+    "keyIdea": "Factor the denominator as $x^2(x + 2)$. The repeated factor $x^2$ needs the terms $\\tfrac Ax + \\tfrac{B}{x^2}$, plus $\\tfrac{C}{x + 2}$ for the other factor.",
     "solutionSteps": [
-      "$5x^2 + 3x - 2 = Ax(x + 2) + B(x + 2) + Cx^2$: $x = 0$ gives $B = -1$, $x = -2$ gives $C = 3$, and the $x^2$ terms give $A = 2$.",
-      "$\\left[2\\ln x + \\tfrac1x + 3\\ln(x + 2)\\right]_1^2 = 2\\ln2 - \\tfrac12 + 3\\ln\\tfrac43$.",
-      "$= 8\\ln2 - 3\\ln3 - \\tfrac12 \\approx 1.749$."
+      "**Set up.** $5x^2 + 3x - 2 = Ax(x + 2) + B(x + 2) + Cx^2$.",
+      "**Find the constants.** $x = 0$: $-2 = 2B$, so $B = -1$. $x = -2$: $20 - 6 - 2 = 4C$, so $C = 3$. The $x^2$ coefficients give $A + C = 5$, so $A = 2$.",
+      "**Integrate.** $\\left[2\\ln x + \\tfrac1x + 3\\ln(x + 2)\\right]_1^2$. Note that $\\int -x^{-2}dx = x^{-1}$.",
+      "**Evaluate.** $\\left(2\\ln2 + \\tfrac12 + 3\\ln4\\right) - (0 + 1 + 3\\ln3) = 8\\ln2 - 3\\ln3 - \\tfrac12 \\approx 1.749$."
     ],
     "course": "calc2"
   },
@@ -1025,15 +1274,20 @@
     "id": "h064",
     "difficulty": "hard",
     "topic": "Trig substitution",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Evaluate $$\\int_0^{3/2}\\frac{x^2}{\\sqrt{9 - x^2}}\\,dx.$$",
     "answer": "3pi/4 - 9sqrt(3)/8",
     "answerNumeric": 0.407637331677358,
     "hint1": "Let $x = 3\\sin\\theta$. Then $\\sqrt{9 - x^2} = 3\\cos\\theta$ and $dx = 3\\cos\\theta\\,d\\theta$.",
     "hint2": "It becomes $\\displaystyle\\int_0^{\\pi/6}9\\sin^2\\theta\\,d\\theta$.",
+    "keyIdea": "$\\sqrt{a^2 - x^2}$ suggests $x = a\\sin\\theta$, because then $\\sqrt{a^2 - a^2\\sin^2\\theta} = a\\cos\\theta$ and the square root disappears.",
     "solutionSteps": [
-      "$x = 3\\sin\\theta$: the limits become $0$ and $\\tfrac\\pi6$, and the integrand becomes $9\\sin^2\\theta$.",
-      "$9\\displaystyle\\int\\sin^2\\theta\\,d\\theta = \\tfrac92\\left(\\theta - \\tfrac{\\sin2\\theta}{2}\\right)$.",
-      "$\\tfrac92\\left(\\tfrac\\pi6 - \\tfrac{\\sqrt3}{4}\\right) = \\tfrac{3\\pi}{4} - \\tfrac{9\\sqrt3}{8} \\approx 0.407$."
+      "**Choose the substitution.** The expression $\\sqrt{9 - x^2}$ matches the identity $1 - \\sin^2\\theta = \\cos^2\\theta$, so let $x = 3\\sin\\theta$. Then $\\sqrt{9 - x^2} = 3\\cos\\theta$ and $dx = 3\\cos\\theta\\,d\\theta$.",
+      "**Change the limits.** $x = 0$ means $\\theta = 0$. $x = \\tfrac32$ means $\\sin\\theta = \\tfrac12$, so $\\theta = \\tfrac\\pi6$.",
+      "**Simplify the integrand.** $\\dfrac{9\\sin^2\\theta}{3\\cos\\theta}\\cdot3\\cos\\theta\\,d\\theta = 9\\sin^2\\theta\\,d\\theta$. The square root has disappeared.",
+      "**Integrate using the power-reduction identity** $\\sin^2\\theta = \\tfrac{1 - \\cos2\\theta}{2}$: $9\\displaystyle\\int_0^{\\pi/6}\\sin^2\\theta\\,d\\theta = \\tfrac92\\left[\\theta - \\tfrac{\\sin2\\theta}{2}\\right]_0^{\\pi/6}$.",
+      "**Evaluate.** $\\tfrac92\\left(\\tfrac\\pi6 - \\tfrac{\\sqrt3}{4}\\right) = \\tfrac{3\\pi}{4} - \\tfrac{9\\sqrt3}{8} \\approx 0.407$."
     ],
     "course": "calc2"
   },
@@ -1041,15 +1295,19 @@
     "id": "h065",
     "difficulty": "hard",
     "topic": "Trig substitution",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Evaluate $$\\int_0^1\\frac{dx}{(1 + x^2)^{3/2}}.$$",
     "answer": "sqrt(2)/2",
     "answerNumeric": 0.7071067811865476,
     "hint1": "Let $x = \\tan\\theta$. Then $1 + x^2 = \\sec^2\\theta$.",
     "hint2": "The integral becomes $\\displaystyle\\int_0^{\\pi/4}\\cos\\theta\\,d\\theta$.",
+    "keyIdea": "$1 + x^2$ suggests $x = \\tan\\theta$, since $1 + \\tan^2\\theta = \\sec^2\\theta$. The $\\tfrac32$ power then becomes $\\sec^3\\theta$.",
     "solutionSteps": [
-      "$dx = \\sec^2\\theta\\,d\\theta$ and $(1 + x^2)^{3/2} = \\sec^3\\theta$.",
-      "$\\displaystyle\\int_0^{\\pi/4}\\cos\\theta\\,d\\theta = \\sin\\theta\\Big|_0^{\\pi/4}$.",
-      "$= \\tfrac{\\sqrt2}{2}$."
+      "**Choose the substitution.** $1 + x^2$ matches the identity $1 + \\tan^2\\theta = \\sec^2\\theta$, so let $x = \\tan\\theta$, with $dx = \\sec^2\\theta\\,d\\theta$. Then $(1 + x^2)^{3/2} = (\\sec^2\\theta)^{3/2} = \\sec^3\\theta$.",
+      "**Change the limits.** $x = 0$ gives $\\theta = 0$, and $x = 1$ gives $\\theta = \\tfrac\\pi4$.",
+      "**Simplify.** $\\dfrac{\\sec^2\\theta\\,d\\theta}{\\sec^3\\theta} = \\cos\\theta\\,d\\theta$.",
+      "**Integrate.** $\\displaystyle\\int_0^{\\pi/4}\\cos\\theta\\,d\\theta = \\sin\\tfrac\\pi4 - \\sin 0 = \\tfrac{\\sqrt2}{2}$. As a check, in terms of $x$ the antiderivative is $\\tfrac{x}{\\sqrt{1 + x^2}}$, which equals $\\tfrac{1}{\\sqrt2}$ at $x = 1$."
     ],
     "course": "calc2"
   },
@@ -1057,15 +1315,19 @@
     "id": "h066",
     "difficulty": "hard",
     "topic": "Trig substitution",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Evaluate $$\\int_{\\sqrt2}^{2}\\frac{dx}{x^2\\sqrt{x^2 - 1}}.$$",
     "answer": "sqrt(3)/2 - sqrt(2)/2",
     "answerNumeric": 0.15891862259789113,
     "hint1": "Let $x = \\sec\\theta$, so $\\sqrt{x^2 - 1} = \\tan\\theta$.",
     "hint2": "The integrand becomes $\\cos\\theta$, with limits $\\tfrac\\pi4$ to $\\tfrac\\pi3$.",
+    "keyIdea": "$\\sqrt{x^2 - 1}$ suggests $x = \\sec\\theta$, since $\\sec^2\\theta - 1 = \\tan^2\\theta$.",
     "solutionSteps": [
-      "$dx = \\sec\\theta\\tan\\theta\\,d\\theta$, so the integrand is $\\dfrac{\\sec\\theta\\tan\\theta}{\\sec^2\\theta\\tan\\theta} = \\cos\\theta$.",
-      "$\\displaystyle\\int_{\\pi/4}^{\\pi/3}\\cos\\theta\\,d\\theta = \\sin\\tfrac\\pi3 - \\sin\\tfrac\\pi4$.",
-      "$= \\tfrac{\\sqrt3}{2} - \\tfrac{\\sqrt2}{2} \\approx 0.159$."
+      "**Choose the substitution.** The expression $\\sqrt{x^2 - 1}$ matches the identity $\\sec^2\\theta - 1 = \\tan^2\\theta$, so let $x = \\sec\\theta$. Then $dx = \\sec\\theta\\tan\\theta\\,d\\theta$, and the root becomes $\\tan\\theta$, which is positive for these angles.",
+      "**Change the limits.** When $x = \\sqrt2$, $\\cos\\theta = \\tfrac{1}{\\sqrt2}$, so $\\theta = \\tfrac\\pi4$. When $x = 2$, $\\cos\\theta = \\tfrac12$, so $\\theta = \\tfrac\\pi3$.",
+      "**Simplify the integrand.** In $\\dfrac{\\sec\\theta\\tan\\theta\\,d\\theta}{\\sec^2\\theta\\cdot\\tan\\theta}$ the tangent cancels and one secant cancels, leaving $\\dfrac{1}{\\sec\\theta} = \\cos\\theta$.",
+      "**Integrate cosine and evaluate.** $\\sin\\tfrac\\pi3 - \\sin\\tfrac\\pi4 = \\tfrac{\\sqrt3}{2} - \\tfrac{\\sqrt2}{2} \\approx 0.159$."
     ],
     "course": "calc2"
   },
@@ -1073,15 +1335,19 @@
     "id": "h067",
     "difficulty": "hard",
     "topic": "Trig substitution",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Evaluate $$\\int_0^2\\sqrt{x^2 + 4}\\,dx.$$",
     "answer": "2sqrt(2) + 2ln(1 + sqrt(2))",
     "answerNumeric": 4.591174298785276,
     "hint1": "Let $x = 2\\tan\\theta$. You will need $\\int\\sec^3\\theta\\,d\\theta$.",
     "hint2": "$\\displaystyle\\int\\sqrt{x^2 + a^2}\\,dx = \\tfrac x2\\sqrt{x^2 + a^2} + \\tfrac{a^2}{2}\\ln\\left(x + \\sqrt{x^2 + a^2}\\right)$.",
+    "keyIdea": "$\\sqrt{x^2 + a^2}$ suggests $x = a\\tan\\theta$, which leads to the classic integral of $\\sec^3\\theta$. Its result is worth remembering as a formula.",
     "solutionSteps": [
-      "With $a = 2$: $\\left[\\tfrac x2\\sqrt{x^2 + 4} + 2\\ln\\left(x + \\sqrt{x^2 + 4}\\right)\\right]_0^2$.",
-      "At $2$: $\\sqrt8 + 2\\ln(2 + 2\\sqrt2)$. At $0$: $2\\ln2$.",
-      "$2\\sqrt2 + 2\\ln(1 + \\sqrt2) \\approx 4.59$."
+      "**Substitute.** $x = 2\\tan\\theta$ gives $\\sqrt{x^2 + 4} = 2\\sec\\theta$ and $dx = 2\\sec^2\\theta\\,d\\theta$, so the integral becomes $4\\int\\sec^3\\theta\\,d\\theta$.",
+      "**Known result.** $\\int\\sec^3\\theta\\,d\\theta = \\tfrac12(\\sec\\theta\\tan\\theta + \\ln|\\sec\\theta + \\tan\\theta|)$, which converts back to $\\tfrac x2\\sqrt{x^2 + 4} + 2\\ln\\left(x + \\sqrt{x^2 + 4}\\right)$.",
+      "**At $2$.** $\\sqrt8 + 2\\ln(2 + 2\\sqrt2)$. **At $0$.** $2\\ln2$.",
+      "**Subtract.** $2\\sqrt2 + 2\\ln\\dfrac{2 + 2\\sqrt2}{2} = 2\\sqrt2 + 2\\ln(1 + \\sqrt2) \\approx 4.59$."
     ],
     "course": "calc2"
   },
@@ -1089,15 +1355,19 @@
     "id": "h068",
     "difficulty": "hard",
     "topic": "Trig substitution",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Evaluate $$\\int_0^1\\frac{x^3}{\\sqrt{4 - x^2}}\\,dx.$$",
     "answer": "16/3 - 3sqrt(3)",
     "answerNumeric": 0.13718091062670146,
     "hint1": "Let $x = 2\\sin\\theta$. The limits become $0$ and $\\tfrac\\pi6$.",
     "hint2": "It becomes $8\\displaystyle\\int_0^{\\pi/6}\\sin^3\\theta\\,d\\theta$. Write $\\sin^3 = \\sin(1 - \\cos^2)$.",
+    "keyIdea": "Substitute $x = 2\\sin\\theta$ to clear the root. The odd power $\\sin^3\\theta$ is handled by splitting off one $\\sin\\theta$ and writing the rest with cosines.",
     "solutionSteps": [
-      "$8\\displaystyle\\int\\sin^3\\theta\\,d\\theta = 8\\left[-\\cos\\theta + \\tfrac{\\cos^3\\theta}{3}\\right]$.",
-      "At $\\tfrac\\pi6$: $-\\tfrac{\\sqrt3}{2} + \\tfrac{\\sqrt3}{8} = -\\tfrac{3\\sqrt3}{8}$. At $0$: $-1 + \\tfrac13 = -\\tfrac23$.",
-      "$8\\left(-\\tfrac{3\\sqrt3}{8} + \\tfrac23\\right) = \\tfrac{16}{3} - 3\\sqrt3 \\approx 0.137$."
+      "**Substitute.** $x = 2\\sin\\theta$, $\\sqrt{4 - x^2} = 2\\cos\\theta$ and $dx = 2\\cos\\theta\\,d\\theta$. The limits $0 \\to 0$ and $1 \\to \\tfrac\\pi6$. The integral is $8\\int\\sin^3\\theta\\,d\\theta$.",
+      "**Odd power.** $\\sin^3\\theta = \\sin\\theta(1 - \\cos^2\\theta)$. With $w = \\cos\\theta$ the antiderivative is $-\\cos\\theta + \\tfrac{\\cos^3\\theta}{3}$.",
+      "**Evaluate.** At $\\tfrac\\pi6$: $-\\tfrac{\\sqrt3}{2} + \\tfrac{3\\sqrt3/8}{3} = -\\tfrac{3\\sqrt3}{8}$. At $0$: $-1 + \\tfrac13 = -\\tfrac23$.",
+      "**Multiply by 8.** $8\\left(-\\tfrac{3\\sqrt3}{8} + \\tfrac23\\right) = \\tfrac{16}{3} - 3\\sqrt3 \\approx 0.137$."
     ],
     "course": "calc2"
   },
@@ -1105,15 +1375,19 @@
     "id": "h069",
     "difficulty": "hard",
     "topic": "Improper integrals",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Evaluate $$\\int_1^\\infty\\frac{\\ln x}{x^2}\\,dx.$$ Enter inf if it diverges.",
     "answer": "1",
     "answerNumeric": 1.0,
     "hint1": "Use parts with $u = \\ln x$ and $dv = x^{-2}dx$, then take a limit.",
     "hint2": "Antiderivative: $-\\dfrac{\\ln x}{x} - \\dfrac1x$.",
+    "keyIdea": "An integral to $\\infty$ is a limit: integrate up to $b$, then let $b \\to \\infty$. Parts handles the $\\ln x$, and L'Hôpital shows the boundary term vanishes.",
     "solutionSteps": [
-      "$\\displaystyle\\int\\frac{\\ln x}{x^2}dx = -\\frac{\\ln x}{x} - \\frac1x$.",
-      "As $x \\to \\infty$, both terms go to $0$ (L'Hôpital for $\\tfrac{\\ln x}{x}$). At $1$: $-1$.",
-      "The value is $0 - (-1) = 1$."
+      "**Parts.** $u = \\ln x$ and $dv = x^{-2}dx$, so $v = -\\tfrac1x$: $\\displaystyle\\int\\frac{\\ln x}{x^2}dx = -\\frac{\\ln x}{x} + \\int\\frac{1}{x^2}dx = -\\frac{\\ln x}{x} - \\frac1x$.",
+      "**Upper limit.** $\\dfrac{\\ln b}{b} \\to 0$ (L'Hôpital: $\\tfrac{1/b}{1}$) and $\\tfrac1b \\to 0$, so the upper end contributes $0$.",
+      "**Lower limit.** At $x = 1$: $-0 - 1 = -1$.",
+      "**Value.** $0 - (-1) = 1$. The integral converges."
     ],
     "course": "calc2"
   },
@@ -1121,15 +1395,19 @@
     "id": "h070",
     "difficulty": "hard",
     "topic": "Improper integrals",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Evaluate $$\\int_0^\\infty\\frac{dx}{(x + 1)(x + 2)}.$$ Enter inf if it diverges.",
     "answer": "ln(2)",
     "answerNumeric": 0.6931471805599453,
     "hint1": "Partial fractions: $\\dfrac{1}{x + 1} - \\dfrac{1}{x + 2}$.",
     "hint2": "Antiderivative: $\\ln\\dfrac{x + 1}{x + 2}$, which tends to $\\ln1 = 0$ as $x \\to \\infty$.",
+    "keyIdea": "Partial fractions give a difference of logs, which combines into one log. Its limit at infinity is finite, so the integral converges.",
     "solutionSteps": [
-      "$\\displaystyle\\int\\left(\\frac1{x + 1} - \\frac{1}{x + 2}\\right)dx = \\ln\\frac{x + 1}{x + 2}$.",
-      "As $x \\to \\infty$ this tends to $0$. At $0$ it is $\\ln\\tfrac12$.",
-      "The value is $0 - \\ln\\tfrac12 = \\ln2$."
+      "**Partial fractions.** $\\dfrac{1}{(x + 1)(x + 2)} = \\dfrac{1}{x + 1} - \\dfrac{1}{x + 2}$.",
+      "**Antiderivative.** $\\ln(x + 1) - \\ln(x + 2) = \\ln\\dfrac{x + 1}{x + 2}$.",
+      "**Limits.** As $x \\to \\infty$, $\\dfrac{x + 1}{x + 2} \\to 1$ and $\\ln1 = 0$. At $0$: $\\ln\\tfrac12$.",
+      "**Value.** $0 - \\ln\\tfrac12 = \\ln2 \\approx 0.693$."
     ],
     "course": "calc2"
   },
@@ -1137,15 +1415,19 @@
     "id": "h071",
     "difficulty": "hard",
     "topic": "Improper integrals",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Evaluate $$\\int_0^1\\frac{\\ln x}{\\sqrt x}\\,dx.$$ Enter inf if it diverges.",
     "answer": "-4",
     "answerNumeric": -4.0,
     "hint1": "The integrand blows up at $0$. Integrate by parts with $u = \\ln x$, $dv = x^{-1/2}dx$.",
     "hint2": "Antiderivative: $2\\sqrt x\\ln x - 4\\sqrt x$.",
+    "keyIdea": "The integrand blows up at $x = 0$, so this is improper at the lower limit. Integrate by parts, then show the boundary term at $0^+$ vanishes.",
     "solutionSteps": [
-      "$\\displaystyle\\int x^{-1/2}\\ln x\\,dx = 2\\sqrt x\\ln x - \\int2\\sqrt x\\cdot\\tfrac1x\\,dx = 2\\sqrt x\\ln x - 4\\sqrt x$.",
-      "As $x \\to 0^+$: $\\sqrt x\\ln x \\to 0$. At $1$: $0 - 4$.",
-      "The value is $-4$."
+      "**Parts.** $u = \\ln x$ and $dv = x^{-1/2}dx$, so $v = 2\\sqrt x$: $2\\sqrt x\\ln x - \\displaystyle\\int2\\sqrt x\\cdot\\frac1x\\,dx = 2\\sqrt x\\ln x - 4\\sqrt x$.",
+      "**Lower limit.** $\\sqrt x\\ln x \\to 0$ as $x \\to 0^+$, because the root shrinks faster than the log blows up. So that end contributes $0$.",
+      "**Upper limit.** At $1$: $0 - 4 = -4$.",
+      "**Value.** $-4 - 0 = -4$. It is negative because $\\ln x < 0$ on $(0, 1)$."
     ],
     "course": "calc2"
   },
@@ -1153,15 +1435,19 @@
     "id": "h072",
     "difficulty": "hard",
     "topic": "Improper integrals",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Evaluate $$\\int_1^\\infty\\frac{x}{x^2 + 1}\\,dx.$$ Enter inf if it diverges.",
     "answer": "inf",
     "answerNumeric": "inf",
     "hint1": "Use $u = x^2 + 1$, then take the limit of the upper bound.",
     "hint2": "Antiderivative: $\\tfrac12\\ln(x^2 + 1)$. What happens as $x \\to \\infty$?",
+    "keyIdea": "For large $x$, $\\dfrac{x}{x^2 + 1}$ behaves like $\\dfrac1x$, and $\\int^\\infty\\frac{dx}{x}$ diverges. Confirm by computing the antiderivative.",
     "solutionSteps": [
-      "$\\displaystyle\\int_1^b\\frac{x}{x^2 + 1}dx = \\tfrac12\\ln(b^2 + 1) - \\tfrac12\\ln2$.",
-      "As $b \\to \\infty$, $\\ln(b^2 + 1) \\to \\infty$.",
-      "The integral diverges to $\\infty$. (Compare with $\\tfrac{1}{2x}$ for large $x$.)"
+      "**Antiderivative.** With $w = x^2 + 1$: $\\displaystyle\\int\\frac{x}{x^2 + 1}dx = \\tfrac12\\ln(x^2 + 1)$.",
+      "**Upper limit $b$.** $\\tfrac12\\ln(b^2 + 1) - \\tfrac12\\ln2$.",
+      "**Limit.** $\\ln(b^2 + 1) \\to \\infty$ as $b \\to \\infty$, so there is no finite value.",
+      "**Answer.** It diverges to $\\infty$. The comparison $\\frac{x}{x^2 + 1} \\ge \\frac{1}{2x}$ for $x \\ge 1$ explains why."
     ],
     "course": "calc2"
   },
@@ -1169,15 +1455,19 @@
     "id": "h073",
     "difficulty": "hard",
     "topic": "Improper integrals",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Evaluate $$\\int_0^3\\frac{dx}{(x - 1)^{2/3}}.$$ Enter inf if it diverges.",
     "answer": "3 + 3cbrt(2)",
     "answerNumeric": 6.779763149684619,
     "hint1": "The integrand blows up at $x = 1$, inside the interval. Split it there: $\\int_0^1 + \\int_1^3$.",
     "hint2": "Antiderivative: $3(x - 1)^{1/3}$, using the real cube root.",
+    "keyIdea": "The integrand blows up at $x = 1$, which is *inside* the interval. Split the integral there and check that each half converges. Use the real cube root, so $\\sqrt[3]{-1} = -1$.",
     "solutionSteps": [
-      "$\\displaystyle\\int(x - 1)^{-2/3}dx = 3\\sqrt[3]{x - 1}$.",
-      "$\\int_0^1 = 3(0 - (-1)) = 3$, and $\\int_1^3 = 3\\sqrt[3]{2} - 0$.",
-      "Both parts converge, so the total is $3 + 3\\sqrt[3]2 \\approx 6.78$."
+      "**Antiderivative.** $\\displaystyle\\int(x - 1)^{-2/3}dx = 3(x - 1)^{1/3} = 3\\sqrt[3]{x - 1}$.",
+      "**Left piece.** $\\displaystyle\\int_0^1 = 3\\sqrt[3]{0} - 3\\sqrt[3]{-1} = 0 - (-3) = 3$.",
+      "**Right piece.** $\\displaystyle\\int_1^3 = 3\\sqrt[3]{2} - 0$.",
+      "**Total.** Both pieces converge, because the power $\\tfrac23 < 1$. The value is $3 + 3\\sqrt[3]{2} \\approx 6.78$."
     ],
     "course": "calc2"
   },
@@ -1185,15 +1475,19 @@
     "id": "h074",
     "difficulty": "hard",
     "topic": "Improper integrals",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Evaluate $$\\int_{-\\infty}^{\\infty}\\frac{dx}{x^2 + 4x + 13}.$$ Enter inf if it diverges.",
     "answer": "pi/3",
     "answerNumeric": 1.0471975511965979,
     "hint1": "Complete the square: $(x + 2)^2 + 9$.",
     "hint2": "Antiderivative: $\\tfrac13\\arctan\\dfrac{x + 2}{3}$.",
+    "keyIdea": "Over $(-\\infty, \\infty)$, complete the square to get an arctangent. As $x \\to \\pm\\infty$, $\\arctan$ tends to $\\pm\\tfrac\\pi2$.",
     "solutionSteps": [
-      "$\\displaystyle\\int\\frac{dx}{(x + 2)^2 + 3^2} = \\tfrac13\\arctan\\frac{x + 2}{3}$.",
-      "As $x \\to \\pm\\infty$, $\\arctan \\to \\pm\\tfrac\\pi2$.",
-      "$\\tfrac13\\left(\\tfrac\\pi2 + \\tfrac\\pi2\\right) = \\tfrac\\pi3$."
+      "**Complete the square** so the integrand matches the arctangent form: $x^2 + 4x + 13 = (x + 2)^2 + 9 = (x + 2)^2 + 3^2$.",
+      "**Use the standard antiderivative** $\\displaystyle\\int\\frac{du}{u^2 + a^2} = \\frac1a\\arctan\\frac ua$, with $u = x + 2$ and $a = 3$. That gives $\\tfrac13\\arctan\\dfrac{x + 2}{3}$.",
+      "**Treat both infinite limits as limits.** As $x \\to \\infty$, $\\arctan \\to \\tfrac\\pi2$. As $x \\to -\\infty$, $\\arctan \\to -\\tfrac\\pi2$. Both are finite, so the integral converges.",
+      "**Value.** $\\tfrac13\\left(\\tfrac\\pi2 - \\left(-\\tfrac\\pi2\\right)\\right) = \\tfrac\\pi3$."
     ],
     "course": "calc2"
   },
@@ -1201,15 +1495,19 @@
     "id": "h075",
     "difficulty": "hard",
     "topic": "Improper integrals",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Evaluate $$\\int_0^2\\frac{dx}{(x - 1)^2}.$$ Enter inf if it diverges.",
     "answer": "inf",
     "answerNumeric": "inf",
     "hint1": "Careful: the integrand is undefined at $x = 1$. Ignoring that gives a wrong negative answer.",
     "hint2": "Split at $x = 1$ and look at $\\displaystyle\\int_0^1\\frac{dx}{(x - 1)^2}$ on its own.",
+    "keyIdea": "The trap: $x = 1$, inside the interval, makes the integrand infinite. Plugging the endpoints into $-\\tfrac{1}{x - 1}$ gives $-2$, which is impossible for a positive integrand. You must split at $x = 1$.",
     "solutionSteps": [
-      "The integrand blows up at $x = 1$, so split the integral there.",
-      "$\\displaystyle\\int_0^b\\frac{dx}{(x - 1)^2} = \\left[-\\frac{1}{x - 1}\\right]_0^b = -\\frac{1}{b - 1} - 1 \\to \\infty$ as $b \\to 1^-$.",
-      "One piece diverges, so the integral diverges to $\\infty$. (Plugging into $-\\tfrac{1}{x - 1}$ naively would give $-2$, but that is wrong since the integrand is positive.)"
+      "**Spot the problem.** $\\dfrac{1}{(x - 1)^2}$ is positive everywhere it's defined, so the integral can't be negative. Yet $\\left[-\\tfrac1{x - 1}\\right]_0^2 = -2$. The FTC doesn't apply across a vertical asymptote.",
+      "**Split.** $\\displaystyle\\int_0^2 = \\int_0^1 + \\int_1^2$, and each piece is improper at $x = 1$.",
+      "**Left piece.** $\\displaystyle\\int_0^b\\frac{dx}{(x - 1)^2} = -\\frac{1}{b - 1} - 1$. As $b \\to 1^-$, $-\\tfrac{1}{b - 1} \\to +\\infty$.",
+      "**Conclusion.** One piece diverges, so the whole integral diverges to $\\infty$. (The power $2 \\ge 1$ near the asymptote is too strong to converge.)"
     ],
     "course": "calc2"
   },
@@ -1217,15 +1515,19 @@
     "id": "h076",
     "difficulty": "hard",
     "topic": "Volumes of revolution",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "The region under $y = \\sqrt x$ for $0 \\le x \\le 4$ (above the $x$-axis) is rotated about the line $y = -1$. Find the volume.",
     "answer": "56pi/3",
     "answerNumeric": 58.643062867009476,
     "hint1": "Use washers. The outer radius is $\\sqrt x + 1$ and the inner radius is $1$.",
     "hint2": "$V = \\pi\\displaystyle\\int_0^4\\left[(\\sqrt x + 1)^2 - 1\\right]dx = \\pi\\int_0^4(x + 2\\sqrt x)\\,dx$.",
+    "keyIdea": "Rotating about the line $y = -1$ instead of the $x$-axis makes washers. Measure both radii from the axis $y = -1$: the outer radius reaches the curve and the inner radius reaches the $x$-axis.",
     "solutionSteps": [
-      "$V = \\pi\\displaystyle\\int_0^4\\left[(\\sqrt x + 1)^2 - 1^2\\right]dx = \\pi\\int_0^4(x + 2\\sqrt x)\\,dx$.",
-      "$= \\pi\\left[\\tfrac{x^2}{2} + \\tfrac43x^{3/2}\\right]_0^4 = \\pi\\left(8 + \\tfrac{32}{3}\\right)$.",
-      "$V = \\tfrac{56\\pi}{3} \\approx 58.6$."
+      "**Radii.** Outer: from $y = -1$ up to $y = \\sqrt x$, length $\\sqrt x + 1$. Inner: from $y = -1$ up to $y = 0$, length $1$.",
+      "**Washer area.** $\\pi\\left[(\\sqrt x + 1)^2 - 1^2\\right] = \\pi(x + 2\\sqrt x)$.",
+      "**Integrate.** $\\pi\\displaystyle\\int_0^4(x + 2\\sqrt x)\\,dx = \\pi\\left[\\tfrac{x^2}{2} + \\tfrac43x^{3/2}\\right]_0^4 = \\pi\\left(8 + \\tfrac{32}{3}\\right)$.",
+      "**Volume.** $\\tfrac{56\\pi}{3} \\approx 58.6$. Rotating about the $x$-axis would give only $8\\pi$."
     ],
     "course": "calc2",
     "diagram": "<svg viewBox=\"0 0 220 160\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><line x1=\"10\" y1=\"110\" x2=\"210\" y2=\"110\"/><line x1=\"30\" y1=\"150\" x2=\"30\" y2=\"10\"/><line x1=\"10\" y1=\"140\" x2=\"210\" y2=\"140\" stroke-dasharray=\"5 4\"/><path d=\"M 30 110 Q 60 60 190 46 L 190 110 Z\" fill=\"currentColor\" fill-opacity=\"0.15\" stroke=\"none\"/><path d=\"M 30 110 Q 60 60 190 46\"/><line x1=\"190\" y1=\"46\" x2=\"190\" y2=\"110\"/><text x=\"150\" y=\"40\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">y = √x</text><text x=\"200\" y=\"154\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"end\">y = −1</text><text x=\"190\" y=\"124\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">4</text></svg>",
@@ -1235,15 +1537,19 @@
     "id": "h077",
     "difficulty": "hard",
     "topic": "Volumes of revolution",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "The region between $y = x$ and $y = x^2$ is rotated about the $y$-axis. Find the volume.",
     "answer": "pi/6",
     "answerNumeric": 0.5235987755982989,
     "hint1": "The curves meet at $x = 0$ and $x = 1$. Shells work well: radius $x$, height $x - x^2$.",
     "hint2": "$V = 2\\pi\\displaystyle\\int_0^1x(x - x^2)\\,dx$.",
+    "keyIdea": "Rotating about the $y$-axis with the region described in terms of $x$: use cylindrical *shells*, $V = 2\\pi\\int(\\text{radius})(\\text{height})\\,dx$.",
     "solutionSteps": [
-      "Shells: $V = 2\\pi\\displaystyle\\int_0^1(x^2 - x^3)\\,dx$.",
-      "$= 2\\pi\\left(\\tfrac13 - \\tfrac14\\right)$.",
-      "$V = \\tfrac{\\pi}{6}$."
+      "**Region.** The curves cross at $x = 0$ and $x = 1$. In between, $y = x$ is above $y = x^2$.",
+      "**Shells.** Radius $x$ (distance to the $y$-axis), height $x - x^2$: $V = 2\\pi\\displaystyle\\int_0^1x(x - x^2)\\,dx$.",
+      "**Integrate.** $2\\pi\\left[\\tfrac{x^3}{3} - \\tfrac{x^4}{4}\\right]_0^1 = 2\\pi\\cdot\\tfrac{1}{12}$.",
+      "**Volume.** $\\tfrac\\pi6 \\approx 0.524$."
     ],
     "course": "calc2",
     "diagram": "<svg viewBox=\"0 0 180 170\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><line x1=\"20\" y1=\"150\" x2=\"170\" y2=\"150\"/><line x1=\"30\" y1=\"160\" x2=\"30\" y2=\"10\"/><line x1=\"30\" y1=\"150\" x2=\"150\" y2=\"30\"/><path d=\"M 30 150 Q 90 150 150 30\"/><path d=\"M 30 150 L 150 30 Q 90 150 30 150 Z\" fill=\"currentColor\" fill-opacity=\"0.15\" stroke=\"none\"/><text x=\"118\" y=\"50\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"end\">y = x</text><text x=\"130\" y=\"110\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"start\">y = x²</text></svg>",
@@ -1253,15 +1559,19 @@
     "id": "h078",
     "difficulty": "hard",
     "topic": "Volumes of revolution",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "The region under one arch of $y = \\sin x$, for $0 \\le x \\le \\pi$, is rotated about the $y$-axis. Find the volume.",
     "answer": "2pi^2",
     "answerNumeric": 19.739208802178716,
     "hint1": "Use shells: $V = 2\\pi\\displaystyle\\int_0^\\pi x\\sin x\\,dx$.",
     "hint2": "Integrate by parts: $\\int x\\sin x\\,dx = -x\\cos x + \\sin x$.",
+    "keyIdea": "Use shells to rotate about the $y$-axis, since $y = \\sin x$ can't easily be solved for $x$ over the whole arch. The resulting integral needs parts.",
     "solutionSteps": [
-      "$V = 2\\pi\\displaystyle\\int_0^\\pi x\\sin x\\,dx$.",
-      "$\\left[-x\\cos x + \\sin x\\right]_0^\\pi = \\pi$.",
-      "$V = 2\\pi\\cdot\\pi = 2\\pi^2 \\approx 19.74$."
+      "**Shells.** Radius $x$, height $\\sin x$: $V = 2\\pi\\displaystyle\\int_0^\\pi x\\sin x\\,dx$.",
+      "**Parts.** $u = x$ and $dv = \\sin x\\,dx$: $\\int x\\sin x\\,dx = -x\\cos x + \\sin x$.",
+      "**Evaluate.** $\\left[-x\\cos x + \\sin x\\right]_0^\\pi = (\\pi + 0) - 0 = \\pi$.",
+      "**Volume.** $2\\pi\\cdot\\pi = 2\\pi^2 \\approx 19.74$."
     ],
     "course": "calc2"
   },
@@ -1269,15 +1579,19 @@
     "id": "h079",
     "difficulty": "hard",
     "topic": "Volumes of revolution",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "The region bounded by $y = e^x$, $y = 1$ and $x = 1$ is rotated about the $x$-axis. Find the volume.",
     "answer": "pi(e^2 - 3)/2",
     "answerNumeric": 6.894313198297004,
     "hint1": "The region spans $0 \\le x \\le 1$, between $y = 1$ (inner) and $y = e^x$ (outer). Use washers.",
     "hint2": "$V = \\pi\\displaystyle\\int_0^1(e^{2x} - 1)\\,dx$.",
+    "keyIdea": "Rotating about the $x$-axis a region between two curves makes washers. Outer radius: the upper curve, $e^x$. Inner radius: the lower curve, $1$.",
     "solutionSteps": [
-      "Washers: $V = \\pi\\displaystyle\\int_0^1\\left[(e^x)^2 - 1^2\\right]dx$.",
-      "$= \\pi\\left[\\tfrac{e^{2x}}{2} - x\\right]_0^1 = \\pi\\left(\\tfrac{e^2}{2} - 1 - \\tfrac12\\right)$.",
-      "$V = \\tfrac{\\pi(e^2 - 3)}{2} \\approx 6.89$."
+      "**Region.** $y = e^x$ meets $y = 1$ at $x = 0$, so the region spans $0 \\le x \\le 1$ with $1 \\le y \\le e^x$.",
+      "**Washers.** $V = \\pi\\displaystyle\\int_0^1\\left[(e^x)^2 - 1^2\\right]dx = \\pi\\int_0^1(e^{2x} - 1)\\,dx$.",
+      "**Integrate.** $\\pi\\left[\\tfrac{e^{2x}}{2} - x\\right]_0^1 = \\pi\\left(\\tfrac{e^2}{2} - 1 - \\tfrac12\\right)$.",
+      "**Volume.** $\\tfrac{\\pi(e^2 - 3)}{2} \\approx 6.89$."
     ],
     "course": "calc2"
   },
@@ -1285,15 +1599,19 @@
     "id": "h080",
     "difficulty": "hard",
     "topic": "Volumes of revolution",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "A solid has as its base the disk $x^2 + y^2 \\le 4$. Every cross-section perpendicular to the $x$-axis is a square. Find the volume.",
     "answer": "128/3",
     "answerNumeric": 42.666666666666664,
     "hint1": "At position $x$, the square's side runs across the disk: $s = 2\\sqrt{4 - x^2}$.",
     "hint2": "$V = \\displaystyle\\int_{-2}^2 4(4 - x^2)\\,dx$.",
+    "keyIdea": "For a solid with known cross-sections, the volume is $\\int(\\text{cross-section area})\\,dx$. Each square's side is the width of the disk at that $x$.",
     "solutionSteps": [
-      "Side length: $2\\sqrt{4 - x^2}$, so the area is $4(4 - x^2)$.",
-      "$V = 4\\displaystyle\\int_{-2}^2(4 - x^2)\\,dx = 4\\left[4x - \\tfrac{x^3}{3}\\right]_{-2}^2$.",
-      "$= 4\\left(16 - \\tfrac{16}{3}\\right) = \\tfrac{128}{3}$."
+      "**Side length.** At position $x$ the disk runs from $y = -\\sqrt{4 - x^2}$ to $\\sqrt{4 - x^2}$, so the side is $s = 2\\sqrt{4 - x^2}$.",
+      "**Area.** $s^2 = 4(4 - x^2)$.",
+      "**Integrate.** $\\displaystyle\\int_{-2}^2 4(4 - x^2)\\,dx = 4\\left[4x - \\tfrac{x^3}{3}\\right]_{-2}^2 = 4\\left(16 - \\tfrac{16}{3}\\right)$.",
+      "**Volume.** $\\tfrac{128}{3} \\approx 42.7$."
     ],
     "course": "calc2"
   },
@@ -1301,15 +1619,19 @@
     "id": "h081",
     "difficulty": "hard",
     "topic": "Volumes of revolution",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "The disk $(x - 3)^2 + y^2 \\le 1$ is rotated about the $y$-axis, making a torus (donut). Find its volume.",
     "answer": "6pi^2",
     "answerNumeric": 59.217626406536155,
     "hint1": "Use shells: $V = 2\\pi\\displaystyle\\int_2^4x\\cdot2\\sqrt{1 - (x - 3)^2}\\,dx$.",
     "hint2": "Substitute $u = x - 3$. The part $\\int u\\sqrt{1 - u^2}\\,du$ vanishes by symmetry, and $\\int\\sqrt{1 - u^2}\\,du$ is half the area of a unit disk.",
+    "keyIdea": "Use shells. The radius is $x$ and the height is the circle's vertical extent, $2\\sqrt{1 - (x - 3)^2}$. After shifting $u = x - 3$, symmetry does most of the work. This matches Pappus's theorem: area × distance travelled by the center.",
     "solutionSteps": [
-      "With $u = x - 3$: $V = 4\\pi\\displaystyle\\int_{-1}^1(u + 3)\\sqrt{1 - u^2}\\,du$.",
-      "$\\displaystyle\\int_{-1}^1u\\sqrt{1 - u^2}\\,du = 0$ (odd), and $\\displaystyle\\int_{-1}^1\\sqrt{1 - u^2}\\,du = \\tfrac\\pi2$.",
-      "$V = 4\\pi\\cdot3\\cdot\\tfrac\\pi2 = 6\\pi^2 \\approx 59.2$."
+      "**Shells.** $V = 2\\pi\\displaystyle\\int_2^4x\\cdot2\\sqrt{1 - (x - 3)^2}\\,dx$.",
+      "**Shift.** With $u = x - 3$: $V = 4\\pi\\displaystyle\\int_{-1}^1(u + 3)\\sqrt{1 - u^2}\\,du$.",
+      "**Symmetry.** $u\\sqrt{1 - u^2}$ is odd, so its integral over $[-1, 1]$ is $0$. And $\\int_{-1}^1\\sqrt{1 - u^2}\\,du = \\tfrac\\pi2$, the area of a half unit disk.",
+      "**Volume.** $4\\pi\\cdot3\\cdot\\tfrac\\pi2 = 6\\pi^2 \\approx 59.2$. Pappus check: area $\\pi$ × circumference $2\\pi\\cdot3$ $= 6\\pi^2$. ✓"
     ],
     "course": "calc2"
   },
@@ -1317,15 +1639,19 @@
     "id": "h082",
     "difficulty": "hard",
     "topic": "Volumes of revolution",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "The region under $y = \\dfrac1x$ for $x \\ge 1$ is rotated about the $x$-axis. Find the volume of the resulting (infinitely long) solid. Enter inf if it is infinite.",
     "answer": "pi",
     "answerNumeric": 3.141592653589793,
     "hint1": "Use disks: $V = \\pi\\displaystyle\\int_1^\\infty\\frac{1}{x^2}\\,dx$.",
     "hint2": "$\\displaystyle\\int_1^b x^{-2}dx = 1 - \\tfrac1b \\to 1$.",
+    "keyIdea": "This is an improper integral for volume using disks. Even though the solid is infinitely long, $\\int^\\infty\\frac{dx}{x^2}$ converges, so the volume is finite.",
     "solutionSteps": [
-      "$V = \\pi\\displaystyle\\int_1^\\infty x^{-2}\\,dx$.",
-      "$\\displaystyle\\int_1^\\infty x^{-2}dx = \\left[-\\tfrac1x\\right]_1^\\infty = 1$.",
-      "$V = \\pi$. (Gabriel's horn: finite volume, though its surface area is infinite.)"
+      "**Disks.** The radius is $\\tfrac1x$, so the area is $\\tfrac{\\pi}{x^2}$ and $V = \\pi\\displaystyle\\int_1^\\infty\\frac{dx}{x^2}$.",
+      "**Improper integral.** $\\displaystyle\\int_1^b\\frac{dx}{x^2} = 1 - \\tfrac1b \\to 1$.",
+      "**Volume.** $\\pi$.",
+      "**The paradox.** This is Gabriel's horn. Its surface area involves $\\int^\\infty\\frac{dx}{x}$, which diverges. The horn holds a finite amount of paint but could never be painted."
     ],
     "course": "calc2"
   },
@@ -1333,15 +1659,19 @@
     "id": "h083",
     "difficulty": "hard",
     "topic": "Arc length",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Find the arc length of $y = \\tfrac23x^{3/2}$ from $x = 0$ to $x = 3$.",
     "answer": "14/3",
     "answerNumeric": 4.666666666666667,
     "hint1": "$L = \\displaystyle\\int_0^3\\sqrt{1 + (y')^2}\\,dx$, and $y' = \\sqrt x$.",
     "hint2": "$L = \\displaystyle\\int_0^3\\sqrt{1 + x}\\,dx$.",
+    "keyIdea": "The arc length of $y = f(x)$ is $\\displaystyle\\int\\sqrt{1 + (f')^2}\\,dx$. Here $1 + (f')^2$ is simple, so the integral is easy.",
     "solutionSteps": [
-      "$y' = x^{1/2}$, so $1 + (y')^2 = 1 + x$.",
-      "$L = \\tfrac23(1 + x)^{3/2}\\Big|_0^3 = \\tfrac23(8 - 1)$.",
-      "$L = \\tfrac{14}{3}$."
+      "**Recall the formula.** For $y = f(x)$ the arc length from $a$ to $b$ is $\\displaystyle\\int_a^b\\sqrt{1 + (f'(x))^2}\\,dx$, which adds up many tiny hypotenuses $\\sqrt{dx^2 + dy^2}$.",
+      "**Differentiate.** $y' = \\tfrac23\\cdot\\tfrac32x^{1/2} = \\sqrt x$, so $1 + (y')^2 = 1 + x$. This curve was chosen to make the root simple.",
+      "**Integrate.** $\\displaystyle\\int_0^3\\sqrt{1 + x}\\,dx = \\tfrac23(1 + x)^{3/2}\\Big|_0^3 = \\tfrac23(8 - 1)$.",
+      "**Length.** $\\tfrac{14}{3} \\approx 4.67$. That is a bit longer than the straight line from $(0, 0)$ to $(3, 2\\sqrt3)$, which has length $\\sqrt{21} \\approx 4.58$."
     ],
     "course": "calc2"
   },
@@ -1349,15 +1679,19 @@
     "id": "h084",
     "difficulty": "hard",
     "topic": "Arc length",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Find the arc length of $y = \\ln(\\cos x)$ from $x = 0$ to $x = \\tfrac\\pi4$.",
     "answer": "ln(1 + sqrt(2))",
     "answerNumeric": 0.881373587019543,
     "hint1": "$y' = -\\tan x$, so $\\sqrt{1 + (y')^2} = \\sqrt{1 + \\tan^2x} = \\sec x$ on this interval.",
     "hint2": "$\\displaystyle\\int\\sec x\\,dx = \\ln|\\sec x + \\tan x|$.",
+    "keyIdea": "For $y = \\ln(\\cos x)$, $y' = -\\tan x$. Then $1 + \\tan^2x = \\sec^2x$ makes the square root clean, leaving $\\int\\sec x\\,dx$.",
     "solutionSteps": [
-      "$\\sqrt{1 + \\tan^2 x} = \\sec x$ (positive on $[0, \\tfrac\\pi4]$).",
-      "$L = \\ln|\\sec x + \\tan x|\\Big|_0^{\\pi/4} = \\ln(\\sqrt2 + 1) - \\ln1$.",
-      "$L = \\ln(1 + \\sqrt2) \\approx 0.881$."
+      "**Differentiate.** By the chain rule, $y' = \\dfrac{1}{\\cos x}\\cdot(-\\sin x) = -\\tan x$.",
+      "**Simplify the arc-length integrand** using $1 + \\tan^2x = \\sec^2x$: $\\sqrt{1 + \\tan^2x} = |\\sec x| = \\sec x$, which is positive on $[0, \\tfrac\\pi4]$.",
+      "**Integrate secant.** A standard result is $\\displaystyle\\int\\sec x\\,dx = \\ln|\\sec x + \\tan x|$.",
+      "**Evaluate.** At $\\tfrac\\pi4$: $\\ln(\\sqrt2 + 1)$. At $0$: $\\ln(1 + 0) = 0$. So the length is $\\ln(1 + \\sqrt2) \\approx 0.881$."
     ],
     "course": "calc2"
   },
@@ -1365,15 +1699,19 @@
     "id": "h085",
     "difficulty": "hard",
     "topic": "Arc length",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Find the arc length of $y = \\dfrac{x^2}{4} - \\dfrac{\\ln x}{2}$ from $x = 1$ to $x = e$.",
     "answer": "(e^2 + 1)/4",
     "answerNumeric": 2.0972640247326626,
     "hint1": "$y' = \\tfrac x2 - \\tfrac{1}{2x}$. Expand $1 + (y')^2$ and look for a perfect square.",
     "hint2": "$1 + (y')^2 = \\left(\\tfrac x2 + \\tfrac1{2x}\\right)^2$.",
+    "keyIdea": "Arc-length problems are often designed so that $1 + (y')^2$ is a perfect square. Expand it and look for that, so the square root disappears.",
     "solutionSteps": [
-      "$(y')^2 = \\tfrac{x^2}{4} - \\tfrac12 + \\tfrac{1}{4x^2}$, so $1 + (y')^2 = \\left(\\tfrac x2 + \\tfrac{1}{2x}\\right)^2$.",
-      "$L = \\displaystyle\\int_1^e\\left(\\tfrac x2 + \\tfrac1{2x}\\right)dx = \\left[\\tfrac{x^2}{4} + \\tfrac12\\ln x\\right]_1^e$.",
-      "$= \\tfrac{e^2}{4} + \\tfrac12 - \\tfrac14 = \\tfrac{e^2 + 1}{4} \\approx 2.097$."
+      "**Derivative.** $y' = \\tfrac x2 - \\tfrac{1}{2x}$.",
+      "**Square it.** $(y')^2 = \\tfrac{x^2}{4} - \\tfrac12 + \\tfrac{1}{4x^2}$. Adding $1$ flips the middle sign: $1 + (y')^2 = \\tfrac{x^2}{4} + \\tfrac12 + \\tfrac{1}{4x^2} = \\left(\\tfrac x2 + \\tfrac1{2x}\\right)^2$.",
+      "**Integrate.** $\\displaystyle\\int_1^e\\left(\\tfrac x2 + \\tfrac{1}{2x}\\right)dx = \\left[\\tfrac{x^2}{4} + \\tfrac12\\ln x\\right]_1^e$.",
+      "**Length.** $\\left(\\tfrac{e^2}{4} + \\tfrac12\\right) - \\tfrac14 = \\tfrac{e^2 + 1}{4} \\approx 2.097$."
     ],
     "course": "calc2"
   },
@@ -1381,15 +1719,19 @@
     "id": "h086",
     "difficulty": "hard",
     "topic": "Arc length",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Find the length of the parametric curve $x = t^2$, $y = \\tfrac{t^3}{3}$ for $0 \\le t \\le \\sqrt3$.",
     "answer": "(7sqrt(7) - 8)/3",
     "answerNumeric": 3.5067530591507112,
     "hint1": "$L = \\displaystyle\\int\\sqrt{(x')^2 + (y')^2}\\,dt$, with $x' = 2t$ and $y' = t^2$.",
     "hint2": "$\\sqrt{4t^2 + t^4} = t\\sqrt{4 + t^2}$ for $t \\ge 0$.",
+    "keyIdea": "For a parametric curve, $L = \\displaystyle\\int\\sqrt{(x')^2 + (y')^2}\\,dt$. Factoring $t^2$ out of the square root leaves a $u$-substitution.",
     "solutionSteps": [
-      "$L = \\displaystyle\\int_0^{\\sqrt3}t\\sqrt{4 + t^2}\\,dt$.",
-      "With $u = 4 + t^2$: $\\tfrac13(4 + t^2)^{3/2}\\Big|_0^{\\sqrt3} = \\tfrac13(7^{3/2} - 8)$.",
-      "$L = \\tfrac{7\\sqrt7 - 8}{3} \\approx 3.51$."
+      "**Derivatives.** $x' = 2t$ and $y' = t^2$, so the speed is $\\sqrt{4t^2 + t^4} = t\\sqrt{4 + t^2}$ (for $t \\ge 0$).",
+      "**Substitute.** With $u = 4 + t^2$ and $du = 2t\\,dt$: $\\displaystyle\\int t\\sqrt{4 + t^2}\\,dt = \\tfrac13(4 + t^2)^{3/2}$.",
+      "**Evaluate.** At $\\sqrt3$: $\\tfrac13\\cdot7^{3/2}$. At $0$: $\\tfrac13\\cdot8$.",
+      "**Length.** $\\tfrac{7\\sqrt7 - 8}{3} \\approx 3.51$."
     ],
     "course": "calc2"
   },
@@ -1397,15 +1739,19 @@
     "id": "h087",
     "difficulty": "hard",
     "topic": "Telescoping series",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Find the sum $$\\sum_{n=1}^\\infty\\frac{1}{n(n + 2)}.$$",
     "answer": "3/4",
     "answerNumeric": 0.75,
     "hint1": "Partial fractions: $\\dfrac{1}{n(n + 2)} = \\dfrac12\\left(\\dfrac1n - \\dfrac{1}{n + 2}\\right)$.",
     "hint2": "The terms cancel two apart. Only $\\tfrac11$ and $\\tfrac12$ survive from the positive terms.",
+    "keyIdea": "Partial fractions turn each term into a difference. The positive and negative parts cancel two terms apart (telescoping), and only a few terms survive.",
     "solutionSteps": [
-      "$\\sum\\tfrac12\\left(\\tfrac1n - \\tfrac1{n + 2}\\right)$ telescopes.",
-      "Partial sum: $\\tfrac12\\left(1 + \\tfrac12 - \\tfrac1{N + 1} - \\tfrac{1}{N + 2}\\right)$.",
-      "As $N \\to \\infty$: $\\tfrac12\\cdot\\tfrac32 = \\tfrac34$."
+      "**Split.** $\\dfrac{1}{n(n + 2)} = \\dfrac12\\left(\\dfrac1n - \\dfrac{1}{n + 2}\\right)$.",
+      "**Write out the partial sum.** $\\tfrac12\\left[\\left(1 - \\tfrac13\\right) + \\left(\\tfrac12 - \\tfrac14\\right) + \\left(\\tfrac13 - \\tfrac15\\right) + \\cdots\\right]$. Each $-\\tfrac1k$ is cancelled two terms later.",
+      "**Survivors.** $\\tfrac12\\left(1 + \\tfrac12 - \\tfrac{1}{N + 1} - \\tfrac{1}{N + 2}\\right)$.",
+      "**Limit.** As $N \\to \\infty$: $\\tfrac12\\cdot\\tfrac32 = \\tfrac34$."
     ],
     "course": "calc2"
   },
@@ -1413,15 +1759,19 @@
     "id": "h088",
     "difficulty": "hard",
     "topic": "Geometric series",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Find the sum $$\\sum_{n=0}^\\infty\\frac{2^n + 3^n}{5^n}.$$",
     "answer": "25/6",
     "answerNumeric": 4.166666666666667,
     "hint1": "Split it into two geometric series with ratios $\\tfrac25$ and $\\tfrac35$.",
     "hint2": "$\\dfrac{1}{1 - 2/5} + \\dfrac{1}{1 - 3/5}$.",
+    "keyIdea": "Split the fraction into two geometric series. Each converges because its ratio is less than $1$.",
     "solutionSteps": [
-      "$\\sum\\left(\\tfrac25\\right)^n = \\tfrac53$.",
-      "$\\sum\\left(\\tfrac35\\right)^n = \\tfrac52$.",
-      "Total: $\\tfrac53 + \\tfrac52 = \\tfrac{25}{6}$."
+      "**Split the fraction** into two separate geometric series: $\\dfrac{2^n + 3^n}{5^n} = \\left(\\tfrac25\\right)^n + \\left(\\tfrac35\\right)^n$. You can add two convergent series term by term.",
+      "**First series.** The ratio $\\tfrac25$ is less than $1$, so starting at $n = 0$ the sum is $\\dfrac{1}{1 - 2/5} = \\tfrac53$.",
+      "**Second series.** The ratio $\\tfrac35$ is also less than $1$: $\\dfrac{1}{1 - 3/5} = \\tfrac52$.",
+      "**Add.** $\\tfrac53 + \\tfrac52 = \\tfrac{10 + 15}{6} = \\tfrac{25}{6}$."
     ],
     "course": "calc2"
   },
@@ -1429,15 +1779,19 @@
     "id": "h089",
     "difficulty": "hard",
     "topic": "Geometric series",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Find the sum $$\\sum_{n=1}^\\infty\\frac{n^2}{2^n}.$$",
     "answer": "6",
     "answerNumeric": 6.0,
     "hint1": "Start from $\\sum x^n = \\tfrac{1}{1 - x}$. Apply $x\\tfrac{d}{dx}$ twice.",
     "hint2": "$\\sum n^2x^n = \\dfrac{x(1 + x)}{(1 - x)^3}$.",
+    "keyIdea": "Start from the geometric series $\\sum x^n = \\tfrac{1}{1 - x}$. Each application of $x\\tfrac{d}{dx}$ multiplies the $n$-th term by $n$. Do it twice to get $n^2$.",
     "solutionSteps": [
-      "$\\sum nx^n = \\dfrac{x}{(1 - x)^2}$, and applying $x\\tfrac{d}{dx}$ again gives $\\sum n^2x^n = \\dfrac{x(1 + x)}{(1 - x)^3}$.",
-      "At $x = \\tfrac12$: $\\dfrac{\\tfrac12\\cdot\\tfrac32}{\\tfrac18}$.",
-      "$= \\tfrac34\\cdot8 = 6$."
+      "**Start from a series you know.** $\\sum_{n \\ge 0}x^n = \\dfrac{1}{1 - x}$ for $|x| < 1$. Differentiating and then multiplying by $x$ multiplies each term $x^n$ by $n$.",
+      "**Apply it once.** $\\sum nx^n = x\\dfrac{d}{dx}\\dfrac{1}{1 - x} = \\dfrac{x}{(1 - x)^2}$.",
+      "**Apply it again** to get $n^2$: $\\sum n^2x^n = x\\dfrac{d}{dx}\\dfrac{x}{(1 - x)^2} = \\dfrac{x(1 + x)}{(1 - x)^3}$, using the quotient rule.",
+      "**Plug in $x = \\tfrac12$.** $\\dfrac{\\tfrac12\\cdot\\tfrac32}{\\tfrac18} = \\tfrac34\\cdot8 = 6$."
     ],
     "course": "calc2"
   },
@@ -1445,15 +1799,19 @@
     "id": "h090",
     "difficulty": "hard",
     "topic": "Telescoping series",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Find the sum $$\\sum_{n=2}^\\infty\\ln\\!\\left(1 - \\frac{1}{n^2}\\right).$$",
     "answer": "-ln(2)",
     "answerNumeric": -0.6931471805599453,
     "hint1": "$1 - \\tfrac1{n^2} = \\dfrac{(n - 1)(n + 1)}{n\\cdot n}$. A sum of logs is the log of a product.",
     "hint2": "$\\displaystyle\\prod_{n=2}^N\\frac{n - 1}{n}\\cdot\\frac{n + 1}{n} = \\frac{1}{N}\\cdot\\frac{N + 1}{2}$.",
+    "keyIdea": "A sum of logs is the log of a product. Factor $1 - \\tfrac1{n^2} = \\tfrac{(n - 1)(n + 1)}{n\\cdot n}$, and the product telescopes.",
     "solutionSteps": [
-      "$\\displaystyle\\sum_{n=2}^N\\ln\\left(1 - \\tfrac1{n^2}\\right) = \\ln\\prod_{n=2}^N\\frac{(n - 1)(n + 1)}{n^2}$.",
-      "The product telescopes to $\\dfrac{1}{N}\\cdot\\dfrac{N + 1}{2} \\to \\tfrac12$.",
-      "Sum $= \\ln\\tfrac12 = -\\ln2$."
+      "**Turn the sum into a product.** Since $\\ln a + \\ln b = \\ln(ab)$, the partial sum up to $N$ is $\\ln\\displaystyle\\prod_{n=2}^N\\left(1 - \\tfrac1{n^2}\\right)$.",
+      "**Factor each term.** $1 - \\tfrac{1}{n^2} = \\dfrac{n^2 - 1}{n^2} = \\dfrac{n - 1}{n}\\cdot\\dfrac{n + 1}{n}$.",
+      "**Telescope each product.** $\\tfrac12\\cdot\\tfrac23\\cdots\\tfrac{N - 1}{N} = \\tfrac1N$, because every numerator cancels the previous denominator. Similarly $\\tfrac32\\cdot\\tfrac43\\cdots\\tfrac{N + 1}{N} = \\tfrac{N + 1}{2}$.",
+      "**Take the limit.** $\\tfrac1N\\cdot\\tfrac{N + 1}{2} \\to \\tfrac12$, so the series equals $\\ln\\tfrac12 = -\\ln2 \\approx -0.693$."
     ],
     "course": "calc2"
   },
@@ -1461,15 +1819,19 @@
     "id": "h091",
     "difficulty": "hard",
     "topic": "Taylor and Maclaurin series",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Find the sum $$\\sum_{n=0}^\\infty\\frac{(-1)^n}{(2n + 1)\\,3^n}.$$",
     "answer": "pi*sqrt(3)/6",
     "answerNumeric": 0.9068996821171089,
     "hint1": "Compare with $\\arctan x = \\displaystyle\\sum_{n=0}^\\infty\\frac{(-1)^nx^{2n + 1}}{2n + 1}$.",
     "hint2": "With $x = \\tfrac{1}{\\sqrt3}$: $x^{2n + 1} = \\dfrac{1}{\\sqrt3\\cdot3^n}$.",
+    "keyIdea": "Recognize a known Maclaurin series: $\\arctan x = \\sum\\frac{(-1)^nx^{2n+1}}{2n + 1}$. Choose $x$ so that $x^{2n} = 3^{-n}$, i.e. $x = \\tfrac1{\\sqrt3}$.",
     "solutionSteps": [
-      "$\\arctan\\tfrac{1}{\\sqrt3} = \\displaystyle\\sum\\frac{(-1)^n}{(2n + 1)3^n\\sqrt3}$.",
-      "So the series equals $\\sqrt3\\arctan\\tfrac{1}{\\sqrt3} = \\sqrt3\\cdot\\tfrac\\pi6$.",
-      "$= \\tfrac{\\pi\\sqrt3}{6} \\approx 0.907$."
+      "**Recall the arctangent series.** $\\arctan x = x - \\tfrac{x^3}{3} + \\tfrac{x^5}{5} - \\cdots = \\displaystyle\\sum_{n \\ge 0}\\frac{(-1)^nx^{2n+1}}{2n + 1}$ for $|x| \\le 1$.",
+      "**Pick $x$ to match the $3^n$.** With $x = \\tfrac{1}{\\sqrt3}$, $x^{2n+1} = \\tfrac{1}{\\sqrt3}\\cdot\\tfrac{1}{3^n}$. So $\\arctan\\tfrac{1}{\\sqrt3}$ equals $\\tfrac{1}{\\sqrt3}$ times our series.",
+      "**Solve for the series.** It equals $\\sqrt3\\cdot\\arctan\\tfrac{1}{\\sqrt3} = \\sqrt3\\cdot\\tfrac\\pi6$, because $\\tan\\tfrac\\pi6 = \\tfrac{1}{\\sqrt3}$.",
+      "**Value.** $\\tfrac{\\pi\\sqrt3}{6} \\approx 0.907$."
     ],
     "course": "calc2"
   },
@@ -1477,15 +1839,19 @@
     "id": "h092",
     "difficulty": "hard",
     "topic": "Telescoping series",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Find the sum $$\\sum_{n=1}^\\infty\\frac{1}{4n^2 - 1}.$$",
     "answer": "1/2",
     "answerNumeric": 0.5,
     "hint1": "$4n^2 - 1 = (2n - 1)(2n + 1)$. Use partial fractions.",
     "hint2": "$\\dfrac{1}{(2n - 1)(2n + 1)} = \\dfrac12\\left(\\dfrac{1}{2n - 1} - \\dfrac{1}{2n + 1}\\right)$.",
+    "keyIdea": "Factor $4n^2 - 1 = (2n - 1)(2n + 1)$ and split into partial fractions. The sum telescopes over consecutive odd numbers.",
     "solutionSteps": [
-      "Telescoping: $\\tfrac12\\left[\\left(1 - \\tfrac13\\right) + \\left(\\tfrac13 - \\tfrac15\\right) + \\cdots\\right]$.",
-      "Partial sum: $\\tfrac12\\left(1 - \\tfrac{1}{2N + 1}\\right)$.",
-      "Limit: $\\tfrac12$."
+      "**Factor the denominator** as a difference of squares: $4n^2 - 1 = (2n - 1)(2n + 1)$.",
+      "**Partial fractions.** $\\dfrac{1}{(2n - 1)(2n + 1)} = \\dfrac12\\left(\\dfrac{1}{2n - 1} - \\dfrac{1}{2n + 1}\\right)$. You can check this by combining the right side.",
+      "**Telescope.** The partial sum is $\\tfrac12\\left[\\left(1 - \\tfrac13\\right) + \\left(\\tfrac13 - \\tfrac15\\right) + \\cdots + \\left(\\tfrac{1}{2N - 1} - \\tfrac{1}{2N + 1}\\right)\\right] = \\tfrac12\\left(1 - \\tfrac{1}{2N + 1}\\right)$.",
+      "**Take the limit.** $\\tfrac{1}{2N + 1} \\to 0$, so the sum is $\\tfrac12$."
     ],
     "course": "calc2"
   },
@@ -1493,15 +1859,19 @@
     "id": "h093",
     "difficulty": "hard",
     "topic": "Taylor and Maclaurin series",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Find the coefficient of $x^4$ in the Maclaurin series of $e^x\\cos x$.",
     "answer": "-1/6",
     "answerNumeric": -0.16666666666666666,
     "hint1": "Multiply the series $e^x = \\sum\\tfrac{x^n}{n!}$ and $\\cos x = 1 - \\tfrac{x^2}{2} + \\tfrac{x^4}{24} - \\cdots$, and collect $x^4$.",
     "hint2": "The $x^4$ terms come from $\\tfrac{x^4}{24}\\cdot1$, $\\tfrac{x^2}{2}\\cdot\\left(-\\tfrac{x^2}{2}\\right)$ and $1\\cdot\\tfrac{x^4}{24}$.",
+    "keyIdea": "Multiply the two Maclaurin series and collect every combination of terms whose powers add to $4$.",
     "solutionSteps": [
-      "Coefficient: $\\tfrac1{24} - \\tfrac14 + \\tfrac1{24}$.",
-      "$= \\tfrac{1 - 6 + 1}{24} = -\\tfrac{4}{24}$.",
-      "$= -\\tfrac16$. (Check: $e^x\\cos x = \\operatorname{Re}e^{(1 + i)x}$ and $(1 + i)^4 = -4$, so the coefficient is $-\\tfrac{4}{24}$.)"
+      "**Series.** $e^x = 1 + x + \\tfrac{x^2}{2} + \\tfrac{x^3}{6} + \\tfrac{x^4}{24} + \\cdots$ and $\\cos x = 1 - \\tfrac{x^2}{2} + \\tfrac{x^4}{24} - \\cdots$.",
+      "**Pairs giving $x^4$.** $\\tfrac{x^4}{24}\\cdot1$, $\\;\\tfrac{x^2}{2}\\cdot\\left(-\\tfrac{x^2}{2}\\right)$ and $1\\cdot\\tfrac{x^4}{24}$. Odd powers of $\\cos$ don't exist, so nothing else contributes.",
+      "**Add the coefficients.** $\\tfrac{1}{24} - \\tfrac14 + \\tfrac1{24} = \\tfrac{1 - 6 + 1}{24} = -\\tfrac{4}{24}$.",
+      "**Coefficient.** $-\\tfrac16$. (Complex check: $e^x\\cos x = \\operatorname{Re}e^{(1 + i)x}$, and $(1 + i)^4 = -4$, so the coefficient is $\\tfrac{-4}{4!}$.)"
     ],
     "course": "calc2"
   },
@@ -1509,15 +1879,18 @@
     "id": "h094",
     "difficulty": "hard",
     "topic": "Taylor and Maclaurin series",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Let $f(x) = \\dfrac{x^3}{1 + x^2}$. Find $f^{(9)}(0)$, the ninth derivative at $0$.",
     "answer": "-362880",
     "answerNumeric": -362880.0,
     "hint1": "Find the Maclaurin series: $f(x) = x^3\\displaystyle\\sum_{n\\ge0}(-1)^nx^{2n}$. Then $f^{(9)}(0) = 9!\\cdot c_9$.",
     "hint2": "The $x^9$ term comes from $n = 3$: $c_9 = (-1)^3 = -1$.",
+    "keyIdea": "A high-order derivative at $0$ comes directly from the Maclaurin series: $f^{(n)}(0) = n!\\cdot c_n$, where $c_n$ is the coefficient of $x^n$. Finding the series is far easier than differentiating nine times.",
     "solutionSteps": [
-      "$f(x) = x^3 - x^5 + x^7 - x^9 + \\cdots$.",
-      "$c_9 = -1$, and $c_9 = \\dfrac{f^{(9)}(0)}{9!}$.",
-      "$f^{(9)}(0) = -9! = -362880$."
+      "**Series.** $\\dfrac{1}{1 + x^2} = 1 - x^2 + x^4 - x^6 + \\cdots$, so $f(x) = x^3 - x^5 + x^7 - x^9 + \\cdots$.",
+      "**Coefficient of $x^9$.** $c_9 = -1$.",
+      "**Derivative.** $f^{(9)}(0) = 9!\\cdot(-1) = -362880$."
     ],
     "course": "calc2"
   },
@@ -1525,15 +1898,19 @@
     "id": "h095",
     "difficulty": "hard",
     "topic": "Taylor and Maclaurin series",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Evaluate $$\\lim_{x\\to0}\\frac{\\sin x - x + \\tfrac{x^3}{6}}{x^5}.$$",
     "answer": "1/120",
     "answerNumeric": 0.008333333333333333,
     "hint1": "Write out the Maclaurin series of $\\sin x$ to the $x^5$ term.",
     "hint2": "$\\sin x = x - \\tfrac{x^3}{6} + \\tfrac{x^5}{120} - \\cdots$.",
+    "keyIdea": "Subtracting the first terms of a Taylor series leaves the first term you didn't subtract. That term decides the limit.",
     "solutionSteps": [
-      "The numerator is $\\tfrac{x^5}{120} - \\tfrac{x^7}{5040} + \\cdots$.",
-      "Divide by $x^5$: $\\tfrac{1}{120} - \\tfrac{x^2}{5040} + \\cdots$.",
-      "The limit is $\\tfrac{1}{120}$."
+      "**Write out the Maclaurin series of $\\sin x$** far enough to go past the terms being subtracted: $\\sin x = x - \\tfrac{x^3}{6} + \\tfrac{x^5}{120} - \\tfrac{x^7}{5040} + \\cdots$.",
+      "**Subtract.** The $x$ and $-\\tfrac{x^3}{6}$ terms cancel exactly, leaving $\\tfrac{x^5}{120} - \\tfrac{x^7}{5040} + \\cdots$.",
+      "**Divide by $x^5$.** $\\tfrac{1}{120} - \\tfrac{x^2}{5040} + \\cdots$. Every term after the first still contains a power of $x$.",
+      "**Let $x \\to 0$.** Only the constant survives, so the limit is $\\tfrac{1}{120}$. (L'Hôpital would need five rounds to get the same answer.)"
     ],
     "course": "calc2"
   },
@@ -1541,15 +1918,18 @@
     "id": "h096",
     "difficulty": "hard",
     "topic": "Taylor and Maclaurin series",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Find the coefficient of $x^3$ in the Maclaurin series of $\\dfrac{\\ln(1 + x)}{1 - x}$.",
     "answer": "5/6",
     "answerNumeric": 0.8333333333333334,
     "hint1": "Multiply the series $\\ln(1 + x) = x - \\tfrac{x^2}{2} + \\tfrac{x^3}{3} - \\cdots$ and $\\tfrac{1}{1 - x} = 1 + x + x^2 + \\cdots$.",
     "hint2": "Dividing by $1 - x$ turns the coefficients into partial sums.",
+    "keyIdea": "Dividing a series by $1 - x$ is the same as multiplying by $1 + x + x^2 + \\cdots$. That turns each coefficient into a running total of the original coefficients.",
     "solutionSteps": [
-      "The $x^3$ coefficient is the sum of the first three coefficients of $\\ln(1 + x)$.",
-      "$1 - \\tfrac12 + \\tfrac13$.",
-      "$= \\tfrac56$."
+      "**Series.** $\\ln(1 + x) = x - \\tfrac{x^2}{2} + \\tfrac{x^3}{3} - \\cdots$.",
+      "**Multiply by $\\sum x^k$.** The $x^3$ coefficient collects $x\\cdot x^2$, $-\\tfrac{x^2}{2}\\cdot x$ and $\\tfrac{x^3}{3}\\cdot1$.",
+      "**Add them.** $1 - \\tfrac12 + \\tfrac13 = \\tfrac{6 - 3 + 2}{6} = \\tfrac56$."
     ],
     "course": "calc2"
   },
@@ -1557,15 +1937,19 @@
     "id": "h097",
     "difficulty": "hard",
     "topic": "Radius of convergence",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Find the radius of convergence of $$\\sum_{n=1}^\\infty\\frac{n!}{n^n}x^n.$$",
     "answer": "e",
     "answerNumeric": 2.718281828459045,
     "hint1": "Ratio test: $\\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\dfrac{(n + 1)!}{(n + 1)^{n+1}}\\cdot\\dfrac{n^n}{n!}|x|$.",
     "hint2": "This simplifies to $\\left(\\dfrac{n}{n + 1}\\right)^n|x|$, which tends to $\\tfrac{|x|}{e}$.",
+    "keyIdea": "The ratio test: the series converges where $\\lim\\left|\\tfrac{a_{n+1}}{a_n}\\right| < 1$. Factorials cancel neatly, and the limit $\\left(1 + \\tfrac1n\\right)^n \\to e$ appears.",
     "solutionSteps": [
-      "$\\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\left(\\dfrac{n}{n + 1}\\right)^n|x|$.",
-      "$\\left(1 + \\tfrac1n\\right)^{-n} \\to e^{-1}$.",
-      "Converges when $\\tfrac{|x|}{e} < 1$: $R = e$."
+      "**Use the ratio test.** A power series $\\sum a_nx^n$ converges where $\\lim\\left|\\tfrac{a_{n+1}}{a_n}\\right|\\cdot|x| < 1$. Here $a_n = \\tfrac{n!}{n^n}$.",
+      "**Simplify the ratio.** $\\dfrac{(n + 1)!}{(n + 1)^{n+1}}\\cdot\\dfrac{n^n}{n!} = \\dfrac{(n + 1)\\,n^n}{(n + 1)(n + 1)^n} = \\left(\\dfrac{n}{n + 1}\\right)^n$.",
+      "**Take the limit.** $\\left(\\dfrac{n}{n + 1}\\right)^n = \\dfrac{1}{(1 + 1/n)^n} \\to \\dfrac{1}{e}$, using the definition of $e$.",
+      "**Radius.** The series converges when $\\tfrac{|x|}{e} < 1$, so $R = e \\approx 2.718$."
     ],
     "course": "calc2"
   },
@@ -1573,15 +1957,18 @@
     "id": "h098",
     "difficulty": "hard",
     "topic": "Radius of convergence",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Find the radius of convergence of $$\\sum_{n=0}^\\infty\\binom{2n}{n}x^n.$$",
     "answer": "1/4",
     "answerNumeric": 0.25,
     "hint1": "Ratio test on $a_n = \\dfrac{(2n)!}{(n!)^2}$.",
     "hint2": "$\\dfrac{a_{n+1}}{a_n} = \\dfrac{(2n + 2)(2n + 1)}{(n + 1)^2} \\to 4$.",
+    "keyIdea": "Apply the ratio test to the central binomial coefficients. The factorials cancel to a simple rational expression in $n$.",
     "solutionSteps": [
-      "$\\dfrac{a_{n+1}}{a_n} = \\dfrac{(2n + 2)(2n + 1)}{(n + 1)^2} = \\dfrac{2(2n + 1)}{n + 1}$.",
-      "This tends to $4$.",
-      "$R = \\tfrac14$."
+      "**Ratio.** $\\dfrac{a_{n+1}}{a_n} = \\dfrac{(2n + 2)!}{((n + 1)!)^2}\\cdot\\dfrac{(n!)^2}{(2n)!} = \\dfrac{(2n + 2)(2n + 1)}{(n + 1)^2}$.",
+      "**Simplify.** $= \\dfrac{2(2n + 1)}{n + 1} \\to 4$.",
+      "**Radius.** It converges when $4|x| < 1$, so $R = \\tfrac14$. (This matches the closed form $\\sum\\binom{2n}{n}x^n = \\tfrac{1}{\\sqrt{1 - 4x}}$.)"
     ],
     "course": "calc2"
   },
@@ -1589,15 +1976,19 @@
     "id": "h099",
     "difficulty": "hard",
     "topic": "Radius of convergence",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "Find the radius of convergence of $$\\sum_{n=1}^\\infty\\frac{3^n + 2^n}{n}x^{2n}.$$",
     "answer": "sqrt(3)/3",
     "answerNumeric": 0.5773502691896257,
     "hint1": "Only even powers appear. Use the ratio test on the terms, treating $x^2$ as the variable.",
     "hint2": "The ratio tends to $3|x|^2$.",
+    "keyIdea": "Only even powers appear, so apply the ratio test to consecutive *terms*. The $x^2$ comes along. For large $n$, $3^n$ dominates $2^n$.",
     "solutionSteps": [
-      "$\\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\dfrac{3^{n+1} + 2^{n+1}}{3^n + 2^n}\\cdot\\dfrac{n}{n + 1}|x|^2 \\to 3|x|^2$.",
-      "It converges when $3x^2 < 1$, i.e. $|x| < \\tfrac{1}{\\sqrt3}$.",
-      "$R = \\tfrac{1}{\\sqrt3} = \\tfrac{\\sqrt3}{3}$."
+      "**Ratio of terms.** $\\dfrac{3^{n+1} + 2^{n+1}}{3^n + 2^n}\\cdot\\dfrac{n}{n + 1}\\cdot|x|^2$.",
+      "**Limit.** Divide the top and bottom by $3^n$: $\\dfrac{3 + 2(2/3)^n}{1 + (2/3)^n} \\to 3$. So the ratio tends to $3|x|^2$.",
+      "**Condition.** $3x^2 < 1$, so $|x| < \\tfrac{1}{\\sqrt3}$.",
+      "**Radius.** $R = \\tfrac{\\sqrt3}{3} \\approx 0.577$."
     ],
     "course": "calc2"
   },
@@ -1605,15 +1996,18 @@
     "id": "h100",
     "difficulty": "hard",
     "topic": "Geometric series",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
     "prompt": "The series $\\displaystyle\\sum_{n=1}^\\infty\\frac{n^2(x + 1)^n}{5^n}$ converges for $-6 < x < 4$. Find its sum at $x = 1$.",
     "answer": "70/27",
     "answerNumeric": 2.5925925925925926,
     "hint1": "At $x = 1$ it is $\\sum n^2\\left(\\tfrac25\\right)^n$. Use $\\sum n^2r^n = \\dfrac{r(1 + r)}{(1 - r)^3}$.",
     "hint2": "With $r = \\tfrac25$: $\\dfrac{\\tfrac25\\cdot\\tfrac75}{\\left(\\tfrac35\\right)^3}$.",
+    "keyIdea": "At $x = 1$ the series is $\\sum n^2r^n$ with $r = \\tfrac25$. Use the closed form, found by differentiating the geometric series twice.",
     "solutionSteps": [
-      "$\\sum n^2r^n = \\dfrac{r(1 + r)}{(1 - r)^3}$ for $|r| < 1$.",
-      "$r = \\tfrac25$: numerator $\\tfrac{14}{25}$, denominator $\\tfrac{27}{125}$.",
-      "Sum $= \\tfrac{14}{25}\\cdot\\tfrac{125}{27} = \\tfrac{70}{27}$."
+      "**Formula.** $\\sum_{n \\ge 1}n^2r^n = \\dfrac{r(1 + r)}{(1 - r)^3}$ for $|r| < 1$.",
+      "**Plug in $r = \\tfrac25$.** The numerator is $\\tfrac25\\cdot\\tfrac75 = \\tfrac{14}{25}$, and the denominator is $\\left(\\tfrac35\\right)^3 = \\tfrac{27}{125}$.",
+      "**Divide.** $\\tfrac{14}{25}\\cdot\\tfrac{125}{27} = \\tfrac{70}{27} \\approx 2.59$."
     ],
     "course": "calc2"
   }

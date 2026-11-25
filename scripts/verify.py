@@ -28,6 +28,7 @@ import sympy as sp  # noqa: E402
 
 from answer_sympy import answer_to_sympy  # noqa: E402
 from build_bank import SOURCES  # noqa: E402
+from bank.categories import GRADES, SUBJECTS  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 MIN_PER_BANK = 100
@@ -143,12 +144,22 @@ def main():
             if pid in seen:
                 fail(pid, 'duplicate id')
             seen.add(pid)
+            if p.get('subject') not in SUBJECTS:
+                fail(pid, f'subject {p.get("subject")!r} is not one of {SUBJECTS}')
+            if p.get('gradeLevel') not in GRADES:
+                fail(pid, f'gradeLevel {p.get("gradeLevel")!r} is not a grade from 6 to 13')
             if p.get('difficulty') != diff:
                 fail(pid, f'difficulty {p.get("difficulty")} in {diff}.json')
             if diff == 'hard' and p.get('course') not in ('calc1', 'calc2'):
                 fail(pid, 'hard problem without course calc1/calc2')
             if p.get('diagram') and not p.get('diagramAlt'):
                 fail(pid, 'diagram without diagramAlt')
+            if not p.get('keyIdea'):
+                fail(pid, 'missing keyIdea (add it in scripts/bank/explain_*.py)')
+            prose = ' '.join(re.sub(r'\$\$[\s\S]*?\$\$|\$[^$]*\$', ' ', st)
+                             for st in [p.get('keyIdea', ''), *p.get('solutionSteps', [])])
+            if len(re.findall(r'[A-Za-z]{2,}', prose)) < 25:
+                fail(pid, 'worked solution is mostly bare equations: explain the steps in words')
             if len(p.get('solutionSteps', [])) < 3:
                 fail(pid, 'fewer than 3 solution steps')
 

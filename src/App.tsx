@@ -13,6 +13,7 @@ import { ProblemCard } from './components/ProblemCard';
 import { HelpModal } from './components/HelpModal';
 import { StatsModal, ShareButton } from './components/StatsModal';
 import { Countdown } from './components/Countdown';
+import { Endless } from './components/Endless';
 
 const BANKS: Banks = {
   easy: easyBank as Problem[],
@@ -47,6 +48,18 @@ export default function App() {
   const [statsOpen, setStatsOpen] = useState(false);
   const [theme, setTheme] = useState(loadTheme);
   const [history, setHistory] = useState(loadHistory);
+  const [mode, setMode] = useState<'daily' | 'endless'>(() => (location.hash === '#endless' ? 'endless' : 'daily'));
+
+  useEffect(() => {
+    const onHash = () => setMode(location.hash === '#endless' ? 'endless' : 'daily');
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, []);
+
+  function switchMode(m: 'daily' | 'endless') {
+    setMode(m);
+    history_replace(m === 'endless' ? '#endless' : ' ');
+  }
 
   useEffect(() => {
     if (theme) document.documentElement.dataset.theme = theme;
@@ -68,7 +81,7 @@ export default function App() {
 
   // ---- Timer: runs for the visible tab while the problem is open, the page is visible and no modal is up.
   const tick = useRef(performance.now());
-  const modalOpen = helpOpen || statsOpen;
+  const modalOpen = helpOpen || statsOpen || mode !== 'daily';
   useEffect(() => {
     tick.current = performance.now();
     const id = setInterval(() => {
@@ -162,6 +175,15 @@ export default function App() {
       </header>
 
       <main id="main" className="container">
+        <div className="segmented mode-switch" role="tablist" aria-label="Game mode">
+          {(['daily', 'endless'] as const).map((m) => (
+            <button key={m} role="tab" aria-selected={mode === m} className={mode === m ? 'on' : ''} onClick={() => switchMode(m)}>
+              {m === 'daily' ? 'Daily' : 'Endless'}
+            </button>
+          ))}
+        </div>
+        {mode === 'endless' && <Endless banks={BANKS} dailyIds={problems.map((p) => p.id)} />}
+        {mode === 'daily' && <>
         <p className="subhead muted">
           #{state.day + 1} · {new Date().toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' })} · {total}/{MAX_DAILY_SCORE} pts
         </p>
@@ -208,6 +230,7 @@ export default function App() {
             <ShareButton text={share} />
           </section>
         )}
+        </>}
         <footer className="footer">
           <Countdown onRollover={rollover} />
         </footer>
@@ -217,4 +240,9 @@ export default function App() {
       <StatsModal open={statsOpen} onClose={() => setStatsOpen(false)} stats={stats} shareText={share} dayDone={dayDone} />
     </>
   );
+}
+
+function history_replace(hash: string) {
+  const url = location.pathname + location.search + (hash.trim() ? hash : '');
+  window.history.replaceState(null, '', url);
 }
