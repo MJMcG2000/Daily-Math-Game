@@ -55,6 +55,6 @@ describe('difficulty rules', () => {
     expect(touched({ ...ps, hintsUsed: 1 })).toBe(true);
   });
   it('survival share has no spoilers', () => {
-    expect(survivalShareText(7, 9)).toBe('Mathdle Survival: solved 7 (fell on problem 8)\n🟢🟡🔴🟢🟡🔴🟢❌\nBest: 9');
+    expect(survivalShareText(7, 9, undefined, new Date(2026, 10, 25))).toBe('Mathdle Survival · Nov 25, 2026: solved 7 (fell on problem 8)\n🟢🟡🔴🟢🟡🔴🟢❌\nBest: 9');
   });
 });

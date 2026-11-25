@@ -3,7 +3,7 @@
  * the run ends at the first unsolved problem). Separate from daily stats.
  */
 import type { Difficulty, Problem, ProblemState } from '../types';
-import type { Banks } from './daily';
+import { shareDate, type Banks } from './daily';
 
 export type PracticePool = Difficulty | 'mixed';
 export type EndlessKind = 'practice' | 'survival';
@@ -125,10 +125,10 @@ export function touched(ps: ProblemState): boolean {
   return ps.guesses.length > 0 || ps.hintsUsed > 0;
 }
 
-export function survivalShareText(count: number, best: number, url?: string): string {
+export function survivalShareText(count: number, best: number, url?: string, date: Date = new Date()): string {
   const level = count + 1;
   const bar = Array.from({ length: Math.max(count, 0) }, (_, i) => (survivalDifficulty(i) === 'easy' ? '🟢' : survivalDifficulty(i) === 'medium' ? '🟡' : '🔴')).join('');
-  return [`Mathdle Survival: solved ${count} (fell on problem ${level})`, bar + '❌', `Best: ${best}`, url]
+  return [`Mathdle Survival · ${shareDate(date)}: solved ${count} (fell on problem ${level})`, bar + '❌', `Best: ${best}`, url]
     .filter(Boolean)
     .join('\n');
 }

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { judge, isEquivalent } from './check';
 import { scoreProblem, timeMultiplier, MAX_DAILY_SCORE } from './scoring';
-import { dayIndex, pickFromPool, problemsForDay, seededShuffle } from './daily';
+import { dateForDay, dayIndex, pickFromPool, problemsForDay, seededShuffle, shareDate } from './daily';
 import { computeStats } from './stats';
 import { shareText } from './share';
 import type { Problem, ProblemState } from '../types';
@@ -118,6 +118,14 @@ describe('stats & streaks', () => {
   });
 });
 
+describe('share dates', () => {
+  it('maps puzzle numbers to local calendar dates', () => {
+    expect(shareDate(dateForDay(0))).toBe('Nov 24, 2026');
+    expect(shareDate(dateForDay(1))).toBe('Nov 25, 2026');
+    expect(shareDate(dateForDay(38))).toBe('Jan 1, 2027');
+  });
+});
+
 describe('share', () => {
   it('builds a spoiler-free emoji grid', () => {
     const probs = [mk('a'), mk('b', { difficulty: 'medium' }), mk('c', { difficulty: 'hard' })];
@@ -130,7 +138,7 @@ describe('share', () => {
       ],
     }, probs);
     expect(text.split('\n')).toEqual([
-      'Mathdle #42 — 2/3 · 6/18 pts',
+      'Mathdle #42 · Jan 4, 2027 — 2/3 · 6/18 pts',
       '① 🟩 1:12',
       '② 🟨🟩 💡 4:30',
       '③ 🟥🟥🟥 💡💡 10:00',
