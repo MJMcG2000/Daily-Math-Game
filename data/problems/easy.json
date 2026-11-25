@@ -8,10 +8,12 @@
     "answerNumeric": 1.6666666666666667,
     "hint1": "Work the numerator and denominator separately. Do exponents before multiplication.",
     "hint2": "The numerator is $32 - 27 = 5$ and the denominator is $5 - 18 + 16 = 3$.",
+    "keyIdea": "A fraction bar acts like a pair of parentheses: simplify the whole numerator and the whole denominator separately, each in order (exponents, then multiplication, then addition/subtraction), and divide only at the end.",
     "solutionSteps": [
-      "Numerator: $(4-7)^2 = 9$, so $2^5 - 3\\cdot 9 = 32 - 27 = 5$.",
-      "Denominator: $3^2 = 9$, so $5 - 2\\cdot 9 + 16 = 3$.",
-      "The value is $\\dfrac{5}{3}$."
+      "**Numerator, innermost first.** Parentheses come before everything else: $4 - 7 = -3$. Squaring a negative gives a positive: $(-3)^2 = 9$.",
+      "**Finish the numerator.** Exponent: $2^5 = 32$. Multiplication before subtraction: $3\\cdot9 = 27$. So the numerator is $32 - 27 = 5$.",
+      "**Denominator.** Exponents first: $3^2 = 9$ and $4^2 = 16$. Then the multiplication $2\\cdot9 = 18$. Then work left to right: $5 - 18 + 16 = 3$.",
+      "**Divide.** The value is $\\dfrac{5}{3}$. Neither $5$ nor $3$ has a common factor, so it is already in lowest terms."
     ]
   },
   {
@@ -23,11 +25,13 @@
     "answerNumeric": 7.25,
     "hint1": "Simplify inside the brackets first: $4^2 \\div (5-3)^3$.",
     "hint2": "$16 \\div 8 = 2$, so the brackets equal $2 - 7 = -5$, and $\\left(-\\tfrac12\\right)^2 = \\tfrac14$.",
+    "keyIdea": "Work from the inside out. Simplify the square brackets completely, then square the $-\\tfrac12$, and only then multiply and subtract.",
     "solutionSteps": [
-      "$(5-3)^3 = 8$ and $4^2 = 16$, so $16 \\div 8 = 2$.",
-      "Brackets: $2 - 7 = -5$.",
-      "$\\left(-\\tfrac12\\right)^2 = \\tfrac14$, so the product is $-5\\cdot\\tfrac14 = -\\tfrac54$.",
-      "$6 - \\left(-\\tfrac54\\right) = \\tfrac{24}{4} + \\tfrac54 = \\tfrac{29}{4}$."
+      "**Inside the brackets, parentheses first.** $(5 - 3)^3 = 2^3 = 8$, and $4^2 = 16$.",
+      "**Division before subtraction.** $16 \\div 8 = 2$, so the brackets are $2 - 7 = -5$.",
+      "**The squared factor.** $\\left(-\\tfrac12\\right)^2 = \\tfrac14$. The square makes it positive because $(-)(-) = (+)$.",
+      "**Multiply before subtracting.** $(-5)\\cdot\\tfrac14 = -\\tfrac54$. The expression is now $6 - \\left(-\\tfrac54\\right)$.",
+      "**Subtracting a negative is adding.** $6 + \\tfrac54 = \\tfrac{24}{4} + \\tfrac{5}{4} = \\tfrac{29}{4}$."
     ]
   },
   {
@@ -39,10 +43,12 @@
     "answerNumeric": 0.75,
     "hint1": "Division and multiplication come before addition and subtraction. Dividing by $\\tfrac{10}{9}$ means multiplying by $\\tfrac{9}{10}$.",
     "hint2": "$\\tfrac56\\cdot\\tfrac{9}{10} = \\tfrac34$ and $\\tfrac23\\cdot\\tfrac98 = \\tfrac34$.",
+    "keyIdea": "Do the division and the multiplication before any addition or subtraction, and remember that dividing by a fraction means multiplying by its reciprocal.",
     "solutionSteps": [
-      "$\\tfrac56 \\div \\tfrac{10}{9} = \\tfrac56\\cdot\\tfrac{9}{10} = \\tfrac{45}{60} = \\tfrac34$.",
-      "$\\tfrac23\\cdot\\tfrac98 = \\tfrac{18}{24} = \\tfrac34$.",
-      "$\\tfrac34 + \\tfrac34 - \\tfrac34 = \\tfrac34$."
+      "**Division.** Flip the divisor and multiply: $\\tfrac56 \\div \\tfrac{10}{9} = \\tfrac56\\cdot\\tfrac{9}{10}$. Cancel before multiplying ($5$ with $10$, $9$ with $6$): $\\tfrac{1}{2}\\cdot\\tfrac{3}{2} = \\tfrac34$.",
+      "**Multiplication.** $\\tfrac23\\cdot\\tfrac98$: cancel $3$ into $9$ and $2$ into $8$ to get $\\tfrac{1}{1}\\cdot\\tfrac{3}{4} = \\tfrac34$.",
+      "**Now add and subtract left to right.** The expression is $\\tfrac34 + \\tfrac34 - \\tfrac34$.",
+      "The last two terms cancel, leaving $\\tfrac34$."
     ]
   },
   {
@@ -54,10 +60,12 @@
     "answerNumeric": 2.0,
     "hint1": "A negative exponent flips a fraction: $\\left(\\tfrac23\\right)^{-1} = \\tfrac32$.",
     "hint2": "The numerator is $-8 + 20 - 9 = 3$.",
+    "keyIdea": "A negative exponent means \"take the reciprocal\", so $\\left(\\tfrac23\\right)^{-1} = \\tfrac32$. Simplify the top and bottom separately, then divide.",
     "solutionSteps": [
-      "Numerator: $(-2)^3 = -8$, $4\\cdot5 = 20$, $36\\div4 = 9$, so $-8+20-9 = 3$.",
-      "Denominator: $1-\\tfrac13 = \\tfrac23$, and $\\left(\\tfrac23\\right)^{-1} = \\tfrac32$.",
-      "$3 \\div \\tfrac32 = 2$."
+      "**Numerator, term by term.** An odd power of a negative is negative: $(-2)^3 = -8$. Then $4\\cdot5 = 20$, and $6^2 \\div 4 = 36 \\div 4 = 9$ (exponent before division).",
+      "**Combine the numerator left to right.** $-8 + 20 - 9 = 3$.",
+      "**Denominator.** $1 - \\tfrac13 = \\tfrac23$, and the $-1$ exponent flips it: $\\left(\\tfrac23\\right)^{-1} = \\tfrac32$.",
+      "**Divide.** Dividing by $\\tfrac32$ means multiplying by $\\tfrac23$: $3\\cdot\\tfrac23 = 2$."
     ]
   },
   {
@@ -69,11 +77,13 @@
     "answerNumeric": -74.0,
     "hint1": "Work from the innermost parentheses outward. Remember $7^0 = 1$.",
     "hint2": "$5 - 2^3 = -3$, so the bracket is $3 - 4(-3) = 15$.",
+    "keyIdea": "Peel the expression from the inside out: innermost parentheses, then the brackets, then the square, then multiply and divide left to right, and add last. Any nonzero number to the power $0$ is $1$.",
     "solutionSteps": [
-      "Innermost: $5 - 8 = -3$.",
-      "Bracket: $3 - 4(-3) = 3 + 12 = 15$, and $15^2 = 225$.",
-      "$2\\cdot225 = 450$ and $450 \\div (-6) = -75$.",
-      "$-75 + 1 = -74$."
+      "**Innermost parentheses.** $2^3 = 8$, so $5 - 8 = -3$.",
+      "**The brackets.** $3 - 4(-3) = 3 + 12 = 15$. Multiplying by a negative flips the sign.",
+      "**Exponent.** $15^2 = 225$.",
+      "**Multiply and divide left to right.** $2\\cdot225 = 450$, then $450 \\div (-6) = -75$.",
+      "**Add the last term.** $7^0 = 1$, so the total is $-75 + 1 = -74$."
     ]
   },
   {
@@ -85,10 +95,13 @@
     "answerNumeric": 0.13333333333333333,
     "hint1": "Simplify the innermost fractions first, in both the top and the bottom.",
     "hint2": "The top is $1 - \\tfrac23 = \\tfrac13$ and the bottom is $1 + \\tfrac32 = \\tfrac52$.",
+    "keyIdea": "In a stacked fraction, start with the smallest fraction at the very bottom and work outward. Each layer becomes a simple fraction you can flip.",
     "solutionSteps": [
-      "Top: $1 + \\tfrac12 = \\tfrac32$, so $\\tfrac{1}{3/2} = \\tfrac23$ and $1 - \\tfrac23 = \\tfrac13$.",
-      "Bottom: $1 - \\tfrac13 = \\tfrac23$, so $\\tfrac{1}{2/3} = \\tfrac32$ and $1 + \\tfrac32 = \\tfrac52$.",
-      "$\\tfrac13 \\div \\tfrac52 = \\tfrac13\\cdot\\tfrac25 = \\tfrac{2}{15}$."
+      "**Top half, innermost.** $1 + \\tfrac12 = \\tfrac32$. Then $\\dfrac{1}{3/2}$ flips to $\\tfrac23$.",
+      "**Finish the top.** $1 - \\tfrac23 = \\tfrac13$.",
+      "**Bottom half, innermost.** $1 - \\tfrac13 = \\tfrac23$. Then $\\dfrac{1}{2/3}$ flips to $\\tfrac32$.",
+      "**Finish the bottom.** $1 + \\tfrac32 = \\tfrac52$.",
+      "**Divide top by bottom.** $\\tfrac13 \\div \\tfrac52 = \\tfrac13\\cdot\\tfrac25 = \\tfrac{2}{15}$."
     ]
   },
   {
@@ -100,10 +113,12 @@
     "answerNumeric": 1.25,
     "hint1": "$\\left(\\tfrac23\\right)^{-2} = \\left(\\tfrac32\\right)^2$.",
     "hint2": "$\\left(\\tfrac32\\right)^2 = \\tfrac94$ and $\\tfrac{27}{8}\\cdot\\tfrac49 = \\tfrac32$.",
+    "keyIdea": "A negative exponent flips the base: $\\left(\\tfrac23\\right)^{-2} = \\left(\\tfrac32\\right)^2$. Evaluate each term, then combine.",
     "solutionSteps": [
-      "$\\left(\\tfrac23\\right)^{-2} = \\tfrac94$.",
-      "$\\left(\\tfrac32\\right)^3\\cdot\\tfrac49 = \\tfrac{27}{8}\\cdot\\tfrac49 = \\tfrac{108}{72} = \\tfrac32$.",
-      "$\\tfrac94 - \\tfrac32 + \\tfrac12 = \\tfrac94 - 1 = \\tfrac54$."
+      "**First term.** Flip, then square: $\\left(\\tfrac23\\right)^{-2} = \\left(\\tfrac32\\right)^2 = \\tfrac94$.",
+      "**Second term.** $\\left(\\tfrac32\\right)^3 = \\tfrac{27}{8}$. Multiply by $\\tfrac49$, cancelling first ($27$ with $9$, $4$ with $8$): $\\tfrac{3}{2}\\cdot\\tfrac{1}{1} = \\tfrac32$.",
+      "**Third term.** $2^{-1} = \\tfrac12$.",
+      "**Combine.** $\\tfrac94 - \\tfrac32 + \\tfrac12 = \\tfrac94 - 1 = \\tfrac54$, since $-\\tfrac32 + \\tfrac12 = -1$."
     ]
   },
   {
@@ -115,11 +130,12 @@
     "answerNumeric": -2.2,
     "hint1": "Treat absolute value bars like parentheses: evaluate inside them first.",
     "hint2": "The first fraction is $\\dfrac{10 - 9}{4 - 9} = -\\tfrac15$. The second is $\\tfrac{18}{9} = 2$.",
+    "keyIdea": "Absolute value bars group like parentheses. Work out what is inside them first; the result is never negative.",
     "solutionSteps": [
-      "$|3-8| = 5$, so the first numerator is $5\\cdot2 - 9 = 1$.",
-      "$|2-5| = 3$, so the first denominator is $4 - 9 = -5$, giving $-\\tfrac15$.",
-      "Second fraction: $12 - 2(-3) = 18$ and $\\tfrac{18}{9} = 2$.",
-      "$-\\tfrac15 - 2 = -\\tfrac{11}{5}$."
+      "**First fraction, top.** $|3 - 8| = |-5| = 5$, so $5\\cdot2 = 10$. Then $(-3)^2 = 9$, and $10 - 9 = 1$.",
+      "**First fraction, bottom.** $|2 - 5| = 3$, so $3\\cdot3 = 9$, and $4 - 9 = -5$. The first fraction is $\\dfrac{1}{-5} = -\\tfrac15$.",
+      "**Second fraction.** Subtracting a negative adds: $12 - 2(-3) = 12 + 6 = 18$, and $\\tfrac{18}{9} = 2$.",
+      "**Combine.** $-\\tfrac15 - 2 = -\\tfrac15 - \\tfrac{10}{5} = -\\tfrac{11}{5}$."
     ]
   },
   {
@@ -131,11 +147,13 @@
     "answerNumeric": 7.0,
     "hint1": "Negative exponents mean reciprocals: $2^{-2} = \\tfrac14$.",
     "hint2": "The first fraction is $\\tfrac{16}{2} = 8$. The second is $\\dfrac{3/8}{1/3} = \\tfrac98$.",
+    "keyIdea": "Handle each piece separately. A difference of squares simplifies nicely, and negative exponents are just reciprocals.",
     "solutionSteps": [
-      "$\\dfrac{25-9}{2} = 8$.",
-      "$2^{-2} + 2^{-3} = \\tfrac14 + \\tfrac18 = \\tfrac38$, and dividing by $\\tfrac13$ gives $\\tfrac98$.",
-      "$8\\cdot\\tfrac98 = 9$ and $16 \\div 8 = 2$.",
-      "$9 - 2 = 7$."
+      "**First fraction.** $\\dfrac{25 - 9}{2} = \\dfrac{16}{2} = 8$. You could also use $5^2 - 3^2 = (5-3)(5+3)$, so the $5 - 3$ cancels and leaves $8$.",
+      "**Second fraction, numerator.** $2^{-2} = \\tfrac14$ and $2^{-3} = \\tfrac18$, so the sum is $\\tfrac28 + \\tfrac18 = \\tfrac38$.",
+      "**Second fraction, denominator.** $3^{-1} = \\tfrac13$, and dividing by $\\tfrac13$ is multiplying by $3$: $\\tfrac38\\cdot3 = \\tfrac98$.",
+      "**Multiply, then the last term.** $8\\cdot\\tfrac98 = 9$. Then $2^4 \\div 8 = 16 \\div 8 = 2$.",
+      "**Subtract.** $9 - 2 = 7$."
     ]
   },
   {
@@ -147,11 +165,12 @@
     "answerNumeric": 0.3684210526315789,
     "hint1": "Multiply the top and bottom by the least common denominator, $20$.",
     "hint2": "You get $\\dfrac{15 - 8}{14 + 5}$.",
+    "keyIdea": "To simplify a fraction of fractions, multiply its top and bottom by the least common denominator (LCD) of all the little fractions. That clears every inner fraction in one step.",
     "solutionSteps": [
-      "Multiply the top and bottom by $20$.",
-      "Top: $20\\cdot\\tfrac34 - 20\\cdot\\tfrac25 = 15 - 8 = 7$.",
-      "Bottom: $20\\cdot\\tfrac{7}{10} + 20\\cdot\\tfrac14 = 14 + 5 = 19$.",
-      "The result is $\\tfrac{7}{19}$."
+      "**Find the LCD.** The denominators are $4$, $5$, $10$ and $4$. The least common multiple is $20$.",
+      "**Multiply the top by $20$.** $20\\cdot\\tfrac34 - 20\\cdot\\tfrac25 = 15 - 8 = 7$.",
+      "**Multiply the bottom by $20$.** $20\\cdot\\tfrac{7}{10} + 20\\cdot\\tfrac14 = 14 + 5 = 19$.",
+      "**Result.** Multiplying top and bottom by the same number doesn't change the value, so the answer is $\\tfrac{7}{19}$."
     ]
   },
   {
@@ -163,10 +182,12 @@
     "answerNumeric": 0.5,
     "hint1": "Convert the mixed numbers to improper fractions first.",
     "hint2": "$2\\tfrac13 = \\tfrac73$, $1\\tfrac59 = \\tfrac{14}{9}$ and $2\\tfrac23 = \\tfrac83$.",
+    "keyIdea": "Mixed numbers must be turned into improper fractions before you multiply or divide them.",
     "solutionSteps": [
-      "$\\tfrac73 \\div \\tfrac{14}{9} = \\tfrac73\\cdot\\tfrac{9}{14} = \\tfrac{63}{42} = \\tfrac32$.",
-      "$\\tfrac38\\cdot\\tfrac83 = 1$.",
-      "$\\tfrac32 - 1 = \\tfrac12$."
+      "**Convert.** $2\\tfrac13 = \\tfrac{7}{3}$, $1\\tfrac59 = \\tfrac{14}{9}$ and $2\\tfrac23 = \\tfrac83$ (whole part × denominator + numerator).",
+      "**Divide.** Multiply by the reciprocal: $\\tfrac73\\cdot\\tfrac{9}{14}$. Cancel $7$ with $14$ and $3$ with $9$: $\\tfrac{1}{1}\\cdot\\tfrac{3}{2} = \\tfrac32$.",
+      "**Multiply.** $\\tfrac38\\cdot\\tfrac83 = 1$, because the two fractions are reciprocals.",
+      "**Subtract.** $\\tfrac32 - 1 = \\tfrac12$."
     ]
   },
   {
@@ -178,10 +199,12 @@
     "answerNumeric": 0.125,
     "hint1": "First find how many full batches fit: divide $4\\tfrac12$ by $\\tfrac23$.",
     "hint2": "$\\tfrac92 \\div \\tfrac23 = \\tfrac{27}{4} = 6.75$, so she makes 6 batches and has $\\tfrac92 - 4 = \\tfrac12$ cup left.",
+    "keyIdea": "\"As many full batches as she can\" means dividing and rounding *down*. Then work out the leftover and take the part she doesn't use.",
     "solutionSteps": [
-      "$\\tfrac92 \\div \\tfrac23 = \\tfrac{27}{4} = 6\\tfrac34$, so 6 full batches.",
-      "Six batches use $6\\cdot\\tfrac23 = 4$ cups, leaving $\\tfrac12$ cup.",
-      "She uses $\\tfrac34$ of that, so $\\tfrac14\\cdot\\tfrac12 = \\tfrac18$ cup remains."
+      "**How many batches?** $4\\tfrac12 \\div \\tfrac23 = \\tfrac92\\cdot\\tfrac32 = \\tfrac{27}{4} = 6\\tfrac34$. Only whole batches count, so she makes $6$.",
+      "**Sugar used.** $6\\cdot\\tfrac23 = 4$ cups.",
+      "**Leftover.** $4\\tfrac12 - 4 = \\tfrac12$ cup.",
+      "**After the tea.** She uses $\\tfrac34$ of the leftover, so $\\tfrac14$ of it remains: $\\tfrac14\\cdot\\tfrac12 = \\tfrac18$ cup."
     ]
   },
   {
@@ -193,10 +216,12 @@
     "answerNumeric": 2.5,
     "hint1": "Simplify each set of parentheses with a common denominator of $6$.",
     "hint2": "The first group is $1$ and the second is $\\tfrac16$.",
+    "keyIdea": "Simplify each set of parentheses with a common denominator, then do the division and multiplication from left to right.",
     "solutionSteps": [
-      "$\\tfrac12+\\tfrac13+\\tfrac16 = \\tfrac{3+2+1}{6} = 1$.",
-      "$\\tfrac12-\\tfrac13 = \\tfrac16$.",
-      "$1 \\div \\tfrac16 = 6$, then $6\\cdot\\tfrac{5}{12} = \\tfrac52$."
+      "**First parentheses.** With denominator $6$: $\\tfrac36 + \\tfrac26 + \\tfrac16 = \\tfrac66 = 1$.",
+      "**Second parentheses.** $\\tfrac36 - \\tfrac26 = \\tfrac16$.",
+      "**Left to right.** First divide: $1 \\div \\tfrac16 = 6$.",
+      "**Then multiply.** $6\\cdot\\tfrac{5}{12} = \\tfrac{30}{12} = \\tfrac52$."
     ]
   },
   {
@@ -208,10 +233,12 @@
     "answerNumeric": 0.5,
     "hint1": "Multiply every term by $12$ to clear the fractions.",
     "hint2": "You get $8 + 3x = 10 - x$.",
+    "keyIdea": "Clear all the fractions at once by multiplying *every* term on both sides by the LCD, here $12$. You get an ordinary linear equation.",
     "solutionSteps": [
-      "Multiply by $12$: $8 + 3x = 10 - x$.",
-      "$4x = 2$.",
-      "$x = \\tfrac12$."
+      "**Multiply each term by $12$.** $12\\cdot\\tfrac23 = 8$, $12\\cdot\\tfrac x4 = 3x$, $12\\cdot\\tfrac56 = 10$ and $12\\cdot\\tfrac{x}{12} = x$. So $8 + 3x = 10 - x$.",
+      "**Collect the $x$ terms on one side.** Add $x$ to both sides and subtract $8$: $4x = 2$.",
+      "**Solve.** $x = \\tfrac24 = \\tfrac12$.",
+      "**Check.** Left: $\\tfrac23 + \\tfrac18 = \\tfrac{19}{24}$. Right: $\\tfrac56 - \\tfrac1{24} = \\tfrac{19}{24}$. ✓"
     ]
   },
   {
@@ -223,10 +250,12 @@
     "answerNumeric": 0.4708994708994709,
     "hint1": "$P$ is one third of the way from $A$ to $B$: $P = A + \\tfrac13(B - A)$.",
     "hint2": "$B - A = \\tfrac{35}{63} - \\tfrac{27}{63} = \\tfrac{8}{63}$.",
+    "keyIdea": "$AP : PB = 1 : 2$ splits the segment $AB$ into $3$ equal parts, with $P$ one part from $A$. So $P = A + \\tfrac13(B - A)$.",
     "solutionSteps": [
-      "$AP:PB = 1:2$ means $P$ is $\\tfrac13$ of the way from $A$ to $B$.",
-      "$B - A = \\tfrac{35 - 27}{63} = \\tfrac{8}{63}$, and a third of that is $\\tfrac{8}{189}$.",
-      "$P = \\tfrac{3}{7} + \\tfrac{8}{189} = \\tfrac{81}{189} + \\tfrac{8}{189} = \\tfrac{89}{189}$."
+      "**Write both fractions over a common denominator** so you can measure the gap: $\\tfrac37 = \\tfrac{27}{63}$ and $\\tfrac59 = \\tfrac{35}{63}$.",
+      "**Measure the segment.** The distance from $A$ to $B$ is $B - A = \\tfrac{35 - 27}{63} = \\tfrac{8}{63}$.",
+      "**Take the right share of it.** The ratio $1:2$ splits the segment into three equal parts, and $P$ is one part away from $A$: $\\tfrac13\\cdot\\tfrac{8}{63} = \\tfrac{8}{189}$.",
+      "**Step that far from $A$.** $P = \\tfrac{3}{7} + \\tfrac{8}{189} = \\tfrac{81}{189} + \\tfrac{8}{189} = \\tfrac{89}{189}$. As a check, $P$ lies between $A$ and $B$ and is closer to $A$, as it should be."
     ]
   },
   {
@@ -238,10 +267,12 @@
     "answerNumeric": 32.72727272727273,
     "hint1": "Let $C$ be the capacity. The $15$ liters fill the gap between $\\tfrac38$ and $\\tfrac56$ of the tank.",
     "hint2": "$\\tfrac56 - \\tfrac38 = \\tfrac{20-9}{24} = \\tfrac{11}{24}$, so $\\tfrac{11}{24}C = 15$.",
+    "keyIdea": "The $15$ liters are exactly the gap between $\\tfrac38$ and $\\tfrac56$ of the tank. Find that gap as a fraction of the tank, then solve for the whole.",
     "solutionSteps": [
-      "$\\tfrac38 C + 15 = \\tfrac56 C$.",
-      "$\\left(\\tfrac56 - \\tfrac38\\right)C = 15$, so $\\tfrac{11}{24}C = 15$.",
-      "$C = \\tfrac{15\\cdot24}{11} = \\tfrac{360}{11} \\approx 32.7$ liters."
+      "**Let $C$ be the capacity.** Before: $\\tfrac38C$. After adding $15$ L: $\\tfrac38C + 15 = \\tfrac56C$.",
+      "**Isolate $C$.** $15 = \\left(\\tfrac56 - \\tfrac38\\right)C$. With denominator $24$: $\\tfrac{20}{24} - \\tfrac{9}{24} = \\tfrac{11}{24}$.",
+      "**So $\\tfrac{11}{24}$ of the tank is $15$ L.** Then $C = 15\\cdot\\tfrac{24}{11}$.",
+      "**Result.** $C = \\tfrac{360}{11} \\approx 32.7$ liters."
     ]
   },
   {
@@ -253,10 +284,12 @@
     "answerNumeric": 0.8333333333333334,
     "hint1": "Each term can be split: $\\dfrac{1}{n(n+1)} = \\dfrac1n - \\dfrac{1}{n+1}$.",
     "hint2": "The sum becomes $\\left(1 - \\tfrac12\\right) + \\left(\\tfrac12 - \\tfrac13\\right) + \\cdots + \\left(\\tfrac15 - \\tfrac16\\right)$.",
+    "keyIdea": "Each term splits into a difference: $\\dfrac{1}{n(n+1)} = \\dfrac1n - \\dfrac1{n+1}$. When you add them, almost everything cancels. This is called *telescoping*.",
     "solutionSteps": [
-      "Write each term as $\\tfrac1n - \\tfrac1{n+1}$.",
-      "The middle terms cancel in pairs (telescoping).",
-      "What is left is $1 - \\tfrac16 = \\tfrac56$."
+      "**Check the split.** $\\dfrac1n - \\dfrac{1}{n+1} = \\dfrac{(n+1) - n}{n(n+1)} = \\dfrac{1}{n(n+1)}$. ✓",
+      "**Rewrite the sum.** $\\left(1 - \\tfrac12\\right) + \\left(\\tfrac12 - \\tfrac13\\right) + \\left(\\tfrac13 - \\tfrac14\\right) + \\left(\\tfrac14 - \\tfrac15\\right) + \\left(\\tfrac15 - \\tfrac16\\right)$.",
+      "**Cancel.** Each $-\\tfrac1k$ is followed by a $+\\tfrac1k$, so they cancel in pairs. Only the first and last pieces survive.",
+      "**Result.** $1 - \\tfrac16 = \\tfrac56$."
     ]
   },
   {
@@ -268,10 +301,12 @@
     "answerNumeric": 0.75,
     "hint1": "Simplify the numerator and denominator separately, cancelling before you multiply.",
     "hint2": "The numerator is $\\tfrac{3}{10} - \\tfrac{1}{10} = \\tfrac15$. The denominator is $\\tfrac35\\cdot\\tfrac49 = \\tfrac{4}{15}$.",
+    "keyIdea": "Simplify the numerator and the denominator separately, and cancel common factors before multiplying to keep the numbers small.",
     "solutionSteps": [
-      "$\\tfrac58\\cdot\\tfrac{12}{25} = \\tfrac{60}{200} = \\tfrac{3}{10}$, and $\\tfrac3{10} - \\tfrac1{10} = \\tfrac15$.",
-      "$\\tfrac35 \\div \\tfrac94 = \\tfrac35\\cdot\\tfrac49 = \\tfrac{4}{15}$.",
-      "$\\tfrac15 \\div \\tfrac4{15} = \\tfrac15\\cdot\\tfrac{15}4 = \\tfrac34$."
+      "**Numerator, multiplication first.** $\\tfrac58\\cdot\\tfrac{12}{25}$: cancel $5$ with $25$ and $4$ with $8$ and $12$, giving $\\tfrac{1\\cdot3}{2\\cdot5} = \\tfrac3{10}$.",
+      "**Finish the numerator.** $\\tfrac{3}{10} - \\tfrac1{10} = \\tfrac{2}{10} = \\tfrac15$.",
+      "**Denominator.** $\\tfrac35 \\div \\tfrac94 = \\tfrac35\\cdot\\tfrac49 = \\tfrac{12}{45} = \\tfrac{4}{15}$.",
+      "**Divide.** $\\tfrac15 \\div \\tfrac{4}{15} = \\tfrac15\\cdot\\tfrac{15}{4} = \\tfrac34$."
     ]
   },
   {
@@ -283,10 +318,12 @@
     "answerNumeric": 48.0,
     "hint1": "Write the counts as $5k$ red and $3k$ blue.",
     "hint2": "After removing $12$ red marbles: $5k - 12 = 3k$.",
+    "keyIdea": "Write the counts using one unknown that respects the ratio, $5k$ red and $3k$ blue. Then the new ratio gives an equation for $k$.",
     "solutionSteps": [
-      "Let the counts be $5k$ red and $3k$ blue.",
-      "$5k - 12 = 3k \\Rightarrow k = 6$.",
-      "Originally there were $5k + 3k = 8k = 48$ marbles."
+      "**Model.** A $5:3$ ratio means red $= 5k$ and blue $= 3k$ for some number $k$.",
+      "**Use the change.** After removing $12$ red, the two colors are equal: $5k - 12 = 3k$.",
+      "**Solve.** $2k = 12$, so $k = 6$. That means $30$ red and $18$ blue.",
+      "**Total at the start.** $30 + 18 = 48$ marbles. Check: after the removal there are $18$ red and $18$ blue. ✓"
     ]
   },
   {
@@ -298,10 +335,12 @@
     "answerNumeric": 200.0,
     "hint1": "Add up the parts of the ratio: $1 + 2.5 + 4$.",
     "hint2": "There are $7.5$ parts in total, so one part is $600 \\div 7.5 = 80$ kg.",
+    "keyIdea": "A ratio splits a total into equal \"parts\". Add up the parts, find how much one part is worth, then multiply.",
     "solutionSteps": [
-      "Total parts: $1 + 2.5 + 4 = 7.5$.",
-      "One part weighs $600 \\div 7.5 = 80$ kg.",
-      "Sand: $2.5\\cdot 80 = 200$ kg."
+      "**Count the parts.** $1 + 2\\tfrac12 + 4 = 7\\tfrac12$ parts in total.",
+      "**Value of one part.** $600 \\div 7.5 = 80$ kg.",
+      "**Sand.** Sand is $2\\tfrac12$ parts: $2.5 \\times 80 = 200$ kg.",
+      "**Check.** Cement $80$, sand $200$, gravel $320$: the total is $600$ kg. ✓"
     ]
   },
   {
@@ -313,10 +352,12 @@
     "answerNumeric": 40.0,
     "hint1": "Rewrite both ratios so that $B$ is the same number in each. The LCM (least common multiple) of $4$ and $6$ is $12$.",
     "hint2": "$A:B = 9:12$ and $B:C = 12:10$, so $A:B:C = 9:12:10$.",
+    "keyIdea": "To combine two ratios that share $B$, rescale them so $B$ is the same number in both. Then all three can be read off together.",
     "solutionSteps": [
-      "Scale so $B$ matches: $A:B = 9:12$ and $B:C = 12:10$.",
-      "So $A:B:C = 9:12:10$, which is $31$ parts.",
-      "One part is $124 \\div 31 = 4$, so $C = 10\\cdot4 = 40$."
+      "**Match $B$.** $B$ is $4$ in one ratio and $6$ in the other. Their least common multiple is $12$.",
+      "**Rescale.** $A:B = 3:4 = 9:12$ (×3) and $B:C = 6:5 = 12:10$ (×2). So $A:B:C = 9:12:10$.",
+      "**Count parts.** $9 + 12 + 10 = 31$ parts make up $124$, so one part is $124 \\div 31 = 4$.",
+      "**Find $C$.** $C$ is $10$ parts: $10\\cdot4 = 40$."
     ]
   },
   {
@@ -328,10 +369,12 @@
     "answerNumeric": 1.8,
     "hint1": "Convert each map length to a real length in kilometers first. $1$ km $= 100{,}000$ cm.",
     "hint2": "$6$ cm on the map is $150{,}000$ cm $= 1.5$ km, and $4.8$ cm is $1.2$ km.",
+    "keyIdea": "Scale each *length* first, then multiply to get the area. If you scale the area directly, you must use the square of the scale factor.",
     "solutionSteps": [
-      "$6 \\times 25{,}000 = 150{,}000$ cm $= 1.5$ km.",
-      "$4.8 \\times 25{,}000 = 120{,}000$ cm $= 1.2$ km.",
-      "Area: $1.5 \\times 1.2 = 1.8 = \\tfrac95$ km²."
+      "**Real lengths in cm.** Each map cm is $25{,}000$ cm on the ground: $6 \\times 25{,}000 = 150{,}000$ cm and $4.8 \\times 25{,}000 = 120{,}000$ cm.",
+      "**Convert to km.** $1$ km $= 100{,}000$ cm, so the park is $1.5$ km by $1.2$ km.",
+      "**Area.** $1.5 \\times 1.2 = 1.8$ km².",
+      "**As a fraction.** $1.8 = \\tfrac{9}{5}$ km²."
     ]
   },
   {
@@ -343,10 +386,12 @@
     "answerNumeric": 1200.0,
     "hint1": "Let the shares be $2k$, $3k$ and $7k$.",
     "hint2": "$7k - (2k + 3k) = 2k = 200$.",
+    "keyIdea": "Use one unknown $k$ for \"one part\" of the ratio. The comparison sentence becomes an equation in $k$.",
     "solutionSteps": [
-      "Shares: $2k$, $3k$, $7k$.",
-      "$7k - 5k = 2k = 200$, so $k = 100$.",
-      "Total prize: $12k = \\$1200$."
+      "**Model the shares.** $2k$, $3k$ and $7k$.",
+      "**Translate the sentence.** \"The largest is $200$ more than the other two combined\": $7k = (2k + 3k) + 200$.",
+      "**Solve.** $7k - 5k = 2k = 200$, so $k = 100$.",
+      "**Whole prize.** $2k + 3k + 7k = 12k = \\$1200$."
     ]
   },
   {
@@ -358,10 +403,12 @@
     "answerNumeric": 60.0,
     "hint1": "Find each machine's rate in boxes per minute, then add the rates.",
     "hint2": "The rates are $\\tfrac34$ and $\\tfrac56$ boxes/min. Together that is $\\tfrac{19}{12}$ boxes/min.",
+    "keyIdea": "When machines work together, their *rates* (boxes per minute) add. Their times do not.",
     "solutionSteps": [
-      "A: $\\tfrac34$ box/min. B: $\\tfrac56$ box/min.",
-      "Combined: $\\tfrac{9}{12} + \\tfrac{10}{12} = \\tfrac{19}{12}$ box/min.",
-      "Time $= 95 \\div \\tfrac{19}{12} = 95\\cdot\\tfrac{12}{19} = 60$ minutes."
+      "**Individual rates.** A makes $\\tfrac34$ box per minute and B makes $\\tfrac56$ box per minute.",
+      "**Combined rate.** With denominator $12$: $\\tfrac{9}{12} + \\tfrac{10}{12} = \\tfrac{19}{12}$ boxes per minute.",
+      "**Time = amount ÷ rate.** $95 \\div \\tfrac{19}{12} = 95\\cdot\\tfrac{12}{19}$.",
+      "**Simplify.** $95 \\div 19 = 5$, so the time is $5\\cdot12 = 60$ minutes."
     ]
   },
   {
@@ -373,10 +420,12 @@
     "answerNumeric": 5.333333333333333,
     "hint1": "Track the amount of acid: before, plus what is added, equals $25\\%$ of the new total.",
     "hint2": "$6 + x = 0.25(40 + x)$.",
+    "keyIdea": "Track the amount of *pure acid*. Adding pure acid raises both the acid and the total volume, so both change in the equation.",
     "solutionSteps": [
-      "Acid at the start: $0.15 \\times 40 = 6$ L.",
-      "$6 + x = 0.25(40 + x) = 10 + 0.25x$.",
-      "$0.75x = 4 \\Rightarrow x = \\tfrac{16}{3} \\approx 5.33$ L."
+      "**Acid at the start.** $15\\%$ of $40$ L is $6$ L.",
+      "**After adding $x$ L of pure acid.** There are $6 + x$ L of acid in $40 + x$ L of solution, and that must be $25\\%$: $6 + x = 0.25(40 + x)$.",
+      "**Solve.** $6 + x = 10 + 0.25x$, so $0.75x = 4$.",
+      "**Result.** $x = \\tfrac{4}{0.75} = \\tfrac{16}{3} \\approx 5.33$ L."
     ]
   },
   {
@@ -388,10 +437,12 @@
     "answerNumeric": 35.0,
     "hint1": "Let the ages be $7k$ and $2k$. Write the future ratio as a proportion.",
     "hint2": "$\\dfrac{7k + 10}{2k + 10} = \\dfrac94$, so $4(7k+10) = 9(2k+10)$.",
+    "keyIdea": "Both ages increase by the *same* $10$ years, so write today's ages as $7k$ and $2k$ and set up the future ratio.",
     "solutionSteps": [
-      "Ages now: $7k$ and $2k$.",
-      "$4(7k + 10) = 9(2k + 10) \\Rightarrow 28k + 40 = 18k + 90$.",
-      "$10k = 50 \\Rightarrow k = 5$, so the parent is $35$."
+      "**Ages now.** Parent $7k$, child $2k$.",
+      "**In 10 years.** $\\dfrac{7k + 10}{2k + 10} = \\dfrac94$.",
+      "**Cross-multiply.** $4(7k + 10) = 9(2k + 10)$, so $28k + 40 = 18k + 90$.",
+      "**Solve.** $10k = 50$, so $k = 5$. The parent is $7\\cdot5 = 35$. Check: in 10 years the ages are $45$ and $20$, a ratio of $9:4$. ✓"
     ]
   },
   {
@@ -403,10 +454,12 @@
     "answerNumeric": 72.0,
     "hint1": "Average speed is total distance divided by total time. It is not the average of the two speeds.",
     "hint2": "The first leg takes $3$ h and the second takes $2$ h.",
+    "keyIdea": "Average speed is total distance ÷ total time. You can't just average the two speeds, because the car spends *longer* at the slower speed.",
     "solutionSteps": [
-      "Time for leg 1: $180/60 = 3$ h. Time for leg 2: $180/90 = 2$ h.",
-      "Total: $360$ km in $5$ h.",
-      "Average speed $= 360/5 = 72$ km/h."
+      "**Time for each leg.** $180 \\div 60 = 3$ h and $180 \\div 90 = 2$ h.",
+      "**Totals.** Distance $360$ km, time $5$ h.",
+      "**Average speed.** $360 \\div 5 = 72$ km/h.",
+      "**Why not $75$?** The simple average $\\tfrac{60 + 90}{2} = 75$ would only be right if the car spent equal *time* at each speed."
     ]
   },
   {
@@ -418,10 +471,11 @@
     "answerNumeric": 90.0,
     "hint1": "Each percentage change multiplies the price by a factor: $1.25$, then $0.80$, then $1.10$.",
     "hint2": "$1.25 \\times 0.8 \\times 1.1 = 1.1$, so $1.1P = 99$.",
+    "keyIdea": "Each percentage change multiplies the price by a factor: $+25\\% \\to \\times1.25$, $-20\\% \\to \\times0.8$, $+10\\% \\to \\times1.1$. Combine the factors, then undo them.",
     "solutionSteps": [
-      "The factors are $1.25$, $0.80$ and $1.10$.",
-      "Their product is $1.25\\times0.8 = 1$, and $1\\times1.1 = 1.1$.",
-      "$1.1P = 99 \\Rightarrow P = \\$90$."
+      "**Combine the factors.** $1.25 \\times 0.8 = 1$: the raise and the discount cancel out exactly. Then $1 \\times 1.1 = 1.1$.",
+      "**Equation.** If $P$ is the original price, $1.1P = 99$.",
+      "**Solve.** $P = 99 \\div 1.1 = \\$90$."
     ]
   },
   {
@@ -433,10 +487,12 @@
     "answerNumeric": 25.0,
     "hint1": "After a $20\\%$ drop the population is $0.8P$. Find the factor that brings $0.8P$ back to $P$.",
     "hint2": "You need $0.8P \\cdot f = P$, so $f = \\tfrac{1}{0.8} = 1.25$.",
+    "keyIdea": "Percent changes are based on the *current* amount. After a $20\\%$ drop you have a smaller base, so getting back needs more than $20\\%$.",
     "solutionSteps": [
-      "After the drop: $0.8P$.",
-      "The growth factor needed is $\\tfrac{1}{0.8} = 1.25$.",
-      "That is a $25\\%$ increase."
+      "**After the fall.** $P \\to 0.8P$.",
+      "**Factor needed to recover.** $0.8P\\cdot f = P$, so $f = \\tfrac{1}{0.8} = 1.25$.",
+      "**As a percent.** A factor of $1.25$ is a $25\\%$ increase.",
+      "**Example.** $100 \\to 80$. Getting back to $100$ means adding $20$, which is $\\tfrac{20}{80} = 25\\%$ of $80$."
     ]
   },
   {
@@ -448,10 +504,12 @@
     "answerNumeric": 25.0,
     "hint1": "Imagine the class has $100$ students: $40$ boys and $60$ girls.",
     "hint2": "The club has $10$ boys and $30$ girls.",
+    "keyIdea": "Pick a convenient class size, such as $100$ students, and count actual people. Percents of percents become easy whole numbers.",
     "solutionSteps": [
-      "Out of 100 students: 40 boys and 60 girls.",
-      "Club: $0.25\\cdot40 = 10$ boys and $0.5\\cdot60 = 30$ girls.",
-      "Boys make up $\\tfrac{10}{40} = 25\\%$ of the club."
+      "**Class of 100.** $40$ boys and $60$ girls.",
+      "**Club members.** $25\\%$ of $40$ boys is $10$, and $50\\%$ of $60$ girls is $30$. The club has $40$ members.",
+      "**The question asks about the club, not the class.** Boys are $\\tfrac{10}{40}$ of the club.",
+      "**Answer.** $\\tfrac{10}{40} = 25\\%$."
     ]
   },
   {
@@ -463,10 +521,12 @@
     "answerNumeric": 42.0,
     "hint1": "Compound: $5000(1.04)^2$. Simple: $5000 + 2(0.045)(5000)$.",
     "hint2": "Compound gives $5408$. Simple gives $5450$.",
+    "keyIdea": "Simple interest pays the same amount every year. Compound interest multiplies by $(1 + r)$ each year, so you earn interest on the interest.",
     "solutionSteps": [
-      "Compound: $5000\\times1.04^2 = 5000\\times1.0816 = 5408$.",
-      "Simple: $5000 + 2\\times225 = 5450$.",
-      "Difference: $5450 - 5408 = \\$42$."
+      "**Compound, 2 years at 4%.** $5000\\times1.04^2 = 5000\\times1.0816 = \\$5408$.",
+      "**Simple, 2 years at 4.5%.** Each year pays $0.045\\times5000 = \\$225$, so $5000 + 2\\times225 = \\$5450$.",
+      "**Compare.** $5450 - 5408 = \\$42$ more in the simple-interest account.",
+      "**Why simple wins here.** Compounding only adds $\\$8$ over two years ($408$ vs $400$), which isn't enough to beat the extra $0.5\\%$ rate."
     ]
   },
   {
@@ -478,10 +538,12 @@
     "answerNumeric": 12.0,
     "hint1": "Take the cost to be \\$100.",
     "hint2": "List price: \\$160. Sale price: $0.7\\times160 = \\$112$.",
+    "keyIdea": "Assume the cost is $\\$100$. Then each percentage turns into dollars, and the final profit percent can be read straight off.",
     "solutionSteps": [
-      "Cost \\$100 means a list price of \\$160.",
-      "Sale price: $160 \\times 0.7 = \\$112$.",
-      "Profit is \\$12 on \\$100, which is $12\\%$."
+      "**Markup.** A cost of $\\$100$ plus $60\\%$ gives a list price of $\\$160$.",
+      "**Sale.** $30\\%$ off means paying $70\\%$: $0.7\\times160 = \\$112$.",
+      "**Profit.** $112 - 100 = \\$12$ on a $\\$100$ cost.",
+      "**Answer.** That is $12\\%$. A $+60\\%$ then $-30\\%$ is **not** $+30\\%$, because the second percent applies to a larger amount."
     ]
   },
   {
@@ -493,10 +555,12 @@
     "answerNumeric": 300.0,
     "hint1": "The net factor is $1.3 \\times 0.7$.",
     "hint2": "$1.3\\times0.7 = 0.91$, so the number drops by $9\\%$: $0.09N = 27$.",
+    "keyIdea": "A $30\\%$ increase followed by a $30\\%$ decrease does *not* return to the start. The net factor is $1.3\\times0.7 = 0.91$, which is a $9\\%$ loss.",
     "solutionSteps": [
-      "Net factor: $1.3 \\times 0.7 = 0.91$.",
-      "The decrease is $0.09N = 27$.",
-      "$N = 27/0.09 = 300$."
+      "**Net factor.** $1.3\\times0.7 = 0.91$, so the number ends at $91\\%$ of where it began.",
+      "**The drop.** It loses $9\\%$ of the original $N$: $0.09N = 27$.",
+      "**Solve.** $N = 27 \\div 0.09 = 300$.",
+      "**Check.** $300 \\to 390 \\to 273$, and $300 - 273 = 27$. ✓"
     ]
   },
   {
@@ -508,10 +572,12 @@
     "answerNumeric": 50.0,
     "hint1": "The almonds before, plus the amount added, must equal $44\\%$ of the new total weight.",
     "hint2": "$60 + x = 0.44(200 + x)$.",
+    "keyIdea": "Only the almonds and the total weight change. Write \"almonds ÷ total = 44%\" after the addition, and solve.",
     "solutionSteps": [
-      "Almonds at the start: $0.3 \\times 200 = 60$ g.",
-      "$60 + x = 88 + 0.44x$.",
-      "$0.56x = 28 \\Rightarrow x = 50$ g."
+      "**Almonds now.** $30\\%$ of $200$ g $= 60$ g.",
+      "**After adding $x$ g of almonds.** $\\dfrac{60 + x}{200 + x} = 0.44$.",
+      "**Clear the fraction.** $60 + x = 88 + 0.44x$, so $0.56x = 28$.",
+      "**Result.** $x = 50$ g. Check: $\\tfrac{110}{250} = 0.44$. ✓"
     ]
   },
   {
@@ -523,10 +589,12 @@
     "answerNumeric": 80.0,
     "hint1": "Work backwards: add back the \\$12 first.",
     "hint2": "$0.85P = 68$.",
+    "keyIdea": "Work backwards and undo the steps in reverse order: first add back the $\\$12$, then undo the $15\\%$ discount by dividing by $0.85$.",
     "solutionSteps": [
-      "Before the \\$12 coupon the price was $56 + 12 = \\$68$.",
-      "$0.85P = 68$.",
-      "$P = 68/0.85 = \\$80$."
+      "**Undo the coupon.** Before the $\\$12$ came off, the price was $56 + 12 = \\$68$.",
+      "**Undo the discount.** A $15\\%$ discount multiplies by $0.85$, so $0.85P = 68$.",
+      "**Solve.** $P = 68 \\div 0.85 = \\$80$.",
+      "**Check.** $80\\times0.85 = 68$, then $68 - 12 = 56$. ✓"
     ]
   },
   {
@@ -538,10 +606,12 @@
     "answerNumeric": 10.0,
     "hint1": "Area scales by the product of the two factors.",
     "hint2": "$1.2 \\times 0.75 = 0.9$.",
+    "keyIdea": "Area is length × width, so the area's scale factor is the product of the two scale factors.",
     "solutionSteps": [
-      "New area $= (1.2L)(0.75W) = 0.9LW$.",
-      "The area is $90\\%$ of the original.",
-      "It decreases by $10\\%$."
+      "**Factors.** The length is multiplied by $1.2$ and the width by $0.75$.",
+      "**Area factor.** $1.2\\times0.75 = 0.9$, so the new area is $90\\%$ of the old one.",
+      "**Change.** $100\\% - 90\\% = 10\\%$ smaller.",
+      "**Answer.** The area decreases by $10$ percent. Note that the $+20\\%$ and $-25\\%$ don't simply add to $-5\\%$."
     ]
   },
   {
@@ -553,11 +623,12 @@
     "answerNumeric": 13.0,
     "hint1": "Clear the fractions by multiplying every term by the least common denominator, $15$.",
     "hint2": "You should get $3(3x-4) - 5(x+2) = 30$.",
+    "keyIdea": "Multiply every term by the LCD ($15$) to clear the fractions. Put parentheses around each numerator so the minus sign reaches every term.",
     "solutionSteps": [
-      "Multiply both sides by $15$: $3(3x-4) - 5(x+2) = 30$.",
-      "Expand: $9x - 12 - 5x - 10 = 30$.",
-      "Combine like terms: $4x - 22 = 30$.",
-      "So $4x = 52$ and $x = 13$."
+      "**Clear fractions.** Multiply by $15$: $3(3x - 4) - 5(x + 2) = 30$.",
+      "**Distribute carefully.** $9x - 12 - 5x - 10 = 30$. The minus in front of $5(x + 2)$ makes **both** $5x$ and $10$ negative.",
+      "**Combine like terms.** $4x - 22 = 30$.",
+      "**Solve.** $4x = 52$, so $x = 13$. Check: $\\tfrac{35}{5} - \\tfrac{15}{3} = 7 - 5 = 2$. ✓"
     ]
   },
   {
@@ -569,10 +640,12 @@
     "answerNumeric": 10.666666666666666,
     "hint1": "Distribute on both sides, then collect the $x$ terms on one side.",
     "hint2": "Left: $5x - 27$. Right: $2x + 5$.",
+    "keyIdea": "Distribute on both sides first, combine like terms on each side, then move all $x$ terms to one side.",
     "solutionSteps": [
-      "Left: $8x - 12 - 3x - 15 = 5x - 27$.",
-      "Right: $2x - 2 + 7 = 2x + 5$.",
-      "$3x = 32 \\Rightarrow x = \\tfrac{32}{3}$."
+      "**Left side.** $8x - 12 - 3x - 15 = 5x - 27$.",
+      "**Right side.** $2x - 2 + 7 = 2x + 5$.",
+      "**Collect.** Subtract $2x$ and add $27$ on both sides: $3x = 32$.",
+      "**Solve.** $x = \\tfrac{32}{3}$."
     ]
   },
   {
@@ -584,10 +657,12 @@
     "answerNumeric": 15.0,
     "hint1": "Multiply everything by $100$ to get rid of the decimals.",
     "hint2": "$40(x-5) + 120 = 15(2x+8) - 50$.",
+    "keyIdea": "Decimals are just fractions in disguise. Multiply every term by $100$ so everything becomes a whole number.",
     "solutionSteps": [
-      "Multiply by 100: $40x - 200 + 120 = 30x + 120 - 50$.",
-      "$40x - 80 = 30x + 70$.",
-      "$10x = 150 \\Rightarrow x = 15$."
+      "**Clear decimals.** Multiply both sides by $100$: $40(x - 5) + 120 = 15(2x + 8) - 50$.",
+      "**Distribute.** $40x - 200 + 120 = 30x + 120 - 50$, which is $40x - 80 = 30x + 70$.",
+      "**Collect.** $10x = 150$.",
+      "**Solve.** $x = 15$. Check: $0.4(10) + 1.2 = 5.2$ and $0.15(38) - 0.5 = 5.2$. ✓"
     ]
   },
   {
@@ -599,10 +674,12 @@
     "answerNumeric": 7.0,
     "hint1": "Multiply through by $12$.",
     "hint2": "$6x - 4(x-1) = 3(x+3) - 12$.",
+    "keyIdea": "Multiply both sides by $12$ (the LCD of $2$, $3$ and $4$), keeping each numerator in parentheses.",
     "solutionSteps": [
-      "Multiply by 12: $6x - 4x + 4 = 3x + 9 - 12$.",
-      "$2x + 4 = 3x - 3$.",
-      "$x = 7$."
+      "**Clear fractions.** $6x - 4(x - 1) = 3(x + 3) - 12$.",
+      "**Distribute.** $6x - 4x + 4 = 3x + 9 - 12$, which is $2x + 4 = 3x - 3$.",
+      "**Collect.** Subtract $2x$ and add $3$: $7 = x$.",
+      "**Answer.** $x = 7$. Check: $\\tfrac72 - 2 = 1.5$ and $\\tfrac{10}{4} - 1 = 1.5$. ✓"
     ]
   },
   {
@@ -614,10 +691,12 @@
     "answerNumeric": 25.0,
     "hint1": "Call the integers $n$, $n+2$ and $n+4$.",
     "hint2": "$3n + 6 = n + 48$.",
+    "keyIdea": "Consecutive odd integers go up by $2$, so call them $n$, $n + 2$, $n + 4$. Then translate the sentence word for word.",
     "solutionSteps": [
-      "$n + (n+2) + (n+4) = n + 48$.",
-      "$3n + 6 = n + 48 \\Rightarrow 2n = 42 \\Rightarrow n = 21$.",
-      "The integers are $21, 23, 25$, so the largest is $25$."
+      "**Set up.** \"Sum $= 48 +$ smallest\": $n + (n + 2) + (n + 4) = n + 48$.",
+      "**Simplify.** $3n + 6 = n + 48$, so $2n = 42$ and $n = 21$, which is odd, as it should be.",
+      "**The three integers.** $21$, $23$ and $25$.",
+      "**Answer.** The largest is $25$. Check: $21 + 23 + 25 = 69 = 21 + 48$. ✓"
     ]
   },
   {
@@ -629,10 +708,12 @@
     "answerNumeric": 4.5,
     "hint1": "Multiply every term by $6$.",
     "hint2": "$2(2x+1) - (5-x) = 3x + 6$.",
+    "keyIdea": "Multiply every term by $6$. The subtraction applies to the *whole* second numerator, so keep it in parentheses.",
     "solutionSteps": [
-      "Multiply by 6: $4x + 2 - 5 + x = 3x + 6$.",
-      "$5x - 3 = 3x + 6$.",
-      "$2x = 9 \\Rightarrow x = \\tfrac92$."
+      "**Clear fractions.** $2(2x + 1) - (5 - x) = 3x + 6$.",
+      "**Distribute.** $4x + 2 - 5 + x = 3x + 6$. Subtracting $(5 - x)$ gives $-5 + x$.",
+      "**Combine.** $5x - 3 = 3x + 6$, so $2x = 9$.",
+      "**Solve.** $x = \\tfrac92$."
     ]
   },
   {
@@ -644,10 +725,12 @@
     "answerNumeric": 342.85714285714283,
     "hint1": "Set the two costs equal: $18 + 0.06n = 30 + 0.025n$.",
     "hint2": "$0.035n = 12$.",
+    "keyIdea": "Write each plan's cost as fixed fee + (price per text) × $n$, set the two costs equal, and solve for $n$.",
     "solutionSteps": [
-      "$18 + 0.06n = 30 + 0.025n$.",
-      "$0.035n = 12$.",
-      "$n = \\tfrac{12}{0.035} = \\tfrac{2400}{7} \\approx 342.9$ texts."
+      "**Cost formulas.** Plan 1: $18 + 0.06n$. Plan 2: $30 + 0.025n$.",
+      "**Set them equal.** $18 + 0.06n = 30 + 0.025n$.",
+      "**Collect.** $0.035n = 12$.",
+      "**Solve.** $n = \\tfrac{12}{0.035} = \\tfrac{12000}{35} = \\tfrac{2400}{7} \\approx 342.9$ texts. Below that number Plan 1 is cheaper, and above it Plan 2 is."
     ]
   },
   {
@@ -659,10 +742,12 @@
     "answerNumeric": 2.5,
     "hint1": "Simplify the inner bracket first: $x - 3(2-x) = 4x - 6$.",
     "hint2": "The left side becomes $5 - 2(4x - 6) = 17 - 8x$.",
+    "keyIdea": "With nested brackets, simplify the innermost one first, then distribute the $-2$ across the whole result.",
     "solutionSteps": [
-      "$x - 3(2-x) = x - 6 + 3x = 4x - 6$.",
-      "Left: $5 - 8x + 12 = 17 - 8x$. Right: $7 - 4x$.",
-      "$17 - 8x = 7 - 4x \\Rightarrow 10 = 4x \\Rightarrow x = \\tfrac52$."
+      "**Simplify the innermost bracket first.** Distribute the $-3$ over $(2 - x)$: $x - 3(2 - x) = x - 6 + 3x = 4x - 6$.",
+      "**Now the left side.** Distribute the $-2$ over the whole bracket, which flips both signs: $5 - 2(4x - 6) = 5 - 8x + 12 = 17 - 8x$.",
+      "**The right side.** Distribute the $4$ and add: $4 - 4x + 3 = 7 - 4x$.",
+      "**Solve the linear equation.** $17 - 8x = 7 - 4x$. Add $8x$ and subtract $7$ on both sides to get $10 = 4x$, so $x = \\tfrac52$."
     ]
   },
   {
@@ -674,10 +759,12 @@
     "answerNumeric": 90.0,
     "hint1": "Their distance apart grows at the sum of their speeds.",
     "hint2": "$2.5(s + s + 15) = 412.5$.",
+    "keyIdea": "Trains moving apart increase their separation at the *sum* of their speeds. Distance = rate × time.",
     "solutionSteps": [
-      "Let the slower speed be $s$, so the faster is $s+15$.",
-      "$2.5(2s + 15) = 412.5 \\Rightarrow 2s + 15 = 165$.",
-      "$s = 75$, so the faster train goes $90$ km/h."
+      "**Speeds.** The slower train goes $s$ km/h and the faster $s + 15$ km/h, so the gap grows at $2s + 15$ km/h.",
+      "**Distance equation.** $2.5(2s + 15) = 412.5$.",
+      "**Solve.** $2s + 15 = 165$, so $s = 75$.",
+      "**Answer.** The faster train goes $75 + 15 = 90$ km/h."
     ]
   },
   {
@@ -689,10 +776,12 @@
     "answerNumeric": 32.0,
     "hint1": "Rewrite everything as a power of $2$.",
     "hint2": "$4^{-3} = 2^{-6}$ and $8^2 = 2^6$.",
+    "keyIdea": "Rewrite every number as a power of $2$. Then the exponent rules turn the problem into adding and subtracting exponents.",
     "solutionSteps": [
-      "Numerator: $2^{12}\\cdot2^{-6} = 2^{6}$.",
-      "Denominator: $2^{6}\\cdot2^{-5} = 2^{1}$.",
-      "$2^{6}/2^{1} = 2^5 = 32$."
+      "**Put everything in base 2.** $8 = 2^3$ and $4 = 2^2$, so $(2^3)^4 = 2^{12}$, $4^{-3} = 2^{-6}$ and $8^2 = 2^6$, using the rule $(a^m)^n = a^{mn}$.",
+      "**Numerator.** When you multiply powers of the same base, add the exponents: $2^{12}\\cdot2^{-6} = 2^{6}$.",
+      "**Denominator.** The same rule gives $2^6\\cdot2^{-5} = 2^{1}$.",
+      "**Divide by subtracting exponents.** $2^{6}/2^{1} = 2^{5} = 32$."
     ]
   },
   {
@@ -704,10 +793,11 @@
     "answerNumeric": 2.75,
     "hint1": "Write both sides as powers of $3$.",
     "hint2": "$3^{2(x+1)} = 3^{3(2x-3)}$, so the exponents must be equal.",
+    "keyIdea": "If two powers of the same base are equal, their exponents must be equal. Write both sides as powers of $3$.",
     "solutionSteps": [
-      "$9^{x+1} = 3^{2x+2}$ and $27^{2x-3} = 3^{6x-9}$.",
-      "$2x + 2 = 6x - 9$.",
-      "$4x = 11 \\Rightarrow x = \\tfrac{11}{4}$."
+      "**Same base.** $9^{x+1} = (3^2)^{x+1} = 3^{2x + 2}$ and $27^{2x - 3} = (3^3)^{2x - 3} = 3^{6x - 9}$.",
+      "**Match the exponents.** $2x + 2 = 6x - 9$.",
+      "**Solve.** $4x = 11$, so $x = \\tfrac{11}{4}$."
     ]
   },
   {
@@ -719,11 +809,12 @@
     "answerNumeric": -1.0,
     "hint1": "$a^{m/n}$ means take the $n$th root, then raise to the $m$th power.",
     "hint2": "$16^{3/4} = 8$ and $27^{2/3} = 9$. The denominator is $\\tfrac15\\cdot5 = 1$.",
+    "keyIdea": "For a fractional exponent $a^{m/n}$, take the $n$th root first and then raise to the $m$th power. That keeps the numbers small.",
     "solutionSteps": [
-      "$16^{3/4} = (\\sqrt[4]{16})^3 = 2^3 = 8$.",
-      "$27^{2/3} = (\\sqrt[3]{27})^2 = 9$.",
-      "Denominator: $125^{-1/3} = \\tfrac15$ and $25^{1/2} = 5$, so it equals $1$.",
-      "$(8 - 9)/1 = -1$."
+      "**$16^{3/4}$.** The 4th root of $16$ is $2$, and $2^3 = 8$.",
+      "**$27^{2/3}$.** The cube root of $27$ is $3$, and $3^2 = 9$.",
+      "**Denominator.** $125^{-1/3} = \\tfrac{1}{5}$ (the negative exponent flips it) and $25^{1/2} = 5$, so the product is $1$.",
+      "**Result.** $\\dfrac{8 - 9}{1} = -1$."
     ]
   },
   {
@@ -735,11 +826,11 @@
     "answerNumeric": 11.25,
     "hint1": "Write each term using $2^a$: $8^a = (2^a)^3$ and $4^{a+1} = 4(2^a)^2$.",
     "hint2": "The numerator is $125 + 4\\cdot25 = 225$ and the denominator is $4\\cdot5 = 20$.",
+    "keyIdea": "You don't need to find $a$. Rewrite every term in terms of the known value $2^a = 5$.",
     "solutionSteps": [
-      "$8^a = (2^a)^3 = 125$.",
-      "$4^{a+1} = 4\\cdot(2^a)^2 = 100$.",
-      "$2^{a+2} = 4\\cdot 2^a = 20$.",
-      "$(125 + 100)/20 = \\tfrac{225}{20} = \\tfrac{45}{4}$."
+      "**Rewrite.** $8^a = (2^3)^a = (2^a)^3$, $4^{a+1} = 4\\cdot(2^a)^2$ and $2^{a+2} = 4\\cdot2^a$.",
+      "**Substitute $2^a = 5$.** The numerator is $125 + 4\\cdot25 = 225$ and the denominator is $4\\cdot5 = 20$.",
+      "**Simplify.** $\\tfrac{225}{20} = \\tfrac{45}{4}$."
     ]
   },
   {
@@ -751,10 +842,12 @@
     "answerNumeric": 2.4,
     "hint1": "Factor $3^{n-1}$ out of every term.",
     "hint2": "The top is $3^{n-1}(27 - 3)$ and the bottom is $3^{n-1}(9 + 1)$.",
+    "keyIdea": "Every term is $3^n$ times a constant. Factor out the smallest power, $3^{n-1}$, and it cancels between the top and bottom.",
     "solutionSteps": [
-      "Top: $3^{n-1}(3^3 - 3^1) = 24\\cdot3^{n-1}$.",
-      "Bottom: $3^{n-1}(3^2 + 1) = 10\\cdot3^{n-1}$.",
-      "The ratio is $\\tfrac{24}{10} = \\tfrac{12}{5}$."
+      "**Factor the top.** $3^{n+2} - 3^n = 3^{n-1}(3^3 - 3^1) = 3^{n-1}\\cdot24$.",
+      "**Factor the bottom.** $3^{n+1} + 3^{n-1} = 3^{n-1}(3^2 + 1) = 3^{n-1}\\cdot10$.",
+      "**Cancel.** $\\dfrac{24\\cdot3^{n-1}}{10\\cdot3^{n-1}} = \\dfrac{24}{10}$.",
+      "**Result.** $\\tfrac{12}{5}$. The answer doesn't depend on $n$."
     ]
   },
   {
@@ -766,11 +859,12 @@
     "answerNumeric": 4.0,
     "hint1": "Use $(ab)^n = a^n b^n$ and $(a^m)^n = a^{mn}$ on the top and the bottom first.",
     "hint2": "The top is $8x^{9}y^{-6}$ and the bottom is $16x^{-2}y^{2}$, so the expression is $\\tfrac12 x^{11}y^{-8}$.",
+    "keyIdea": "Simplify the algebra first using the exponent rules. Plugging in afterwards is much easier than plugging into the original.",
     "solutionSteps": [
-      "Numerator: $2^3x^{9}y^{-6} = 8x^9y^{-6}$.",
-      "Denominator: $4^2x^{-2}y^{2} = 16x^{-2}y^2$.",
-      "Quotient: $\\tfrac{8}{16}x^{9-(-2)}y^{-6-2} = \\tfrac12 x^{11}y^{-8}$.",
-      "At $x = y = 2$: $\\tfrac12\\cdot2^{11}\\cdot2^{-8} = \\tfrac12\\cdot 2^3 = 4$."
+      "**Numerator.** $(2x^3y^{-2})^3 = 2^3x^{9}y^{-6} = 8x^9y^{-6}$, since each factor is cubed.",
+      "**Denominator.** $(4x^{-1}y)^2 = 16x^{-2}y^2$.",
+      "**Divide by subtracting exponents.** $\\tfrac{8}{16}x^{9 - (-2)}y^{-6 - 2} = \\tfrac12x^{11}y^{-8}$.",
+      "**Evaluate at $x = y = 2$.** $\\tfrac12\\cdot2^{11}\\cdot2^{-8} = \\tfrac12\\cdot2^3 = 4$."
     ]
   },
   {
@@ -782,10 +876,12 @@
     "answerNumeric": 4.0,
     "hint1": "Write every term as a multiple of $2^x$: $2^{x-1} = \\tfrac12\\cdot2^x$ and $2^{x+2} = 4\\cdot2^x$.",
     "hint2": "The left side is $2^x\\left(\\tfrac32 + 4 - 1\\right) = \\tfrac92\\cdot 2^x$.",
+    "keyIdea": "All three terms are multiples of $2^x$. Rewrite each as (number) × $2^x$, combine, and solve for $2^x$.",
     "solutionSteps": [
-      "$3\\cdot2^{x-1} = \\tfrac32\\cdot2^x$ and $2^{x+2} = 4\\cdot2^x$.",
-      "$\\left(\\tfrac32 + 4 - 1\\right)2^x = \\tfrac92\\cdot2^x = 72$.",
-      "$2^x = 16 = 2^4$, so $x = 4$."
+      "**Rewrite each term as a multiple of $2^x$.** Because $2^{x-1} = 2^x \\div 2$, the first term is $\\tfrac32\\cdot2^x$. Because $2^{x+2} = 2^x\\cdot4$, the second term is $4\\cdot2^x$.",
+      "**Combine like terms**, just as you would with $\\tfrac32y + 4y - y$: the left side becomes $\\left(\\tfrac32 + 4 - 1\\right)2^x = \\tfrac92\\cdot2^x$.",
+      "**Solve for $2^x$.** $\\tfrac92\\cdot2^x = 72$, so $2^x = 72\\cdot\\tfrac29 = 16$.",
+      "**Read off the exponent.** $16 = 2^4$, so $x = 4$."
     ]
   },
   {
@@ -797,11 +893,12 @@
     "answerNumeric": 3.0,
     "hint1": "Let $w = 2^x$. Then $4^x = w^2$ and $2^{x+1} = 2w$.",
     "hint2": "The equation becomes $w^2 - 6w + 8 = 0$.",
+    "keyIdea": "$4^x = (2^x)^2$, so substituting $w = 2^x$ turns the equation into a quadratic in $w$.",
     "solutionSteps": [
-      "With $w = 2^x$: $w^2 - 6w + 8 = 0$.",
-      "$(w - 2)(w - 4) = 0$, so $w = 2$ or $w = 4$.",
-      "$2^x = 2 \\Rightarrow x = 1$ and $2^x = 4 \\Rightarrow x = 2$.",
-      "The sum is $1 + 2 = 3$."
+      "**Substitute.** With $w = 2^x$: $4^x = w^2$ and $3\\cdot2^{x+1} = 3\\cdot2w = 6w$. The equation is $w^2 - 6w + 8 = 0$.",
+      "**Factor.** $(w - 2)(w - 4) = 0$, so $w = 2$ or $w = 4$. Both are positive, so both give valid $x$.",
+      "**Back to $x$.** $2^x = 2$ gives $x = 1$, and $2^x = 4$ gives $x = 2$.",
+      "**Sum.** $1 + 2 = 3$."
     ]
   },
   {
@@ -813,11 +910,12 @@
     "answerNumeric": 5.0,
     "hint1": "Write $0.25$ as $\\tfrac14$. A negative exponent flips the base.",
     "hint2": "$(\\tfrac14)^{-3/2} = 4^{3/2} = 8$, $8^{-2/3} = \\tfrac14$, and $(\\tfrac1{27})^{-1/3} = 3$.",
+    "keyIdea": "Change decimals to fractions and use the rule that a negative exponent flips the base. Then evaluate each power with roots first.",
     "solutionSteps": [
-      "$\\left(\\tfrac14\\right)^{-3/2} = 4^{3/2} = (\\sqrt4)^3 = 8$.",
-      "$8^{-2/3} = \\dfrac{1}{(\\sqrt[3]{8})^2} = \\tfrac14$.",
-      "$\\left(\\tfrac1{27}\\right)^{-1/3} = 27^{1/3} = 3$.",
-      "$8\\cdot\\tfrac14 + 3 = 2 + 3 = 5$."
+      "**First power.** $0.25 = \\tfrac14$, so $\\left(\\tfrac14\\right)^{-3/2} = 4^{3/2} = (\\sqrt4)^3 = 8$.",
+      "**Second power.** $8^{-2/3} = \\dfrac{1}{(\\sqrt[3]8)^2} = \\dfrac14$.",
+      "**Third power.** $\\left(\\tfrac1{27}\\right)^{-1/3} = 27^{1/3} = 3$.",
+      "**Combine.** $8\\cdot\\tfrac14 + 3 = 2 + 3 = 5$."
     ]
   },
   {
@@ -829,10 +927,12 @@
     "answerNumeric": 6.0,
     "hint1": "Eliminate $y$: multiply the first equation by $3$ and the second by $2$, then add.",
     "hint2": "$9x + 6y = 48$ and $10x - 6y = 28$ add to $19x = 76$.",
+    "keyIdea": "Elimination: scale the equations so one variable has opposite coefficients, then add the equations to remove it.",
     "solutionSteps": [
-      "$3\\times$(first) $+ 2\\times$(second): $19x = 76$, so $x = 4$.",
-      "Substitute: $12 + 2y = 16 \\Rightarrow y = 2$.",
-      "$x + y = 6$."
+      "**Line up the $y$ terms.** Multiply the first equation by $3$ and the second by $2$: $9x + 6y = 48$ and $10x - 6y = 28$.",
+      "**Add.** The $y$ terms cancel: $19x = 76$, so $x = 4$.",
+      "**Back-substitute.** $3(4) + 2y = 16$, so $y = 2$.",
+      "**Answer.** $x + y = 6$. Check in the second equation: $20 - 6 = 14$. ✓"
     ]
   },
   {
@@ -844,10 +944,12 @@
     "answerNumeric": 80.0,
     "hint1": "Let $a$ and $c$ be the numbers of adult and child tickets. Write one equation for the count and one for the money.",
     "hint2": "$a + c = 150$ and $12a + 7c = 1450$. Substitute $c = 150 - a$.",
+    "keyIdea": "Two unknowns need two equations: one counts tickets, the other counts money.",
     "solutionSteps": [
-      "$a + c = 150$ and $12a + 7c = 1450$.",
-      "$12a + 7(150 - a) = 1450 \\Rightarrow 5a + 1050 = 1450$.",
-      "$5a = 400$, so $a = 80$ adult tickets."
+      "**Equations.** $a + c = 150$ (tickets) and $12a + 7c = 1450$ (dollars).",
+      "**Substitute.** $c = 150 - a$, so $12a + 7(150 - a) = 1450$.",
+      "**Simplify.** $12a + 1050 - 7a = 1450$, so $5a = 400$.",
+      "**Answer.** $a = 80$ adult tickets ($70$ child). Check: $960 + 490 = 1450$. ✓"
     ]
   },
   {
@@ -859,11 +961,12 @@
     "answerNumeric": 36.0,
     "hint1": "Clear fractions: multiply the first equation by $6$ and the second by $12$.",
     "hint2": "You get $3x + 2y = 30$ and $3x - 2y = 6$.",
+    "keyIdea": "Clear the fractions in each equation first. The two resulting equations then have $\\pm2y$, so adding them eliminates $y$.",
     "solutionSteps": [
-      "$3x + 2y = 30$ and $3x - 2y = 6$.",
-      "Adding: $6x = 36 \\Rightarrow x = 6$.",
-      "Then $18 + 2y = 30 \\Rightarrow y = 6$.",
-      "$xy = 36$."
+      "**Clear fractions.** Multiply the first equation by $6$: $3x + 2y = 30$. Multiply the second by $12$: $3x - 2y = 6$.",
+      "**Add.** $6x = 36$, so $x = 6$.",
+      "**Back-substitute.** $18 + 2y = 30$, so $y = 6$.",
+      "**Answer.** $xy = 36$."
     ]
   },
   {
@@ -875,11 +978,12 @@
     "answerNumeric": 14.0,
     "hint1": "Add the third equation to each of the first two to eliminate $z$.",
     "hint2": "You get $2x + 3y = 8$ and $3x + y = 5$.",
+    "keyIdea": "With three equations, eliminate one variable twice to get a two-variable system. Here $z$ has $+z$ in two equations and $-z$ in the third, so adding works.",
     "solutionSteps": [
-      "(1)+(3): $2x + 3y = 8$. (2)+(3): $3x + y = 5$.",
-      "From $y = 5 - 3x$: $2x + 15 - 9x = 8 \\Rightarrow x = 1$, so $y = 2$.",
-      "Then $z = 6 - 1 - 2 = 3$.",
-      "$x + 2y + 3z = 1 + 4 + 9 = 14$."
+      "**Eliminate $z$.** (1) + (3): $2x + 3y = 8$. (2) + (3): $3x + y = 5$.",
+      "**Solve the 2×2 system.** From $y = 5 - 3x$: $2x + 3(5 - 3x) = 8$, so $-7x = -7$ and $x = 1$. Then $y = 2$.",
+      "**Find $z$.** From (1): $z = 6 - 1 - 2 = 3$.",
+      "**Answer.** $x + 2y + 3z = 1 + 4 + 9 = 14$."
     ]
   },
   {
@@ -891,10 +995,12 @@
     "answerNumeric": 15.0,
     "hint1": "Work in cents. With $n$ nickels and $q$ quarters: $n + q = 30$ and $5n + 25q = 450$.",
     "hint2": "Divide the money equation by $5$: $n + 5q = 90$. Subtract the count equation.",
+    "keyIdea": "Count coins in one equation and cents in another. Working in cents avoids decimals.",
     "solutionSteps": [
-      "$n + q = 30$ and $5n + 25q = 450 \\Rightarrow n + 5q = 90$.",
-      "Subtracting: $4q = 60$.",
-      "$q = 15$ quarters."
+      "**Equations.** $n + q = 30$ and $5n + 25q = 450$ cents.",
+      "**Simplify.** Divide the money equation by $5$: $n + 5q = 90$.",
+      "**Subtract the count equation.** $4q = 60$, so $q = 15$.",
+      "**Answer.** $15$ quarters (and $15$ nickels). Check: $\\$3.75 + \\$0.75 = \\$4.50$. ✓"
     ]
   },
   {
@@ -906,10 +1012,12 @@
     "answerNumeric": 3.0,
     "hint1": "Downstream speed is $b + c$ and upstream speed is $b - c$, where $b$ is the boat's speed in still water.",
     "hint2": "$b + c = 18$ and $b - c = 12$.",
+    "keyIdea": "The current helps going downstream and hurts going upstream, so the speeds are $b + c$ and $b - c$.",
     "solutionSteps": [
-      "Downstream: $b + c = 36/2 = 18$. Upstream: $b - c = 36/3 = 12$.",
-      "Subtracting: $2c = 6$.",
-      "The current flows at $c = 3$ km/h."
+      "**Speeds from the data.** Downstream: $36 \\div 2 = 18$ km/h. Upstream: $36 \\div 3 = 12$ km/h.",
+      "**Equations.** $b + c = 18$ and $b - c = 12$.",
+      "**Subtract.** $2c = 6$, so $c = 3$ (and $b = 15$).",
+      "**Answer.** The current flows at $3$ km/h."
     ]
   },
   {
@@ -921,11 +1029,12 @@
     "answerNumeric": 3.0,
     "hint1": "Solve the second equation for $y$ and substitute it into the first.",
     "hint2": "$y = 7 - 4x$, so $2x - 3(7 - 4x) = 7$.",
+    "keyIdea": "Where two lines meet, both equations are true at once. Solve the easier equation for one variable and substitute it into the other.",
     "solutionSteps": [
-      "$y = 7 - 4x$.",
-      "$2x - 21 + 12x = 7 \\Rightarrow 14x = 28 \\Rightarrow x = 2$.",
-      "$y = 7 - 8 = -1$.",
-      "$p - q = 2 - (-1) = 3$."
+      "**Isolate $y$.** $4x + y = 7$ gives $y = 7 - 4x$.",
+      "**Substitute.** $2x - 3(7 - 4x) = 7$, so $14x - 21 = 7$ and $x = 2$.",
+      "**Find $y$.** $y = 7 - 8 = -1$.",
+      "**Answer.** $p - q = 2 - (-1) = 3$."
     ]
   },
   {
@@ -937,10 +1046,12 @@
     "answerNumeric": 462.0,
     "hint1": "Let $S$ be the smaller number and $L$ the larger: $S + L = 47$ and $3S - L = 9$.",
     "hint2": "Adding the equations gives $4S = 56$.",
+    "keyIdea": "Name the numbers ($S$ smaller, $L$ larger) and turn each sentence into an equation.",
     "solutionSteps": [
-      "$S + L = 47$ and $3S - L = 9$.",
-      "Add: $4S = 56 \\Rightarrow S = 14$, so $L = 33$.",
-      "$14 \\cdot 33 = 462$."
+      "**Name the unknowns and translate.** Let $S$ be the smaller number and $L$ the larger. \"Add to 47\" gives $S + L = 47$. \"Three times the smaller is 9 more than the larger\" gives $3S = L + 9$, i.e. $3S - L = 9$.",
+      "**Eliminate $L$.** The equations have $+L$ and $-L$, so adding them removes $L$: $4S = 56$, so $S = 14$.",
+      "**Find the larger number.** $L = 47 - 14 = 33$. Check the second sentence: $3\\cdot14 = 42$, and $42$ is indeed $9$ more than $33$.",
+      "**Answer the question asked, which is the product.** $14\\cdot33 = 462$."
     ]
   },
   {
@@ -952,10 +1063,12 @@
     "answerNumeric": 6000.0,
     "hint1": "Let $A$ dollars earn $3\\%$ and $B$ earn $5\\%$: $A + B = 10000$ and $0.03A + 0.05B = 420$.",
     "hint2": "Substitute $A = 10000 - B$: $300 + 0.02B = 420$.",
+    "keyIdea": "Use one equation for the money invested and one for the interest earned.",
     "solutionSteps": [
-      "$A + B = 10000$ and $0.03A + 0.05B = 420$.",
-      "$0.03(10000 - B) + 0.05B = 420 \\Rightarrow 300 + 0.02B = 420$.",
-      "$0.02B = 120$, so $B = 6000$ dollars."
+      "**Write one equation for the money and one for the interest.** If $A$ dollars earn $3\\%$ and $B$ dollars earn $5\\%$: $A + B = 10000$ and $0.03A + 0.05B = 420$.",
+      "**Substitute** $A = 10000 - B$ into the interest equation: $0.03(10000 - B) + 0.05B = 420$.",
+      "**Simplify.** $300 - 0.03B + 0.05B = 420$, so $0.02B = 120$.",
+      "**Solve.** $B = 6000$ dollars in the $5\\%$ account (and $A = 4000$). Check: $120 + 300 = 420$. ✓"
     ]
   },
   {
@@ -967,10 +1080,12 @@
     "answerNumeric": 4.0,
     "hint1": "Look for two numbers that multiply to $6\\cdot(-20) = -120$ and add to $-7$.",
     "hint2": "$-15$ and $8$ work. Split: $6x^2 - 15x + 8x - 20$.",
+    "keyIdea": "To factor $ax^2 + bx + c$, use the \"ac method\": find two numbers that multiply to $ac$ and add to $b$, split the middle term, then group.",
     "solutionSteps": [
-      "$ac = -120$ and the pair $-15, 8$ adds to $-7$.",
-      "$6x^2 - 15x + 8x - 20 = 3x(2x - 5) + 4(2x - 5) = (3x + 4)(2x - 5)$.",
-      "$a + b + c + d = 3 + 4 + 2 - 5 = 4$."
+      "**Find the pair.** $ac = 6\\cdot(-20) = -120$ and $b = -7$. The pair $-15$ and $8$ works: product $-120$, sum $-7$.",
+      "**Split and group.** $6x^2 - 15x + 8x - 20 = 3x(2x - 5) + 4(2x - 5)$.",
+      "**Factor out the common binomial.** $(3x + 4)(2x - 5)$, so $a = 3$, $b = 4$, $c = 2$, $d = -5$.",
+      "**Answer.** $3 + 4 + 2 - 5 = 4$."
     ]
   },
   {
@@ -982,10 +1097,12 @@
     "answerNumeric": 49.0,
     "hint1": "Factor everything before plugging in.",
     "hint2": "$x^2 - 9 = (x-3)(x+3)$, $x^2 + 5x + 6 = (x+2)(x+3)$ and $x^2 + 4x + 4 = (x+2)^2$.",
+    "keyIdea": "Factor everything first. Most of the factors cancel, and the expression collapses to something simple to evaluate.",
     "solutionSteps": [
-      "$\\dfrac{(x-3)(x+3)}{(x+2)(x+3)}\\cdot\\dfrac{(x+2)^2}{x-3}$.",
-      "Cancel $(x-3)$, $(x+3)$ and one $(x+2)$: the expression is $x + 2$.",
-      "At $x = 47$: $49$."
+      "**Factor.** $x^2 - 9 = (x - 3)(x + 3)$, $x^2 + 5x + 6 = (x + 2)(x + 3)$ and $x^2 + 4x + 4 = (x + 2)^2$.",
+      "**Write it out.** $\\dfrac{(x-3)(x+3)}{(x+2)(x+3)}\\cdot\\dfrac{(x+2)^2}{x - 3}$.",
+      "**Cancel.** $(x - 3)$, $(x + 3)$ and one $(x + 2)$ cancel, leaving $x + 2$.",
+      "**Evaluate.** At $x = 47$: $49$."
     ]
   },
   {
@@ -997,10 +1114,12 @@
     "answerNumeric": 22.0,
     "hint1": "Factor by grouping: group the first two terms and the last two terms.",
     "hint2": "$x^2(x - 2) - 9(x - 2) = (x^2 - 9)(x - 2)$.",
+    "keyIdea": "For a four-term polynomial, try factoring by grouping. Pair the terms and pull out what each pair has in common.",
     "solutionSteps": [
-      "Group: $x^2(x - 2) - 9(x - 2) = (x - 2)(x^2 - 9)$.",
-      "$(x - 2)(x - 3)(x + 3) = 0$, so the solutions are $2$, $3$ and $-3$.",
-      "$4 + 9 + 9 = 22$."
+      "**Group.** $(x^3 - 2x^2) + (-9x + 18) = x^2(x - 2) - 9(x - 2)$.",
+      "**Common factor.** $(x - 2)(x^2 - 9) = (x - 2)(x - 3)(x + 3)$.",
+      "**Solutions.** $x = 2$, $3$ and $-3$.",
+      "**Sum of squares.** $4 + 9 + 9 = 22$."
     ]
   },
   {
@@ -1012,10 +1131,12 @@
     "answerNumeric": 5.0,
     "hint1": "This is a quadratic in $x^2$. Let $w = x^2$.",
     "hint2": "$w^2 - 13w + 36 = (w - 4)(w - 9)$.",
+    "keyIdea": "Only even powers appear, so the equation is a quadratic in disguise. Substitute $w = x^2$.",
     "solutionSteps": [
-      "With $w = x^2$: $w^2 - 13w + 36 = (w - 4)(w - 9) = 0$.",
-      "$x^2 = 4$ or $x^2 = 9$, so $x = \\pm2$ or $x = \\pm3$.",
-      "The positive solutions add to $2 + 3 = 5$."
+      "**Spot the hidden quadratic.** Only $x^4$ and $x^2$ appear, so let $w = x^2$. The equation becomes $w^2 - 13w + 36 = 0$.",
+      "**Factor in $w$.** You need two numbers that multiply to $36$ and add to $-13$: $-4$ and $-9$. So $(w - 4)(w - 9) = 0$, and $w = 4$ or $w = 9$.",
+      "**Undo the substitution.** $x^2 = 4$ gives $x = \\pm2$, and $x^2 = 9$ gives $x = \\pm3$. That makes four solutions in all.",
+      "**Keep only the positive ones, as asked.** $2 + 3 = 5$."
     ]
   },
   {
@@ -1027,10 +1148,12 @@
     "answerNumeric": 133.0,
     "hint1": "Use the identity $a^3 + b^3 = (a + b)(a^2 - ab + b^2)$.",
     "hint2": "$a^2 + b^2 = (a + b)^2 - 2ab = 49 - 20 = 29$.",
+    "keyIdea": "You don't need $a$ and $b$ themselves. Express $a^3 + b^3$ using only $a + b$ and $ab$.",
     "solutionSteps": [
-      "$a^2 + b^2 = (a+b)^2 - 2ab = 29$.",
-      "$a^2 - ab + b^2 = 29 - 10 = 19$.",
-      "$a^3 + b^3 = (a + b)\\cdot19 = 7\\cdot19 = 133$."
+      "**Use an identity rather than solving for $a$ and $b$.** $a^3 + b^3 = (a + b)(a^2 - ab + b^2)$. We know $a + b$ and $ab$, so we only need $a^2 + b^2$.",
+      "**Get $a^2 + b^2$ from the square of the sum.** $(a + b)^2 = a^2 + 2ab + b^2$, so $a^2 + b^2 = 7^2 - 2\\cdot10 = 29$.",
+      "**Build the second factor.** $a^2 - ab + b^2 = 29 - 10 = 19$.",
+      "**Multiply.** $a^3 + b^3 = 7\\cdot19 = 133$. (Check: $a$ and $b$ are $2$ and $5$, and $8 + 125 = 133$.)"
     ]
   },
   {
@@ -1042,10 +1165,11 @@
     "answerNumeric": 119.0,
     "hint1": "Square both sides: $\\left(x - \\tfrac1x\\right)^2 = x^2 - 2 + \\tfrac1{x^2}$.",
     "hint2": "$x^2 + \\tfrac1{x^2} = 9 + 2 = 11$. Now square again.",
+    "keyIdea": "Squaring $x - \\tfrac1x$ makes the cross term a constant, because $x\\cdot\\tfrac1x = 1$. Square once to get $x^2 + \\tfrac1{x^2}$, then square again.",
     "solutionSteps": [
-      "$\\left(x - \\tfrac1x\\right)^2 = 9 \\Rightarrow x^2 + \\tfrac1{x^2} = 11$.",
-      "$\\left(x^2 + \\tfrac1{x^2}\\right)^2 = x^4 + 2 + \\tfrac1{x^4} = 121$.",
-      "$x^4 + \\tfrac1{x^4} = 119$."
+      "**Square the given equation.** In $\\left(x - \\tfrac1x\\right)^2$ the cross term is $-2\\cdot x\\cdot\\tfrac1x = -2$, a constant. So $x^2 - 2 + \\tfrac1{x^2} = 9$, which gives $x^2 + \\tfrac1{x^2} = 11$.",
+      "**Square again** for the same reason, this time with a plus sign: $\\left(x^2 + \\tfrac1{x^2}\\right)^2 = x^4 + 2 + \\tfrac1{x^4}$.",
+      "**Substitute.** $11^2 = 121 = x^4 + 2 + \\tfrac1{x^4}$, so $x^4 + \\tfrac1{x^4} = 119$. You never needed to find $x$ itself."
     ]
   },
   {
@@ -1057,10 +1181,12 @@
     "answerNumeric": 3.0,
     "hint1": "Factor the numerator as a difference of cubes and the denominator as a difference of squares.",
     "hint2": "$x^3 - 8 = (x - 2)(x^2 + 2x + 4)$ and $x^2 - 4 = (x - 2)(x + 2)$.",
+    "keyIdea": "Plugging in $x = 2$ gives $\\tfrac00$, a sign that $(x - 2)$ is a factor of both the top and the bottom. Factor it out and cancel.",
     "solutionSteps": [
-      "Factor: $\\dfrac{(x - 2)(x^2 + 2x + 4)}{(x - 2)(x + 2)}$.",
-      "For $x \\neq 2$ this equals $\\dfrac{x^2 + 2x + 4}{x + 2}$.",
-      "At $x = 2$ that is $\\dfrac{4 + 4 + 4}{4} = 3$."
+      "**Factor the top (difference of cubes).** $x^3 - 8 = (x - 2)(x^2 + 2x + 4)$.",
+      "**Factor the bottom (difference of squares).** $x^2 - 4 = (x - 2)(x + 2)$.",
+      "**Cancel.** For $x \\ne 2$ the expression equals $\\dfrac{x^2 + 2x + 4}{x + 2}$.",
+      "**Approach $x = 2$.** This simplified form is fine at $2$: $\\dfrac{4 + 4 + 4}{4} = 3$."
     ]
   },
   {
@@ -1072,10 +1198,12 @@
     "answerNumeric": 0.9166666666666666,
     "hint1": "Factor: look for two numbers with product $12\\cdot(-2) = -24$ and sum $5$.",
     "hint2": "$8$ and $-3$. The factorization is $(4x - 1)(3x + 2)$.",
+    "keyIdea": "Factor the quadratic with the ac method, read off both roots, and subtract.",
     "solutionSteps": [
-      "$12x^2 + 8x - 3x - 2 = 4x(3x + 2) - (3x + 2) = (4x - 1)(3x + 2)$.",
-      "The solutions are $x = \\tfrac14$ and $x = -\\tfrac23$.",
-      "Their difference is $\\tfrac14 + \\tfrac23 = \\tfrac{3 + 8}{12} = \\tfrac{11}{12}$."
+      "**Factor with the ac method.** Multiply the first and last coefficients: $12\\cdot(-2) = -24$. Find two numbers with product $-24$ and sum $5$: they are $8$ and $-3$.",
+      "**Split the middle term and group.** $12x^2 + 8x - 3x - 2 = 4x(3x + 2) - 1(3x + 2) = (4x - 1)(3x + 2)$.",
+      "**Read off the roots** by setting each factor to zero: $x = \\tfrac14$ and $x = -\\tfrac23$.",
+      "**Positive difference.** $\\tfrac14 - \\left(-\\tfrac23\\right) = \\tfrac{3}{12} + \\tfrac{8}{12} = \\tfrac{11}{12}$."
     ]
   },
   {
@@ -1087,10 +1215,12 @@
     "answerNumeric": 1.0,
     "hint1": "Dividing by a fraction is multiplying by its reciprocal. Factor all four quadratics.",
     "hint2": "$x^2 - x - 6 = (x-3)(x+2)$, $x^2 - 9 = (x-3)(x+3)$, $x^2 + 4x + 4 = (x+2)^2$, $x^2 + 5x + 6 = (x+2)(x+3)$.",
+    "keyIdea": "Change the division into multiplication by the reciprocal, factor all four quadratics, and cancel. Everything cancels!",
     "solutionSteps": [
-      "$\\dfrac{(x-3)(x+2)}{(x-3)(x+3)}\\cdot\\dfrac{(x+2)(x+3)}{(x+2)^2}$.",
-      "Everything cancels: the expression equals $1$ wherever it is defined.",
-      "So at $x = 10$ the value is $1$."
+      "**Flip the second fraction.** $\\dfrac{x^2 - x - 6}{x^2 - 9}\\cdot\\dfrac{x^2 + 5x + 6}{x^2 + 4x + 4}$.",
+      "**Factor.** $\\dfrac{(x-3)(x+2)}{(x-3)(x+3)}\\cdot\\dfrac{(x+2)(x+3)}{(x+2)^2}$.",
+      "**Cancel.** Every factor in the numerator has a partner in the denominator, so the value is $1$ wherever it is defined.",
+      "**At $x = 10$.** No denominator is zero there, so the value is $1$."
     ]
   },
   {
@@ -1102,10 +1232,12 @@
     "answerNumeric": 9.25,
     "hint1": "Factor the quadratic, or use $r^2 + s^2 = (r + s)^2 - 2rs$.",
     "hint2": "$(2x + 1)(x - 3) = 0$, so the solutions are $-\\tfrac12$ and $3$.",
+    "keyIdea": "Find the roots by factoring, then square and add. Or use $r^2 + s^2 = (r + s)^2 - 2rs$ with the sum and product of the roots.",
     "solutionSteps": [
-      "$2x^2 - 5x - 3 = (2x + 1)(x - 3)$.",
-      "The solutions are $-\\tfrac12$ and $3$.",
-      "$\\tfrac14 + 9 = \\tfrac{37}{4}$."
+      "**Factor.** $2x^2 - 5x - 3 = (2x + 1)(x - 3)$.",
+      "**Roots.** $r = -\\tfrac12$ and $s = 3$.",
+      "**Square and add.** $\\tfrac14 + 9 = \\tfrac{37}{4}$.",
+      "**Check with sum and product.** $r + s = \\tfrac52$ and $rs = -\\tfrac32$, so $\\tfrac{25}{4} + 3 = \\tfrac{37}{4}$. ✓"
     ]
   },
   {
@@ -1117,10 +1249,12 @@
     "answerNumeric": 5.23606797749979,
     "hint1": "It doesn't factor nicely. Complete the square or use the quadratic formula.",
     "hint2": "$x^2 - 6x + 9 = 5$, so $(x - 3)^2 = 5$.",
+    "keyIdea": "When a quadratic won't factor, complete the square. Add $(b/2)^2$ to make a perfect square.",
     "solutionSteps": [
-      "Add $5$ to both sides: $x^2 - 6x + 9 = 5$.",
-      "$(x - 3)^2 = 5 \\Rightarrow x - 3 = \\pm\\sqrt5$.",
-      "The larger solution is $3 + \\sqrt5$."
+      "**Move the constant.** $x^2 - 6x = -4$.",
+      "**Complete the square.** Half of $-6$ is $-3$, and $(-3)^2 = 9$. Add $9$: $x^2 - 6x + 9 = 5$, which is $(x - 3)^2 = 5$.",
+      "**Square root.** $x - 3 = \\pm\\sqrt5$, so $x = 3 \\pm \\sqrt5$.",
+      "**Larger root.** $3 + \\sqrt5 \\approx 5.24$."
     ]
   },
   {
@@ -1132,10 +1266,11 @@
     "answerNumeric": 11.0,
     "hint1": "The vertex of $ax^2 + bx + c$ is at $x = -\\dfrac{b}{2a}$.",
     "hint2": "$x = -\\dfrac{12}{2(-2)} = 3$.",
+    "keyIdea": "A parabola $ax^2 + bx + c$ with $a < 0$ opens downward, so its highest point is the vertex at $x = -\\tfrac{b}{2a}$.",
     "solutionSteps": [
-      "The parabola opens downward, so the maximum is at the vertex.",
-      "$x = -\\dfrac{12}{-4} = 3$.",
-      "$y(3) = -18 + 36 - 7 = 11$."
+      "**Vertex.** $x = -\\dfrac{12}{2(-2)} = 3$.",
+      "**Evaluate.** $y(3) = -2(9) + 12(3) - 7 = -18 + 36 - 7 = 11$.",
+      "**Check by completing the square.** $y = -2(x - 3)^2 + 11$, which is largest when $(x - 3)^2 = 0$. So the maximum is $11$."
     ]
   },
   {
@@ -1147,10 +1282,12 @@
     "answerNumeric": 7.0,
     "hint1": "A quadratic has exactly one solution when its discriminant $b^2 - 4ac$ is $0$.",
     "hint2": "$k^2 - 196 = 0$ gives $k = 14$. Then $x^2 + 14x + 49 = (x + 7)^2$.",
+    "keyIdea": "A quadratic has exactly one solution when it is a perfect square, which is when the discriminant $b^2 - 4ac$ is zero.",
     "solutionSteps": [
-      "Discriminant: $k^2 - 4\\cdot49 = 0 \\Rightarrow k = 14$.",
-      "$x^2 + 14x + 49 = (x + 7)^2 = 0 \\Rightarrow s = -7$.",
-      "$k + s = 14 - 7 = 7$."
+      "**Discriminant.** $k^2 - 4(1)(49) = 0$, so $k^2 = 196$ and $k = 14$ (positive).",
+      "**The equation.** $x^2 + 14x + 49 = (x + 7)^2 = 0$.",
+      "**The single solution.** $s = -7$.",
+      "**Answer.** $k + s = 14 - 7 = 7$."
     ]
   },
   {
@@ -1162,10 +1299,11 @@
     "answerNumeric": 5.0,
     "hint1": "Set $h(t) = 0$ and divide everything by $-16$.",
     "hint2": "$t^2 - 4t - 5 = 0$.",
+    "keyIdea": "\"Hits the ground\" means height $= 0$. Divide out the common factor first to get a friendlier quadratic.",
     "solutionSteps": [
-      "$-16t^2 + 64t + 80 = 0 \\Rightarrow t^2 - 4t - 5 = 0$.",
-      "$(t - 5)(t + 1) = 0$.",
-      "Time must be positive, so $t = 5$ seconds."
+      "**Set $h = 0$.** $-16t^2 + 64t + 80 = 0$. Dividing by $-16$ gives $t^2 - 4t - 5 = 0$.",
+      "**Factor.** $(t - 5)(t + 1) = 0$, so $t = 5$ or $t = -1$.",
+      "**Choose the meaningful root.** Time after the throw is positive, so $t = 5$ seconds."
     ]
   },
   {
@@ -1177,10 +1315,11 @@
     "answerNumeric": 60.0,
     "hint1": "With side lengths $\\ell$ and $w$: $\\ell + w = 17$ and $\\ell^2 + w^2 = 169$.",
     "hint2": "$(\\ell + w)^2 = \\ell^2 + 2\\ell w + w^2$, so $289 = 169 + 2\\ell w$.",
+    "keyIdea": "You don't need the actual side lengths. The area $\\ell w$ comes straight out of $(\\ell + w)^2 = \\ell^2 + w^2 + 2\\ell w$.",
     "solutionSteps": [
-      "$\\ell + w = 17$ and, by Pythagoras, $\\ell^2 + w^2 = 13^2 = 169$.",
-      "$(\\ell + w)^2 = 289 = 169 + 2\\ell w$.",
-      "$2\\ell w = 120$, so the area is $\\ell w = 60$."
+      "**Facts.** The perimeter gives $\\ell + w = 17$, and Pythagoras on the diagonal gives $\\ell^2 + w^2 = 169$.",
+      "**Square the sum.** $(\\ell + w)^2 = 289 = (\\ell^2 + w^2) + 2\\ell w = 169 + 2\\ell w$.",
+      "**Solve.** $2\\ell w = 120$, so the area is $\\ell w = 60$. (The sides are $5$ and $12$.)"
     ]
   },
   {
@@ -1192,10 +1331,12 @@
     "answerNumeric": 8.0,
     "hint1": "Cross-multiply, then check that no solution makes a denominator zero.",
     "hint2": "$(x + 1)(x + 2) = (2x - 1)(x - 2)$ simplifies to $x^2 - 8x = 0$.",
+    "keyIdea": "Cross-multiply to clear denominators, solve the resulting equation, and check that no solution makes an original denominator zero.",
     "solutionSteps": [
-      "$x^2 + 3x + 2 = 2x^2 - 5x + 2$.",
-      "$0 = x^2 - 8x = x(x - 8)$, so $x = 0$ or $x = 8$.",
-      "Neither makes a denominator zero, so the sum is $0 + 8 = 8$."
+      "**Cross-multiply.** $(x + 1)(x + 2) = (2x - 1)(x - 2)$.",
+      "**Expand.** $x^2 + 3x + 2 = 2x^2 - 5x + 2$, so $0 = x^2 - 8x = x(x - 8)$.",
+      "**Candidates.** $x = 0$ or $x = 8$. Neither is $2$ or $-2$, so both are valid.",
+      "**Sum.** $0 + 8 = 8$."
     ]
   },
   {
@@ -1207,11 +1348,12 @@
     "answerNumeric": 9.0,
     "hint1": "Square both sides, solve, and then check for extraneous solutions.",
     "hint2": "$x + 7 = x^2 - 10x + 25$, so $x^2 - 11x + 18 = 0$.",
+    "keyIdea": "Square both sides to remove the root. Squaring can create *extraneous* solutions, so check every candidate in the original equation.",
     "solutionSteps": [
-      "Square: $x + 7 = x^2 - 10x + 25 \\Rightarrow x^2 - 11x + 18 = 0$.",
-      "$(x - 2)(x - 9) = 0$.",
-      "Check: $x = 2$ gives $\\sqrt9 = -3$, which is false. $x = 9$ gives $\\sqrt{16} = 4$, which is true.",
-      "So $x = 9$."
+      "**Square.** $x + 7 = (x - 5)^2 = x^2 - 10x + 25$.",
+      "**Rearrange and factor.** $x^2 - 11x + 18 = 0$, which is $(x - 2)(x - 9) = 0$.",
+      "**Check $x = 2$.** $\\sqrt9 = 3$, but $2 - 5 = -3$. A square root is never negative, so reject it.",
+      "**Check $x = 9$.** $\\sqrt{16} = 4 = 9 - 5$. ✓ The solution is $x = 9$."
     ]
   },
   {
@@ -1223,10 +1365,12 @@
     "answerNumeric": -9.242640687119286,
     "hint1": "Complete the square: $x^2 + 10x + 25 = 18$.",
     "hint2": "$(x + 5)^2 = 18$ and $\\sqrt{18} = 3\\sqrt2$.",
+    "keyIdea": "Complete the square: add $(10/2)^2 = 25$ to both sides to make $(x + 5)^2$.",
     "solutionSteps": [
-      "$x^2 + 10x = -7 \\Rightarrow x^2 + 10x + 25 = 18$.",
-      "$(x + 5)^2 = 18 \\Rightarrow x + 5 = \\pm3\\sqrt2$.",
-      "The smaller solution is $-5 - 3\\sqrt2$."
+      "**It doesn't factor nicely, so complete the square.** First move the constant to the other side: $x^2 + 10x = -7$.",
+      "**Add the square of half the $x$-coefficient** to both sides. Half of $10$ is $5$, and $5^2 = 25$: $x^2 + 10x + 25 = 18$, which is $(x + 5)^2 = 18$.",
+      "**Take square roots, keeping both signs.** $x + 5 = \\pm\\sqrt{18} = \\pm3\\sqrt2$, since $18 = 9\\cdot2$.",
+      "**Choose the smaller one.** $x = -5 - 3\\sqrt2 \\approx -9.24$."
     ]
   },
   {
@@ -1238,10 +1382,12 @@
     "answerNumeric": 15.0,
     "hint1": "Call the integers $n$ and $n + 2$. Their sum is $2n + 2$.",
     "hint2": "$n(n + 2) = 7(2n + 2) - 1$ simplifies to $n^2 - 12n - 13 = 0$.",
+    "keyIdea": "Write consecutive odd integers as $n$ and $n + 2$, translate the sentence, and solve the resulting quadratic.",
     "solutionSteps": [
-      "$n^2 + 2n = 14n + 13$.",
-      "$n^2 - 12n - 13 = (n - 13)(n + 1) = 0$, so $n = 13$ (it must be positive).",
-      "The integers are $13$ and $15$; the larger is $15$."
+      "**Translate.** Product $= 7\\times$sum $- 1$: $n(n + 2) = 7(2n + 2) - 1$.",
+      "**Simplify.** $n^2 + 2n = 14n + 13$, so $n^2 - 12n - 13 = 0$.",
+      "**Factor.** $(n - 13)(n + 1) = 0$, and $n$ must be positive, so $n = 13$.",
+      "**Answer.** The integers are $13$ and $15$, so the larger is $15$. Check: $195 = 7\\cdot28 - 1$. ✓"
     ]
   },
   {
@@ -1253,10 +1399,11 @@
     "answerNumeric": 0.5,
     "hint1": "Find the slope first: $m = \\dfrac{-7 - 5}{4 - (-2)}$.",
     "hint2": "$m = -2$, so the line is $y = -2x + 1$.",
+    "keyIdea": "Find the slope, then the line's equation, then set $y = 0$ to find where it crosses the $x$-axis.",
     "solutionSteps": [
-      "$m = \\dfrac{-12}{6} = -2$.",
-      "$5 = -2(-2) + b \\Rightarrow b = 1$, so $y = -2x + 1$.",
-      "$0 = -2x + 1 \\Rightarrow x = \\tfrac12$."
+      "**Slope between the two points** is rise over run: $m = \\dfrac{-7 - 5}{4 - (-2)} = \\dfrac{-12}{6} = -2$.",
+      "**Find the line's equation.** Plug one point, say $(-2, 5)$, into $y = mx + b$: $5 = -2(-2) + b$, so $b = 1$ and the line is $y = -2x + 1$.",
+      "**The $x$-axis is where $y = 0$.** $0 = -2x + 1$, so $x = \\tfrac12$."
     ]
   },
   {
@@ -1268,10 +1415,12 @@
     "answerNumeric": 7.0,
     "hint1": "Find the slope of $3x - 4y = 12$ by solving for $y$. A perpendicular slope is the negative reciprocal.",
     "hint2": "The given line has slope $\\tfrac34$, so $L$ has slope $-\\tfrac43$.",
+    "keyIdea": "Perpendicular lines have slopes that are negative reciprocals ($m_1m_2 = -1$). Get the slope, then use the point.",
     "solutionSteps": [
-      "$y = \\tfrac34x - 3$, so the slope is $\\tfrac34$.",
-      "$L$ has slope $-\\tfrac43$: $y + 1 = -\\tfrac43(x - 6)$.",
-      "$y = -\\tfrac43x + 8 - 1 = -\\tfrac43x + 7$. The $y$-intercept is $7$."
+      "**Slope of the given line.** Solve for $y$: $y = \\tfrac34x - 3$, so its slope is $\\tfrac34$.",
+      "**Perpendicular slope.** $-\\tfrac43$.",
+      "**Point-slope form.** $y + 1 = -\\tfrac43(x - 6)$, so $y = -\\tfrac43x + 8 - 1$.",
+      "**$y$-intercept.** $y = -\\tfrac43x + 7$, so it is $7$."
     ]
   },
   {
@@ -1283,10 +1432,11 @@
     "answerNumeric": 10.0,
     "hint1": "Collinear points give the same slope between any two pairs.",
     "hint2": "The slope from $(1, 2)$ to $(4, 8)$ is $2$, so $\\dfrac{20 - 2}{k - 1} = 2$.",
+    "keyIdea": "Three points lie on one line exactly when the slope between any pair is the same.",
     "solutionSteps": [
-      "Slope $= \\dfrac{8 - 2}{4 - 1} = 2$.",
-      "$\\dfrac{18}{k - 1} = 2 \\Rightarrow k - 1 = 9$.",
-      "$k = 10$."
+      "**Known slope.** From $(1, 2)$ to $(4, 8)$: $\\dfrac{6}{3} = 2$.",
+      "**Match it.** From $(1, 2)$ to $(k, 20)$: $\\dfrac{18}{k - 1} = 2$.",
+      "**Solve.** $k - 1 = 9$, so $k = 10$."
     ]
   },
   {
@@ -1298,10 +1448,12 @@
     "answerNumeric": 30.0,
     "hint1": "Find where the line crosses each axis.",
     "hint2": "Setting $y = 0$ gives $x = 10$. Setting $x = 0$ gives $y = 6$.",
+    "keyIdea": "The line and the two axes form a right triangle. Its legs are the $x$- and $y$-intercepts.",
     "solutionSteps": [
-      "$x$-intercept: $3x = 30 \\Rightarrow x = 10$.",
-      "$y$-intercept: $5y = 30 \\Rightarrow y = 6$.",
-      "Area $= \\tfrac12\\cdot10\\cdot6 = 30$."
+      "**The line and the axes form a right triangle**, with the right angle at the origin. Its two legs are the intercepts.",
+      "**$x$-intercept.** Put $y = 0$: $3x = 30$, so the line crosses the $x$-axis at $x = 10$.",
+      "**$y$-intercept.** Put $x = 0$: $5y = 30$, so it crosses the $y$-axis at $y = 6$.",
+      "**Area of the right triangle.** Half the product of the legs: $\\tfrac12\\cdot10\\cdot6 = 30$."
     ]
   },
   {
@@ -1313,10 +1465,11 @@
     "answerNumeric": -1.3333333333333333,
     "hint1": "Parallel lines have equal slopes. The slope of $Ax + By = C$ is $-A/B$.",
     "hint2": "The slopes are $-\\tfrac{2}{k}$ and $\\tfrac{6}{4} = \\tfrac32$.",
+    "keyIdea": "Parallel lines have equal slopes. For $Ax + By = C$, the slope is $-\\tfrac{A}{B}$.",
     "solutionSteps": [
-      "Slope of $2x + ky = 5$ is $-\\tfrac2k$. Slope of $6x - 4y = 1$ is $\\tfrac32$.",
-      "$-\\tfrac2k = \\tfrac32 \\Rightarrow 3k = -4$.",
-      "$k = -\\tfrac43$."
+      "**Rewrite each line as $y = mx + b$ to see its slope.** $2x + ky = 5$ gives $y = -\\tfrac2k x + \\tfrac5k$, so its slope is $-\\tfrac2k$.",
+      "**The other line.** $6x - 4y = 1$ gives $y = \\tfrac32x - \\tfrac14$, so its slope is $\\tfrac32$.",
+      "**Parallel means equal slopes.** $-\\tfrac2k = \\tfrac32$. Cross-multiply: $3k = -4$, so $k = -\\tfrac43$."
     ]
   },
   {
@@ -1328,11 +1481,12 @@
     "answerNumeric": -2.5,
     "hint1": "The perpendicular bisector passes through the midpoint of $AB$ and is perpendicular to $AB$.",
     "hint2": "The midpoint is $(2, -1)$. The slope of $AB$ is $-\\tfrac43$, so the bisector has slope $\\tfrac34$.",
+    "keyIdea": "The perpendicular bisector goes through the midpoint of $AB$ and is perpendicular to $AB$. Find those two things, then write the line.",
     "solutionSteps": [
-      "Midpoint: $\\left(\\tfrac{-1+5}{2}, \\tfrac{3-5}{2}\\right) = (2, -1)$.",
-      "Slope of $AB = \\tfrac{-8}{6} = -\\tfrac43$, so the perpendicular slope is $\\tfrac34$.",
-      "$y + 1 = \\tfrac34(x - 2) \\Rightarrow y = \\tfrac34x - \\tfrac32 - 1$.",
-      "The $y$-intercept is $-\\tfrac52$."
+      "**Midpoint.** $\\left(\\tfrac{-1 + 5}{2}, \\tfrac{3 + (-5)}{2}\\right) = (2, -1)$.",
+      "**Slope of $AB$.** $\\dfrac{-5 - 3}{5 - (-1)} = -\\tfrac43$, so the bisector has slope $\\tfrac34$.",
+      "**Line.** $y + 1 = \\tfrac34(x - 2)$, so $y = \\tfrac34x - \\tfrac32 - 1$.",
+      "**$y$-intercept.** $-\\tfrac52$."
     ]
   },
   {
@@ -1344,10 +1498,12 @@
     "answerNumeric": 22.5,
     "hint1": "Find the linear relationship $Z = mC + b$ from the two given points.",
     "hint2": "$m = \\dfrac{220 - 20}{100 - 0} = 2$ and $b = 20$, so $Z = 2C + 20$.",
+    "keyIdea": "A linear conversion between two scales is a straight line. Two known matching readings give its slope and intercept.",
     "solutionSteps": [
-      "$Z = 2C + 20$.",
-      "$65 = 2C + 20 \\Rightarrow 2C = 45$.",
-      "$C = \\tfrac{45}{2} = 22.5^\\circ$."
+      "**Slope.** $100$ Celsius degrees correspond to $220 - 20 = 200$ Z degrees, so $m = 2$ Z per °C.",
+      "**Intercept.** At $0$°C the Z reading is $20$, so $Z = 2C + 20$.",
+      "**Solve.** $65 = 2C + 20$, so $2C = 45$.",
+      "**Answer.** $C = \\tfrac{45}{2} = 22.5$°C."
     ]
   },
   {
@@ -1359,11 +1515,12 @@
     "answerNumeric": 10.25,
     "hint1": "Find the slope of $L$, then take the negative reciprocal for $M$.",
     "hint2": "The slope of $L$ is $\\tfrac68 = \\tfrac34$, so $M$: $y - 7 = -\\tfrac43(x - 5)$.",
+    "keyIdea": "Get line $L$'s slope, take the negative reciprocal for line $M$, and set $y = 0$ in $M$'s equation.",
     "solutionSteps": [
-      "$m_L = \\tfrac{6}{8} = \\tfrac34$, so $m_M = -\\tfrac43$.",
-      "$M$: $y - 7 = -\\tfrac43(x - 5)$.",
-      "Set $y = 0$: $-7 = -\\tfrac43(x - 5) \\Rightarrow x - 5 = \\tfrac{21}{4}$.",
-      "$x = \\tfrac{41}{4}$."
+      "**Slope of $L$** from its two points: $\\dfrac{7 - 1}{5 - (-3)} = \\tfrac68 = \\tfrac34$.",
+      "**Perpendicular slope.** Flip the fraction and change the sign: $M$ has slope $-\\tfrac43$. Since $M$ passes through $(5, 7)$, its equation is $y - 7 = -\\tfrac43(x - 5)$.",
+      "**Where $M$ meets the $x$-axis, $y = 0$.** $-7 = -\\tfrac43(x - 5)$. Multiply both sides by $-\\tfrac34$: $x - 5 = \\tfrac{21}{4}$.",
+      "**Answer.** $x = 5 + \\tfrac{21}{4} = \\tfrac{41}{4}$."
     ]
   },
   {
@@ -1375,10 +1532,12 @@
     "answerNumeric": 6.785714285714286,
     "hint1": "Find the rate of change in dollars per year.",
     "hint2": "$\\dfrac{15600 - 24000}{3} = -2800$ dollars/year, so $V = 24000 - 2800t$.",
+    "keyIdea": "\"Falls linearly\" means the value drops the same number of dollars each year. That rate is the slope.",
     "solutionSteps": [
-      "Slope $= \\dfrac{-8400}{3} = -2800$ dollars per year.",
-      "$24000 - 2800t = 5000 \\Rightarrow 2800t = 19000$.",
-      "$t = \\tfrac{19000}{2800} = \\tfrac{95}{14} \\approx 6.79$ years."
+      "**Rate.** $\\dfrac{15600 - 24000}{3} = -2800$ dollars per year.",
+      "**Model.** $V(t) = 24000 - 2800t$.",
+      "**Solve $V = 5000$.** $2800t = 19000$.",
+      "**Answer.** $t = \\tfrac{19000}{2800} = \\tfrac{95}{14} \\approx 6.79$ years."
     ]
   },
   {
@@ -1390,10 +1549,11 @@
     "answerNumeric": 5.142857142857143,
     "hint1": "Add the rates in pools per hour. The drain's rate counts as negative.",
     "hint2": "$\\tfrac16 + \\tfrac19 - \\tfrac1{12} = \\tfrac{6 + 4 - 3}{36} = \\tfrac{7}{36}$ pool per hour.",
+    "keyIdea": "Work rates add, measured in pools per hour. Filling pipes count as positive and the drain as negative.",
     "solutionSteps": [
-      "Combined rate: $\\tfrac16 + \\tfrac19 - \\tfrac1{12}$.",
-      "With a denominator of $36$: $\\tfrac{6 + 4 - 3}{36} = \\tfrac{7}{36}$.",
-      "Time $= 1 \\div \\tfrac{7}{36} = \\tfrac{36}{7} \\approx 5.14$ hours."
+      "**Rates.** Pipe A fills $+\\tfrac16$ pool/h, pipe B $+\\tfrac19$ pool/h, and the drain empties $-\\tfrac1{12}$ pool/h.",
+      "**Net rate.** With denominator $36$: $\\tfrac{6 + 4 - 3}{36} = \\tfrac{7}{36}$ pool per hour.",
+      "**Time.** One full pool takes $1 \\div \\tfrac{7}{36} = \\tfrac{36}{7} \\approx 5.14$ hours."
     ]
   },
   {
@@ -1405,10 +1565,12 @@
     "answerNumeric": 18.0,
     "hint1": "Let Ben be $B$ now, so Ana is $B + 7$. Translate the second sentence into an equation.",
     "hint2": "$(B + 7) + 5 = 2(B - 3)$.",
+    "keyIdea": "Use one variable (Ben's age now), express Ana's age in terms of it, and translate the sentence, being careful with \"in 5 years\" and \"3 years ago\".",
     "solutionSteps": [
-      "$B + 12 = 2(B - 3) = 2B - 6$.",
-      "$B = 18$.",
-      "Check: Ana is $25$. In 5 years she'll be $30 = 2(18 - 3)$. ✓ Ben is $18$."
+      "**Now.** Ben is $B$ and Ana is $B + 7$.",
+      "**Translate.** Ana in 5 years is $B + 12$. Ben 3 years ago was $B - 3$. So $B + 12 = 2(B - 3)$.",
+      "**Solve.** $B + 12 = 2B - 6$, so $B = 18$.",
+      "**Check.** Ana is $25$. In 5 years she will be $30$, which is twice $15$, Ben's age 3 years ago. ✓"
     ]
   },
   {
@@ -1420,10 +1582,11 @@
     "answerNumeric": 20.0,
     "hint1": "When they meet they have covered the same distance. The jogger has been moving $\\tfrac12$ hour longer.",
     "hint2": "$6\\left(t + \\tfrac12\\right) = 15t$, with $t$ in hours.",
+    "keyIdea": "At the moment of catching up, both have covered the same distance. The jogger has been moving for $\\tfrac12$ hour longer.",
     "solutionSteps": [
-      "$6t + 3 = 15t$.",
-      "$9t = 3 \\Rightarrow t = \\tfrac13$ hour.",
-      "$\\tfrac13$ hour $= 20$ minutes."
+      "**Distances.** After the cyclist rides for $t$ hours, the jogger has run $6\\left(t + \\tfrac12\\right)$ km and the cyclist has ridden $15t$ km.",
+      "**Set them equal.** $6t + 3 = 15t$, so $9t = 3$ and $t = \\tfrac13$ hour.",
+      "**Convert.** $\\tfrac13$ hour $= 20$ minutes."
     ]
   },
   {
@@ -1435,10 +1598,12 @@
     "answerNumeric": 42.0,
     "hint1": "With width $w$, the length is $2w + 3$ and $w(2w + 3) = 90$.",
     "hint2": "$2w^2 + 3w - 90 = 0$ factors as $(2w + 15)(w - 6) = 0$.",
+    "keyIdea": "Express the length in terms of the width, use the area to get a quadratic, and keep only the positive root.",
     "solutionSteps": [
-      "$2w^2 + 3w - 90 = 0$.",
-      "$(2w + 15)(w - 6) = 0$, so $w = 6$ and the length is $15$.",
-      "Perimeter $= 2(6 + 15) = 42$ m."
+      "**Model.** Width $w$, length $2w + 3$, area $w(2w + 3) = 90$.",
+      "**Quadratic.** $2w^2 + 3w - 90 = 0$, which factors as $(2w + 15)(w - 6) = 0$.",
+      "**Positive root.** $w = 6$ m, so the length is $15$ m.",
+      "**Perimeter.** $2(6 + 15) = 42$ m."
     ]
   },
   {
@@ -1450,10 +1615,12 @@
     "answerNumeric": 12.5,
     "hint1": "Let $x$ pounds be the \\$8 coffee, so $20 - x$ pounds are the \\$12 coffee. The values add up.",
     "hint2": "$8x + 12(20 - x) = 9.5 \\times 20 = 190$.",
+    "keyIdea": "In a mixture, the cost of the parts adds up to the cost of the blend. Write one equation in the pounds of cheap coffee.",
     "solutionSteps": [
-      "$8x + 240 - 12x = 190$.",
-      "$-4x = -50$.",
-      "$x = 12.5 = \\tfrac{25}{2}$ pounds."
+      "**Amounts.** $x$ lb at $\\$8$ and $20 - x$ lb at $\\$12$.",
+      "**Value equation.** $8x + 12(20 - x) = 9.50\\times20 = 190$.",
+      "**Solve.** $240 - 4x = 190$, so $4x = 50$.",
+      "**Answer.** $x = 12.5 = \\tfrac{25}{2}$ pounds."
     ]
   },
   {
@@ -1465,10 +1632,12 @@
     "answerNumeric": 47.0,
     "hint1": "Write the number as $10t + u$ with tens digit $t$ and units digit $u$. The reversed number is $10u + t$.",
     "hint2": "$(10u + t) - (10t + u) = 9(u - t) = 27$, so $u - t = 3$.",
+    "keyIdea": "A two-digit number with tens digit $t$ and units digit $u$ is worth $10t + u$. Reversing it gives $10u + t$.",
     "solutionSteps": [
-      "$t + u = 11$ and $9(u - t) = 27 \\Rightarrow u - t = 3$.",
-      "Adding: $2u = 14 \\Rightarrow u = 7$ and $t = 4$.",
-      "The number is $47$. (Check: $74 - 47 = 27$.)"
+      "**Digit sum.** $t + u = 11$.",
+      "**Reversal.** $(10u + t) - (10t + u) = 9(u - t) = 27$, so $u - t = 3$.",
+      "**Solve.** Adding the two equations: $2u = 14$, so $u = 7$ and $t = 4$.",
+      "**Answer.** The number is $47$. Check: $74 - 47 = 27$. ✓"
     ]
   },
   {
@@ -1480,10 +1649,12 @@
     "answerNumeric": 6.0,
     "hint1": "One pen costs \\$$\\tfrac23$ and one notebook costs \\$$\\tfrac52$. Write a count equation and a cost equation.",
     "hint2": "$p + q = 15$ and $\\tfrac23p + \\tfrac52q = 21$. Multiply the second by $6$: $4p + 15q = 126$.",
+    "keyIdea": "Convert the \"3 for $\\$2$\" deals into unit prices. Then set up one equation for the number of items and one for the cost.",
     "solutionSteps": [
-      "$p + q = 15$ and $4p + 15q = 126$.",
-      "$4(15 - q) + 15q = 126 \\Rightarrow 60 + 11q = 126$.",
-      "$11q = 66 \\Rightarrow q = 6$ notebooks (and $9$ pens)."
+      "**Unit prices.** A pen costs $\\$\\tfrac23$ and a notebook costs $\\$\\tfrac52$.",
+      "**Equations.** $p + q = 15$ and $\\tfrac23p + \\tfrac52q = 21$. Multiply the second by $6$: $4p + 15q = 126$.",
+      "**Substitute.** $p = 15 - q$: $60 + 11q = 126$, so $11q = 66$.",
+      "**Answer.** $q = 6$ notebooks (and $9$ pens, which really does come in sets of $3$)."
     ]
   },
   {
@@ -1495,10 +1666,12 @@
     "answerNumeric": 240.0,
     "hint1": "After Monday, $\\tfrac34$ of the book is left. Tuesday's reading is $\\tfrac13$ of that.",
     "hint2": "Monday plus Tuesday is $\\tfrac14 + \\tfrac14 = \\tfrac12$ of the book.",
+    "keyIdea": "\"Of the remaining pages\" means a fraction of what is *left*, not of the whole book. Track the fractions of the whole book step by step.",
     "solutionSteps": [
-      "Tuesday: $\\tfrac13\\cdot\\tfrac34 = \\tfrac14$ of the book.",
-      "$\\tfrac12N + 60 = \\tfrac34N$.",
-      "$\\tfrac14N = 60 \\Rightarrow N = 240$ pages."
+      "**Monday.** $\\tfrac14$ of the book, which leaves $\\tfrac34$.",
+      "**Tuesday.** $\\tfrac13$ of the remaining $\\tfrac34$ is $\\tfrac14$ of the book. So far: $\\tfrac12$.",
+      "**Wednesday.** $\\tfrac12N + 60 = \\tfrac34N$, so $60 = \\tfrac14N$.",
+      "**Answer.** $N = 240$ pages."
     ]
   },
   {
@@ -1510,10 +1683,12 @@
     "answerNumeric": 98.0,
     "hint1": "Turn each average into a total: average $\\times$ count.",
     "hint2": "The four kept scores total $4\\times88 = 352$.",
+    "keyIdea": "An average times the number of scores gives the total. Work with totals, which add and subtract cleanly, instead of averages.",
     "solutionSteps": [
-      "The four kept scores total $352$ (so the dropped score was $420 - 352 = 68$).",
-      "The new set of five must total $5\\times90 = 450$.",
-      "The sixth score is $450 - 352 = 98$."
+      "**Total of five.** $5\\times84 = 420$.",
+      "**Total of the four kept.** $4\\times88 = 352$. (So the dropped score was $68$.)",
+      "**New total needed.** Five scores averaging $90$ total $450$.",
+      "**Sixth score.** $450 - 352 = 98$."
     ]
   }
 ]

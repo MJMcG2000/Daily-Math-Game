@@ -36,6 +36,7 @@ for (const d of ['easy', 'medium', 'hard']) {
     checkLatex(p.id, 'prompt', p.prompt);
     checkLatex(p.id, 'hint1', p.hint1);
     checkLatex(p.id, 'hint2', p.hint2);
+    if (p.keyIdea) checkLatex(p.id, 'keyIdea', p.keyIdea);
     p.solutionSteps.forEach((s: string, i: number) => checkLatex(p.id, `step ${i + 1}`, s));
   }
 }

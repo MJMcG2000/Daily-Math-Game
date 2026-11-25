@@ -7,7 +7,10 @@ export function renderMixed(text: string): string {
   return splitMath(text)
     .map((seg) =>
       seg.kind === 'text'
-        ? seg.value.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]!)
+        ? seg.value
+            .replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]!)
+            // Minimal emphasis: **bold** lead-ins in solution steps.
+            .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
         : katex.renderToString(seg.value, { displayMode: seg.kind === 'display', throwOnError: false }),
     )
     .join('');

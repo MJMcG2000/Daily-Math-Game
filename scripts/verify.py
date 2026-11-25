@@ -149,6 +149,12 @@ def main():
                 fail(pid, 'hard problem without course calc1/calc2')
             if p.get('diagram') and not p.get('diagramAlt'):
                 fail(pid, 'diagram without diagramAlt')
+            if not p.get('keyIdea'):
+                fail(pid, 'missing keyIdea (add it in scripts/bank/explain_*.py)')
+            prose = ' '.join(re.sub(r'\$\$[\s\S]*?\$\$|\$[^$]*\$', ' ', st)
+                             for st in [p.get('keyIdea', ''), *p.get('solutionSteps', [])])
+            if len(re.findall(r'[A-Za-z]{2,}', prose)) < 25:
+                fail(pid, 'worked solution is mostly bare equations: explain the steps in words')
             if len(p.get('solutionSteps', [])) < 3:
                 fail(pid, 'fewer than 3 solution steps')
 
