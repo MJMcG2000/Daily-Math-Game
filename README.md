@@ -17,6 +17,7 @@ The game is fully static: there is no backend, and the day's problems are chosen
 - **2 hints** per problem: first a nudge toward the approach, then a key intermediate step. Each hint costs 0.5 points.
 - **Give up** at any time to see the answer and the worked solution straight away. The problem scores 0, shows a 🏳️ in the share grid, and counts as not solved. In Endless mode it resets your Practice streak or ends your Survival run.
 - After a problem is solved or out of guesses, its full worked solution is shown one step at a time.
+- No spoilers: a problem's topic (for example "Integration by parts") stays hidden until you finish it, because it names the method. Hard problems show only whether they're Calc 1 or Calc 2.
 - Problems can be done in any order. A problem stays hidden until you reveal it, and revealing it starts its timer. The timer pauses when you switch problems, switch browser tabs or open a menu.
 - A new puzzle unlocks at **local midnight**, with a countdown on screen.
 
