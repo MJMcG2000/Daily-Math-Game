@@ -154,6 +154,8 @@ def main():
                 fail(pid, 'hard problem without course calc1/calc2')
             if p.get('diagram') and not p.get('diagramAlt'):
                 fail(pid, 'diagram without diagramAlt')
+            if p.get('solutionDiagram') and not p.get('solutionDiagramAlt'):
+                fail(pid, 'solutionDiagram without solutionDiagramAlt')
             if not p.get('keyIdea'):
                 fail(pid, 'missing keyIdea (add it in scripts/bank/explain_*.py)')
             prose = ' '.join(re.sub(r'\$\$[\s\S]*?\$\$|\$[^$]*\$', ' ', st)

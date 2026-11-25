@@ -139,6 +139,7 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fo
 
 .diagram { margin: 8px auto 12px; max-width: 360px; color: var(--text); }
 .diagram svg { width: 100%; height: auto; display: block; }
+.diagram figcaption { margin-top: 6px; text-align: center; line-height: 1.4; }
 
 /* ---------- buttons ---------- */
 .btn {

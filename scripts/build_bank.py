@@ -13,6 +13,7 @@ import sympy as sp  # noqa: E402
 
 from answer_sympy import answer_to_sympy  # noqa: E402
 from bank.categories import categorize  # noqa: E402
+from bank.solution_diagrams import SOLUTION_DIAGRAMS  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / 'data' / 'problems'
@@ -87,6 +88,8 @@ def to_json(p, difficulty, explain=None):
         'hint2': p.hint2,
         'solutionSteps': p.steps,
     }
+    if p.id in SOLUTION_DIAGRAMS:
+        d['solutionDiagram'], d['solutionDiagramAlt'] = SOLUTION_DIAGRAMS[p.id]
     if key_idea:
         d['keyIdea'] = clean(key_idea)
         # keep keys in a readable order: keyIdea just before solutionSteps

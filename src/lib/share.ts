@@ -13,7 +13,7 @@ export function shareText(state: DayState, problems: Problem[], url?: string): s
     const marks = p.guesses.map((g) => SQUARE[g.mark]).join('');
     const squares = p.gaveUp ? marks + '🏳️' : marks || '⬜';
     const hints = p.hintsUsed ? ' ' + '💡'.repeat(p.hintsUsed) : '';
-    const time = p.status !== 'playing' ? ` ⏱${formatDuration(p.elapsedMs)}` : '';
+    const time = p.status !== 'playing' ? ` ${formatDuration(p.elapsedMs)}` : '';
     lines.push(`${CIRCLED[i]} ${squares}${hints}${time}`);
   });
   if (url) lines.push(url);

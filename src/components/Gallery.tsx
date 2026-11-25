@@ -25,6 +25,7 @@ export function Gallery({ problems, filter }: { problems: Problem[]; filter: str
             <div className="hint"><strong>Hint 1.</strong> <MathText as="span" text={p.hint1} /></div>
             <div className="hint"><strong>Hint 2.</strong> <MathText as="span" text={p.hint2} /></div>
             {p.keyIdea && <div className="key-idea"><strong>Key idea.</strong> <MathText as="span" text={p.keyIdea} /></div>}
+            {p.solutionDiagram && <Diagram svg={p.solutionDiagram} alt={p.solutionDiagramAlt} caption={p.solutionDiagramAlt} />}
             <ol className="steps">{p.solutionSteps.map((s, i) => <MathText as="li" key={i} text={s} />)}</ol>
           </section>
         );
