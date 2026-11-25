@@ -115,6 +115,58 @@ def final_step_shows_answer(p, value) -> bool:
     return value in candidates
 
 
+def eval_at(expr, point):
+    """Evaluate a sympy expression at {name: value}; None if undefined or not real."""
+    subs = {s: point[s.name] for s in expr.free_symbols if s.name in point}
+    missing = [s.name for s in expr.free_symbols if s.name not in point]
+    if missing:
+        raise ValueError(f'uses symbols {missing} not in the problem variables')
+    v = sp.N(expr.subs(subs), 30)
+    if not v.is_real:
+        if v.is_number and abs(sp.im(v)) < 1e-20:
+            v = sp.re(v)
+        else:
+            return None
+    return float(v)
+
+
+def verify_symbolic(p, src, tsv):
+    """Symbolic answers: compare check(), sympy's reading of `answer`, and the game parser at the
+    same test points (produced by the game's samplePoints so the game grades with the same points)."""
+    pid = p['id']
+    if not isinstance(tsv, dict) or 'points' not in tsv:
+        fail(pid, f'game parser rejects symbolic answer "{p["answer"]}": {tsv}')
+        return
+    if not src:
+        fail(pid, 'no independent sympy check found in scripts/bank/')
+        return
+    try:
+        want = sp.sympify(src.check())
+        ans = answer_to_sympy(p['answer'])
+    except Exception as e:  # noqa: BLE001
+        fail(pid, f'cannot build symbolic check/answer: {type(e).__name__}: {e}')
+        return
+    good = 0
+    for pt, game_val in zip(tsv['points'], tsv['values']):
+        try:
+            w = eval_at(want, pt)
+            a = eval_at(ans, pt)
+        except Exception as e:  # noqa: BLE001
+            fail(pid, f'symbolic evaluation failed: {e}')
+            return
+        if w is None:
+            continue
+        if a is None or not close(a, w):
+            fail(pid, f'answer "{p["answer"]}" ≠ check() at {pt}: {a} vs {w}')
+            return
+        if game_val is None or not close(game_val, w):
+            fail(pid, f'game parser value {game_val} ≠ check() {w} at {pt}')
+            return
+        good += 1
+    if good < 5:
+        fail(pid, f'only {good} usable test points; adjust "domain" so the answer is defined there')
+
+
 def main():
     banks = {d: json.loads((ROOT / 'data' / 'problems' / f'{d}.json').read_text()) for d in SOURCES}
     checks = checks_by_id()
@@ -138,7 +190,10 @@ def main():
         for p in probs:
             total += 1
             pid = p.get('id', '?')
+            symbolic = bool(p.get('variables'))
             for key in ('id', 'difficulty', 'topic', 'prompt', 'answer', 'answerNumeric', 'hint1', 'hint2', 'solutionSteps'):
+                if key == 'answerNumeric' and symbolic:
+                    continue
                 if key not in p or p[key] in ('', None, []):
                     fail(pid, f'missing {key}')
             if pid in seen:
@@ -164,6 +219,12 @@ def main():
                 fail(pid, 'worked solution is mostly bare equations: explain the steps in words')
             if len(p.get('solutionSteps', [])) < 3:
                 fail(pid, 'fewer than 3 solution steps')
+
+            if symbolic:
+                verify_symbolic(p, checks.get(pid), ts['answers'].get(pid))
+                for err in ts['latexErrors'].get(pid, []):
+                    fail(pid, f'LaTeX: {err}')
+                continue
 
             expected = to_float(p['answerNumeric'])
 

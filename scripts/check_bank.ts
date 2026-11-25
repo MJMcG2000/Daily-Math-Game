@@ -8,8 +8,10 @@ import { readFileSync } from 'node:fs';
 import katex from 'katex';
 import { parseAnswer } from '../src/lib/parse';
 import { splitMath } from '../src/lib/mixed';
+import { samplePoints } from '../src/lib/grade';
 
-const answers: Record<string, number | string | { error: string }> = {};
+type Sym = { points: Record<string, number>[]; values: (number | null)[] };
+const answers: Record<string, number | string | { error: string } | Sym> = {};
 const latexErrors: Record<string, string[]> = {};
 
 function checkLatex(id: string, where: string, text: string) {
@@ -31,8 +33,17 @@ function checkLatex(id: string, where: string, text: string) {
 for (const d of ['easy', 'medium', 'hard']) {
   const probs = JSON.parse(readFileSync(new URL(`../data/problems/${d}.json`, import.meta.url), 'utf8'));
   for (const p of probs) {
-    const r = parseAnswer(p.answer);
-    answers[p.id] = r.ok ? (Number.isFinite(r.value) ? r.value : r.value > 0 ? 'inf' : '-inf') : { error: r.error };
+    if (p.variables?.length) {
+      const r = parseAnswer(p.answer, p.variables);
+      if (!r.ok) answers[p.id] = { error: r.error };
+      else {
+        const points = samplePoints(p);
+        answers[p.id] = { points, values: points.map((pt) => r.evaluateAt(pt)) };
+      }
+    } else {
+      const r = parseAnswer(p.answer);
+      answers[p.id] = r.ok ? (Number.isFinite(r.value) ? r.value : r.value > 0 ? 'inf' : '-inf') : { error: r.error };
+    }
     checkLatex(p.id, 'prompt', p.prompt);
     checkLatex(p.id, 'hint1', p.hint1);
     checkLatex(p.id, 'hint2', p.hint2);

@@ -26,7 +26,7 @@ The game is fully static: there is no backend, and the day's problems are chosen
 Switch to **Endless** at the top of the page, or open the site with `#endless` at the end of the URL. There are two options:
 
 - **Practice:** pick Easy, Medium, Hard or Mixed and get one problem after another. The game tracks your current streak, best streak and solve count. Skipping a problem you've started, or switching difficulty mid-problem, resets the streak.
-- **Survival:** problems 1–3 are Easy, 4–6 are Medium, and everything after that is Hard. The run ends at the first problem you don't solve, and your best run is saved. Sharing a run shows a coloured bar for the problems solved, with no spoilers.
+- **Survival:** the first nine problems cycle Easy, Medium, Hard three times. After nine correct answers, every problem is Hard. The run ends at the first problem you don't solve; your score is the number solved, and your best is saved. Sharing a run shows a coloured bar for the problems solved, with no spoilers.
 
 Endless mode has no timer or points. It never serves today's daily problems, and it doesn't touch your daily stats or streaks. Each difficulty is dealt from its own shuffled queue, so a problem doesn't repeat until you've seen the rest of that difficulty.
 
@@ -59,6 +59,12 @@ Mathdle #42 — 2/3 · 6/18 pts
 ```
 
 🟩 correct · 🟨 close · 🟥 wrong · ⬜ not attempted · 💡 a hint used.
+
+## Expression (symbolic) answers
+
+30 problems ask for an expression instead of a number. Six are medium derivations; 24 are calculus: derivatives, integrals with symbolic bounds or parameters, a summation formula, a Maclaurin polynomial and so on. The problem names the allowed variables, and the input box offers a key for each one.
+
+A guess counts as correct when it matches the answer at seven test values of the variables, spread across each variable's `domain`. So any algebraically equivalent form is accepted, and a missing term or a wrong sign is caught. Wrong guesses show "Not equivalent" (there's no higher or lower). In the problem JSON these problems have `"variables": ["x"]`, an optional `"domain": {"x": [lo, hi]}`, and `"answerNumeric": null`. `verify.py` compares the independent sympy check, sympy's reading of the answer, and the game's parser at the same test points.
 
 ## Answer syntax
 
@@ -130,7 +136,7 @@ It shows every problem with its answer, hints, diagram and full solution, for pr
 
 ## The problem bank
 
-The game reads `data/problems/{easy,medium,hard}.json`, which holds 100 problems per difficulty. The hard bank has 50 Calc 1 and 50 Calc 2 problems. Each entry looks like this:
+The game reads `data/problems/{easy,medium,hard}.json`, which together hold 330 problems: 100 easy, 106 medium and 124 hard (62 Calc 1 and 62 Calc 2). 30 of them have expression answers. Each entry looks like this:
 
 ```jsonc
 {
@@ -161,12 +167,12 @@ Every problem carries a `subject` and an estimated US `gradeLevel`. Players neve
 |---|---|---|
 | Pre-Algebra | 33 | 6–8 |
 | Algebra 1 | 63 | 8–10 |
-| Geometry | 30 | 8–10 |
-| Algebra 2 | 26 | 10–11 |
-| Trigonometry | 20 | 11 |
-| Precalculus | 28 | 11–12 |
-| Calculus 1 | 50 | 12 |
-| Calculus 2 | 50 | 13 (first-year college; AP Calculus BC students meet it in grade 12) |
+| Geometry | 31 | 8–10 |
+| Algebra 2 | 29 | 10–11 |
+| Trigonometry | 21 | 11 |
+| Precalculus | 29 | 11–12 |
+| Calculus 1 | 62 | 12 |
+| Calculus 2 | 62 | 13 (first-year college; AP Calculus BC students meet it in grade 12) |
 
 ### How the daily problems are chosen
 

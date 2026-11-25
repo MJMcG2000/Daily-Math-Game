@@ -15,7 +15,7 @@ export function ProblemCard({ problem, state, index, onStart, onGuess, onHint, o
   state: ProblemState;
   index: number;
   onStart?: () => void;
-  onGuess: (input: string, value: number) => void;
+  onGuess: (input: string) => void;
   onHint: () => void;
   /** Ends the problem as unsolved and reveals the worked solution. */
   onGiveUp: () => void;
@@ -28,7 +28,8 @@ export function ProblemCard({ problem, state, index, onStart, onGuess, onHint, o
 }) {
   const done = state.status !== 'playing';
   const score = scoreProblem(state, problem.difficulty);
-  const answerTex = parseAnswer(problem.answer);
+  const vars = problem.variables ?? [];
+  const answerTex = parseAnswer(problem.answer, vars);
   const [stepsShown, setStepsShown] = useState(1);
   const [confirmGiveUp, setConfirmGiveUp] = useState(false);
   const resultRef = useRef<HTMLDivElement>(null);
@@ -77,13 +78,13 @@ export function ProblemCard({ problem, state, index, onStart, onGuess, onHint, o
       {state.guesses.length > 0 && (
         <ol className="guesses" aria-label="Your guesses">
           {state.guesses.map((g, i) => {
-            const p = parseAnswer(g.input);
+            const p = parseAnswer(g.input, vars);
             return (
               <li key={i} className={`guess ${g.mark}`}>
                 <span className="mark" aria-hidden="true">{MARK_ICON[g.mark]}</span>
                 <span className="guess-expr">{p.ok ? <TeX tex={`\\displaystyle ${p.tex}`} /> : g.input}</span>
                 <span className="guess-fb">
-                  {MARK_TEXT[g.mark]}
+                  {vars.length && g.mark !== 'correct' ? 'Not equivalent to the answer' : MARK_TEXT[g.mark]}
                   {g.direction && (
                     <>
                       {' · answer is '}
@@ -113,7 +114,7 @@ export function ProblemCard({ problem, state, index, onStart, onGuess, onHint, o
       </div>
 
       {!done && (
-        <AnswerInput onSubmit={onGuess} guessesLeft={MAX_GUESSES - state.guesses.length} />
+        <AnswerInput onSubmit={onGuess} guessesLeft={MAX_GUESSES - state.guesses.length} variables={vars} />
       )}
 
       {!done && (
@@ -140,7 +141,11 @@ export function ProblemCard({ problem, state, index, onStart, onGuess, onHint, o
 
       <div aria-live="polite" className="visually-hidden">
         {state.guesses.length > 0 && !done &&
-          `${MARK_TEXT[state.guesses[state.guesses.length - 1].mark]}. The answer is ${state.guesses[state.guesses.length - 1].direction}. ${MAX_GUESSES - state.guesses.length} guesses left.`}
+          (() => {
+            const last = state.guesses[state.guesses.length - 1];
+            const what = vars.length ? 'Not equivalent to the answer.' : `${MARK_TEXT[last.mark]}.${last.direction ? ` The answer is ${last.direction}.` : ''}`;
+            return `${what} ${MAX_GUESSES - state.guesses.length} guesses left.`;
+          })()}
       </div>
 
       {done && (

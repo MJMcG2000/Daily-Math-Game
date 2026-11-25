@@ -15,8 +15,10 @@ const KEYS: Key[] = [
   { label: ')', insert: ')', aria: 'close parenthesis' },
 ];
 
-export function AnswerInput({ onSubmit, disabled, guessesLeft }: {
-  onSubmit: (input: string, value: number) => void;
+export function AnswerInput({ onSubmit, disabled, guessesLeft, variables = [] }: {
+  onSubmit: (input: string) => void;
+  /** Symbolic problems: the variables the answer may use, e.g. ['x']. */
+  variables?: string[];
   disabled?: boolean;
   guessesLeft: number;
 }) {
@@ -24,7 +26,8 @@ export function AnswerInput({ onSubmit, disabled, guessesLeft }: {
   const [showError, setShowError] = useState(false);
   const ref = useRef<HTMLInputElement>(null);
   const id = useId();
-  const parsed = useMemo(() => (text.trim() ? parseAnswer(text) : null), [text]);
+  const varKey = variables.join(',');
+  const parsed = useMemo(() => (text.trim() ? parseAnswer(text, varKey ? varKey.split(',') : []) : null), [text, varKey]);
 
   function insert(k: Key) {
     const el = ref.current;
@@ -43,7 +46,7 @@ export function AnswerInput({ onSubmit, disabled, guessesLeft }: {
     e.preventDefault();
     if (!parsed) return;
     if (!parsed.ok) { setShowError(true); return; }
-    onSubmit(text.trim(), parsed.value);
+    onSubmit(text.trim());
     setText('');
     setShowError(false);
   }
@@ -53,6 +56,11 @@ export function AnswerInput({ onSubmit, disabled, guessesLeft }: {
 
   return (
     <form className="answer" onSubmit={submit} aria-label="Answer">
+      {variables.length > 0 && (
+        <p className="answer-vars small">
+          Answer with an expression in <strong>{variables.join(', ')}</strong>. Any equivalent form counts.
+        </p>
+      )}
       <label htmlFor={id} className="visually-hidden">Your answer</label>
       <div className="answer-row">
         <input
@@ -60,7 +68,7 @@ export function AnswerInput({ onSubmit, disabled, guessesLeft }: {
           ref={ref}
           value={text}
           onChange={(e) => { setText(e.target.value); setShowError(false); }}
-          placeholder="e.g. 3pi/4, 2sqrt(5), ln(3)"
+          placeholder={variables.length ? `in terms of ${variables.join(', ')}, e.g. ${variables[0]}^2/2` : 'e.g. 3pi/4, 2sqrt(5), ln(3)'}
           autoComplete="off"
           autoCapitalize="off"
           autoCorrect="off"
@@ -79,7 +87,7 @@ export function AnswerInput({ onSubmit, disabled, guessesLeft }: {
           <>
             <span className="preview-label">Reads as</span>
             <span className="preview-math"><TeX tex={parsed.tex} display /></span>
-            <span className="preview-approx muted">≈ {fmt(parsed.value)}</span>
+            {!parsed.symbolic && <span className="preview-approx muted">≈ {fmt(parsed.value)}</span>}
           </>
         )}
         {parsed && !parsed.ok && (
@@ -95,7 +103,7 @@ export function AnswerInput({ onSubmit, disabled, guessesLeft }: {
         </div>
       )}
       <div className="keypad" role="group" aria-label="Insert symbol">
-        {KEYS.map((k) => (
+        {[...variables.map((v) => ({ label: v, insert: v, aria: `variable ${v}` } as Key)), ...KEYS].map((k) => (
           <button key={k.label} type="button" className="key" onClick={() => insert(k)} aria-label={`Insert ${k.aria}`} disabled={disabled}>
             {k.label}
           </button>

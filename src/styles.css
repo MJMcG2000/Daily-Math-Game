@@ -159,6 +159,8 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fo
 
 /* ---------- answer input ---------- */
 .answer { margin-top: 12px; }
+.answer-vars { margin: 0 0 6px; color: var(--muted); }
+.answer-vars strong { color: var(--text); font-style: italic; font-family: Georgia, 'Times New Roman', serif; font-size: 1.05em; }
 .answer-row { display: flex; gap: 8px; }
 .answer input {
   flex: 1; min-width: 0;
@@ -192,7 +194,7 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fo
 }
 .preview .error { color: var(--wrong); font-size: 0.9rem; }
 .preview .muted { font-size: 0.9rem; }
-.keypad { display: grid; grid-template-columns: repeat(9, 1fr); gap: 6px; margin-top: 10px; }
+.keypad { display: grid; grid-template-columns: repeat(auto-fit, minmax(44px, 1fr)); gap: 6px; margin-top: 10px; }
 .key {
   min-height: 44px; border-radius: 8px; border: 1px solid var(--border);
   background: var(--surface); color: var(--text);
@@ -201,6 +203,7 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fo
 .key:active { transform: translateY(1px); }
 @media (max-width: 420px) {
   .keypad { grid-template-columns: repeat(5, 1fr); }
+  .keypad:has(> :nth-child(10)) { grid-template-columns: repeat(5, 1fr); }
 }
 
 /* ---------- guesses & feedback ---------- */
@@ -228,8 +231,9 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fo
 .timer { margin: 4px 0 0; font-size: 0.95rem; }
 .timer-value { font-variant-numeric: tabular-nums; font-weight: 700; }
 .timer.over .timer-value { color: var(--close); }
-.give-up { margin-top: 10px; text-align: center; }
-.give-up .small-btn { min-height: 40px; font-size: 0.9rem; font-weight: 500; color: var(--muted); border-color: transparent; }
+.give-up { margin-top: 12px; text-align: center; }
+/* Same outline as the hint button; muted text keeps it secondary. */
+.give-up .small-btn { font-weight: 600; color: var(--muted); }
 .give-up-confirm { background: var(--surface); border-radius: 10px; padding: 10px 12px; }
 .give-up-confirm p { margin: 0 0 8px; }
 .result { margin-top: 12px; border-top: 1px solid var(--border); padding-top: 12px; }

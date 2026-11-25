@@ -85,7 +85,8 @@ type Tok =
   | { t: 'lp' }
   | { t: 'rp' }
   | { t: 'comma' }
-  | { t: 'under' };
+  | { t: 'under' }
+  | { t: 'var'; v: string };
 
 /** Function names as typed → mathjs function names. */
 const FUNCS: Record<string, string> = {
@@ -100,17 +101,24 @@ const NAMES = [...Object.keys(FUNCS), ...Object.keys(CONSTS)].sort((a, b) => b.l
 
 export class ParseError extends Error {}
 
-function splitLetters(word: string): Tok[] {
+function splitLetters(word: string, vars: readonly string[]): Tok[] {
   const out: Tok[] = [];
   let i = 0;
   while (i < word.length) {
     const name = NAMES.find((n) => word.startsWith(n, i));
+    if (!name && vars.includes(word[i])) {
+      // A single-letter variable allowed by this problem (e.g. x or a). Names like sin or pi win.
+      out.push({ t: 'var', v: word[i] });
+      i += 1;
+      continue;
+    }
     if (!name) {
       const rest = word.slice(i);
+      const allowed = vars.length ? ` This answer can use ${vars.join(', ')}.` : ' Answers are numbers, so variables aren\'t allowed.';
       throw new ParseError(
         rest.length === 1
-          ? `Unknown symbol "${rest}". Answers are numbers, so variables aren't allowed.`
-          : `I don't recognise "${rest}". Try pi, e, sqrt, ln, log, sin, arctan, inf…`,
+          ? `Unknown symbol "${rest}".${allowed}`
+          : `I don't recognise "${rest}". Try pi, e, sqrt, ln, log, sin, arctan, inf…${vars.length ? allowed : ''}`,
       );
     }
     out.push(name in FUNCS ? { t: 'fn', v: name } : { t: 'const', v: CONSTS[name] });
@@ -119,7 +127,7 @@ function splitLetters(word: string): Tok[] {
   return out;
 }
 
-export function tokenize(s: string): Tok[] {
+export function tokenize(s: string, vars: readonly string[] = []): Tok[] {
   const toks: Tok[] = [];
   let i = 0;
   while (i < s.length) {
@@ -143,7 +151,7 @@ export function tokenize(s: string): Tok[] {
     }
     if (/[a-z]/.test(c)) {
       const m = /^[a-z]+/.exec(s.slice(i))!;
-      toks.push(...splitLetters(m[0]));
+      toks.push(...splitLetters(m[0], vars));
       i += m[0].length;
       continue;
     }
@@ -201,7 +209,7 @@ class Parser {
   }
 
   private startsAtom(t: Tok | undefined): boolean {
-    return !!t && (t.t === 'num' || t.t === 'const' || t.t === 'fn' || t.t === 'lp');
+    return !!t && (t.t === 'num' || t.t === 'const' || t.t === 'fn' || t.t === 'lp' || t.t === 'var');
   }
 
   private term(): string {
@@ -258,6 +266,7 @@ class Parser {
         return e;
       }
       case 'fn': return this.func(t.v);
+      case 'var': return t.v;
       case 'rp': throw new ParseError('There\'s a ")" without a matching "(".');
       case 'op': throw new ParseError(`"${t.v}" needs something before it.`);
       case 'comma': throw new ParseError('Unexpected ",".');
@@ -317,24 +326,67 @@ class Parser {
 // ---------------------------------------------------------------- public API
 
 export type ParseResult =
-  | { ok: true; value: number; tex: string; expr: string; notes: string[] }
+  | {
+      ok: true;
+      /** The numeric value (NaN when the answer contains variables). */
+      value: number;
+      tex: string;
+      expr: string;
+      notes: string[];
+      /** True when the input uses one of the problem's variables. */
+      symbolic: boolean;
+      /** Evaluate at given variable values; null if undefined or not real there. */
+      evaluateAt: (scope: Record<string, number>) => number | null;
+    }
   | { ok: false; error: string };
 
-export function toMathjs(input: string): string {
-  return new Parser(tokenize(normalize(input))).parse();
+export function toMathjs(input: string, vars: readonly string[] = []): string {
+  return new Parser(tokenize(normalize(input), vars)).parse();
 }
 
-function parseWithNotes(input: string): { expr: string; notes: string[] } {
-  const parser = new Parser(tokenize(normalize(input)));
+function parseWithNotes(input: string, vars: readonly string[]): { expr: string; notes: string[] } {
+  const parser = new Parser(tokenize(normalize(input), vars));
   const expr = parser.parse();
   return { expr, notes: parser.notes };
 }
 
-/** Parse and evaluate a player's answer. Never throws. */
-export function parseAnswer(input: string): ParseResult {
+function toReal(raw: unknown): number | null {
+  if (typeof raw === 'number') return Number.isNaN(raw) ? null : raw;
+  if (raw && typeof raw === 'object' && 're' in raw && 'im' in raw) {
+    const c = raw as { re: number; im: number };
+    return Math.abs(c.im) > 1e-12 * Math.max(1, Math.abs(c.re)) ? null : c.re;
+  }
+  return null;
+}
+
+/**
+ * Parse and evaluate a player's answer. Never throws.
+ * `variables` lists the single-letter variables a symbolic problem allows (e.g. ['x']).
+ */
+export function parseAnswer(input: string, variables: readonly string[] = []): ParseResult {
   try {
-    const { expr, notes } = parseWithNotes(input);
+    const vars = variables.map((v) => v.toLowerCase());
+    const { expr, notes } = parseWithNotes(input, vars);
     const node: MathNode = math.parse(expr);
+    const used = vars.filter((v) => node.filter((n) => n.type === 'SymbolNode' && (n as unknown as { name: string }).name === v).length > 0);
+    const code = node.compile();
+    const evaluateAt = (scope: Record<string, number>) => {
+      try {
+        return toReal(code.evaluate({ ...scope }));
+      } catch {
+        return null;
+      }
+    };
+    const texOf = () => node.toTex({ parenthesis: 'auto', implicit: 'hide' })
+      .replace(/Infinity/g, '\\infty')
+      .replace(/\\mathrm\{Infinity\}/g, '\\infty')
+      .replace(/(\d)\\cdot(?![\d{]|\\frac)/g, '$1')
+      .replace(/\\frac\{-([^{}+\-]+)\}/g, '-\\frac{$1}')
+      // "x\cdot\sin(x)" → "x\sin(x)": no dot between a variable and a named function.
+      .replace(/( [a-z])\\cdot(?=\\(?:sin|cos|tan|sec|csc|cot|ln|log|sqrt|exp|arc|operatorname))/g, '$1\\,');
+    if (used.length) {
+      return { ok: true, value: NaN, tex: texOf(), expr, notes, symbolic: true, evaluateAt };
+    }
     let raw: unknown;
     try {
       raw = node.evaluate();
@@ -363,7 +415,7 @@ export function parseAnswer(input: string): ParseResult {
       .replace(/(\d)\\cdot(?![\d{]|\\frac)/g, '$1')
       // "\frac{-16}{3}" → "-\frac{16}{3}" when the numerator is a single negated term.
       .replace(/\\frac\{-([^{}+\-]+)\}/g, '-\\frac{$1}');
-    return { ok: true, value, tex, expr, notes };
+    return { ok: true, value, tex, expr, notes, symbolic: false, evaluateAt: () => value };
   } catch (err) {
     if (err instanceof ParseError) return { ok: false, error: err.message };
     return { ok: false, error: 'I couldn\'t read that. Check the operators and parentheses.' };

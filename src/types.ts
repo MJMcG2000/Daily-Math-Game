@@ -14,7 +14,15 @@ export interface Problem {
   prompt: string;
   /** Exact answer written in the game's own input syntax, e.g. "3pi/4", "2sqrt(5)", "ln(3)", "inf". */
   answer: string;
-  answerNumeric: number | 'inf' | '-inf';
+  /** Numeric value of the answer; null for symbolic problems (see `variables`). */
+  answerNumeric: number | 'inf' | '-inf' | null;
+  /**
+   * Symbolic problems only: the single-letter variables the answer is written in, e.g. ['x'].
+   * Guesses are checked by evaluating both expressions at several test values.
+   */
+  variables?: string[];
+  /** Symbolic problems: the range test values are drawn from, per variable (default [0.5, 2.5]). */
+  domain?: Record<string, [number, number]>;
   hint1: string;
   hint2: string;
   /** Optional inline SVG shown with the worked solution (drawn to scale, currentColor). */

@@ -65,9 +65,16 @@ export function freshProblemState(id: string): ProblemState {
   return { id, guesses: [], hintsUsed: 0, status: 'playing', started: true, elapsedMs: 0 };
 }
 
-/** Survival difficulty for the n-th problem of a run (0-based): 3 easy, 3 medium, then hard. */
+/** Problems in the alternating opening of a Survival run: three Easy → Medium → Hard rounds. */
+export const SURVIVAL_ROUNDS_PROBLEMS = 9;
+
+/**
+ * Survival difficulty for the n-th problem of a run (0-based). The first 9 cycle
+ * Easy, Medium, Hard three times; after 9 correct answers every problem is Hard.
+ */
 export function survivalDifficulty(level: number): Difficulty {
-  return level < 3 ? 'easy' : level < 6 ? 'medium' : 'hard';
+  if (level >= SURVIVAL_ROUNDS_PROBLEMS) return 'hard';
+  return (['easy', 'medium', 'hard'] as const)[level % 3];
 }
 
 function shuffle<T>(arr: T[], rand: () => number): T[] {

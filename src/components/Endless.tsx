@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import type { Difficulty, Problem, ProblemState } from '../types';
 import type { Banks } from '../lib/daily';
-import { answerValue, judge } from '../lib/check';
+import { grade } from '../lib/grade';
 import { MAX_GUESSES, MAX_HINTS } from '../lib/scoring';
 import {
   drawProblem, freshProblemState, loadEndless, practiceDifficulty, saveEndless, survivalDifficulty,
@@ -100,12 +100,12 @@ export function Endless({ banks, dailyIds }: { banks: Banks; dailyIds: string[] 
     });
   }
 
-  function guess(input: string, value: number) {
+  function guess(input: string) {
     if (!problem) return;
-    const fb = judge(value, answerValue(problem.answerNumeric));
+    const fb = grade(problem, input);
     applyToRun((r) => {
       if (r.ps.status !== 'playing') return r;
-      const guesses = [...r.ps.guesses, { input, value, mark: fb.mark, direction: fb.direction }];
+      const guesses = [...r.ps.guesses, { input, value: fb.value, mark: fb.mark, direction: fb.direction }];
       const status: ProblemState['status'] = fb.mark === 'correct' ? 'solved' : guesses.length >= MAX_GUESSES ? 'failed' : 'playing';
       return { ...r, ps: { ...r.ps, guesses, status } };
     });
@@ -198,7 +198,7 @@ export function Endless({ banks, dailyIds }: { banks: Banks; dailyIds: string[] 
           ) : (
             <>
               <h2 className="card-title">Survival</h2>
-              <p>Problems 1–3 are Easy, 4–6 are Medium, and everything after that is Hard. You get the usual 3 guesses and 2 hints each. The run ends at the first problem you don&apos;t solve.</p>
+              <p>The first nine problems go Easy, Medium, Hard, three times over. After nine correct answers, every problem is Hard. You get the usual 3 guesses and 2 hints each. Keep going until you miss one: your score is how many you solved.</p>
               <button className="btn primary big" onClick={startSurvival}>Start run</button>
             </>
           )}
