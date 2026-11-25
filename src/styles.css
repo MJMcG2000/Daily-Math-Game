@@ -212,7 +212,11 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fo
 .result-line { font-size: 1.1rem; font-weight: 600; margin: 0 0 4px; }
 .result.solved .result-line { color: var(--correct); }
 .result.failed .result-line { color: var(--wrong); }
-.steps { padding-left: 1.4em; display: grid; gap: 8px; }
+.key-idea {
+  background: var(--surface); border-left: 4px solid var(--accent);
+  border-radius: 8px; padding: 8px 12px; margin: 4px 0 8px; overflow-x: auto;
+}
+.steps { padding-left: 1.4em; display: grid; gap: 10px; }
 .steps li { overflow-x: auto; overflow-y: hidden; padding: 2px 0; }
 
 .done-card { text-align: center; }
@@ -221,6 +225,27 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fo
 .footer { display: flex; justify-content: center; margin-top: 8px; }
 .countdown { display: grid; justify-items: center; }
 .countdown-time { font-variant-numeric: tabular-nums; font-size: 1.6rem; font-weight: 700; letter-spacing: 0.04em; }
+
+/* ---------- mode switch & endless ---------- */
+.segmented {
+  display: grid; grid-auto-flow: column; grid-auto-columns: 1fr;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 999px;
+  padding: 3px; margin: 0 auto 12px; max-width: 320px;
+}
+.segmented button {
+  min-height: 38px; border: none; border-radius: 999px; background: transparent;
+  color: var(--text); font: inherit; font-weight: 600; cursor: pointer;
+}
+.segmented button.on { background: var(--text); color: var(--bg); }
+.chips { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 8px; }
+.chip-btn {
+  min-height: 40px; padding: 6px 14px; border-radius: 999px; border: 2px solid var(--border);
+  background: var(--surface); color: var(--text); font: inherit; font-weight: 600; cursor: pointer;
+}
+.chip-btn.on { border-color: var(--text); }
+.endless-stats { text-align: center; margin: 4px 0 12px; }
+.endless-actions { margin: -4px 0 16px; }
+.center { text-align: center; justify-content: center; }
 
 /* ---------- modals ---------- */
 .modal {

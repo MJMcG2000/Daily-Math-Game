@@ -10,13 +10,17 @@ const LABEL = { easy: 'Easy', medium: 'Medium', hard: 'Hard' } as const;
 const MARK_ICON = { correct: '✓', close: '≈', wrong: '✗' } as const;
 const MARK_TEXT = { correct: 'Correct', close: 'Close', wrong: 'Wrong' } as const;
 
-export function ProblemCard({ problem, state, index, onStart, onGuess, onHint }: {
+export function ProblemCard({ problem, state, index, onStart, onGuess, onHint, scored = true, title }: {
   problem: Problem;
   state: ProblemState;
   index: number;
-  onStart: () => void;
+  onStart?: () => void;
   onGuess: (input: string, value: number) => void;
   onHint: () => void;
+  /** Daily mode: timer, reveal gate and points. Endless mode turns these off. */
+  scored?: boolean;
+  /** Heading text; defaults to "Problem N · Difficulty". */
+  title?: string;
 }) {
   const done = state.status !== 'playing';
   const score = scoreProblem(state, problem.difficulty);
@@ -31,9 +35,10 @@ export function ProblemCard({ problem, state, index, onStart, onGuess, onHint }:
     wasDone.current = done;
   }, [done]);
 
+  const heading = title ?? `Problem ${index + 1} · ${LABEL[problem.difficulty]}`;
   const topic = problem.course ? `${problem.topic} · ${problem.course === 'calc1' ? 'Calc 1' : 'Calc 2'}` : problem.topic;
 
-  if (!state.started) {
+  if (scored && !state.started) {
     return (
       <section className="card start-card" aria-labelledby={`p${index}-title`}>
         <h2 id={`p${index}-title`} className="card-title">
@@ -45,7 +50,7 @@ export function ProblemCard({ problem, state, index, onStart, onGuess, onHint }:
           <strong>{TARGET_MS[problem.difficulty] / 60000} min</strong>; after that points shrink
           gradually, down to half at {(3 * TARGET_MS[problem.difficulty]) / 60000} min.
         </p>
-        <button className="btn primary big" onClick={onStart}>Reveal problem {index + 1}</button>
+        <button className="btn primary big" onClick={() => onStart?.()}>Reveal problem {index + 1}</button>
       </section>
     );
   }
@@ -53,12 +58,10 @@ export function ProblemCard({ problem, state, index, onStart, onGuess, onHint }:
   return (
     <section className="card" aria-labelledby={`p${index}-title`}>
       <header className="card-head">
-        <h2 id={`p${index}-title`} className="card-title">
-          Problem {index + 1} · {LABEL[problem.difficulty]}
-        </h2>
+        <h2 id={`p${index}-title`} className="card-title">{heading}</h2>
         <span className="muted small">{topic}</span>
       </header>
-      {!done && <LiveTimer elapsedMs={state.elapsedMs} targetMs={TARGET_MS[problem.difficulty]} />}
+      {scored && !done && <LiveTimer elapsedMs={state.elapsedMs} targetMs={TARGET_MS[problem.difficulty]} />}
 
       <MathText className="prompt" text={problem.prompt} />
       {problem.diagram && <Diagram svg={problem.diagram} alt={problem.diagramAlt} />}
@@ -96,7 +99,7 @@ export function ProblemCard({ problem, state, index, onStart, onGuess, onHint }:
         {!done && state.hintsUsed < MAX_HINTS && (
           <button className="btn ghost" onClick={onHint}>
             <span aria-hidden="true">💡</span> Show hint {state.hintsUsed + 1}
-            <span className="muted small"> (−0.5 pt)</span>
+            {scored && <span className="muted small"> (−0.5 pt)</span>}
           </button>
         )}
       </div>
@@ -120,13 +123,18 @@ export function ProblemCard({ problem, state, index, onStart, onGuess, onHint }:
             )}{' '}
             {answerTex.ok && <TeX tex={answerTex.tex} />}
           </p>
-          <p className="muted small">
-            Time {formatDuration(state.elapsedMs)} ·{' '}
-            {state.status === 'solved'
-              ? `${score.afterHints} base × ${score.timeMult.toFixed(2)} time × ${score.weight} difficulty = ${score.total} pts`
-              : '0 pts'}
-          </p>
+          {scored && (
+            <p className="muted small">
+              Time {formatDuration(state.elapsedMs)} ·{' '}
+              {state.status === 'solved'
+                ? `${score.afterHints} base × ${score.timeMult.toFixed(2)} time × ${score.weight} difficulty = ${score.total} pts`
+                : '0 pts'}
+            </p>
+          )}
           <h3>Worked solution</h3>
+          {problem.keyIdea && (
+            <div className="key-idea"><strong>Key idea.</strong> <MathText as="span" text={problem.keyIdea} /></div>
+          )}
           <ol className="steps">
             {problem.solutionSteps.slice(0, stepsShown).map((s, i) => (
               <MathText as="li" key={i} text={s} />
