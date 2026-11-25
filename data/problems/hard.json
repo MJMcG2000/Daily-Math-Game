@@ -10,10 +10,12 @@
     "answerNumeric": 2.25,
     "hint1": "Use the standard limits $\\dfrac{1 - \\cos u}{u^2} \\to \\tfrac12$ and $\\dfrac{\\sin u}{u} \\to 1$. Rewrite with matching arguments.",
     "hint2": "$\\dfrac{1 - \\cos3x}{x\\sin2x} = \\dfrac{1 - \\cos3x}{(3x)^2}\\cdot\\dfrac{2x}{\\sin2x}\\cdot\\dfrac{9x^2}{2x^2}$.",
+    "keyIdea": "Rewrite the expression so it is built from the two standard trig limits, $\\dfrac{\\sin u}{u} \\to 1$ and $\\dfrac{1 - \\cos u}{u^2} \\to \\tfrac12$, each with the *same* $u$ in the top and bottom.",
     "solutionSteps": [
-      "Write $\\dfrac{1 - \\cos3x}{x\\sin2x} = \\dfrac{1 - \\cos3x}{9x^2}\\cdot\\dfrac{2x}{\\sin2x}\\cdot\\dfrac{9}{2}$.",
-      "As $x \\to 0$: $\\dfrac{1 - \\cos3x}{9x^2} \\to \\tfrac12$ and $\\dfrac{2x}{\\sin2x} \\to 1$.",
-      "The limit is $\\tfrac12\\cdot1\\cdot\\tfrac92 = \\tfrac94$."
+      "**Why we can't just plug in.** At $x = 0$ the expression is $\\tfrac00$, so we need to rewrite it before taking the limit.",
+      "**Match the arguments.** The cosine has $3x$ inside, so we want $(3x)^2 = 9x^2$ under it. The sine has $2x$, so we want $2x$ under it. Multiplying and dividing by the right factors: $\\dfrac{1 - \\cos3x}{x\\sin2x} = \\dfrac{1 - \\cos3x}{9x^2}\\cdot\\dfrac{2x}{\\sin2x}\\cdot\\dfrac{9x^2}{2x\\cdot x}$.",
+      "**The leftover factor** simplifies to $\\dfrac{9x^2}{2x^2} = \\dfrac92$, a constant.",
+      "**Take limits of each piece.** $\\dfrac{1 - \\cos3x}{9x^2} \\to \\tfrac12$ and $\\dfrac{2x}{\\sin2x} \\to 1$, so the limit is $\\tfrac12\\cdot1\\cdot\\tfrac92 = \\tfrac94$."
     ],
     "course": "calc1"
   },
@@ -28,10 +30,12 @@
     "answerNumeric": 3.0,
     "hint1": "This is an $\\infty - \\infty$ form. Multiply by the conjugate.",
     "hint2": "$\\dfrac{(x^2 + 6x) - x^2}{\\sqrt{x^2 + 6x} + x} = \\dfrac{6x}{\\sqrt{x^2 + 6x} + x}$.",
+    "keyIdea": "$\\infty - \\infty$ is not automatically $0$. Multiply by the conjugate to turn the difference into a fraction, then divide by the highest power of $x$.",
     "solutionSteps": [
-      "Multiply by the conjugate: $\\dfrac{6x}{\\sqrt{x^2 + 6x} + x}$.",
-      "Divide the top and bottom by $x$: $\\dfrac{6}{\\sqrt{1 + 6/x} + 1}$.",
-      "As $x \\to \\infty$: $\\dfrac{6}{1 + 1} = 3$."
+      "**Conjugate.** Multiply the top and bottom by $\\sqrt{x^2 + 6x} + x$: $\\dfrac{(x^2 + 6x) - x^2}{\\sqrt{x^2 + 6x} + x} = \\dfrac{6x}{\\sqrt{x^2 + 6x} + x}$.",
+      "**Divide by $x$.** For $x > 0$, $\\sqrt{x^2 + 6x} = x\\sqrt{1 + 6/x}$, so the expression is $\\dfrac{6}{\\sqrt{1 + 6/x} + 1}$.",
+      "**Let $x \\to \\infty$.** $\\tfrac6x \\to 0$, so the limit is $\\dfrac{6}{1 + 1} = 3$.",
+      "**Intuition.** For large $x$, $\\sqrt{x^2 + 6x} \\approx x + 3$ (because $(x + 3)^2 = x^2 + 6x + 9$), so the difference tends to $3$."
     ],
     "course": "calc1"
   },
@@ -46,10 +50,13 @@
     "answerNumeric": 0.5,
     "hint1": "Factor: $\\tan x - \\sin x = \\tan x\\,(1 - \\cos x)$.",
     "hint2": "$\\dfrac{\\tan x}{x}\\cdot\\dfrac{1 - \\cos x}{x^2} \\to 1\\cdot\\tfrac12$.",
+    "keyIdea": "Factor $\\tan x$ out of the numerator: $\\tan x - \\sin x = \\tan x\\,(1 - \\cos x)$. That splits the expression into standard limits.",
     "solutionSteps": [
-      "$\\tan x - \\sin x = \\dfrac{\\sin x}{\\cos x}(1 - \\cos x)$.",
-      "$\\dfrac{\\tan x - \\sin x}{x^3} = \\dfrac{\\sin x}{x}\\cdot\\dfrac{1}{\\cos x}\\cdot\\dfrac{1 - \\cos x}{x^2}$.",
-      "Limit: $1\\cdot1\\cdot\\tfrac12 = \\tfrac12$."
+      "**Why the obvious approach stalls.** At $x = 0$ the expression is $\\tfrac00$. Applying L'Hôpital would take three rounds, so factoring is quicker.",
+      "**Factor the numerator.** Write $\\tan x$ as $\\tfrac{\\sin x}{\\cos x}$ and pull out the common factor: $\\tan x - \\sin x = \\dfrac{\\sin x}{\\cos x}(1 - \\cos x)$.",
+      "**Split $x^3$ into $x\\cdot x^2$** so that each piece matches a standard limit: $\\dfrac{\\tan x - \\sin x}{x^3} = \\dfrac{\\sin x}{x}\\cdot\\dfrac{1}{\\cos x}\\cdot\\dfrac{1 - \\cos x}{x^2}$.",
+      "**Take each limit.** As $x \\to 0$, $\\dfrac{\\sin x}{x} \\to 1$, $\\dfrac{1}{\\cos x} \\to 1$ and $\\dfrac{1 - \\cos x}{x^2} \\to \\tfrac12$. The product of the limits is $\\tfrac12$.",
+      "**Check with series.** $\\tan x \\approx x + \\tfrac{x^3}{3}$ and $\\sin x \\approx x - \\tfrac{x^3}{6}$, so the difference is about $\\tfrac{x^3}{2}$, which gives $\\tfrac12$ again."
     ],
     "course": "calc1"
   },
@@ -64,10 +71,12 @@
     "answerNumeric": 403.4287934927351,
     "hint1": "This is a $1^\\infty$ form. Take the log: $L = \\lim 2x\\ln\\left(1 + \\tfrac3x\\right)$.",
     "hint2": "Let $t = \\tfrac3x$. Then $2x\\ln(1 + t) = 6\\cdot\\dfrac{\\ln(1 + t)}{t} \\to 6$.",
+    "keyIdea": "For a $1^\\infty$ form, take the natural log. That turns the exponent into a product, which you can handle with a known limit or L'Hôpital's rule.",
     "solutionSteps": [
-      "$\\ln y = 2x\\ln\\left(1 + \\tfrac3x\\right)$.",
-      "With $t = 3/x \\to 0^+$: $\\ln y = 6\\,\\dfrac{\\ln(1 + t)}{t} \\to 6$.",
-      "So $y \\to e^6$."
+      "**Log of the expression.** Let $y = \\left(1 + \\tfrac3x\\right)^{2x}$. Then $\\ln y = 2x\\ln\\left(1 + \\tfrac3x\\right)$, which is an $\\infty\\cdot0$ form.",
+      "**Substitute $t = \\tfrac3x$.** As $x \\to \\infty$, $t \\to 0^+$, and $2x = \\tfrac6t$. So $\\ln y = 6\\cdot\\dfrac{\\ln(1 + t)}{t}$.",
+      "**Known limit.** $\\dfrac{\\ln(1 + t)}{t} \\to 1$ as $t \\to 0$ (L'Hôpital: $\\dfrac{1/(1 + t)}{1} \\to 1$). So $\\ln y \\to 6$.",
+      "**Undo the log.** $y \\to e^6 \\approx 403$. This matches the pattern $\\left(1 + \\tfrac ax\\right)^{bx} \\to e^{ab}$."
     ],
     "course": "calc1"
   },
@@ -82,10 +91,12 @@
     "answerNumeric": 0.6666666666666666,
     "hint1": "Substitute $x = u^6$ so both roots become whole powers of $u$.",
     "hint2": "The limit becomes $\\lim_{u\\to1}\\dfrac{u^2 - 1}{u^3 - 1}$.",
+    "keyIdea": "Both roots go to $1$, giving $\\tfrac00$. Substituting $x = u^6$ turns both roots into whole powers of $u$, and the problem becomes ordinary factoring.",
     "solutionSteps": [
-      "With $x = u^6$: $\\dfrac{u^2 - 1}{u^3 - 1} = \\dfrac{(u - 1)(u + 1)}{(u - 1)(u^2 + u + 1)}$.",
-      "Cancel: $\\dfrac{u + 1}{u^2 + u + 1}$.",
-      "At $u = 1$: $\\tfrac23$."
+      "**Substitute.** Let $x = u^6$, so $\\sqrt[3]{x} = u^2$ and $\\sqrt x = u^3$. As $x \\to 1$, $u \\to 1$.",
+      "**New limit.** $\\lim_{u\\to1}\\dfrac{u^2 - 1}{u^3 - 1}$.",
+      "**Factor and cancel.** $\\dfrac{(u - 1)(u + 1)}{(u - 1)(u^2 + u + 1)} = \\dfrac{u + 1}{u^2 + u + 1}$.",
+      "**Evaluate at $u = 1$.** $\\dfrac{2}{3}$. (Or L'Hôpital in $x$: $\\dfrac{\\frac13x^{-2/3}}{\\frac12x^{-1/2}} \\to \\dfrac{1/3}{1/2} = \\dfrac23$.)"
     ],
     "course": "calc1"
   },
@@ -100,10 +111,12 @@
     "answerNumeric": 4.0,
     "hint1": "It is $\\tfrac00$. Apply L'Hôpital's rule, twice if needed.",
     "hint2": "After one application: $\\dfrac{2e^{2x} - 2}{\\sin x}$, which is still $\\tfrac00$.",
+    "keyIdea": "This is a $\\tfrac00$ form, so use L'Hôpital's rule: differentiate the top and bottom separately. You need to apply it twice.",
     "solutionSteps": [
-      "L'Hôpital: $\\dfrac{2e^{2x} - 2}{\\sin x}$, still $\\tfrac00$.",
-      "Again: $\\dfrac{4e^{2x}}{\\cos x}$.",
-      "At $x = 0$: $\\tfrac41 = 4$."
+      "**Check the form.** At $x = 0$ the top is $1 - 1 - 0 = 0$ and the bottom is $1 - 1 = 0$.",
+      "**First application.** $\\dfrac{2e^{2x} - 2}{\\sin x}$, which is still $\\tfrac00$ at $0$.",
+      "**Second application.** $\\dfrac{4e^{2x}}{\\cos x}$. At $0$ this is $\\tfrac41 = 4$.",
+      "**Check with series.** The top is $\\approx 2x^2$ and the bottom is $\\approx \\tfrac{x^2}{2}$, and $\\tfrac{2}{1/2} = 4$. ✓"
     ],
     "course": "calc1"
   },
@@ -118,10 +131,11 @@
     "answerNumeric": 2.718281828459045,
     "hint1": "Take the log: $\\ln y = \\dfrac{\\ln(1 + \\sin x)}{x}$.",
     "hint2": "L'Hôpital: $\\dfrac{\\cos x/(1 + \\sin x)}{1} \\to 1$.",
+    "keyIdea": "A variable raised to a variable power: take the log so the exponent comes down, find that limit, then exponentiate.",
     "solutionSteps": [
-      "$\\ln y = \\dfrac{\\ln(1 + \\sin x)}{x}$, a $\\tfrac00$ form.",
-      "L'Hôpital: $\\dfrac{\\cos x}{1 + \\sin x} \\to 1$.",
-      "So $y \\to e^1 = e$."
+      "**Log.** $\\ln y = \\dfrac{\\ln(1 + \\sin x)}{x}$. As $x \\to 0^+$ this is $\\tfrac00$.",
+      "**L'Hôpital.** Differentiate the top and bottom: $\\dfrac{\\cos x/(1 + \\sin x)}{1} \\to \\dfrac{1}{1} = 1$.",
+      "**Exponentiate.** $\\ln y \\to 1$, so $y \\to e$. Intuitively, $\\sin x \\approx x$ for small $x$, so this behaves like the classic $(1 + x)^{1/x} \\to e$."
     ],
     "course": "calc1"
   },
@@ -136,10 +150,12 @@
     "answerNumeric": 1.0,
     "hint1": "Rewrite it as $\\dfrac{\\pi/2 - \\arctan x}{1/x}$, a $\\tfrac00$ form.",
     "hint2": "L'Hôpital: $\\dfrac{-1/(1 + x^2)}{-1/x^2} = \\dfrac{x^2}{1 + x^2}$.",
+    "keyIdea": "Rewrite $\\infty\\cdot0$ as a fraction, $\\dfrac{0}{0}$, so L'Hôpital applies. Put the $x$ in the denominator as $\\tfrac1x$.",
     "solutionSteps": [
-      "$\\dfrac{\\pi/2 - \\arctan x}{1/x}$ is $\\tfrac00$ as $x \\to \\infty$.",
-      "Differentiate the top and bottom: $\\dfrac{-\\frac{1}{1 + x^2}}{-\\frac{1}{x^2}} = \\dfrac{x^2}{1 + x^2}$.",
-      "This tends to $1$."
+      "**Rewrite.** $x\\left(\\tfrac\\pi2 - \\arctan x\\right) = \\dfrac{\\frac\\pi2 - \\arctan x}{1/x}$. Both parts go to $0$.",
+      "**Differentiate.** The top gives $-\\dfrac{1}{1 + x^2}$ and the bottom gives $-\\dfrac{1}{x^2}$.",
+      "**Ratio.** $\\dfrac{-1/(1 + x^2)}{-1/x^2} = \\dfrac{x^2}{1 + x^2} \\to 1$.",
+      "**Interpretation.** $\\tfrac\\pi2 - \\arctan x = \\arctan\\tfrac1x \\approx \\tfrac1x$ for large $x$, so the product tends to $1$."
     ],
     "course": "calc1"
   },
@@ -154,11 +170,12 @@
     "answerNumeric": 0.3333333333333333,
     "hint1": "Combine into one fraction: $\\dfrac{x^2 - \\sin^2x}{x^2\\sin^2x}$. Use Taylor expansions.",
     "hint2": "$\\sin^2 x = x^2 - \\tfrac{x^4}{3} + O(x^6)$.",
+    "keyIdea": "Combine into one fraction, then use the Taylor expansion of $\\sin x$. The difference is tiny, of order $x^4$, and you have to keep enough terms to see it.",
     "solutionSteps": [
-      "$\\dfrac{x^2 - \\sin^2 x}{x^2\\sin^2 x}$.",
-      "$\\sin x = x - \\tfrac{x^3}{6} + \\cdots \\Rightarrow \\sin^2x = x^2 - \\tfrac{x^4}{3} + O(x^6)$.",
-      "Numerator $\\approx \\tfrac{x^4}{3}$ and denominator $\\approx x^4$.",
-      "Limit: $\\tfrac13$."
+      "**One fraction.** $\\dfrac{1}{\\sin^2x} - \\dfrac{1}{x^2} = \\dfrac{x^2 - \\sin^2x}{x^2\\sin^2x}$.",
+      "**Expand $\\sin^2x$.** $\\sin x = x - \\tfrac{x^3}{6} + O(x^5)$, so $\\sin^2x = x^2 - \\tfrac{x^4}{3} + O(x^6)$.",
+      "**Numerator and denominator.** The top is $\\tfrac{x^4}{3} + O(x^6)$. The bottom is $x^2\\cdot x^2(1 + O(x^2)) = x^4 + O(x^6)$.",
+      "**Limit.** $\\dfrac{x^4/3}{x^4} \\to \\tfrac13$. (L'Hôpital also works, but needs four rounds.)"
     ],
     "course": "calc1"
   },
@@ -173,10 +190,12 @@
     "answerNumeric": -0.4265042778844424,
     "hint1": "Use the product rule for three factors: $(uvw)' = u'vw + uv'w + uvw'$.",
     "hint2": "At $x = \\pi$, $\\sin\\pi = 0$ kills two of the three terms.",
+    "keyIdea": "For a product of three factors, the derivative is a sum of three terms, each with one factor differentiated. At $x = \\pi$, $\\sin\\pi = 0$ wipes out two of them.",
     "solutionSteps": [
-      "$f' = 2xe^{-x}\\sin x - x^2e^{-x}\\sin x + x^2e^{-x}\\cos x$.",
-      "At $\\pi$: $\\sin\\pi = 0$ and $\\cos\\pi = -1$.",
-      "$f'(\\pi) = -\\pi^2e^{-\\pi} \\approx -0.426$."
+      "**Three-factor product rule.** $(uvw)' = u'vw + uv'w + uvw'$ with $u = x^2$, $v = e^{-x}$ and $w = \\sin x$.",
+      "**Each term.** $2x\\,e^{-x}\\sin x \\;-\\; x^2e^{-x}\\sin x \\;+\\; x^2e^{-x}\\cos x$. The middle term is negative because $(e^{-x})' = -e^{-x}$.",
+      "**Evaluate at $\\pi$.** $\\sin\\pi = 0$ kills the first two terms, and $\\cos\\pi = -1$.",
+      "**Result.** $f'(\\pi) = \\pi^2e^{-\\pi}(-1) = -\\pi^2e^{-\\pi} \\approx -0.426$."
     ],
     "course": "calc1"
   },
@@ -191,10 +210,12 @@
     "answerNumeric": 1.0666666666666667,
     "hint1": "Simplify with log rules before differentiating: $f(x) = \\tfrac12\\ln(1 + x^2) - \\tfrac12\\ln(1 - x^2)$.",
     "hint2": "$f'(x) = \\dfrac{x}{1 + x^2} + \\dfrac{x}{1 - x^2}$.",
+    "keyIdea": "Before differentiating, use log rules to break the expression into simple pieces. $\\ln\\sqrt{\\tfrac{A}{B}} = \\tfrac12\\ln A - \\tfrac12\\ln B$.",
     "solutionSteps": [
-      "$f(x) = \\tfrac12\\ln(1 + x^2) - \\tfrac12\\ln(1 - x^2)$.",
-      "$f'(x) = \\dfrac{x}{1 + x^2} + \\dfrac{x}{1 - x^2}$.",
-      "At $\\tfrac12$: $\\dfrac{1/2}{5/4} + \\dfrac{1/2}{3/4} = \\tfrac25 + \\tfrac23 = \\tfrac{16}{15}$."
+      "**Simplify with log rules before differentiating.** A square root is a power of $\\tfrac12$, and the log of a quotient is a difference of logs. So $f(x) = \\tfrac12\\ln(1 + x^2) - \\tfrac12\\ln(1 - x^2)$.",
+      "**Differentiate each log with the chain rule,** using $(\\ln u)' = \\tfrac{u'}{u}$. The first gives $\\tfrac12\\cdot\\tfrac{2x}{1 + x^2}$. The second gives $-\\tfrac12\\cdot\\tfrac{-2x}{1 - x^2}$, where the two minus signs combine into a plus.",
+      "**So** $f'(x) = \\dfrac{x}{1 + x^2} + \\dfrac{x}{1 - x^2}$.",
+      "**Evaluate at $x = \\tfrac12$.** $\\dfrac{1/2}{5/4} + \\dfrac{1/2}{3/4} = \\tfrac25 + \\tfrac23 = \\tfrac{16}{15}$."
     ],
     "course": "calc1"
   },
@@ -209,10 +230,12 @@
     "answerNumeric": -8.0,
     "hint1": "Logarithmic differentiation is cleanest: $\\ln y = 3\\ln(x^2 + 1) - 2\\ln(2x - 1)$.",
     "hint2": "$\\dfrac{y'}{y} = \\dfrac{6x}{x^2 + 1} - \\dfrac{4}{2x - 1}$.",
+    "keyIdea": "For a messy quotient of powers, *logarithmic differentiation* is cleaner than the quotient rule. Take $\\ln$ of both sides, differentiate, then multiply back by $y$.",
     "solutionSteps": [
-      "$\\dfrac{y'}{y} = \\dfrac{6x}{x^2 + 1} - \\dfrac{4}{2x - 1}$.",
-      "At $x = 1$: $\\dfrac{y'}{y} = 3 - 4 = -1$, and $y(1) = \\tfrac{8}{1} = 8$.",
-      "$y'(1) = -8$."
+      "**Take logs.** $\\ln y = 3\\ln(x^2 + 1) - 2\\ln(2x - 1)$.",
+      "**Differentiate.** $\\dfrac{y'}{y} = \\dfrac{3\\cdot2x}{x^2 + 1} - \\dfrac{2\\cdot2}{2x - 1} = \\dfrac{6x}{x^2 + 1} - \\dfrac{4}{2x - 1}$.",
+      "**At $x = 1$.** $\\dfrac{y'}{y} = 3 - 4 = -1$, and $y(1) = \\dfrac{2^3}{1^2} = 8$.",
+      "**Solve.** $y'(1) = -1\\cdot8 = -8$."
     ],
     "course": "calc1"
   },
@@ -227,10 +250,12 @@
     "answerNumeric": 6.772588722239782,
     "hint1": "Write $x^x = e^{x\\ln x}$, or take logs of both sides.",
     "hint2": "$\\dfrac{d}{dx}(x\\ln x) = \\ln x + 1$, so $f'(x) = x^x(\\ln x + 1)$.",
+    "keyIdea": "When both the base and the exponent vary, neither the power rule nor the exponential rule applies. Rewrite $x^x = e^{x\\ln x}$, or take logs, and use the chain rule.",
     "solutionSteps": [
-      "$\\ln f = x\\ln x \\Rightarrow \\dfrac{f'}{f} = \\ln x + 1$.",
-      "$f'(x) = x^x(\\ln x + 1)$.",
-      "$f'(2) = 4(\\ln2 + 1) = 4 + 4\\ln2$."
+      "**Why the usual rules fail.** The power rule assumes a constant exponent, and the exponential rule assumes a constant base. Here both vary.",
+      "**Logs.** $\\ln f = x\\ln x$. Differentiating both sides: $\\dfrac{f'}{f} = \\ln x + x\\cdot\\tfrac1x = \\ln x + 1$.",
+      "**Derivative.** $f'(x) = x^x(\\ln x + 1)$.",
+      "**At $x = 2$.** $4(\\ln2 + 1) = 4 + 4\\ln2 \\approx 6.77$."
     ],
     "course": "calc1"
   },
@@ -245,10 +270,12 @@
     "answerNumeric": -1.948557158514987,
     "hint1": "Product rule, with the chain rule on each factor.",
     "hint2": "$f' = 6\\sin^2(2x)\\cos(2x)\\cos(3x) - 3\\sin^3(2x)\\sin(3x)$.",
+    "keyIdea": "This is a product, and each factor needs the chain rule. At $x = \\tfrac\\pi6$ the factor $\\cos3x$ is zero, which simplifies the evaluation a lot.",
     "solutionSteps": [
-      "$f' = 6\\sin^2(2x)\\cos(2x)\\cos(3x) - 3\\sin^3(2x)\\sin(3x)$.",
-      "At $\\tfrac\\pi6$: $\\cos(3x) = \\cos\\tfrac\\pi2 = 0$, so the first term vanishes.",
-      "$\\sin(2x) = \\tfrac{\\sqrt3}{2}$ and $\\sin(3x) = 1$: $f' = -3\\cdot\\tfrac{3\\sqrt3}{8} = -\\tfrac{9\\sqrt3}{8}$."
+      "**Product rule.** $f' = (\\sin^32x)'\\cos3x + \\sin^32x\\,(\\cos3x)'$.",
+      "**Chain rule on each.** $(\\sin^32x)' = 3\\sin^22x\\cdot\\cos2x\\cdot2$ and $(\\cos3x)' = -3\\sin3x$. So $f' = 6\\sin^22x\\cos2x\\cos3x - 3\\sin^32x\\sin3x$.",
+      "**Evaluate at $\\tfrac\\pi6$.** $2x = \\tfrac\\pi3$ and $3x = \\tfrac\\pi2$. Since $\\cos\\tfrac\\pi2 = 0$, the first term vanishes.",
+      "**Second term.** $-3\\left(\\tfrac{\\sqrt3}{2}\\right)^3\\cdot1 = -3\\cdot\\tfrac{3\\sqrt3}{8} = -\\tfrac{9\\sqrt3}{8} \\approx -1.95$."
     ],
     "course": "calc1"
   },
@@ -263,10 +290,12 @@
     "answerNumeric": -0.048,
     "hint1": "Find $a$ with $f(a) = 4$. Then $g'(y) = \\dfrac{1}{f'(g(y))}$. Differentiate that again with the chain rule.",
     "hint2": "$g''(y) = -\\dfrac{f''(g(y))\\,g'(y)}{f'(g(y))^2} = -\\dfrac{f''(a)}{f'(a)^3}$.",
+    "keyIdea": "The inverse function's derivative is the reciprocal of $f'$ at the matching point, $g'(y) = \\dfrac{1}{f'(g(y))}$. Differentiating that once more, with the chain rule, gives the second derivative.",
     "solutionSteps": [
-      "$f(1) = 4$, so $g(4) = 1$. $f'(x) = 3x^2 + 2$ and $f''(x) = 6x$.",
-      "$g'(y) = \\dfrac{1}{f'(g(y))}$, so $g''(y) = -\\dfrac{f''(g(y))g'(y)}{f'(g(y))^2} = -\\dfrac{f''(g(y))}{f'(g(y))^3}$.",
-      "$g''(4) = -\\dfrac{6}{5^3} = -\\tfrac{6}{125}$."
+      "**Matching point.** Solve $f(a) = 4$: $a^3 + 2a + 1 = 4$ gives $a = 1$ (try small integers). So $g(4) = 1$.",
+      "**Derivatives of $f$.** $f'(x) = 3x^2 + 2$, so $f'(1) = 5$. And $f''(x) = 6x$, so $f''(1) = 6$.",
+      "**Differentiate $g' = \\dfrac{1}{f'(g)}$.** $g'' = -\\dfrac{f''(g)\\cdot g'}{f'(g)^2}$. Substituting $g' = \\tfrac{1}{f'(g)}$ gives $g'' = -\\dfrac{f''(g)}{f'(g)^3}$.",
+      "**Evaluate.** $g''(4) = -\\dfrac{6}{5^3} = -\\tfrac{6}{125}$."
     ],
     "course": "calc1"
   },
@@ -281,10 +310,12 @@
     "answerNumeric": 0.2146018366025517,
     "hint1": "$\\dfrac{d}{dx}\\arctan(u) = \\dfrac{u'}{1 + u^2}$.",
     "hint2": "$y'(1) = \\dfrac{2}{1 + 1} = 1$ and $y(1) = \\tfrac\\pi4$.",
+    "keyIdea": "A tangent line needs a point and a slope. Get the slope by differentiating $\\arctan(x^2)$ with the chain rule, then find where the line hits $y = 0$.",
     "solutionSteps": [
-      "$y' = \\dfrac{2x}{1 + x^4}$, so $y'(1) = 1$ and $y(1) = \\tfrac\\pi4$.",
-      "Tangent: $y = \\tfrac\\pi4 + (x - 1)$.",
-      "$y = 0 \\Rightarrow x = 1 - \\tfrac\\pi4 \\approx 0.215$."
+      "**Point.** $y(1) = \\arctan1 = \\tfrac\\pi4$.",
+      "**Slope.** $\\dfrac{d}{dx}\\arctan(u) = \\dfrac{u'}{1 + u^2}$ with $u = x^2$: $y' = \\dfrac{2x}{1 + x^4}$, so $y'(1) = \\tfrac22 = 1$.",
+      "**Tangent line.** $y = \\tfrac\\pi4 + 1\\cdot(x - 1)$.",
+      "**$x$-intercept.** $0 = \\tfrac\\pi4 + x - 1$, so $x = 1 - \\tfrac\\pi4 \\approx 0.215$."
     ],
     "course": "calc1"
   },
@@ -299,10 +330,12 @@
     "answerNumeric": -9.620954761930703,
     "hint1": "$f' = e^x(\\cos x - \\sin x)$. Differentiate once more.",
     "hint2": "$f'' = e^x(\\cos x - \\sin x) + e^x(-\\sin x - \\cos x) = -2e^x\\sin x$.",
+    "keyIdea": "Differentiate the product twice. Grouping the $e^x$ factor out after each step keeps the algebra tidy.",
     "solutionSteps": [
-      "$f' = e^x(\\cos x - \\sin x)$.",
-      "$f'' = e^x[(\\cos x - \\sin x) + (-\\sin x - \\cos x)] = -2e^x\\sin x$.",
-      "$f''\\left(\\tfrac\\pi2\\right) = -2e^{\\pi/2} \\approx -9.62$."
+      "**First derivative.** $f' = e^x\\cos x + e^x(-\\sin x) = e^x(\\cos x - \\sin x)$.",
+      "**Second derivative.** Apply the product rule again: $f'' = e^x(\\cos x - \\sin x) + e^x(-\\sin x - \\cos x)$.",
+      "**Simplify.** The $\\cos x$ terms cancel: $f'' = -2e^x\\sin x$.",
+      "**At $\\tfrac\\pi2$.** $\\sin\\tfrac\\pi2 = 1$, so $f''\\left(\\tfrac\\pi2\\right) = -2e^{\\pi/2} \\approx -9.62$."
     ],
     "course": "calc1"
   },
@@ -317,10 +350,12 @@
     "answerNumeric": -0.116496662323528,
     "hint1": "Chain rule: $h'(x) = \\cos(u)\\,u'$ with $u = \\dfrac{\\pi x}{x^2 + 1}$.",
     "hint2": "Quotient rule: $u' = \\dfrac{\\pi(1 - x^2)}{(x^2 + 1)^2}$, so $u'(2) = -\\tfrac{3\\pi}{25}$ and $u(2) = \\tfrac{2\\pi}{5}$.",
+    "keyIdea": "Use the chain rule (outer sine, inner quotient) and the quotient rule for the inner function. The given value $\\cos\\tfrac{2\\pi}{5} = \\tfrac{\\sqrt5 - 1}{4}$ handles the trig part.",
     "solutionSteps": [
-      "$u(2) = \\tfrac{2\\pi}{5}$ and $u'(x) = \\dfrac{\\pi(x^2 + 1) - \\pi x(2x)}{(x^2 + 1)^2} = \\dfrac{\\pi(1 - x^2)}{(x^2 + 1)^2}$.",
-      "$u'(2) = \\dfrac{-3\\pi}{25}$.",
-      "$h'(2) = \\cos\\tfrac{2\\pi}{5}\\cdot\\left(-\\tfrac{3\\pi}{25}\\right) = -\\dfrac{3\\pi(\\sqrt5 - 1)}{100} \\approx -0.116$."
+      "**Name the inner function.** $u = \\dfrac{\\pi x}{x^2 + 1}$, so $h = \\sin u$ and $h' = \\cos u\\cdot u'$.",
+      "**Quotient rule.** $u' = \\dfrac{\\pi(x^2 + 1) - \\pi x\\cdot2x}{(x^2 + 1)^2} = \\dfrac{\\pi(1 - x^2)}{(x^2 + 1)^2}$.",
+      "**At $x = 2$.** $u(2) = \\tfrac{2\\pi}{5}$ and $u'(2) = \\dfrac{\\pi(1 - 4)}{25} = -\\tfrac{3\\pi}{25}$.",
+      "**Combine.** $h'(2) = \\tfrac{\\sqrt5 - 1}{4}\\cdot\\left(-\\tfrac{3\\pi}{25}\\right) = -\\dfrac{3\\pi(\\sqrt5 - 1)}{100} \\approx -0.116$."
     ],
     "course": "calc1"
   },
@@ -335,11 +370,13 @@
     "answerNumeric": -5.333333333333333,
     "hint1": "Differentiate implicitly to get $y' = \\dfrac{2y - x^2}{y^2 - 2x}$, and evaluate it at $(3, 3)$.",
     "hint2": "$y'(3, 3) = -1$. Differentiate the quotient again, putting in $y' = -1$.",
+    "keyIdea": "Implicit differentiation gives $y'$ as a quotient in $x$ and $y$. Differentiate that quotient again (it contains $y'$), then substitute the point *and* the known $y'$.",
     "solutionSteps": [
-      "$3x^2 + 3y^2y' = 6y + 6xy' \\Rightarrow y' = \\dfrac{2y - x^2}{y^2 - 2x}$, so $y' = \\dfrac{6 - 9}{9 - 6} = -1$.",
-      "$y'' = \\dfrac{(2y' - 2x)(y^2 - 2x) - (2y - x^2)(2yy' - 2)}{(y^2 - 2x)^2}$.",
-      "At $(3, 3)$ with $y' = -1$: $\\dfrac{(-8)(3) - (-3)(-8)}{9} = \\dfrac{-48}{9}$.",
-      "$y'' = -\\tfrac{16}{3}$."
+      "**First derivative.** $3x^2 + 3y^2y' = 6y + 6xy'$, so $y' = \\dfrac{2y - x^2}{y^2 - 2x}$. At $(3, 3)$: $y' = \\dfrac{6 - 9}{9 - 6} = -1$.",
+      "**Second derivative (quotient rule).** $y'' = \\dfrac{(2y' - 2x)(y^2 - 2x) - (2y - x^2)(2yy' - 2)}{(y^2 - 2x)^2}$.",
+      "**Plug in $x = y = 3$ and $y' = -1$.** $2y' - 2x = -8$, $y^2 - 2x = 3$, $2y - x^2 = -3$ and $2yy' - 2 = -8$.",
+      "**Evaluate.** $\\dfrac{(-8)(3) - (-3)(-8)}{3^2} = \\dfrac{-24 - 24}{9} = -\\tfrac{48}{9}$.",
+      "**Simplify.** $y'' = -\\tfrac{16}{3}$. It is negative, so the curve bends downward at that point."
     ],
     "course": "calc1"
   },
@@ -354,10 +391,12 @@
     "answerNumeric": 3.5,
     "hint1": "Differentiate implicitly: $2x + y + xy' + 2yy' = 0$.",
     "hint2": "$y' = -\\dfrac{2x + y}{x + 2y} = -\\tfrac45$ at $(1, 2)$.",
+    "keyIdea": "Differentiate implicitly, treating $y$ as a function of $x$ (so $xy$ needs the product rule). Then use the slope to write the tangent line and find its $x$-intercept.",
     "solutionSteps": [
-      "$y' = -\\dfrac{2x + y}{x + 2y} = -\\dfrac{4}{5}$.",
-      "Tangent: $y - 2 = -\\tfrac45(x - 1)$.",
-      "Set $y = 0$: $x - 1 = \\tfrac52$, so $x = \\tfrac72$."
+      "**Differentiate.** $2x + (y + xy') + 2yy' = 0$, so $y'(x + 2y) = -(2x + y)$.",
+      "**Slope at $(1, 2)$.** $y' = -\\dfrac{2 + 2}{1 + 4} = -\\tfrac45$.",
+      "**Tangent line.** $y - 2 = -\\tfrac45(x - 1)$.",
+      "**$x$-intercept.** Set $y = 0$: $-2 = -\\tfrac45(x - 1)$, so $x - 1 = \\tfrac52$ and $x = \\tfrac72$."
     ],
     "course": "calc1"
   },
@@ -372,11 +411,12 @@
     "answerNumeric": -2.0,
     "hint1": "First find $y'(0)$ by differentiating once: $e^{xy}(y + xy') + y' = 1$.",
     "hint2": "At the origin, $y'(0) = 1$. Differentiate again: $e^{xy}(y + xy')^2 + e^{xy}(2y' + xy'') + y'' = 0$.",
+    "keyIdea": "Differentiate the equation twice, keeping $y'$ and $y''$ as unknowns. At the origin most terms vanish, which makes each step easy to solve.",
     "solutionSteps": [
-      "$e^{xy}(y + xy') + y' = 1$. At $(0, 0)$: $y' = 1$.",
-      "Differentiate again: $e^{xy}(y + xy')^2 + e^{xy}(2y' + xy'') + y'' = 0$.",
-      "At $(0, 0)$: $0 + 2(1) + y'' = 0$.",
-      "$y'' = -2$."
+      "**First derivative.** $e^{xy}(y + xy') + y' = 1$. At $(0, 0)$: $1\\cdot0 + y' = 1$, so $y' = 1$.",
+      "**Differentiate again.** The first term is a product, $e^{xy}\\cdot(y + xy')$: $e^{xy}(y + xy')^2 + e^{xy}(2y' + xy'') + y'' = 0$.",
+      "**Evaluate at the origin.** $(y + xy')^2 = 0$, $2y' = 2$ and $xy'' = 0$, so $0 + 2 + y'' = 0$.",
+      "**Result.** $y'' = -2$."
     ],
     "course": "calc1"
   },
@@ -391,10 +431,12 @@
     "answerNumeric": 2.0,
     "hint1": "Implicit differentiation: $2x - y - xy' + 2yy' = 0$, so $y' = \\dfrac{y - 2x}{2y - x}$.",
     "hint2": "Horizontal tangents need $y = 2x$. Substitute into the curve.",
+    "keyIdea": "Horizontal tangents happen where $y' = 0$, which means the numerator of the implicit derivative is zero. That gives a line to intersect with the curve.",
     "solutionSteps": [
-      "$y' = 0 \\iff y = 2x$.",
-      "$x^2 - 2x^2 + 4x^2 = 3 \\Rightarrow 3x^2 = 3 \\Rightarrow x = \\pm1$.",
-      "The points are $(1, 2)$ and $(-1, -2)$. The larger $y$ is $2$."
+      "**Implicit derivative.** $2x - (y + xy') + 2yy' = 0$, so $y' = \\dfrac{y - 2x}{2y - x}$.",
+      "**Horizontal means $y' = 0$.** The numerator must vanish: $y = 2x$ (with $2y - x \\ne 0$ there).",
+      "**Intersect with the curve.** $x^2 - x(2x) + (2x)^2 = 3$, so $3x^2 = 3$ and $x = \\pm1$.",
+      "**Points.** $(1, 2)$ and $(-1, -2)$. These are the top and bottom of the tilted ellipse, and the larger $y$ is $2$."
     ],
     "course": "calc1"
   },
@@ -409,10 +451,12 @@
     "answerNumeric": 75.0,
     "hint1": "$\\dfrac{1}{2\\sqrt x} + \\dfrac{y'}{2\\sqrt y} = 0 \\Rightarrow y' = -\\sqrt{\\dfrac yx}$.",
     "hint2": "$y' = -\\tfrac32$ at $(4, 9)$. Find both intercepts of $y - 9 = -\\tfrac32(x - 4)$.",
+    "keyIdea": "Implicit differentiation gives the slope. The tangent line's two intercepts are the legs of a right triangle with the axes.",
     "solutionSteps": [
-      "Slope: $-\\sqrt{9/4} = -\\tfrac32$.",
-      "Tangent: $y = -\\tfrac32x + 15$. Intercepts: $(10, 0)$ and $(0, 15)$.",
-      "Area $= \\tfrac12\\cdot10\\cdot15 = 75$."
+      "**Differentiate.** $\\dfrac{1}{2\\sqrt x} + \\dfrac{y'}{2\\sqrt y} = 0$, so $y' = -\\sqrt{\\dfrac yx}$.",
+      "**Slope at $(4, 9)$.** $-\\sqrt{\\tfrac94} = -\\tfrac32$.",
+      "**Tangent line.** $y = 9 - \\tfrac32(x - 4) = -\\tfrac32x + 15$. The intercepts are $(0, 15)$ and $(10, 0)$.",
+      "**Area.** $\\tfrac12\\cdot10\\cdot15 = 75$. (For this curve the intercepts always add to $25$, since $\\sqrt{4\\cdot25} + \\sqrt{9\\cdot25} = 25$.)"
     ],
     "course": "calc1"
   },
@@ -427,10 +471,12 @@
     "answerNumeric": -1.0769230769230769,
     "hint1": "Use the product rule on each term: $y^3 + 3xy^2y' + 3x^2y + x^3y' = 0$.",
     "hint2": "At $(1, 2)$: $8 + 12y' + 6 + y' = 0$.",
+    "keyIdea": "Each term is a product of a power of $x$ and a power of $y$, so it needs the product rule, with the chain rule on the $y$ part. Collect the $y'$ terms and solve.",
     "solutionSteps": [
-      "$y^3 + 3xy^2y' + 3x^2y + x^3y' = 0$.",
-      "At $(1, 2)$: $8 + 12y' + 6 + y' = 0$.",
-      "$13y' = -14 \\Rightarrow y' = -\\tfrac{14}{13}$."
+      "**Differentiate $xy^3$.** $y^3 + x\\cdot3y^2y'$.",
+      "**Differentiate $x^3y$.** $3x^2y + x^3y'$.",
+      "**At $(1, 2)$.** $8 + 12y' + 6 + y' = 0$.",
+      "**Solve.** $13y' = -14$, so $y' = -\\tfrac{14}{13}$."
     ],
     "course": "calc1"
   },
@@ -445,10 +491,13 @@
     "answerNumeric": 0.27631066509009605,
     "hint1": "By similar triangles, the water's surface radius is $r = \\tfrac{4}{10}h = \\tfrac25h$. Write $V$ in terms of $h$ alone.",
     "hint2": "$V = \\tfrac13\\pi\\left(\\tfrac25h\\right)^2h = \\tfrac{4\\pi}{75}h^3$, so $\\dfrac{dV}{dt} = \\tfrac{4\\pi}{25}h^2\\dfrac{dh}{dt}$.",
+    "keyIdea": "Use similar triangles to tie the water's surface radius to its depth. That turns $V$ into a function of $h$ alone, which you can differentiate with respect to time.",
     "solutionSteps": [
-      "$r = \\tfrac25h \\Rightarrow V = \\tfrac{4\\pi}{75}h^3$.",
-      "$\\dfrac{dV}{dt} = \\tfrac{4\\pi}{25}h^2\\dfrac{dh}{dt}$.",
-      "$5 = \\tfrac{4\\pi}{25}\\cdot36\\cdot\\dfrac{dh}{dt} \\Rightarrow \\dfrac{dh}{dt} = \\dfrac{125}{144\\pi} \\approx 0.276$ ft/min."
+      "**Similar triangles.** The water forms a smaller cone with the same shape as the tank: $\\tfrac rh = \\tfrac{4}{10}$, so $r = \\tfrac25h$.",
+      "**Volume in terms of $h$.** $V = \\tfrac13\\pi r^2h = \\tfrac13\\pi\\cdot\\tfrac{4}{25}h^2\\cdot h = \\tfrac{4\\pi}{75}h^3$.",
+      "**Differentiate with respect to $t$.** $\\dfrac{dV}{dt} = \\tfrac{4\\pi}{25}h^2\\dfrac{dh}{dt}$.",
+      "**Plug in $h = 6$ and $\\tfrac{dV}{dt} = 5$.** $5 = \\tfrac{4\\pi\\cdot36}{25}\\dfrac{dh}{dt}$, so $\\dfrac{dh}{dt} = \\dfrac{125}{144\\pi} \\approx 0.276$ ft/min.",
+      "**Why it slows down.** The tank widens as it fills, so the same inflow raises the level more slowly at greater depth."
     ],
     "course": "calc1",
     "diagram": "<svg viewBox=\"0 0 220 190\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><polygon points=\"30,20 190,20 110,180\"/><line x1=\"54\" y1=\"68\" x2=\"166\" y2=\"68\"/><path d=\"M 54 68 L 166 68 L 110 180 Z\" fill=\"currentColor\" fill-opacity=\"0.15\" stroke=\"none\"/><line x1=\"110\" y1=\"20\" x2=\"110\" y2=\"180\" stroke-dasharray=\"5 4\"/><text x=\"70\" y=\"14\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">4</text><text x=\"200\" y=\"104\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">10</text><text x=\"124\" y=\"128\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\" font-style=\"italic\">h</text><text x=\"140\" y=\"62\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\" font-style=\"italic\">r</text></svg>",
@@ -465,10 +514,12 @@
     "answerNumeric": -0.16666666666666666,
     "hint1": "Let $\\theta$ be the angle at the ground. Then $x = 13\\cos\\theta$.",
     "hint2": "$\\dfrac{dx}{dt} = -13\\sin\\theta\\dfrac{d\\theta}{dt}$, and $\\sin\\theta = \\tfrac{12}{13}$ when $x = 5$.",
+    "keyIdea": "Link the moving foot to the angle with $x = 13\\cos\\theta$, then differentiate with respect to time.",
     "solutionSteps": [
-      "$x = 13\\cos\\theta \\Rightarrow \\dfrac{dx}{dt} = -13\\sin\\theta\\,\\dfrac{d\\theta}{dt}$.",
-      "When $x = 5$, the height is $12$, so $\\sin\\theta = \\tfrac{12}{13}$.",
-      "$2 = -12\\dfrac{d\\theta}{dt} \\Rightarrow \\dfrac{d\\theta}{dt} = -\\tfrac16$ rad/s."
+      "**Relationship.** With the angle $\\theta$ at the ground, the foot is $x = 13\\cos\\theta$ from the wall.",
+      "**Differentiate.** $\\dfrac{dx}{dt} = -13\\sin\\theta\\,\\dfrac{d\\theta}{dt}$.",
+      "**At $x = 5$.** The top is at height $\\sqrt{169 - 25} = 12$, so $\\sin\\theta = \\tfrac{12}{13}$.",
+      "**Solve.** $2 = -13\\cdot\\tfrac{12}{13}\\cdot\\dfrac{d\\theta}{dt} = -12\\dfrac{d\\theta}{dt}$, so $\\dfrac{d\\theta}{dt} = -\\tfrac16$ rad/s. It is negative because the ladder flattens."
     ],
     "course": "calc1"
   },
@@ -483,10 +534,12 @@
     "answerNumeric": -28.0,
     "hint1": "$D^2 = a^2 + b^2$, so $D D' = aa' + bb'$.",
     "hint2": "$a = 3$, $a' = 60$, $b = 4$, $b' = -80$ and $D = 5$.",
+    "keyIdea": "The distance between the cars is the hypotenuse $D = \\sqrt{a^2 + b^2}$. Differentiate $D^2 = a^2 + b^2$ implicitly with respect to time, minding the signs of the rates.",
     "solutionSteps": [
-      "$DD' = aa' + bb'$.",
-      "$5D' = 3(60) + 4(-80) = -140$.",
-      "$D' = -28$ km/h."
+      "**Relationship.** $D^2 = a^2 + b^2$, so $DD' = aa' + bb'$.",
+      "**Signs.** A moves away, so $a' = +60$. B moves toward the intersection, so $b$ is shrinking: $b' = -80$.",
+      "**Values.** $a = 3$, $b = 4$, $D = 5$.",
+      "**Solve.** $5D' = 3\\cdot60 + 4\\cdot(-80) = -140$, so $D' = -28$ km/h. The cars are getting closer."
     ],
     "course": "calc1"
   },
@@ -501,10 +554,12 @@
     "answerNumeric": 40.0,
     "hint1": "$V = \\tfrac43\\pi r^3$ and $A = 4\\pi r^2$. Find $r'$ from $V'$, then use it to get $A'$.",
     "hint2": "$100 = 4\\pi(25)r' \\Rightarrow r' = \\tfrac1\\pi$.",
+    "keyIdea": "Volume and surface area both depend on $r$. Use the volume rate to find $\\tfrac{dr}{dt}$, then use that to find $\\tfrac{dA}{dt}$.",
     "solutionSteps": [
-      "$V' = 4\\pi r^2r' \\Rightarrow r' = \\dfrac{100}{100\\pi} = \\tfrac{1}{\\pi}$.",
-      "$A' = 8\\pi rr' = 8\\pi\\cdot5\\cdot\\tfrac1\\pi$.",
-      "$A' = 40$ cm²/s."
+      "**Volume.** $V = \\tfrac43\\pi r^3$, so $V' = 4\\pi r^2r'$. At $r = 5$: $100 = 100\\pi r'$, so $r' = \\tfrac1\\pi$ cm/s.",
+      "**Area.** $A = 4\\pi r^2$, so $A' = 8\\pi rr'$.",
+      "**Evaluate.** $A' = 8\\pi\\cdot5\\cdot\\tfrac1\\pi = 40$ cm²/s.",
+      "**Shortcut.** $\\tfrac{dA}{dV} = \\tfrac{8\\pi r}{4\\pi r^2} = \\tfrac2r$, so $A' = \\tfrac25\\cdot100 = 40$. ✓"
     ],
     "course": "calc1"
   },
@@ -519,10 +574,12 @@
     "answerNumeric": 8.333333333333334,
     "hint1": "Let $x$ be the person's distance from the post and $s$ the shadow's length. Similar triangles: $\\dfrac{s}{6} = \\dfrac{x + s}{15}$.",
     "hint2": "$s = \\tfrac23x$, so the tip is at $x + s = \\tfrac53x$.",
+    "keyIdea": "Similar triangles (lamp, person, shadow tip) give the shadow length in terms of the person's position. The tip's position is a constant multiple of $x$, so its speed is constant.",
     "solutionSteps": [
-      "$15s = 6x + 6s \\Rightarrow s = \\tfrac23x$.",
-      "Tip position: $x + s = \\tfrac53x$.",
-      "Speed of tip: $\\tfrac53\\cdot5 = \\tfrac{25}{3}$ ft/s (independent of position)."
+      "**Similar triangles.** The big triangle has height $15$ and base $x + s$. The small one has height $6$ and base $s$. So $\\dfrac{s}{6} = \\dfrac{x + s}{15}$.",
+      "**Solve for $s$.** $15s = 6x + 6s$, so $s = \\tfrac23x$.",
+      "**Tip position.** $x + s = \\tfrac53x$.",
+      "**Speed.** $\\tfrac{d}{dt}\\left(\\tfrac53x\\right) = \\tfrac53\\cdot5 = \\tfrac{25}{3} \\approx 8.33$ ft/s. That is faster than the person walks, and the same at every moment."
     ],
     "course": "calc1",
     "diagram": "<svg viewBox=\"0 0 260 130\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><line x1=\"20\" y1=\"110\" x2=\"240\" y2=\"110\"/><line x1=\"30\" y1=\"110\" x2=\"30\" y2=\"20\"/><circle cx=\"30\" cy=\"18\" r=\"5\" fill=\"currentColor\"/><line x1=\"120\" y1=\"110\" x2=\"120\" y2=\"74\"/><line x1=\"30\" y1=\"20\" x2=\"180\" y2=\"110\" stroke-dasharray=\"5 4\"/><text x=\"18\" y=\"70\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">15</text><text x=\"130\" y=\"96\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">6</text><text x=\"75\" y=\"125\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\" font-style=\"italic\">x</text><text x=\"150\" y=\"125\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\" font-style=\"italic\">s</text></svg>",
@@ -539,10 +596,12 @@
     "answerNumeric": 0.8,
     "hint1": "At depth $h$, the water surface is $3h$ wide (similar triangles).",
     "hint2": "$V = \\tfrac12(3h)(h)(10) = 15h^2$.",
+    "keyIdea": "At depth $h$, the water's cross-section is a triangle similar to the trough's end. Write the volume in terms of $h$ and differentiate with respect to time.",
     "solutionSteps": [
-      "Width at depth $h$: $3h$, so $V = 15h^2$.",
-      "$V' = 30hh'$.",
-      "$12 = 30\\cdot\\tfrac12\\cdot h' \\Rightarrow h' = \\tfrac45$ ft/min."
+      "**Width at depth $h$.** The end is $3$ wide at depth $1$, so by similar triangles the width is $3h$.",
+      "**Volume.** Cross-sectional area $\\tfrac12(3h)(h) = \\tfrac32h^2$, times length $10$: $V = 15h^2$.",
+      "**Differentiate.** $\\dfrac{dV}{dt} = 30h\\dfrac{dh}{dt}$.",
+      "**Solve at $h = \\tfrac12$.** $12 = 30\\cdot\\tfrac12\\cdot\\dfrac{dh}{dt}$, so $\\dfrac{dh}{dt} = \\tfrac{12}{15} = \\tfrac45$ ft/min."
     ],
     "course": "calc1"
   },
@@ -557,10 +616,12 @@
     "answerNumeric": 0.75,
     "hint1": "$\\tan\\theta = \\dfrac{y}{4}$. Differentiate with respect to $t$.",
     "hint2": "$\\sec^2\\theta\\,\\theta' = \\dfrac{y'}{4}$, and $\\sec^2\\theta = 1 + \\left(\\tfrac34\\right)^2 = \\tfrac{25}{16}$.",
+    "keyIdea": "The height and the angle are linked by $\\tan\\theta = \\tfrac{y}{4}$. Differentiate with respect to time and solve for $\\tfrac{dy}{dt}$.",
     "solutionSteps": [
-      "$\\sec^2\\theta\\cdot\\theta' = \\tfrac{y'}{4}$.",
-      "At $y = 3$: $\\sec^2\\theta = \\tfrac{25}{16}$.",
-      "$y' = 4\\cdot\\tfrac{25}{16}\\cdot0.12 = 0.75$ km/s."
+      "**Relationship.** $\\tan\\theta = \\dfrac{y}{4}$, since the observer is $4$ km away horizontally.",
+      "**Differentiate.** $\\sec^2\\theta\\,\\dfrac{d\\theta}{dt} = \\dfrac14\\dfrac{dy}{dt}$.",
+      "**At $y = 3$.** $\\tan\\theta = \\tfrac34$, so $\\sec^2\\theta = 1 + \\tfrac{9}{16} = \\tfrac{25}{16}$.",
+      "**Solve.** $\\dfrac{dy}{dt} = 4\\cdot\\tfrac{25}{16}\\cdot0.12 = 0.75$ km/s."
     ],
     "course": "calc1"
   },
@@ -575,10 +636,12 @@
     "answerNumeric": -2.3717082451262845,
     "hint1": "$D^2 = (x - 4)^2 + y^2 = (x - 4)^2 + x$.",
     "hint2": "$2DD' = (2(x - 4) + 1)x'$, and $D = \\sqrt{10}$ at $x = 1$.",
+    "keyIdea": "Write the squared distance using only $x$ (substitute $y^2 = x$ from the curve), then differentiate with respect to time.",
     "solutionSteps": [
-      "$D^2 = (x - 4)^2 + x$, so $2DD' = (2x - 7)x'$.",
-      "At $x = 1$: $D = \\sqrt{10}$ and $2\\sqrt{10}D' = -5\\cdot3$.",
-      "$D' = -\\dfrac{15}{2\\sqrt{10}} = -\\dfrac{3\\sqrt{10}}{4} \\approx -2.37$."
+      "**Squared distance.** $D^2 = (x - 4)^2 + y^2 = (x - 4)^2 + x$.",
+      "**Differentiate.** $2D\\dfrac{dD}{dt} = [2(x - 4) + 1]\\dfrac{dx}{dt} = (2x - 7)\\dfrac{dx}{dt}$.",
+      "**At $x = 1$.** $D = \\sqrt{9 + 1} = \\sqrt{10}$, and $(2 - 7)\\cdot3 = -15$.",
+      "**Solve.** $\\dfrac{dD}{dt} = -\\dfrac{15}{2\\sqrt{10}} = -\\dfrac{3\\sqrt{10}}{4} \\approx -2.37$. The particle is approaching $(4, 0)$."
     ],
     "course": "calc1"
   },
@@ -593,10 +656,12 @@
     "answerNumeric": 128.0,
     "hint1": "With cut size $x$, $V(x) = x(12 - 2x)^2$ for $0 < x < 6$.",
     "hint2": "$V'(x) = (12 - 2x)(12 - 6x)$, so the critical point inside the interval is $x = 2$.",
+    "keyIdea": "Write the volume as a function of the cut size $x$, find the critical points, and check that the one inside the allowed interval gives the maximum.",
     "solutionSteps": [
-      "$V = x(12 - 2x)^2$.",
-      "$V' = (12 - 2x)^2 - 4x(12 - 2x) = (12 - 2x)(12 - 6x)$, so $x = 2$.",
-      "$V(2) = 2\\cdot8^2 = 128$."
+      "**Model.** Cutting $x \\times x$ corners leaves a base of $(12 - 2x)\\times(12 - 2x)$ and a height of $x$: $V(x) = x(12 - 2x)^2$ for $0 < x < 6$.",
+      "**Derivative.** $V' = (12 - 2x)^2 - 4x(12 - 2x) = (12 - 2x)(12 - 6x)$.",
+      "**Critical points.** $x = 6$ (a degenerate box with volume $0$) or $x = 2$.",
+      "**Maximum.** $V(2) = 2\\cdot8^2 = 128$. It is a maximum because $V \\to 0$ at both ends of the interval."
     ],
     "course": "calc1",
     "diagram": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><polygon points=\"20,20 180,20 180,180 20,180\"/><polygon points=\"20,20 47,20 47,47 20,47\" stroke-dasharray=\"5 4\"/><polygon points=\"153,20 180,20 180,47 153,47\" stroke-dasharray=\"5 4\"/><polygon points=\"20,153 47,153 47,180 20,180\" stroke-dasharray=\"5 4\"/><polygon points=\"153,153 180,153 180,180 153,180\" stroke-dasharray=\"5 4\"/><text x=\"33\" y=\"60\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\" font-style=\"italic\">x</text><text x=\"100\" y=\"196\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">12</text></svg>",
@@ -613,10 +678,12 @@
     "answerNumeric": 471.23889803846896,
     "hint1": "From $\\pi r^2h = 250\\pi$, $h = \\dfrac{250}{r^2}$. Write $A$ in terms of $r$ only.",
     "hint2": "$A = 2\\pi r^2 + \\dfrac{500\\pi}{r}$. Setting $A' = 0$ gives $r^3 = 125$.",
+    "keyIdea": "Use the volume constraint to remove $h$, so the area depends on $r$ only. Then minimize with the derivative.",
     "solutionSteps": [
-      "$A(r) = 2\\pi r^2 + \\dfrac{500\\pi}{r}$.",
-      "$A' = 4\\pi r - \\dfrac{500\\pi}{r^2} = 0 \\Rightarrow r = 5$ and $h = 10$.",
-      "$A = 50\\pi + 100\\pi = 150\\pi$."
+      "**Constraint.** $\\pi r^2h = 250\\pi$, so $h = \\dfrac{250}{r^2}$.",
+      "**Area function.** $A = 2\\pi r^2 + 2\\pi rh = 2\\pi r^2 + \\dfrac{500\\pi}{r}$.",
+      "**Critical point.** $A' = 4\\pi r - \\dfrac{500\\pi}{r^2} = 0$, so $r^3 = 125$ and $r = 5$. Then $h = 10$. The best can has height equal to its diameter.",
+      "**Minimum area.** $A = 50\\pi + 100\\pi = 150\\pi$. It is a minimum because $A \\to \\infty$ as $r \\to 0$ and as $r \\to \\infty$."
     ],
     "course": "calc1"
   },
@@ -631,10 +698,12 @@
     "answerNumeric": 1.6583123951777,
     "hint1": "Minimize $D^2 = x^2 + (x^2 - 3)^2$. It has the same minimizer as $D$ and is easier to work with.",
     "hint2": "$\\dfrac{d}{dx}D^2 = 2x + 4x(x^2 - 3) = 2x(2x^2 - 5)$.",
+    "keyIdea": "Minimize the *squared* distance. It has the same minimizer as the distance itself, but no square root to differentiate.",
     "solutionSteps": [
-      "Critical points: $x = 0$ or $x^2 = \\tfrac52$.",
-      "$D^2(0) = 9$ and $D^2 = \\tfrac52 + \\tfrac14 = \\tfrac{11}{4}$ at $x^2 = \\tfrac52$.",
-      "The minimum is $D = \\tfrac{\\sqrt{11}}{2}$."
+      "**Squared distance.** A point on the parabola is $(x, x^2)$, so $D^2 = x^2 + (x^2 - 3)^2$.",
+      "**Derivative.** $\\dfrac{d}{dx}D^2 = 2x + 4x(x^2 - 3) = 2x(2x^2 - 5)$.",
+      "**Critical points.** $x = 0$ gives $D^2 = 9$. $x^2 = \\tfrac52$ gives $D^2 = \\tfrac52 + \\tfrac14 = \\tfrac{11}{4}$.",
+      "**Minimum.** $D = \\tfrac{\\sqrt{11}}{2} \\approx 1.66$. The point $(0, 0)$ looks closest but isn't: $(0, 0)$ is $3$ away."
     ],
     "course": "calc1"
   },
@@ -649,10 +718,12 @@
     "answerNumeric": 25.0,
     "hint1": "With corners at $(\\pm x, y)$ and $y = \\sqrt{25 - x^2}$, the area is $A = 2x\\sqrt{25 - x^2}$.",
     "hint2": "Maximize $A^2 = 4x^2(25 - x^2)$, which is easier.",
+    "keyIdea": "Put the semicircle on the $x$-axis. A rectangle with top corners $(\\pm x, y)$ on the arc has area $2xy$ with $y = \\sqrt{25 - x^2}$. Maximize the squared area to avoid square roots.",
     "solutionSteps": [
-      "$A^2 = 4(25x^2 - x^4)$, and its derivative $4(50x - 4x^3) = 0 \\Rightarrow x^2 = \\tfrac{25}{2}$.",
-      "$y = \\sqrt{25 - 12.5} = \\tfrac{5}{\\sqrt2}$ as well.",
-      "$A = 2\\cdot\\tfrac5{\\sqrt2}\\cdot\\tfrac{5}{\\sqrt2} = 25$."
+      "**Area.** $A = 2x\\sqrt{25 - x^2}$ for $0 \\le x \\le 5$.",
+      "**Squared area.** $A^2 = 4x^2(25 - x^2) = 4(25x^2 - x^4)$, and $\\dfrac{d}{dx}A^2 = 4(50x - 4x^3) = 0$ gives $x^2 = \\tfrac{25}{2}$.",
+      "**Dimensions.** $x = y = \\tfrac{5}{\\sqrt2}$, so the rectangle is $5\\sqrt2$ wide and $\\tfrac{5}{\\sqrt2}$ tall.",
+      "**Maximum area.** $A = 2\\cdot\\tfrac{25}{2} = 25$, which is $r^2$."
     ],
     "course": "calc1"
   },
@@ -667,10 +738,12 @@
     "answerNumeric": 28.00495767557787,
     "hint1": "With semicircle radius $r$ and rectangle height $h$: $2r + 2h + \\pi r = 20$.",
     "hint2": "$A = 2rh + \\tfrac{\\pi r^2}{2} = r(20 - 2r - \\pi r) + \\tfrac\\pi2r^2 = 20r - \\left(2 + \\tfrac\\pi2\\right)r^2$.",
+    "keyIdea": "Use the perimeter to write $h$ in terms of $r$. The area then becomes a downward-opening quadratic in $r$, maximized at its vertex.",
     "solutionSteps": [
-      "$A(r) = 20r - \\left(2 + \\tfrac\\pi2\\right)r^2$.",
-      "$A' = 0 \\Rightarrow r = \\dfrac{20}{4 + \\pi}$.",
-      "$A_{\\max} = \\dfrac{20^2}{4(2 + \\pi/2)} = \\dfrac{400}{8 + 2\\pi} = \\dfrac{200}{4 + \\pi} \\approx 28.0$ m²."
+      "**Perimeter.** Base $2r$, two sides $h$, and a semicircle $\\pi r$: $2r + 2h + \\pi r = 20$, so $2h = 20 - 2r - \\pi r$.",
+      "**Area.** $A = 2rh + \\tfrac12\\pi r^2 = r(20 - 2r - \\pi r) + \\tfrac\\pi2r^2 = 20r - \\left(2 + \\tfrac\\pi2\\right)r^2$.",
+      "**Maximize.** $A' = 20 - (4 + \\pi)r = 0$, so $r = \\dfrac{20}{4 + \\pi}$.",
+      "**Maximum area.** At the vertex $A = \\dfrac{20^2}{4(2 + \\pi/2)} = \\dfrac{400}{8 + 2\\pi} = \\dfrac{200}{4 + \\pi} \\approx 28.0$ m². (Also, $h = r$ at the optimum.)"
     ],
     "course": "calc1"
   },
@@ -685,10 +758,12 @@
     "answerNumeric": 11.180339887498949,
     "hint1": "Let $\\theta$ be the angle the ladder makes with the ground. Split the ladder at the top of the fence.",
     "hint2": "$L(\\theta) = \\dfrac{8}{\\sin\\theta} + \\dfrac{1}{\\cos\\theta}$. Setting $L' = 0$ gives $\\tan^3\\theta = 8$.",
+    "keyIdea": "Describe the ladder by its angle $\\theta$ with the ground. The fence splits it into two pieces whose lengths are simple trig expressions. Minimize their sum.",
     "solutionSteps": [
-      "$L' = -\\dfrac{8\\cos\\theta}{\\sin^2\\theta} + \\dfrac{\\sin\\theta}{\\cos^2\\theta} = 0 \\Rightarrow \\tan^3\\theta = 8 \\Rightarrow \\tan\\theta = 2$.",
-      "$\\sin\\theta = \\tfrac{2}{\\sqrt5}$ and $\\cos\\theta = \\tfrac{1}{\\sqrt5}$.",
-      "$L = 8\\cdot\\tfrac{\\sqrt5}{2} + \\sqrt5 = 5\\sqrt5 \\approx 11.18$ ft."
+      "**Two pieces.** From the ground to the fence top: $\\dfrac{8}{\\sin\\theta}$. From the fence top to the wall, crossing $1$ ft horizontally: $\\dfrac{1}{\\cos\\theta}$.",
+      "**Derivative.** $L'(\\theta) = -\\dfrac{8\\cos\\theta}{\\sin^2\\theta} + \\dfrac{\\sin\\theta}{\\cos^2\\theta} = 0$, so $\\sin^3\\theta = 8\\cos^3\\theta$ and $\\tan\\theta = 2$.",
+      "**Trig values.** $\\sin\\theta = \\tfrac{2}{\\sqrt5}$ and $\\cos\\theta = \\tfrac{1}{\\sqrt5}$.",
+      "**Shortest ladder.** $L = 8\\cdot\\tfrac{\\sqrt5}{2} + \\sqrt5 = 5\\sqrt5 \\approx 11.18$ ft. (In general the answer is $(a^{2/3} + b^{2/3})^{3/2}$.)"
     ],
     "course": "calc1",
     "diagram": "<svg viewBox=\"0 0 220 180\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><line x1=\"10\" y1=\"165\" x2=\"210\" y2=\"165\"/><line x1=\"190\" y1=\"165\" x2=\"190\" y2=\"10\"/><line x1=\"170\" y1=\"165\" x2=\"170\" y2=\"85\"/><line x1=\"130\" y1=\"165\" x2=\"190\" y2=\"45\"/><text x=\"158\" y=\"128\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">8</text><text x=\"180\" y=\"178\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">1</text><text x=\"150\" y=\"158\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">θ</text></svg>",
@@ -705,10 +780,12 @@
     "answerNumeric": 7720.0,
     "hint1": "Profit $= (\\text{price} - \\text{unit cost})\\times\\text{quantity} - \\text{fixed cost} = (p - 4)(1200 - 30p) - 2000$.",
     "hint2": "Expand to $-30p^2 + 1320p - 6800$. The vertex is at $p = 22$.",
+    "keyIdea": "Profit is revenue minus cost. Write it as a function of price, which gives a downward-opening parabola, and find its vertex.",
     "solutionSteps": [
-      "$\\Pi(p) = (p - 4)(1200 - 30p) - 2000 = -30p^2 + 1320p - 6800$.",
-      "$\\Pi'(p) = -60p + 1320 = 0 \\Rightarrow p = 22$.",
-      "$\\Pi(22) = 18\\cdot540 - 2000 = 7720$ dollars."
+      "**Profit function.** Each unit earns $p - 4$ and $q = 1200 - 30p$ units sell: $\\Pi(p) = (p - 4)(1200 - 30p) - 2000$.",
+      "**Expand.** $\\Pi = -30p^2 + 1320p - 6800$.",
+      "**Vertex.** $\\Pi'(p) = -60p + 1320 = 0$, so $p = \\$22$.",
+      "**Maximum profit.** $(22 - 4)(1200 - 660) - 2000 = 18\\cdot540 - 2000 = \\$7720$."
     ],
     "course": "calc1"
   },
@@ -723,10 +800,12 @@
     "answerNumeric": 36.0,
     "hint1": "Let the pipe reach the shore $x$ km from the nearest point. Cost: $C(x) = 5\\sqrt{9 + x^2} + 3(8 - x)$.",
     "hint2": "$C'(x) = \\dfrac{5x}{\\sqrt{9 + x^2}} - 3 = 0 \\Rightarrow 16x^2 = 81$.",
+    "keyIdea": "The pipe goes underwater to some shore point, then along the coast. Write the cost as a function of where it lands, then minimize.",
     "solutionSteps": [
-      "$C' = 0 \\Rightarrow 25x^2 = 9(9 + x^2) \\Rightarrow x = \\tfrac94$.",
-      "$\\sqrt{9 + \\tfrac{81}{16}} = \\tfrac{15}{4}$.",
-      "$C = 5\\cdot\\tfrac{15}{4} + 3\\cdot\\tfrac{23}{4} = \\tfrac{144}{4} = 36$ million dollars (and this beats both endpoints)."
+      "**Cost function.** If the pipe lands $x$ km along the shore, the underwater part is $\\sqrt{9 + x^2}$ km and the land part is $8 - x$ km: $C(x) = 5\\sqrt{9 + x^2} + 3(8 - x)$.",
+      "**Derivative.** $C'(x) = \\dfrac{5x}{\\sqrt{9 + x^2}} - 3 = 0$, so $5x = 3\\sqrt{9 + x^2}$, $25x^2 = 81 + 9x^2$ and $x = \\tfrac94$.",
+      "**Evaluate.** $\\sqrt{9 + \\tfrac{81}{16}} = \\tfrac{15}{4}$, so $C = 5\\cdot\\tfrac{15}{4} + 3\\cdot\\tfrac{23}{4} = \\tfrac{75 + 69}{4} = 36$.",
+      "**Compare the endpoints.** $C(0) = 15 + 24 = 39$ and $C(8) = 5\\sqrt{73} \\approx 42.7$, so $36$ million dollars is the minimum."
     ],
     "course": "calc1",
     "diagram": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><line x1=\"10\" y1=\"90\" x2=\"230\" y2=\"90\"/><circle cx=\"30\" cy=\"20\" r=\"4\" fill=\"currentColor\"/><circle cx=\"210\" cy=\"90\" r=\"4\" fill=\"currentColor\"/><line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"90\" stroke-dasharray=\"5 4\"/><line x1=\"30\" y1=\"20\" x2=\"80\" y2=\"90\"/><line x1=\"80\" y1=\"90\" x2=\"210\" y2=\"90\"/><text x=\"40\" y=\"16\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"start\">well</text><text x=\"210\" y=\"108\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">refinery</text><text x=\"20\" y=\"58\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">3</text><text x=\"55\" y=\"106\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\" font-style=\"italic\">x</text><text x=\"120\" y=\"114\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">8 total</text></svg>",
@@ -743,10 +822,12 @@
     "answerNumeric": 33.51032163829113,
     "hint1": "Put the cone's apex at the top of the sphere, with height $h$. Its base radius satisfies $\\rho^2 + (h - 3)^2 = 9$.",
     "hint2": "$\\rho^2 = 6h - h^2$, so $V = \\tfrac\\pi3(6h - h^2)h$.",
+    "keyIdea": "Use the cone's height $h$ as the variable. The sphere fixes the cone's base radius through a right triangle from the sphere's center.",
     "solutionSteps": [
-      "$V(h) = \\tfrac\\pi3(6h^2 - h^3)$.",
-      "$V' = \\tfrac\\pi3(12h - 3h^2) = 0 \\Rightarrow h = 4$.",
-      "$\\rho^2 = 8$, so $V = \\tfrac\\pi3\\cdot8\\cdot4 = \\tfrac{32\\pi}{3}$."
+      "**Geometry.** With the apex at the top of the sphere, the base is at distance $h - 3$ from the center. So $\\rho^2 + (h - 3)^2 = 9$, giving $\\rho^2 = 6h - h^2$.",
+      "**Volume.** $V(h) = \\tfrac13\\pi\\rho^2h = \\tfrac\\pi3(6h^2 - h^3)$ for $0 < h < 6$.",
+      "**Maximize.** $V' = \\tfrac\\pi3(12h - 3h^2) = 0$, so $h = 4$ and $\\rho^2 = 8$.",
+      "**Maximum volume.** $\\tfrac\\pi3\\cdot8\\cdot4 = \\tfrac{32\\pi}{3}$. That is $\\tfrac{8}{27}$ of the sphere's volume."
     ],
     "course": "calc1"
   },
@@ -761,10 +842,12 @@
     "answerNumeric": 2.772588722239781,
     "hint1": "Try substitution: let $u = x^2 + 1$.",
     "hint2": "After substituting, the integral becomes $2\\displaystyle\\int_1^4 u^{-1}\\,du$.",
+    "keyIdea": "The numerator is a constant multiple of the derivative of the denominator. That is the signal for $u$-substitution with $u = $ the denominator.",
     "solutionSteps": [
-      "Let $u = x^2 + 1$, so $du = 2x\\,dx$ and $4x\\,dx = 2\\,du$.",
-      "Change the limits: $x = 0 \\Rightarrow u = 1$ and $x = \\sqrt3 \\Rightarrow u = 4$.",
-      "$\\displaystyle\\int_1^4\\frac2u\\,du = 2\\ln u\\,\\Big|_1^4 = 2\\ln4 = 4\\ln2.$"
+      "**Substitute.** $u = x^2 + 1$, so $du = 2x\\,dx$ and $4x\\,dx = 2\\,du$.",
+      "**Change the limits.** $x = 0 \\to u = 1$ and $x = \\sqrt3 \\to u = 4$. Then you don't need to switch back to $x$.",
+      "**Integrate.** $\\displaystyle\\int_1^4\\frac{2}{u}\\,du = 2\\ln u\\Big|_1^4 = 2\\ln4$.",
+      "**Simplify.** $2\\ln4 = 4\\ln2 \\approx 2.77$."
     ],
     "course": "calc1"
   },
@@ -779,10 +862,12 @@
     "answerNumeric": 9.34154854094321,
     "hint1": "Let $u = \\sqrt x$. Then $du = \\dfrac{dx}{2\\sqrt x}$.",
     "hint2": "The integral becomes $2\\displaystyle\\int_1^2 e^u\\,du$.",
+    "keyIdea": "$\\sqrt x$ appears inside the exponential, and its derivative $\\tfrac{1}{2\\sqrt x}$ is also present. Substitute $u = \\sqrt x$.",
     "solutionSteps": [
-      "$u = \\sqrt x$, $\\dfrac{dx}{\\sqrt x} = 2\\,du$, and the limits become $1$ to $2$.",
-      "$2\\displaystyle\\int_1^2e^u\\,du = 2(e^2 - e)$.",
-      "$= 2e^2 - 2e \\approx 9.34$."
+      "**Spot the substitution.** The integrand contains $\\sqrt x$ inside the exponential, and also $\\tfrac{1}{\\sqrt x}$, which is (up to a factor of $2$) the derivative of $\\sqrt x$. So let $u = \\sqrt x$.",
+      "**Convert $dx$.** $du = \\dfrac{1}{2\\sqrt x}dx$, so $\\dfrac{dx}{\\sqrt x} = 2\\,du$. The whole integrand $\\dfrac{e^{\\sqrt x}}{\\sqrt x}dx$ becomes $2e^u\\,du$.",
+      "**Convert the limits** so you never have to switch back to $x$: $x = 1$ gives $u = 1$, and $x = 4$ gives $u = 2$.",
+      "**Integrate.** $2\\displaystyle\\int_1^2e^u\\,du = 2(e^2 - e) = 2e^2 - 2e \\approx 9.34$."
     ],
     "course": "calc1"
   },
@@ -797,10 +882,12 @@
     "answerNumeric": 0.3217505543966422,
     "hint1": "Let $u = e^x$. Then $e^{2x} = u^2$.",
     "hint2": "$\\displaystyle\\int_1^2\\frac{du}{1 + u^2}$.",
+    "keyIdea": "Rewrite $e^{2x} = (e^x)^2$. With $u = e^x$, the integral becomes the arctangent form $\\int\\frac{du}{1 + u^2}$.",
     "solutionSteps": [
-      "$u = e^x$, $du = e^x\\,dx$, and the limits become $1$ to $2$.",
-      "$\\displaystyle\\int_1^2\\frac{du}{1 + u^2} = \\arctan u\\,\\Big|_1^2$.",
-      "$= \\arctan2 - \\tfrac\\pi4 \\approx 0.322$."
+      "**Rewrite the denominator.** $e^{2x}$ is the square of $e^x$, so the integrand is $\\dfrac{e^x}{1 + (e^x)^2}$. That looks like the derivative of $\\arctan$ once we substitute.",
+      "**Substitute $u = e^x$.** Then $du = e^x\\,dx$, which is exactly the numerator. The integrand becomes $\\dfrac{du}{1 + u^2}$.",
+      "**Convert the limits.** $x = 0$ gives $u = e^0 = 1$, and $x = \\ln2$ gives $u = e^{\\ln2} = 2$.",
+      "**Integrate.** $\\displaystyle\\int_1^2\\frac{du}{1 + u^2} = \\arctan2 - \\arctan1 = \\arctan2 - \\tfrac\\pi4 \\approx 0.322$."
     ],
     "course": "calc1"
   },
@@ -815,10 +902,12 @@
     "answerNumeric": 0.00909090909090909,
     "hint1": "Let $u = 1 - x$, so $x = 1 - u$.",
     "hint2": "The integral becomes $\\displaystyle\\int_0^1(1 - u)u^9\\,du$.",
+    "keyIdea": "Expanding $(1 - x)^9$ would be painful. Substitute $u = 1 - x$ to move the ninth power onto a single variable, and the integrand becomes two simple powers.",
     "solutionSteps": [
-      "$u = 1 - x$: $\\displaystyle\\int_1^0(1 - u)u^9(-du) = \\int_0^1(u^9 - u^{10})\\,du$.",
-      "$= \\tfrac1{10} - \\tfrac1{11}$.",
-      "$= \\tfrac{1}{110}$."
+      "**Substitute.** $u = 1 - x$, so $x = 1 - u$ and $dx = -du$. The limits $0 \\to 1$ become $1 \\to 0$.",
+      "**Rewrite.** $\\displaystyle\\int_1^0(1 - u)u^9(-du) = \\int_0^1(u^9 - u^{10})\\,du$. Flipping the limits absorbs the minus sign.",
+      "**Integrate.** $\\tfrac{1}{10} - \\tfrac{1}{11}$.",
+      "**Value.** $\\tfrac{11 - 10}{110} = \\tfrac{1}{110}$."
     ],
     "course": "calc1"
   },
@@ -833,10 +922,12 @@
     "answerNumeric": 1.4142135623730951,
     "hint1": "FTC with the chain rule: $\\dfrac{d}{dx}\\displaystyle\\int_{a(x)}^{b(x)}f(t)\\,dt = f(b)b' - f(a)a'$.",
     "hint2": "$g'(x) = 3x^2\\sqrt{1 + x^6} - 2x\\sqrt{1 + x^4}$.",
+    "keyIdea": "By the Fundamental Theorem of Calculus with the chain rule, $\\dfrac{d}{dx}\\displaystyle\\int_{a(x)}^{b(x)}f(t)\\,dt = f(b(x))b'(x) - f(a(x))a'(x)$.",
     "solutionSteps": [
-      "$g'(x) = \\sqrt{1 + x^6}\\cdot3x^2 - \\sqrt{1 + x^4}\\cdot2x$.",
-      "At $x = 1$: $3\\sqrt2 - 2\\sqrt2$.",
-      "$g'(1) = \\sqrt2$."
+      "**Why it works.** If $F' = f$, then $g(x) = F(x^3) - F(x^2)$. Differentiating with the chain rule gives $f(x^3)\\cdot3x^2 - f(x^2)\\cdot2x$.",
+      "**Apply it.** $g'(x) = 3x^2\\sqrt{1 + x^6} - 2x\\sqrt{1 + x^4}$.",
+      "**At $x = 1$.** $3\\sqrt2 - 2\\sqrt2 = \\sqrt2$.",
+      "**Note.** You never need an antiderivative of $\\sqrt{1 + t^2}$. That is the power of the FTC (Fundamental Theorem of Calculus)."
     ],
     "course": "calc1"
   },
@@ -851,10 +942,12 @@
     "answerNumeric": 0.3333333333333333,
     "hint1": "It is $\\tfrac00$. Use L'Hôpital, with the FTC to differentiate the integral.",
     "hint2": "Its derivative is $\\sin(x^2)$, so you need $\\lim\\dfrac{\\sin(x^2)}{3x^2}$.",
+    "keyIdea": "The limit is $\\tfrac00$, and the numerator is an integral. L'Hôpital plus the FTC turns the integral into its integrand.",
     "solutionSteps": [
-      "L'Hôpital: $\\lim\\dfrac{\\sin(x^2)}{3x^2}$.",
-      "$\\dfrac{\\sin(x^2)}{x^2} \\to 1$.",
-      "The limit is $\\tfrac13$."
+      "**Form.** At $x = 0$ the integral is $0$ and so is $x^3$.",
+      "**L'Hôpital.** Differentiate the top with the FTC, giving $\\sin(x^2)$, and the bottom, giving $3x^2$.",
+      "**Simplify.** $\\dfrac{\\sin(x^2)}{3x^2} = \\dfrac13\\cdot\\dfrac{\\sin u}{u}$ with $u = x^2 \\to 0$, so the limit is $\\tfrac13$.",
+      "**Series check.** $\\sin(t^2) \\approx t^2$, so the integral is $\\approx \\tfrac{x^3}{3}$. ✓"
     ],
     "course": "calc1"
   },
@@ -869,10 +962,12 @@
     "answerNumeric": 8.166666666666666,
     "hint1": "Average $= \\dfrac{1}{4 - 0}\\displaystyle\\int_0^4x\\sqrt{x^2 + 9}\\,dx$. Use $u = x^2 + 9$.",
     "hint2": "$\\displaystyle\\int_0^4x\\sqrt{x^2 + 9}\\,dx = \\tfrac13(x^2 + 9)^{3/2}\\Big|_0^4 = \\tfrac13(125 - 27)$.",
+    "keyIdea": "The average value of $f$ on $[a, b]$ is $\\dfrac{1}{b - a}\\displaystyle\\int_a^bf(x)\\,dx$. The integral itself needs a $u$-substitution.",
     "solutionSteps": [
-      "$\\displaystyle\\int x\\sqrt{x^2 + 9}\\,dx = \\tfrac13(x^2 + 9)^{3/2}$.",
-      "From $0$ to $4$: $\\tfrac13(125 - 27) = \\tfrac{98}{3}$.",
-      "Average: $\\tfrac14\\cdot\\tfrac{98}{3} = \\tfrac{49}{6}$."
+      "**Recall the definition.** The average value of a function on $[a, b]$ is $\\dfrac{1}{b - a}\\displaystyle\\int_a^b f(x)\\,dx$: the total area divided by the width of the interval.",
+      "**Find an antiderivative with $u$-substitution.** Let $u = x^2 + 9$, so $du = 2x\\,dx$. Then $\\displaystyle\\int x\\sqrt{x^2 + 9}\\,dx = \\tfrac12\\int u^{1/2}\\,du = \\tfrac13u^{3/2} = \\tfrac13(x^2 + 9)^{3/2}$.",
+      "**Evaluate from $0$ to $4$.** $\\tfrac13\\left(25^{3/2} - 9^{3/2}\\right) = \\tfrac13(125 - 27) = \\tfrac{98}{3}$.",
+      "**Divide by the width, $4$.** The average value is $\\tfrac{98}{12} = \\tfrac{49}{6} \\approx 8.17$. It lies between $f(0) = 0$ and $f(4) = 20$, as it should."
     ],
     "course": "calc1"
   },
@@ -887,10 +982,12 @@
     "answerNumeric": 10.666666666666666,
     "hint1": "Find where the curves cross: $x^2 = 2x + 3$.",
     "hint2": "They cross at $x = -1$ and $x = 3$. The line is on top in between.",
+    "keyIdea": "The area between two curves is $\\displaystyle\\int(\\text{top} - \\text{bottom})\\,dx$ between their intersection points.",
     "solutionSteps": [
-      "$x^2 - 2x - 3 = 0 \\Rightarrow x = -1, 3$.",
-      "Area $= \\displaystyle\\int_{-1}^3(2x + 3 - x^2)\\,dx = \\left[x^2 + 3x - \\tfrac{x^3}3\\right]_{-1}^3$.",
-      "$= 9 - \\left(-\\tfrac53\\right) = \\tfrac{32}{3}$."
+      "**Intersections.** $x^2 = 2x + 3$, so $(x - 3)(x + 1) = 0$ and $x = -1, 3$.",
+      "**Which is on top?** At $x = 0$ the line gives $3$ and the parabola $0$, so the line is on top.",
+      "**Integrate.** $\\displaystyle\\int_{-1}^3(2x + 3 - x^2)\\,dx = \\left[x^2 + 3x - \\tfrac{x^3}{3}\\right]_{-1}^{3} = 9 - \\left(-\\tfrac53\\right)$.",
+      "**Area.** $\\tfrac{32}{3}$."
     ],
     "course": "calc1"
   },
@@ -905,10 +1002,11 @@
     "answerNumeric": 0.7518831943890587,
     "hint1": "By the FTC, $f(x)$ is the derivative of the right side.",
     "hint2": "$f(x) = 2x\\sin(\\pi x) + \\pi x^2\\cos(\\pi x)$.",
+    "keyIdea": "If $\\int_0^x f(t)\\,dt$ equals a known function, then by the FTC $f$ is that function's derivative.",
     "solutionSteps": [
-      "$f(x) = \\dfrac{d}{dx}\\left[x^2\\sin(\\pi x)\\right] = 2x\\sin(\\pi x) + \\pi x^2\\cos(\\pi x)$.",
-      "At $\\tfrac13$: $\\tfrac23\\cdot\\tfrac{\\sqrt3}{2} + \\pi\\cdot\\tfrac19\\cdot\\tfrac12$.",
-      "$f\\left(\\tfrac13\\right) = \\tfrac{\\sqrt3}{3} + \\tfrac{\\pi}{18} \\approx 0.752$."
+      "**Differentiate both sides.** The left side gives $f(x)$ by the FTC. The right side, by the product rule, gives $2x\\sin(\\pi x) + \\pi x^2\\cos(\\pi x)$.",
+      "**Evaluate at $x = \\tfrac13$.** $\\sin\\tfrac\\pi3 = \\tfrac{\\sqrt3}{2}$ and $\\cos\\tfrac\\pi3 = \\tfrac12$.",
+      "**Combine.** $\\tfrac23\\cdot\\tfrac{\\sqrt3}{2} + \\pi\\cdot\\tfrac19\\cdot\\tfrac12 = \\tfrac{\\sqrt3}{3} + \\tfrac{\\pi}{18} \\approx 0.752$."
     ],
     "course": "calc1"
   },
