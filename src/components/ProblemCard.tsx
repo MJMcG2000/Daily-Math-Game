@@ -167,6 +167,9 @@ export function ProblemCard({ problem, state, index, onStart, onGuess, onHint, o
           {problem.keyIdea && (
             <div className="key-idea"><strong>Key idea.</strong> <MathText as="span" text={problem.keyIdea} /></div>
           )}
+          {problem.solutionDiagram && (
+            <Diagram svg={problem.solutionDiagram} alt={problem.solutionDiagramAlt} caption={problem.solutionDiagramAlt} />
+          )}
           <ol className="steps">
             {problem.solutionSteps.slice(0, stepsShown).map((s, i) => (
               <MathText as="li" key={i} text={s} />

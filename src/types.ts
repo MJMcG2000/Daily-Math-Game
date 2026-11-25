@@ -17,6 +17,9 @@ export interface Problem {
   answerNumeric: number | 'inf' | '-inf';
   hint1: string;
   hint2: string;
+  /** Optional inline SVG shown with the worked solution (drawn to scale, currentColor). */
+  solutionDiagram?: string;
+  solutionDiagramAlt?: string;
   /** One or two sentences: the insight that unlocks the problem. Shown above the worked solution. */
   keyIdea?: string;
   /** Worked solution; each step says what is done and why. */

@@ -144,6 +144,8 @@ The game reads `data/problems/{easy,medium,hard}.json`, which holds 100 problems
   "hint1": "…", "hint2": "…",
   "subject": "Calculus 1",            // behind the scenes: Pre-Algebra … Calculus 2
   "gradeLevel": 12,                  // behind the scenes: estimated US grade, 6–12 (13 = first-year college)
+  "solutionDiagram": "<svg …>",      // optional diagram shown with the worked solution
+  "solutionDiagramAlt": "…",         // required with a solution diagram (also shown as its caption)
   "keyIdea": "…",                    // one or two sentences: the insight that unlocks the problem
   "solutionSteps": ["…", "…", "…"],  // each step says what is done and why; **bold** lead-ins allowed
   "diagram": "<svg …>",              // optional inline SVG drawn with currentColor
@@ -189,7 +191,7 @@ P('e101', 'Quadratics',
   [r'...', r'...', r'The larger solution is $3 + \sqrt5$.'])
 ```
 
-Each problem's explanation lives in `scripts/bank/explain_*.py`, keyed by problem ID. An entry holds the **key idea** and the **worked solution steps**, and each step should say *why* it is done, not just what is computed. Start a step with a short `**bold**` label. Its **subject and estimated grade level** come from `scripts/bank/categories.py`: each topic has a default, and individual problems can override it.
+Each problem's explanation lives in `scripts/bank/explain_*.py`, keyed by problem ID. An entry holds the **key idea** and the **worked solution steps**, and each step should say *why* it is done, not just what is computed. Start a step with a short `**bold**` label. Diagrams for worked solutions live in `scripts/bank/solution_diagrams.py`. They are drawn to scale in real math coordinates with the small helper in `scripts/bank/plot.py`. Its **subject and estimated grade level** come from `scripts/bank/categories.py`: each topic has a default, and individual problems can override it.
 
 1. Add entries to a module in `scripts/bank/`, then add the explanation and, for a new topic, a category default. To add a new module, list it in `SOURCES` in `scripts/build_bank.py`.
 2. Install the Python dependencies once:
