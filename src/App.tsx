@@ -14,6 +14,7 @@ import { HelpModal } from './components/HelpModal';
 import { StatsModal, ShareButton } from './components/StatsModal';
 import { Countdown } from './components/Countdown';
 import { Endless } from './components/Endless';
+import { TestTools, testToolsEnabled } from './components/TestTools'; // TESTING ONLY: remove before launch
 
 const BANKS: Banks = {
   easy: easyBank as Problem[],
@@ -231,6 +232,7 @@ export default function App() {
           </section>
         )}
         </>}
+        {testToolsEnabled() && <TestTools day={state.day} />}{/* TESTING ONLY: remove before launch */}
         <footer className="footer">
           <Countdown onRollover={rollover} />
         </footer>

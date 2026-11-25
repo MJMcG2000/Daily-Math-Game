@@ -278,6 +278,10 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fo
 .endless-actions { margin: -4px 0 16px; }
 .center { text-align: center; justify-content: center; }
 
+/* ---------- testing tools (remove before launch) ---------- */
+.test-tools { margin: 16px 0; padding: 12px; border: 1px dashed var(--border); border-radius: 12px; text-align: center; }
+.test-tools p { margin: 0 0 8px; color: var(--muted); }
+
 /* ---------- modals ---------- */
 .modal {
   border: none; padding: 0; border-radius: 14px;
