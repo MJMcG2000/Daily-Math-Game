@@ -26,7 +26,7 @@ The game is fully static: there is no backend, and the day's problems are chosen
 Switch to **Endless** at the top of the page, or open the site with `#endless` at the end of the URL. There are two options:
 
 - **Practice:** pick Easy, Medium, Hard or Mixed and get one problem after another. The game tracks your current streak, best streak and solve count. Skipping a problem you've started, or switching difficulty mid-problem, resets the streak.
-- **Survival:** the first nine problems cycle Easy, Medium, Hard three times. After nine correct answers, every problem is Hard. The run ends at the first problem you don't solve; your score is the number solved, and your best is saved. Sharing a run shows a coloured bar for the problems solved, with no spoilers.
+- **Survival:** the first nine problems cycle Easy, Medium, Hard three times. After nine correct answers, every problem is Hard. The run ends at the first problem you don't solve; your score is the number solved, and your best is saved. Survival has no hints: just 3 guesses per problem. Sharing a run shows a coloured bar for the problems solved, with no spoilers.
 
 Endless mode has no timer or points. It never serves today's daily problems, and it doesn't touch your daily stats or streaks. Each difficulty is dealt from its own shuffled queue, so a problem doesn't repeat until you've seen the rest of that difficulty.
 

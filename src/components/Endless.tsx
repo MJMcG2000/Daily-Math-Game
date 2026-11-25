@@ -198,7 +198,7 @@ export function Endless({ banks, dailyIds }: { banks: Banks; dailyIds: string[] 
           ) : (
             <>
               <h2 className="card-title">Survival</h2>
-              <p>The first nine problems go Easy, Medium, Hard, three times over. After nine correct answers, every problem is Hard. You get the usual 3 guesses and 2 hints each. Keep going until you miss one: your score is how many you solved.</p>
+              <p>The first nine problems go Easy, Medium, Hard, three times over. After nine correct answers, every problem is Hard. You get 3 guesses per problem and no hints. Keep going until you miss one: your score is how many you solved.</p>
               <button className="btn primary big" onClick={startSurvival}>Start run</button>
             </>
           )}
@@ -219,6 +219,7 @@ export function Endless({ banks, dailyIds }: { banks: Banks; dailyIds: string[] 
               onGuess={guess}
               onHint={hint}
               onGiveUp={giveUp}
+              allowHints={kind !== 'survival'}
               giveUpNote={kind === 'survival' ? 'This ends your Survival run.' : 'It counts as not solved and resets your streak.'}
             />
           )}
