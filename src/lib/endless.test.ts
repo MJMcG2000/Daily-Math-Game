@@ -37,9 +37,11 @@ describe('endless draw', () => {
 });
 
 describe('difficulty rules', () => {
-  it('survival ramps 3 easy, 3 medium, then hard', () => {
-    expect([0, 1, 2, 3, 4, 5, 6, 20].map(survivalDifficulty)).toEqual(
-      ['easy', 'easy', 'easy', 'medium', 'medium', 'medium', 'hard', 'hard']);
+  it('survival cycles easy, medium, hard three times, then only hard', () => {
+    expect(Array.from({ length: 13 }, (_, i) => survivalDifficulty(i))).toEqual([
+      'easy', 'medium', 'hard', 'easy', 'medium', 'hard', 'easy', 'medium', 'hard',
+      'hard', 'hard', 'hard', 'hard',
+    ]);
   });
   it('practice pools', () => {
     expect(practiceDifficulty('hard')).toBe('hard');
@@ -53,6 +55,6 @@ describe('difficulty rules', () => {
     expect(touched({ ...ps, hintsUsed: 1 })).toBe(true);
   });
   it('survival share has no spoilers', () => {
-    expect(survivalShareText(7, 9)).toBe('Mathdle Survival: solved 7 (fell on problem 8)\n🟢🟢🟢🟡🟡🟡🔴❌\nBest: 9');
+    expect(survivalShareText(7, 9)).toBe('Mathdle Survival: solved 7 (fell on problem 8)\n🟢🟡🔴🟢🟡🔴🟢❌\nBest: 9');
   });
 });

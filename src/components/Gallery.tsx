@@ -14,7 +14,7 @@ export function Gallery({ problems, filter }: { problems: Problem[]; filter: str
     <main className="container">
       <h1>Gallery: {filter} ({list.length})</h1>
       {list.map((p) => {
-        const a = parseAnswer(p.answer);
+        const a = parseAnswer(p.answer, p.variables ?? []);
         return (
           <section key={p.id} className="card" id={p.id}>
             <h2 className="card-title">{p.id} · {p.topic}{p.course ? ` · ${p.course}` : ''}</h2>

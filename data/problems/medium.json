@@ -1930,5 +1930,157 @@
     ],
     "diagram": "<svg viewBox=\"0 0 220 150\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><polygon points=\"20,130 180,130 90,8.8\"/><path d=\"M 45 130 A 25 25 0 0 0 32.5 108.3\"/><text x=\"100\" y=\"146\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">8</text><text x=\"44\" y=\"66\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">7</text><text x=\"56\" y=\"122\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">π/3</text><text x=\"146\" y=\"66\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\" font-style=\"italic\">c</text></svg>",
     "diagramAlt": "A triangle with sides 7 and 8 meeting at a marked angle of pi over 3. The third side is c."
+  },
+  {
+    "id": "m101",
+    "difficulty": "medium",
+    "topic": "Sequences and series",
+    "subject": "Algebra 2",
+    "gradeLevel": 11,
+    "prompt": "Find a formula, in terms of $n$, for $$1\\cdot2 + 2\\cdot3 + 3\\cdot4 + \\cdots + n(n + 1).$$",
+    "answer": "n(n+1)(n+2)/3",
+    "answerNumeric": null,
+    "hint1": "Expand each term: $k(k + 1) = k^2 + k$. Then use the standard formulas for $\\sum k^2$ and $\\sum k$.",
+    "hint2": "$\\sum_{k=1}^n k^2 = \\tfrac{n(n+1)(2n+1)}{6}$ and $\\sum_{k=1}^n k = \\tfrac{n(n+1)}{2}$. Factor out $\\tfrac{n(n+1)}{6}$.",
+    "keyIdea": "Turn the sum into sums you already know: $\\sum k(k + 1) = \\sum k^2 + \\sum k$. Then factor out what the two formulas share.",
+    "solutionSteps": [
+      "**Expand the general term.** $k(k + 1) = k^2 + k$, so the sum is $\\sum_{k=1}^n k^2 + \\sum_{k=1}^n k$.",
+      "**Use the standard formulas.** $\\sum_{k=1}^n k^2 = \\dfrac{n(n+1)(2n+1)}{6}$ and $\\sum_{k=1}^n k = \\dfrac{n(n+1)}{2} = \\dfrac{3n(n+1)}{6}$.",
+      "**Factor out the common part** $\\dfrac{n(n+1)}{6}$: $\\dfrac{n(n+1)}{6}\\big[(2n + 1) + 3\\big] = \\dfrac{n(n+1)(2n + 4)}{6}$.",
+      "**Simplify.** $\\dfrac{n(n+1)(n+2)}{3}$. Check with $n = 2$: $1\\cdot2 + 2\\cdot3 = 8$, and $\\tfrac{2\\cdot3\\cdot4}{3} = 8$. ✓"
+    ],
+    "variables": [
+      "n"
+    ],
+    "domain": {
+      "n": [
+        1,
+        6
+      ]
+    }
+  },
+  {
+    "id": "m102",
+    "difficulty": "medium",
+    "topic": "Logs and exponentials",
+    "subject": "Algebra 2",
+    "gradeLevel": 11,
+    "prompt": "Solve for $x$ in terms of $a$: $$\\log_2 x + \\log_4 x = a.$$",
+    "answer": "2^(2a/3)",
+    "answerNumeric": null,
+    "hint1": "Rewrite $\\log_4 x$ in base $2$ using the change-of-base formula.",
+    "hint2": "$\\log_4 x = \\dfrac{\\log_2 x}{\\log_2 4} = \\tfrac12\\log_2 x$, so the equation is $\\tfrac32\\log_2 x = a$.",
+    "keyIdea": "Logs with different bases can't be combined directly. Convert $\\log_4$ to base $2$ first, then undo the log by exponentiating.",
+    "solutionSteps": [
+      "**Change of base.** $\\log_4 x = \\dfrac{\\log_2 x}{\\log_2 4} = \\dfrac{\\log_2 x}{2}$, since $4 = 2^2$.",
+      "**Combine.** The equation becomes $\\log_2 x + \\tfrac12\\log_2 x = \\tfrac32\\log_2 x = a$, so $\\log_2 x = \\tfrac{2a}{3}$.",
+      "**Undo the log.** $x = 2^{2a/3}$. Check with $a = 3$: $x = 4$, and $\\log_2 4 + \\log_4 4 = 2 + 1 = 3$. ✓"
+    ],
+    "variables": [
+      "a"
+    ]
+  },
+  {
+    "id": "m103",
+    "difficulty": "medium",
+    "topic": "Trig identities",
+    "subject": "Trigonometry",
+    "gradeLevel": 11,
+    "prompt": "Write $\\cos 3\\theta$ as a polynomial in $c = \\cos\\theta$.",
+    "answer": "4c^3 - 3c",
+    "answerNumeric": null,
+    "hint1": "Write $3\\theta = 2\\theta + \\theta$ and use the cosine addition formula.",
+    "hint2": "$\\cos3\\theta = \\cos2\\theta\\cos\\theta - \\sin2\\theta\\sin\\theta$, with $\\cos2\\theta = 2c^2 - 1$ and $\\sin2\\theta\\sin\\theta = 2\\sin^2\\theta\\,c = 2(1 - c^2)c$.",
+    "keyIdea": "Split $3\\theta$ into $2\\theta + \\theta$, apply the addition formula, then use the double-angle formulas and $\\sin^2\\theta = 1 - \\cos^2\\theta$ to leave only cosines.",
+    "solutionSteps": [
+      "**Addition formula.** $\\cos3\\theta = \\cos(2\\theta + \\theta) = \\cos2\\theta\\cos\\theta - \\sin2\\theta\\sin\\theta$.",
+      "**First term.** $\\cos2\\theta = 2c^2 - 1$, so $\\cos2\\theta\\cos\\theta = 2c^3 - c$.",
+      "**Second term.** $\\sin2\\theta\\sin\\theta = 2\\sin\\theta\\cos\\theta\\sin\\theta = 2c\\sin^2\\theta = 2c(1 - c^2) = 2c - 2c^3$.",
+      "**Subtract.** $(2c^3 - c) - (2c - 2c^3) = 4c^3 - 3c$. Check at $\\theta = 0$ ($c = 1$): $\\cos 0 = 1$ and $4 - 3 = 1$. ✓"
+    ],
+    "variables": [
+      "c"
+    ],
+    "domain": {
+      "c": [
+        -0.9,
+        0.9
+      ]
+    }
+  },
+  {
+    "id": "m104",
+    "difficulty": "medium",
+    "topic": "Rational expressions",
+    "subject": "Algebra 2",
+    "gradeLevel": 11,
+    "prompt": "Simplify to a single fraction: $$\\frac{1}{2a}\\left(\\frac{1}{x - a} - \\frac{1}{x + a}\\right).$$",
+    "answer": "1/(x^2 - a^2)",
+    "answerNumeric": null,
+    "hint1": "Combine the two fractions inside the parentheses over the common denominator $(x - a)(x + a)$.",
+    "hint2": "The numerator becomes $(x + a) - (x - a) = 2a$, which cancels the $\\tfrac{1}{2a}$ outside.",
+    "keyIdea": "Combine the two fractions inside the parentheses first. Their difference has numerator $2a$, which cancels the $\\tfrac{1}{2a}$ outside.",
+    "solutionSteps": [
+      "**Common denominator.** $\\dfrac{1}{x - a} - \\dfrac{1}{x + a} = \\dfrac{(x + a) - (x - a)}{(x - a)(x + a)}$.",
+      "**Simplify the numerator.** $(x + a) - (x - a) = 2a$, so the parentheses equal $\\dfrac{2a}{x^2 - a^2}$, using the difference of squares $(x - a)(x + a) = x^2 - a^2$.",
+      "**Multiply by $\\tfrac{1}{2a}$.** The $2a$ cancels, leaving $\\dfrac{1}{x^2 - a^2}$."
+    ],
+    "variables": [
+      "x",
+      "a"
+    ],
+    "domain": {
+      "x": [
+        3,
+        5
+      ],
+      "a": [
+        0.5,
+        1.5
+      ]
+    }
+  },
+  {
+    "id": "m105",
+    "difficulty": "medium",
+    "topic": "Area and volume",
+    "subject": "Geometry",
+    "gradeLevel": 10,
+    "prompt": "A square with side $s$ is inscribed in a circle. Find the area inside the circle but outside the square, in terms of $s$.",
+    "answer": "pi s^2/2 - s^2",
+    "answerNumeric": null,
+    "hint1": "The square's diagonal is a diameter of the circle.",
+    "hint2": "The diagonal is $s\\sqrt2$, so the radius is $\\tfrac{s\\sqrt2}{2}$ and the circle's area is $\\pi\\cdot\\tfrac{s^2}{2}$.",
+    "keyIdea": "The square's diagonal is a diameter of the circle, which links the circle's radius to $s$. Then subtract the two areas.",
+    "solutionSteps": [
+      "**Diagonal.** A square with side $s$ has diagonal $s\\sqrt2$, by Pythagoras: $\\sqrt{s^2 + s^2}$.",
+      "**Radius.** The diagonal is a diameter, so $r = \\tfrac{s\\sqrt2}{2}$ and $r^2 = \\tfrac{s^2}{2}$.",
+      "**Areas.** The circle has area $\\pi r^2 = \\tfrac{\\pi s^2}{2}$ and the square has area $s^2$.",
+      "**Difference.** $\\tfrac{\\pi s^2}{2} - s^2 = s^2\\left(\\tfrac\\pi2 - 1\\right) \\approx 0.571s^2$."
+    ],
+    "variables": [
+      "s"
+    ]
+  },
+  {
+    "id": "m106",
+    "difficulty": "medium",
+    "topic": "Vectors",
+    "subject": "Precalculus",
+    "gradeLevel": 12,
+    "prompt": "Find the distance from the origin to the line $ax + y = 1$, in terms of $a$.",
+    "answer": "1/sqrt(a^2 + 1)",
+    "answerNumeric": null,
+    "hint1": "The vector $\\langle a, 1\\rangle$ is perpendicular to the line. The closest point lies along it.",
+    "hint2": "Use the point-to-line distance formula: the distance from $(0, 0)$ to $Ax + By = C$ is $\\dfrac{|C|}{\\sqrt{A^2 + B^2}}$.",
+    "keyIdea": "The shortest path from a point to a line is perpendicular to the line. For $Ax + By = C$, the perpendicular direction is $\\langle A, B\\rangle$, which leads to the distance formula $\\dfrac{|C|}{\\sqrt{A^2 + B^2}}$ from the origin.",
+    "solutionSteps": [
+      "**Identify $A$, $B$ and $C$.** $ax + y = 1$ has $A = a$, $B = 1$ and $C = 1$.",
+      "**Why the formula works.** The closest point is $t\\langle a, 1\\rangle$ for some $t$. Putting it into the line gives $t(a^2 + 1) = 1$, and its length is $|t|\\sqrt{a^2 + 1} = \\dfrac{1}{\\sqrt{a^2 + 1}}$.",
+      "**Answer.** $\\dfrac{1}{\\sqrt{a^2 + 1}}$. Check with $a = 0$: the line $y = 1$ is at distance $1$. ✓"
+    ],
+    "variables": [
+      "a"
+    ]
   }
 ]

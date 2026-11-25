@@ -4,7 +4,7 @@ import easyBank from '../data/problems/easy.json';
 import mediumBank from '../data/problems/medium.json';
 import hardBank from '../data/problems/hard.json';
 import { dayIndex, problemsForDay, type Banks } from './lib/daily';
-import { answerValue, judge } from './lib/check';
+import { grade } from './lib/grade';
 import { MAX_DAILY_SCORE, MAX_GUESSES, MAX_HINTS, scoreProblem } from './lib/scoring';
 import { hasSeenHelp, loadDayState, loadHistory, loadTheme, markHelpSeen, recordDay, saveDayState, saveTheme } from './lib/storage';
 import { computeStats } from './lib/stats';
@@ -14,6 +14,7 @@ import { HelpModal } from './components/HelpModal';
 import { StatsModal, ShareButton } from './components/StatsModal';
 import { Countdown } from './components/Countdown';
 import { Endless } from './components/Endless';
+import { TestTools, testToolsEnabled } from './components/TestTools'; // TESTING ONLY: remove before launch
 
 const BANKS: Banks = {
   easy: easyBank as Problem[],
@@ -125,12 +126,11 @@ export default function App() {
   const share = shareText(state, problems, typeof location !== 'undefined' ? location.href.split('#')[0] : undefined);
   const total = Math.round(state.problems.reduce((s, p, i) => s + scoreProblem(p, problems[i].difficulty).total, 0) * 10) / 10;
 
-  function guess(i: number, input: string, value: number) {
-    const answer = answerValue(problems[i].answerNumeric);
-    const fb = judge(value, answer);
+  function guess(i: number, input: string) {
+    const fb = grade(problems[i], input);
     update((p) => {
       if (p.status !== 'playing') return p;
-      const guesses = [...p.guesses, { input, value, mark: fb.mark, direction: fb.direction }];
+      const guesses = [...p.guesses, { input, value: fb.value, mark: fb.mark, direction: fb.direction }];
       const status = fb.mark === 'correct' ? 'solved' : guesses.length >= MAX_GUESSES ? 'failed' : 'playing';
       return { ...p, guesses, status };
     }, i);
@@ -218,7 +218,7 @@ export default function App() {
                 state={state.problems[i]}
                 index={i}
                 onStart={() => update((s) => ({ ...s, started: true }), i)}
-                onGuess={(input, value) => guess(i, input, value)}
+                onGuess={(input) => guess(i, input)}
                 onHint={() => update((s) => ({ ...s, hintsUsed: Math.min(MAX_HINTS, s.hintsUsed + 1) }), i)}
                 onGiveUp={() => update((s) => (s.status === 'playing' ? { ...s, status: 'failed', gaveUp: true } : s), i)}
               />
@@ -232,6 +232,7 @@ export default function App() {
           </section>
         )}
         </>}
+        {testToolsEnabled() && <TestTools day={state.day} />}{/* TESTING ONLY: remove before launch */}
         <footer className="footer">
           <Countdown onRollover={rollover} />
         </footer>

@@ -18,12 +18,12 @@ from bank.solution_diagrams import SOLUTION_DIAGRAMS  # noqa: E402
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / 'data' / 'problems'
 # Key ideas and explanatory solution steps, keyed by problem id (see scripts/bank/explain_*.py).
-EXPLAIN_MODULES = ['explain_easy', 'explain_medium', 'explain_hard_a', 'explain_hard_b']
+EXPLAIN_MODULES = ['explain_easy', 'explain_medium', 'explain_hard_a', 'explain_hard_b', 'explain_symbolic']
 
 SOURCES = {
     'easy': ['easy_a', 'easy_b'],
-    'medium': ['medium_a', 'medium_b'],
-    'hard': ['hard_a', 'hard_b'],
+    'medium': ['medium_a', 'medium_b', 'symbolic_medium'],
+    'hard': ['hard_a', 'hard_b', 'symbolic_hard'],
 }
 
 
@@ -83,7 +83,7 @@ def to_json(p, difficulty, explain=None):
         'gradeLevel': categorize(p)[1],
         'prompt': p.prompt,
         'answer': p.answer,
-        'answerNumeric': numeric(p.answer),
+        'answerNumeric': None if p.extra.get('variables') else numeric(p.answer),
         'hint1': p.hint1,
         'hint2': p.hint2,
         'solutionSteps': p.steps,
@@ -96,6 +96,10 @@ def to_json(p, difficulty, explain=None):
         d = {k: d[k] for k in [*[k for k in d if k not in ('keyIdea', 'solutionSteps')], 'keyIdea', 'solutionSteps']}
     if p.course:
         d['course'] = p.course
+    if p.extra.get('variables'):
+        d['variables'] = p.extra['variables']
+        if p.extra.get('domain'):
+            d['domain'] = p.extra['domain']
     if p.diagram:
         d['diagram'] = p.diagram
         d['diagramAlt'] = p.alt

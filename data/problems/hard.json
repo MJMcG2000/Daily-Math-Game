@@ -2030,5 +2030,581 @@
       "**Divide.** $\\tfrac{14}{25}\\cdot\\tfrac{125}{27} = \\tfrac{70}{27} \\approx 2.59$."
     ],
     "course": "calc2"
+  },
+  {
+    "id": "h101",
+    "difficulty": "hard",
+    "topic": "Product rule",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
+    "prompt": "Find $f'(x)$ for $$f(x) = x^2\\sin x.$$",
+    "answer": "2x*sin(x) + x^2*cos(x)",
+    "answerNumeric": null,
+    "hint1": "Use the product rule: $(uv)' = u'v + uv'$.",
+    "hint2": "With $u = x^2$ and $v = \\sin x$: $u' = 2x$ and $v' = \\cos x$.",
+    "keyIdea": "A product of two functions: use the product rule, $(uv)' = u'v + uv'$.",
+    "solutionSteps": [
+      "**Name the factors.** $u = x^2$ and $v = \\sin x$, so $u' = 2x$ and $v' = \\cos x$.",
+      "**Apply the rule.** $f'(x) = u'v + uv' = 2x\\sin x + x^2\\cos x$.",
+      "**Check at a point.** At $x = 0$ the formula gives $0$, which matches $f(x) \\approx x^3$ near $0$ having slope $0$ there."
+    ],
+    "course": "calc1",
+    "variables": [
+      "x"
+    ]
+  },
+  {
+    "id": "h102",
+    "difficulty": "hard",
+    "topic": "Chain rule",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
+    "prompt": "Find $\\dfrac{dy}{dx}$ for $$y = \\ln\\!\\left(x + \\sqrt{x^2 + 1}\\right),$$ and simplify as far as possible.",
+    "answer": "1/sqrt(x^2 + 1)",
+    "answerNumeric": null,
+    "hint1": "Chain rule: $\\dfrac{d}{dx}\\ln u = \\dfrac{u'}{u}$, with $u = x + \\sqrt{x^2 + 1}$.",
+    "hint2": "$u' = 1 + \\dfrac{x}{\\sqrt{x^2 + 1}} = \\dfrac{\\sqrt{x^2 + 1} + x}{\\sqrt{x^2 + 1}}$, which is $\\dfrac{u}{\\sqrt{x^2 + 1}}$.",
+    "keyIdea": "Use the chain rule on $\\ln u$. The derivative of $u = x + \\sqrt{x^2 + 1}$ turns out to be $u$ divided by $\\sqrt{x^2 + 1}$, so almost everything cancels.",
+    "solutionSteps": [
+      "**Chain rule.** $\\dfrac{dy}{dx} = \\dfrac{u'}{u}$ with $u = x + \\sqrt{x^2 + 1}$.",
+      "**Differentiate $u$.** $u' = 1 + \\dfrac{x}{\\sqrt{x^2 + 1}} = \\dfrac{\\sqrt{x^2 + 1} + x}{\\sqrt{x^2 + 1}}$, putting both terms over a common denominator.",
+      "**Notice the numerator is $u$.** So $u' = \\dfrac{u}{\\sqrt{x^2 + 1}}$, and $\\dfrac{u'}{u} = \\dfrac{1}{\\sqrt{x^2 + 1}}$.",
+      "**Answer.** $\\dfrac{1}{\\sqrt{x^2 + 1}}$. This shows that $y$ is the inverse hyperbolic sine, $\\sinh^{-1}x$."
+    ],
+    "course": "calc1",
+    "variables": [
+      "x"
+    ]
+  },
+  {
+    "id": "h103",
+    "difficulty": "hard",
+    "topic": "Chain rule",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
+    "prompt": "For $x > 0$, find $\\dfrac{dy}{dx}$ for $$y = x^{\\sin x}.$$",
+    "answer": "x^sin(x)*(cos(x)*ln(x) + sin(x)/x)",
+    "answerNumeric": null,
+    "hint1": "A variable base with a variable exponent: take logs first, $\\ln y = \\sin x\\,\\ln x$.",
+    "hint2": "Differentiate both sides: $\\dfrac{y'}{y} = \\cos x\\ln x + \\dfrac{\\sin x}{x}$.",
+    "keyIdea": "When both the base and the exponent vary, neither the power rule nor the exponential rule applies. Take $\\ln$ of both sides so the exponent comes down, then differentiate implicitly.",
+    "solutionSteps": [
+      "**Take logs.** $\\ln y = \\sin x\\,\\ln x$.",
+      "**Differentiate both sides.** The left gives $\\dfrac{y'}{y}$. The right needs the product rule: $\\cos x\\ln x + \\sin x\\cdot\\dfrac1x$.",
+      "**Solve for $y'$.** Multiply by $y = x^{\\sin x}$: $\\dfrac{dy}{dx} = x^{\\sin x}\\left(\\cos x\\ln x + \\dfrac{\\sin x}{x}\\right)$."
+    ],
+    "course": "calc1",
+    "variables": [
+      "x"
+    ]
+  },
+  {
+    "id": "h104",
+    "difficulty": "hard",
+    "topic": "Product rule",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
+    "prompt": "Find $f'(x)$ for $$f(x) = e^{2x}\\cos 3x.$$",
+    "answer": "e^(2x)*(2cos(3x) - 3sin(3x))",
+    "answerNumeric": null,
+    "hint1": "Product rule, with the chain rule on each factor.",
+    "hint2": "$(e^{2x})' = 2e^{2x}$ and $(\\cos3x)' = -3\\sin3x$.",
+    "keyIdea": "Product rule, where each factor needs the chain rule. Factor out $e^{2x}$ at the end.",
+    "solutionSteps": [
+      "**Derivatives of the factors.** $(e^{2x})' = 2e^{2x}$ (chain rule, inner derivative $2$) and $(\\cos3x)' = -3\\sin3x$ (inner derivative $3$).",
+      "**Product rule.** $f'(x) = 2e^{2x}\\cos3x + e^{2x}(-3\\sin3x)$.",
+      "**Factor.** $f'(x) = e^{2x}(2\\cos3x - 3\\sin3x)$."
+    ],
+    "course": "calc1",
+    "variables": [
+      "x"
+    ]
+  },
+  {
+    "id": "h105",
+    "difficulty": "hard",
+    "topic": "Fundamental Theorem of Calculus",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
+    "prompt": "For $x > 0$ let $$F(x) = \\int_0^{x^2}\\frac{\\sin t}{t}\\,dt.$$ Find $F'(x)$.",
+    "answer": "2sin(x^2)/x",
+    "answerNumeric": null,
+    "hint1": "FTC with the chain rule: $\\dfrac{d}{dx}\\displaystyle\\int_0^{g(x)}f(t)\\,dt = f(g(x))\\,g'(x)$.",
+    "hint2": "Here $f(t) = \\dfrac{\\sin t}{t}$ and $g(x) = x^2$, so $g'(x) = 2x$.",
+    "keyIdea": "The FTC (Fundamental Theorem of Calculus) says $\\dfrac{d}{du}\\int_0^u f(t)\\,dt = f(u)$. When the upper bound is $g(x)$, the chain rule adds a factor $g'(x)$. You never need to integrate $\\tfrac{\\sin t}{t}$, which has no elementary antiderivative.",
+    "solutionSteps": [
+      "**Structure.** $F(x) = G(x^2)$, where $G(u) = \\displaystyle\\int_0^u\\frac{\\sin t}{t}\\,dt$ and $G'(u) = \\dfrac{\\sin u}{u}$.",
+      "**Chain rule.** $F'(x) = G'(x^2)\\cdot2x = \\dfrac{\\sin(x^2)}{x^2}\\cdot2x$.",
+      "**Simplify.** $F'(x) = \\dfrac{2\\sin(x^2)}{x}$."
+    ],
+    "course": "calc1",
+    "variables": [
+      "x"
+    ]
+  },
+  {
+    "id": "h106",
+    "difficulty": "hard",
+    "topic": "Fundamental Theorem of Calculus",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
+    "prompt": "Evaluate $$\\int_x^{x^2} t\\,dt$$ as a function of $x$.",
+    "answer": "(x^4 - x^2)/2",
+    "answerNumeric": null,
+    "hint1": "Find an antiderivative of $t$, then plug in the two bounds, which happen to be expressions in $x$.",
+    "hint2": "$\\tfrac{t^2}{2}\\Big|_x^{x^2} = \\tfrac{(x^2)^2}{2} - \\tfrac{x^2}{2}$.",
+    "keyIdea": "Bounds that are expressions in $x$ work like any other bounds: find an antiderivative in $t$, then substitute the upper and lower limits.",
+    "solutionSteps": [
+      "**Antiderivative.** $\\displaystyle\\int t\\,dt = \\tfrac{t^2}{2}$.",
+      "**Plug in the bounds.** $\\tfrac{(x^2)^2}{2} - \\tfrac{x^2}{2} = \\tfrac{x^4}{2} - \\tfrac{x^2}{2}$.",
+      "**Answer.** $\\tfrac{x^4 - x^2}{2}$. Check: at $x = 1$ both bounds are $1$, and the formula gives $0$. ✓"
+    ],
+    "course": "calc1",
+    "variables": [
+      "x"
+    ]
+  },
+  {
+    "id": "h107",
+    "difficulty": "hard",
+    "topic": "Fundamental Theorem of Calculus",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
+    "prompt": "For $a > 0$, evaluate $$\\int_{-a}^{a}\\left(a^2 - x^2\\right)dx.$$",
+    "answer": "4a^3/3",
+    "answerNumeric": null,
+    "hint1": "Here $a$ is a constant and $x$ is the integration variable. The integrand is even, so you can double the integral from $0$ to $a$.",
+    "hint2": "An antiderivative is $a^2x - \\tfrac{x^3}{3}$. At $x = a$ it is $a^3 - \\tfrac{a^3}{3} = \\tfrac{2a^3}{3}$.",
+    "keyIdea": "Treat $a$ as a constant and integrate in $x$. The integrand is even (symmetric about the $y$-axis), so the integral is twice the integral from $0$ to $a$.",
+    "solutionSteps": [
+      "**Antiderivative.** $\\displaystyle\\int(a^2 - x^2)\\,dx = a^2x - \\tfrac{x^3}{3}$. Since $a^2$ is a constant, its antiderivative is $a^2x$.",
+      "**Use symmetry.** $2\\left[a^2x - \\tfrac{x^3}{3}\\right]_0^a = 2\\left(a^3 - \\tfrac{a^3}{3}\\right)$.",
+      "**Simplify.** $2\\cdot\\tfrac{2a^3}{3} = \\tfrac{4a^3}{3}$. It scales like $a^3$, as it should: widening the parabola multiplies both its width and its height."
+    ],
+    "course": "calc1",
+    "variables": [
+      "a"
+    ]
+  },
+  {
+    "id": "h108",
+    "difficulty": "hard",
+    "topic": "Fundamental Theorem of Calculus",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
+    "prompt": "For $a > 0$, find the area of the region between $y = x^2$ and $y = ax$.",
+    "answer": "a^3/6",
+    "answerNumeric": null,
+    "hint1": "The curves meet where $x^2 = ax$. Between those points the line is on top.",
+    "hint2": "They meet at $x = 0$ and $x = a$, so the area is $\\displaystyle\\int_0^a(ax - x^2)\\,dx$.",
+    "keyIdea": "Find where the curves meet, decide which is on top, and integrate (top − bottom). Every step carries the parameter $a$.",
+    "solutionSteps": [
+      "**Intersections.** $x^2 = ax$ gives $x(x - a) = 0$, so $x = 0$ and $x = a$.",
+      "**Top curve.** At $x = \\tfrac a2$ the line gives $\\tfrac{a^2}{2}$ and the parabola $\\tfrac{a^2}{4}$, so the line is on top.",
+      "**Integrate.** $\\displaystyle\\int_0^a(ax - x^2)\\,dx = \\left[\\tfrac{ax^2}{2} - \\tfrac{x^3}{3}\\right]_0^a = \\tfrac{a^3}{2} - \\tfrac{a^3}{3}$.",
+      "**Area.** $\\tfrac{a^3}{6}$. For $a = 1$ that is the familiar $\\tfrac16$."
+    ],
+    "course": "calc1",
+    "variables": [
+      "a"
+    ]
+  },
+  {
+    "id": "h109",
+    "difficulty": "hard",
+    "topic": "Limits",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
+    "prompt": "For positive constants $a$ and $b$, evaluate $$\\lim_{x\\to0}\\frac{\\sin ax}{\\sin bx}.$$",
+    "answer": "a/b",
+    "answerNumeric": null,
+    "hint1": "Use $\\dfrac{\\sin u}{u} \\to 1$. Multiply and divide so each sine sits over its own argument.",
+    "hint2": "$\\dfrac{\\sin ax}{\\sin bx} = \\dfrac{\\sin ax}{ax}\\cdot\\dfrac{bx}{\\sin bx}\\cdot\\dfrac{ax}{bx}$.",
+    "keyIdea": "Rewrite the quotient so that each sine sits over its own argument. Those pieces each tend to $1$, leaving a simple ratio of the arguments.",
+    "solutionSteps": [
+      "**Regroup.** $\\dfrac{\\sin ax}{\\sin bx} = \\dfrac{\\sin ax}{ax}\\cdot\\dfrac{bx}{\\sin bx}\\cdot\\dfrac{ax}{bx}$.",
+      "**Standard limit.** As $x \\to 0$, $ax$ and $bx$ also go to $0$, so $\\dfrac{\\sin ax}{ax} \\to 1$ and $\\dfrac{bx}{\\sin bx} \\to 1$.",
+      "**What's left.** $\\dfrac{ax}{bx} = \\dfrac ab$. (L'Hôpital agrees: $\\dfrac{a\\cos ax}{b\\cos bx} \\to \\dfrac ab$.)"
+    ],
+    "course": "calc1",
+    "variables": [
+      "a",
+      "b"
+    ]
+  },
+  {
+    "id": "h110",
+    "difficulty": "hard",
+    "topic": "Implicit differentiation",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
+    "prompt": "For the circle $x^2 + y^2 = 25$, find $\\dfrac{dy}{dx}$ in terms of $x$ and $y$.",
+    "answer": "-x/y",
+    "answerNumeric": null,
+    "hint1": "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$.",
+    "hint2": "$2x + 2y\\,\\dfrac{dy}{dx} = 0$.",
+    "keyIdea": "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$. The chain rule turns $y^2$ into $2y\\,y'$.",
+    "solutionSteps": [
+      "**Differentiate.** $\\dfrac{d}{dx}(x^2) + \\dfrac{d}{dx}(y^2) = \\dfrac{d}{dx}(25)$, which gives $2x + 2y\\dfrac{dy}{dx} = 0$.",
+      "**Solve.** $\\dfrac{dy}{dx} = -\\dfrac{x}{y}$.",
+      "**Geometric check.** The radius to $(x, y)$ has slope $\\tfrac yx$. The tangent is perpendicular to it, so its slope is the negative reciprocal, $-\\tfrac xy$. ✓"
+    ],
+    "course": "calc1",
+    "variables": [
+      "x",
+      "y"
+    ],
+    "domain": {
+      "x": [
+        0.5,
+        3
+      ],
+      "y": [
+        1,
+        4
+      ]
+    }
+  },
+  {
+    "id": "h111",
+    "difficulty": "hard",
+    "topic": "Related rates",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
+    "prompt": "A spherical balloon's radius $r$ grows at a constant rate of $k$ cm/s. Find $\\dfrac{dV}{dt}$ in terms of $r$ and $k$.",
+    "answer": "4pi*r^2*k",
+    "answerNumeric": null,
+    "hint1": "Start from $V = \\tfrac43\\pi r^3$ and differentiate both sides with respect to time $t$.",
+    "hint2": "Chain rule: $\\dfrac{dV}{dt} = 4\\pi r^2\\dfrac{dr}{dt}$, and $\\dfrac{dr}{dt} = k$.",
+    "keyIdea": "Write the volume in terms of the radius, then differentiate both sides with respect to time. The chain rule brings in $\\tfrac{dr}{dt} = k$.",
+    "solutionSteps": [
+      "**Volume.** $V = \\tfrac43\\pi r^3$.",
+      "**Differentiate with respect to $t$.** $\\dfrac{dV}{dt} = \\tfrac43\\pi\\cdot3r^2\\dfrac{dr}{dt} = 4\\pi r^2\\dfrac{dr}{dt}$.",
+      "**Substitute $\\tfrac{dr}{dt} = k$.** $\\dfrac{dV}{dt} = 4\\pi r^2k$. That is the surface area times the rate the radius grows, which makes sense: a new thin shell of thickness $k\\,dt$ is added."
+    ],
+    "course": "calc1",
+    "variables": [
+      "r",
+      "k"
+    ]
+  },
+  {
+    "id": "h112",
+    "difficulty": "hard",
+    "topic": "Optimization",
+    "subject": "Calculus 1",
+    "gradeLevel": 12,
+    "prompt": "Among all rectangles with perimeter $p$, find the largest possible area, in terms of $p$.",
+    "answer": "p^2/16",
+    "answerNumeric": null,
+    "hint1": "If one side is $w$, the other is $\\tfrac p2 - w$. Maximize $A(w) = w\\left(\\tfrac p2 - w\\right)$.",
+    "hint2": "$A'(w) = \\tfrac p2 - 2w = 0$ gives $w = \\tfrac p4$, so the best rectangle is a square.",
+    "keyIdea": "Use the perimeter to write the area in terms of one side, then maximize. The answer is a square.",
+    "solutionSteps": [
+      "**One variable.** If one side is $w$, the other is $\\tfrac p2 - w$, so $A(w) = w\\left(\\tfrac p2 - w\\right)$.",
+      "**Critical point.** $A'(w) = \\tfrac p2 - 2w = 0$, so $w = \\tfrac p4$. The other side is also $\\tfrac p4$.",
+      "**Maximum area.** $\\left(\\tfrac p4\\right)^2 = \\tfrac{p^2}{16}$. It is a maximum because $A$ is a downward parabola in $w$."
+    ],
+    "course": "calc1",
+    "variables": [
+      "p"
+    ]
+  },
+  {
+    "id": "h113",
+    "difficulty": "hard",
+    "topic": "Integration by parts",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
+    "prompt": "Evaluate $$\\int_0^a xe^x\\,dx$$ as a function of $a$.",
+    "answer": "(a - 1)e^a + 1",
+    "answerNumeric": null,
+    "hint1": "Integrate by parts with $u = x$ and $dv = e^x\\,dx$.",
+    "hint2": "$\\displaystyle\\int xe^x\\,dx = xe^x - e^x = (x - 1)e^x$.",
+    "keyIdea": "Use integration by parts with $u = x$, so that differentiating it leaves just $1$. Then evaluate with $a$ as the upper limit.",
+    "solutionSteps": [
+      "**Parts.** $u = x$, $dv = e^x\\,dx$, so $du = dx$ and $v = e^x$: $\\displaystyle\\int xe^x\\,dx = xe^x - \\int e^x\\,dx = (x - 1)e^x$.",
+      "**Upper limit $a$.** $(a - 1)e^a$.",
+      "**Lower limit $0$.** $(0 - 1)e^0 = -1$.",
+      "**Subtract.** $(a - 1)e^a - (-1) = (a - 1)e^a + 1$. Check: at $a = 0$ it gives $0$. ✓"
+    ],
+    "course": "calc2",
+    "variables": [
+      "a"
+    ]
+  },
+  {
+    "id": "h114",
+    "difficulty": "hard",
+    "topic": "Integration by parts",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
+    "prompt": "For $a > 0$, evaluate $$\\int_1^a\\ln x\\,dx.$$",
+    "answer": "a ln(a) - a + 1",
+    "answerNumeric": null,
+    "hint1": "Integrate by parts with $u = \\ln x$ and $dv = dx$.",
+    "hint2": "$\\displaystyle\\int\\ln x\\,dx = x\\ln x - x$.",
+    "keyIdea": "$\\ln x$ has no obvious partner, so use parts with $u = \\ln x$ and $dv = dx$. Differentiating the log leaves $\\tfrac1x$, which cancels with $v = x$.",
+    "solutionSteps": [
+      "**Parts.** $u = \\ln x$ and $v = x$: $\\displaystyle\\int\\ln x\\,dx = x\\ln x - \\int x\\cdot\\tfrac1x\\,dx = x\\ln x - x$.",
+      "**Evaluate.** At $a$: $a\\ln a - a$. At $1$: $0 - 1 = -1$.",
+      "**Subtract.** $a\\ln a - a + 1$. Check: at $a = 1$ the integral is $0$. ✓"
+    ],
+    "course": "calc2",
+    "variables": [
+      "a"
+    ]
+  },
+  {
+    "id": "h115",
+    "difficulty": "hard",
+    "topic": "Partial fractions",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
+    "prompt": "For $a > 0$, evaluate $$\\int_0^a\\frac{dx}{(x + 1)(x + 2)}.$$ Write the answer as a single logarithm.",
+    "answer": "ln(2(a + 1)/(a + 2))",
+    "answerNumeric": null,
+    "hint1": "Split the integrand: $\\dfrac{1}{(x + 1)(x + 2)} = \\dfrac{1}{x + 1} - \\dfrac{1}{x + 2}$.",
+    "hint2": "The antiderivative is $\\ln\\dfrac{x + 1}{x + 2}$. Evaluate it at $a$ and at $0$.",
+    "keyIdea": "Partial fractions turn the integrand into two simple logs. Combine them into one log at the end.",
+    "solutionSteps": [
+      "**Partial fractions.** $\\dfrac{1}{(x + 1)(x + 2)} = \\dfrac{1}{x + 1} - \\dfrac{1}{x + 2}$ (cover-up method: $A = 1$, $B = -1$).",
+      "**Antiderivative.** $\\ln(x + 1) - \\ln(x + 2) = \\ln\\dfrac{x + 1}{x + 2}$.",
+      "**Evaluate.** $\\ln\\dfrac{a + 1}{a + 2} - \\ln\\dfrac12 = \\ln\\dfrac{a + 1}{a + 2} + \\ln2$.",
+      "**One logarithm.** $\\ln\\dfrac{2(a + 1)}{a + 2}$. As $a \\to \\infty$ this approaches $\\ln2$, matching the improper integral from $0$ to $\\infty$."
+    ],
+    "course": "calc2",
+    "variables": [
+      "a"
+    ]
+  },
+  {
+    "id": "h116",
+    "difficulty": "hard",
+    "topic": "Integration by parts",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
+    "prompt": "Evaluate $$\\int_0^a\\sin^2x\\,dx$$ as a function of $a$.",
+    "answer": "a/2 - sin(2a)/4",
+    "answerNumeric": null,
+    "hint1": "Use the power-reduction identity $\\sin^2x = \\dfrac{1 - \\cos2x}{2}$.",
+    "hint2": "$\\displaystyle\\int\\frac{1 - \\cos2x}{2}dx = \\frac x2 - \\frac{\\sin2x}{4}$.",
+    "keyIdea": "You can't integrate $\\sin^2x$ directly, so lower its power with $\\sin^2x = \\dfrac{1 - \\cos2x}{2}$.",
+    "solutionSteps": [
+      "**Power reduction.** $\\displaystyle\\int_0^a\\sin^2x\\,dx = \\int_0^a\\frac{1 - \\cos2x}{2}\\,dx$.",
+      "**Integrate.** $\\dfrac x2 - \\dfrac{\\sin2x}{4}$. The $\\tfrac14$ comes from $\\tfrac12$ times the $\\tfrac12$ from the chain rule.",
+      "**Evaluate.** At $a$: $\\tfrac a2 - \\tfrac{\\sin2a}{4}$. At $0$: $0$.",
+      "**Answer.** $\\tfrac a2 - \\tfrac{\\sin2a}{4}$. At $a = \\pi$ this is $\\tfrac\\pi2$, the familiar half of the interval."
+    ],
+    "course": "calc2",
+    "variables": [
+      "a"
+    ]
+  },
+  {
+    "id": "h117",
+    "difficulty": "hard",
+    "topic": "Improper integrals",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
+    "prompt": "For $k > 0$, evaluate $$\\int_0^\\infty xe^{-kx}\\,dx.$$",
+    "answer": "1/k^2",
+    "answerNumeric": null,
+    "hint1": "Integrate by parts with $u = x$ and $dv = e^{-kx}dx$, then take the limit as the upper bound goes to $\\infty$.",
+    "hint2": "$\\displaystyle\\int xe^{-kx}dx = -\\frac{x}{k}e^{-kx} - \\frac{1}{k^2}e^{-kx}$.",
+    "keyIdea": "This is an improper integral: integrate up to $b$, then let $b \\to \\infty$. Parts handles the $x$, and the exponential decay kills the boundary terms.",
+    "solutionSteps": [
+      "**Parts.** $u = x$ and $dv = e^{-kx}dx$, so $v = -\\tfrac1ke^{-kx}$: $\\displaystyle\\int xe^{-kx}dx = -\\frac xke^{-kx} - \\frac{1}{k^2}e^{-kx}$.",
+      "**Upper limit $b \\to \\infty$.** Both terms go to $0$, since $e^{-kb}$ shrinks faster than $b$ grows.",
+      "**Lower limit $0$.** $0 - \\tfrac{1}{k^2}$.",
+      "**Value.** $0 - \\left(-\\tfrac{1}{k^2}\\right) = \\tfrac{1}{k^2}$."
+    ],
+    "course": "calc2",
+    "variables": [
+      "k"
+    ]
+  },
+  {
+    "id": "h118",
+    "difficulty": "hard",
+    "topic": "Trig substitution",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
+    "prompt": "For $a > 0$, evaluate $$\\int_0^a\\sqrt{a^2 - x^2}\\,dx.$$",
+    "answer": "pi a^2/4",
+    "answerNumeric": null,
+    "hint1": "Substitute $x = a\\sin\\theta$. Then $\\sqrt{a^2 - x^2} = a\\cos\\theta$ and $dx = a\\cos\\theta\\,d\\theta$.",
+    "hint2": "The integral becomes $a^2\\displaystyle\\int_0^{\\pi/2}\\cos^2\\theta\\,d\\theta$.",
+    "keyIdea": "Substitute $x = a\\sin\\theta$ to remove the square root. Geometrically, the integral is a quarter of a circle of radius $a$, which confirms the answer.",
+    "solutionSteps": [
+      "**Substitute.** $x = a\\sin\\theta$, $dx = a\\cos\\theta\\,d\\theta$ and $\\sqrt{a^2 - x^2} = a\\cos\\theta$. The bounds $0 \\to 0$ and $a \\to \\tfrac\\pi2$.",
+      "**New integral.** $\\displaystyle\\int_0^{\\pi/2}a^2\\cos^2\\theta\\,d\\theta = a^2\\int_0^{\\pi/2}\\frac{1 + \\cos2\\theta}{2}\\,d\\theta$.",
+      "**Evaluate.** $a^2\\left[\\tfrac\\theta2 + \\tfrac{\\sin2\\theta}{4}\\right]_0^{\\pi/2} = a^2\\cdot\\tfrac\\pi4$.",
+      "**Answer.** $\\tfrac{\\pi a^2}{4}$: a quarter of the disk's area $\\pi a^2$. ✓"
+    ],
+    "course": "calc2",
+    "variables": [
+      "a"
+    ]
+  },
+  {
+    "id": "h119",
+    "difficulty": "hard",
+    "topic": "Volumes of revolution",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
+    "prompt": "The region under $y = \\dfrac{r}{h}x$ for $0 \\le x \\le h$ is rotated about the $x$-axis, making a cone. Find its volume in terms of $r$ and $h$.",
+    "answer": "pi r^2 h/3",
+    "answerNumeric": null,
+    "hint1": "Use disks. At position $x$ the radius is $\\tfrac rh x$.",
+    "hint2": "$V = \\pi\\displaystyle\\int_0^h\\frac{r^2}{h^2}x^2\\,dx$.",
+    "keyIdea": "Rotating a slanted line about the $x$-axis sweeps out a cone. Slice it into disks: each has radius equal to the line's height at that $x$.",
+    "solutionSteps": [
+      "**Disk radius.** At position $x$ the radius is $\\tfrac rh x$, growing from $0$ at the tip to $r$ at $x = h$.",
+      "**Volume integral.** $V = \\pi\\displaystyle\\int_0^h\\left(\\frac rhx\\right)^2dx = \\pi\\frac{r^2}{h^2}\\int_0^hx^2\\,dx$.",
+      "**Integrate.** $\\pi\\dfrac{r^2}{h^2}\\cdot\\dfrac{h^3}{3} = \\dfrac{\\pi r^2h}{3}$.",
+      "**This derives the cone formula:** one third of the cylinder $\\pi r^2h$."
+    ],
+    "course": "calc2",
+    "variables": [
+      "r",
+      "h"
+    ]
+  },
+  {
+    "id": "h120",
+    "difficulty": "hard",
+    "topic": "Arc length",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
+    "prompt": "Find the arc length of $y = \\tfrac23x^{3/2}$ from $x = 0$ to $x = a$.",
+    "answer": "(2/3)((1 + a)^(3/2) - 1)",
+    "answerNumeric": null,
+    "hint1": "$L = \\displaystyle\\int_0^a\\sqrt{1 + (y')^2}\\,dx$, and here $y' = \\sqrt x$.",
+    "hint2": "The integrand is $\\sqrt{1 + x}$.",
+    "keyIdea": "For arc length you need $\\sqrt{1 + (y')^2}$. This curve was chosen so that the expression under the root is just $1 + x$.",
+    "solutionSteps": [
+      "**Recall the formula.** The arc length of $y = f(x)$ from $0$ to $a$ is $\\displaystyle\\int_0^a\\sqrt{1 + (f'(x))^2}\\,dx$. It adds up tiny hypotenuses $\\sqrt{dx^2 + dy^2}$ along the curve.",
+      "**Differentiate.** By the power rule, $y' = \\tfrac23\\cdot\\tfrac32x^{1/2} = \\sqrt x$. Squaring gives $x$, so the expression under the root is just $1 + x$.",
+      "**Set up the integral.** $L = \\displaystyle\\int_0^a\\sqrt{1 + x}\\,dx$, an ordinary power of $(1 + x)$.",
+      "**Integrate and evaluate.** $\\tfrac23(1 + x)^{3/2}\\Big|_0^a = \\tfrac23\\left((1 + a)^{3/2} - 1\\right)$. Check with $a = 3$: $\\tfrac23(8 - 1) = \\tfrac{14}{3}$, the same as the numeric version of this problem."
+    ],
+    "course": "calc2",
+    "variables": [
+      "a"
+    ]
+  },
+  {
+    "id": "h121",
+    "difficulty": "hard",
+    "topic": "Geometric series",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
+    "prompt": "For $0 < x < 1$, find a closed form for $$\\sum_{n=1}^\\infty nx^n.$$",
+    "answer": "x/(1 - x)^2",
+    "answerNumeric": null,
+    "hint1": "Start from $\\sum_{n\\ge0}x^n = \\dfrac{1}{1 - x}$. Differentiate, then multiply by $x$.",
+    "hint2": "Differentiating gives $\\sum nx^{n-1} = \\dfrac{1}{(1 - x)^2}$.",
+    "keyIdea": "Start from the geometric series $\\sum x^n = \\dfrac{1}{1 - x}$. Differentiating brings down a factor of $n$, and multiplying by $x$ restores the power.",
+    "solutionSteps": [
+      "**Geometric series.** $\\displaystyle\\sum_{n\\ge0}x^n = \\frac{1}{1 - x}$ for $|x| < 1$.",
+      "**Differentiate term by term.** $\\displaystyle\\sum_{n\\ge1}nx^{n-1} = \\frac{1}{(1 - x)^2}$. This is allowed inside the radius of convergence.",
+      "**Multiply by $x$.** $\\displaystyle\\sum_{n\\ge1}nx^n = \\frac{x}{(1 - x)^2}$. Check at $x = \\tfrac12$: the formula gives $2$, and $\\tfrac12 + \\tfrac24 + \\tfrac38 + \\cdots = 2$. ✓"
+    ],
+    "course": "calc2",
+    "variables": [
+      "x"
+    ],
+    "domain": {
+      "x": [
+        0.1,
+        0.8
+      ]
+    }
+  },
+  {
+    "id": "h122",
+    "difficulty": "hard",
+    "topic": "Taylor and Maclaurin series",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
+    "prompt": "Find the Maclaurin polynomial of degree $3$ for $f(x) = e^x\\sin x$.",
+    "answer": "x + x^2 + x^3/3",
+    "answerNumeric": null,
+    "hint1": "Multiply the series $e^x = 1 + x + \\tfrac{x^2}{2} + \\cdots$ and $\\sin x = x - \\tfrac{x^3}{6} + \\cdots$, keeping powers up to $x^3$.",
+    "hint2": "The $x^3$ terms come from $\\tfrac{x^2}{2}\\cdot x$ and $1\\cdot\\left(-\\tfrac{x^3}{6}\\right)$.",
+    "keyIdea": "Multiply the two known Maclaurin series and keep only the terms up to $x^3$. Higher powers can't affect a degree-3 polynomial.",
+    "solutionSteps": [
+      "**Series.** $e^x = 1 + x + \\tfrac{x^2}{2} + \\tfrac{x^3}{6} + \\cdots$ and $\\sin x = x - \\tfrac{x^3}{6} + \\cdots$.",
+      "**Collect by power.** $x$: $1\\cdot x$. $x^2$: $x\\cdot x$. $x^3$: $\\tfrac{x^2}{2}\\cdot x + 1\\cdot\\left(-\\tfrac{x^3}{6}\\right) = \\tfrac{x^3}{2} - \\tfrac{x^3}{6}$.",
+      "**Simplify.** The $x^3$ coefficient is $\\tfrac13$, so the polynomial is $x + x^2 + \\tfrac{x^3}{3}$."
+    ],
+    "course": "calc2",
+    "variables": [
+      "x"
+    ],
+    "domain": {
+      "x": [
+        -1,
+        1
+      ]
+    }
+  },
+  {
+    "id": "h123",
+    "difficulty": "hard",
+    "topic": "Telescoping series",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
+    "prompt": "Find a formula, in terms of $n$, for $$\\sum_{k=1}^n\\frac{1}{k(k + 1)}.$$",
+    "answer": "n/(n + 1)",
+    "answerNumeric": null,
+    "hint1": "Split each term: $\\dfrac{1}{k(k + 1)} = \\dfrac1k - \\dfrac{1}{k + 1}$.",
+    "hint2": "The sum telescopes to $1 - \\dfrac{1}{n + 1}$.",
+    "keyIdea": "Partial fractions split each term into a difference. When you add them up, every middle term cancels (telescopes).",
+    "solutionSteps": [
+      "**Split.** $\\dfrac{1}{k(k + 1)} = \\dfrac1k - \\dfrac{1}{k + 1}$.",
+      "**Write out the sum.** $\\left(1 - \\tfrac12\\right) + \\left(\\tfrac12 - \\tfrac13\\right) + \\cdots + \\left(\\tfrac1n - \\tfrac{1}{n + 1}\\right)$.",
+      "**Cancel.** Only $1$ and $-\\tfrac{1}{n + 1}$ survive: $1 - \\dfrac{1}{n + 1} = \\dfrac{n}{n + 1}$. As $n \\to \\infty$ it approaches $1$, the infinite sum."
+    ],
+    "course": "calc2",
+    "variables": [
+      "n"
+    ],
+    "domain": {
+      "n": [
+        1,
+        8
+      ]
+    }
+  },
+  {
+    "id": "h124",
+    "difficulty": "hard",
+    "topic": "Integration by parts",
+    "subject": "Calculus 2",
+    "gradeLevel": 13,
+    "prompt": "For $n > 0$, evaluate $$\\int_0^1 x^n\\ln x\\,dx.$$",
+    "answer": "-1/(n + 1)^2",
+    "answerNumeric": null,
+    "hint1": "Integrate by parts with $u = \\ln x$ and $dv = x^n\\,dx$. The boundary term at $0$ vanishes because $n > 0$.",
+    "hint2": "$\\displaystyle\\int x^n\\ln x\\,dx = \\frac{x^{n+1}}{n + 1}\\ln x - \\frac{x^{n+1}}{(n + 1)^2}$.",
+    "keyIdea": "Integrate by parts with $u = \\ln x$, which differentiates to $\\tfrac1x$ and lowers the power. The boundary term at $0$ vanishes because $x^{n+1}\\ln x \\to 0$.",
+    "solutionSteps": [
+      "**Parts.** $u = \\ln x$ and $dv = x^n\\,dx$, so $v = \\tfrac{x^{n+1}}{n + 1}$: $\\displaystyle\\int x^n\\ln x\\,dx = \\frac{x^{n+1}\\ln x}{n + 1} - \\int\\frac{x^n}{n + 1}\\,dx$.",
+      "**Finish the antiderivative.** $\\dfrac{x^{n+1}\\ln x}{n + 1} - \\dfrac{x^{n+1}}{(n + 1)^2}$.",
+      "**Limits.** At $1$: $0 - \\tfrac{1}{(n + 1)^2}$. At $0^+$: both terms go to $0$, since $n + 1 > 0$.",
+      "**Value.** $-\\dfrac{1}{(n + 1)^2}$. It is negative, as it should be, because $\\ln x < 0$ on $(0, 1)$."
+    ],
+    "course": "calc2",
+    "variables": [
+      "n"
+    ],
+    "domain": {
+      "n": [
+        0.5,
+        3
+      ]
+    }
   }
 ]
