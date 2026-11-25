@@ -1,5 +1,6 @@
 import type { DayState, Problem } from '../types';
 import { formatDuration, MAX_DAILY_SCORE, scoreProblem } from './scoring';
+import { dateForDay, shareDate } from './daily';
 
 const CIRCLED = ['①', '②', '③'];
 const SQUARE = { correct: '🟩', close: '🟨', wrong: '🟥' } as const;
@@ -8,7 +9,8 @@ const SQUARE = { correct: '🟩', close: '🟨', wrong: '🟥' } as const;
 export function shareText(state: DayState, problems: Problem[], url?: string): string {
   const solved = state.problems.filter((p) => p.status === 'solved').length;
   const total = state.problems.reduce((s, p, i) => s + scoreProblem(p, problems[i].difficulty).total, 0);
-  const lines = [`Mathdle #${state.day + 1} — ${solved}/3 · ${Math.round(total * 10) / 10}/${MAX_DAILY_SCORE} pts`];
+  const date = shareDate(dateForDay(state.day));
+  const lines = [`Mathdle #${state.day + 1} · ${date} — ${solved}/3 · ${Math.round(total * 10) / 10}/${MAX_DAILY_SCORE} pts`];
   state.problems.forEach((p, i) => {
     const marks = p.guesses.map((g) => SQUARE[g.mark]).join('');
     const squares = p.gaveUp ? marks + '🏳️' : marks || '⬜';

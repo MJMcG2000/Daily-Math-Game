@@ -11,6 +11,17 @@ export function dayIndex(now: Date = new Date()): number {
   return Math.round((local - epoch) / MS_PER_DAY);
 }
 
+/** The local calendar date of a puzzle number (day index 0 = EPOCH). */
+export function dateForDay(day: number): Date {
+  return new Date(EPOCH.year, EPOCH.month - 1, EPOCH.day + day);
+}
+
+/** Short, unambiguous date for share text, e.g. "Nov 25, 2026" (same in every locale). */
+export function shareDate(d: Date): string {
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  return `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+}
+
 export function msUntilNextPuzzle(now: Date = new Date()): number {
   const next = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
   return next.getTime() - now.getTime();

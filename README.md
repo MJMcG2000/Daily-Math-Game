@@ -52,7 +52,7 @@ Stats are kept in your browser's `localStorage`:
 **Share** copies a grid with no spoilers:
 
 ```
-Mathdle #42 — 2/3 · 6/18 pts
+Mathdle #42 · Jan 4, 2027 — 2/3 · 6/18 pts
 ① 🟩 1:12
 ② 🟨🟩 💡 4:30
 ③ 🟥🟥🟥 💡💡 10:00
