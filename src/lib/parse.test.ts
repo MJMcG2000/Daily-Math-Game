@@ -169,3 +169,29 @@ describe('TeX preview', () => {
     expect(b.ok && b.tex.includes('\\cdot\\frac')).toBe(true);
   });
 });
+
+describe('misreading notes', () => {
+  const notes = (s: string) => {
+    const r = parseAnswer(s);
+    if (!r.ok) throw new Error(r.error);
+    return r.notes;
+  };
+  it('warns when implicit multiplication follows a division', () => {
+    expect(notes('1/2pi')[0]).toMatch(/denominator/);
+    expect(notes('1/2ln(3)')).toHaveLength(1);
+  });
+  it('stays quiet for clear input', () => {
+    for (const s of ['1/(2pi)', 'pi/4', '3pi/4', '2pi/3', 'sqrt2', 'sqrt2/2', 'sqrt(3)/2', '4sqrt(2)/9', '(1/2)ln(3)', 'ln3', '2e - 1', '-5-3sqrt(2)']) {
+      expect(notes(s), s).toEqual([]);
+    }
+  });
+  it('warns when a function without parentheses is followed by more', () => {
+    expect(notes('sin pi/6')[0]).toMatch(/sin\(pi\/6\)/);
+    expect(notes('√2π')[0]).toMatch(/sqrt\(2pi\)/);
+    expect(notes('ln2pi')[0]).toMatch(/ln\(2pi\)/);
+  });
+  it('explains scientific notation with a negative exponent', () => {
+    expect(notes('2e-1')[0]).toMatch(/scientific notation/);
+    expect(notes('1e3')).toEqual([]);
+  });
+});

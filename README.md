@@ -62,7 +62,7 @@ Mathdle #42 — 2/3 · 6/18 pts
 
 ## Answer syntax
 
-The input box shows a live KaTeX preview of how your answer was read. An answer that can't be parsed shows a friendly error and **never costs a guess**. Two answers count as equal if they agree to a relative tolerance of 1e-6, so `1/2`, `0.5`, `2/4` and `sin(pi/6)` are all the same answer.
+Under the input box, a **Reads as** panel shows your answer as typeset math, with fractions stacked full-size and a decimal value next to it. If what you typed is easy to misread, a **Check:** note explains how it was read and how to write what you probably meant. That covers `1/2pi`, which means (1/2)·π; `sin pi/6`, which means sin(π)/6; and `2e-1`, which is scientific notation. An answer that can't be parsed shows a friendly error and **never costs a guess**. Two answers count as equal if they agree to a relative tolerance of 1e-6, so `1/2`, `0.5`, `2/4` and `sin(pi/6)` are all the same answer.
 
 | Meaning | Type it as |
 |---|---|

@@ -78,7 +78,7 @@ export function normalize(raw: string): string {
 // ---------------------------------------------------------------- tokenize
 
 type Tok =
-  | { t: 'num'; v: string }
+  | { t: 'num'; v: string; sci?: boolean }
   | { t: 'const'; v: 'pi' | 'e' | 'inf' }
   | { t: 'fn'; v: string }
   | { t: 'op'; v: '+' | '-' | '*' | '/' | '^' }
@@ -133,11 +133,12 @@ export function tokenize(s: string): Tok[] {
       if (s[i] === '.') throw new ParseError(`"${num}." has too many decimal points.`);
       // Scientific notation: e immediately followed by digits or by "-" and digits.
       const sci = /^e(-?\d+)/.exec(s.slice(i));
-      if (sci) { num += 'e' + sci[1]; i += sci[0].length; }
+      let isSci = false;
+      if (sci) { num += 'e' + sci[1]; i += sci[0].length; isSci = true; }
       if (toks.length && toks[toks.length - 1].t === 'num') {
         throw new ParseError('Two numbers in a row. Did you mean to put an operator between them?');
       }
-      toks.push({ t: 'num', v: num });
+      toks.push(isSci ? { t: 'num', v: num, sci: true } : { t: 'num', v: num });
       continue;
     }
     if (/[a-z]/.test(c)) {
@@ -166,7 +167,13 @@ export function tokenize(s: string): Tok[] {
 /** Recursive-descent parser that emits a fully parenthesised mathjs expression string. */
 class Parser {
   private i = 0;
+  /** Plain-English warnings about readings that are easy to get wrong (shown under the preview). */
+  readonly notes: string[] = [];
   constructor(private toks: Tok[]) {}
+
+  private note(msg: string) {
+    if (!this.notes.includes(msg)) this.notes.push(msg);
+  }
 
   private peek(): Tok | undefined { return this.toks[this.i]; }
   private next(): Tok | undefined { return this.toks[this.i++]; }
@@ -199,13 +206,18 @@ class Parser {
 
   private term(): string {
     let left = this.unary();
+    let divided = false;
     for (;;) {
       if (this.isOp('*') || this.isOp('/')) {
         const op = (this.next() as { v: string }).v;
+        if (op === '/') divided = true;
         left = `(${left} ${op} ${this.unary()})`;
       } else if (this.startsAtom(this.peek())) {
         // Implicit multiplication. A bare number right after something like "pi" is fine
         // ("pi2" → π·2) but we disallow "2 3" in the tokenizer.
+        if (divided) {
+          this.note('Only the first thing after "/" goes in the denominator; anything written right after it multiplies the whole fraction. For example, 1/2pi means (1/2)·π. To put it all in the denominator, use parentheses: 1/(2pi).');
+        }
         left = `(${left} * ${this.power()})`;
       } else {
         return left;
@@ -233,7 +245,11 @@ class Parser {
     const t = this.next();
     if (!t) throw new ParseError('The answer ends too early. Is something missing?');
     switch (t.t) {
-      case 'num': return t.v;
+      case 'num':
+        if (t.sci && t.v.includes('e-')) {
+          this.note(`${t.v} is read as scientific notation (${t.v.replace(/e-(\d+)/, ' × 10^−$1')}). If you meant e minus a number, put spaces around the minus: ${t.v.replace(/e-/, 'e - ')}.`);
+        }
+        return t.v;
       case 'const': return t.v === 'inf' ? 'Infinity' : t.v;
       case 'lp': {
         if (this.peek()?.t === 'rp') throw new ParseError('Empty parentheses "()".');
@@ -281,6 +297,15 @@ class Parser {
         throw new ParseError(`${name} needs an input, like ${name}(2).`);
       }
       arg = this.isOp('-') ? (this.next(), `(-${this.power()})`) : this.power();
+      // Without parentheses a function takes only the next number. Warn when more follows.
+      // (√2/2 and ∛2/2 are conventional, so roots only warn when another term follows directly.)
+      const isRoot = name === 'sqrt' || name === 'cbrt';
+      const more = this.startsAtom(this.peek()) || (!isRoot && (this.isOp('/') || this.isOp('*')));
+      if (more) {
+        const shown = name === 'sqrt' ? '√' : name === 'cbrt' ? '∛' : name;
+        const example = isRoot || name === 'ln' || name === 'log' || name === 'exp' ? `${name}(2pi)` : `${name}(pi/6)`;
+        this.note(`Without parentheses, ${shown} applies only to the next number. If more belongs inside, use parentheses, for example ${example}.`);
+      }
     }
     let call: string;
     if (base !== null) call = `log(${arg}, ${base})`;
@@ -292,17 +317,23 @@ class Parser {
 // ---------------------------------------------------------------- public API
 
 export type ParseResult =
-  | { ok: true; value: number; tex: string; expr: string }
+  | { ok: true; value: number; tex: string; expr: string; notes: string[] }
   | { ok: false; error: string };
 
 export function toMathjs(input: string): string {
   return new Parser(tokenize(normalize(input))).parse();
 }
 
+function parseWithNotes(input: string): { expr: string; notes: string[] } {
+  const parser = new Parser(tokenize(normalize(input)));
+  const expr = parser.parse();
+  return { expr, notes: parser.notes };
+}
+
 /** Parse and evaluate a player's answer. Never throws. */
 export function parseAnswer(input: string): ParseResult {
   try {
-    const expr = toMathjs(input);
+    const { expr, notes } = parseWithNotes(input);
     const node: MathNode = math.parse(expr);
     let raw: unknown;
     try {
@@ -332,7 +363,7 @@ export function parseAnswer(input: string): ParseResult {
       .replace(/(\d)\\cdot(?![\d{]|\\frac)/g, '$1')
       // "\frac{-16}{3}" → "-\frac{16}{3}" when the numerator is a single negated term.
       .replace(/\\frac\{-([^{}+\-]+)\}/g, '-\\frac{$1}');
-    return { ok: true, value, tex, expr };
+    return { ok: true, value, tex, expr, notes };
   } catch (err) {
     if (err instanceof ParseError) return { ok: false, error: err.message };
     return { ok: false, error: 'I couldn\'t read that. Check the operators and parentheses.' };
