@@ -6,6 +6,10 @@ export interface Problem {
   /** Hard problems only: which course the problem belongs to. Hard days alternate calc1/calc2. */
   course?: 'calc1' | 'calc2';
   topic: string;
+  /** Behind-the-scenes category: school subject (Pre-Algebra … Calculus 2). Not shown to players. */
+  subject?: string;
+  /** Behind-the-scenes estimated US grade level, 6–12; 13 = first-year college. Not shown to players. */
+  gradeLevel?: number;
   /** Text with inline LaTeX in $...$ and display LaTeX in $$...$$. */
   prompt: string;
   /** Exact answer written in the game's own input syntax, e.g. "3pi/4", "2sqrt(5)", "ln(3)", "inf". */

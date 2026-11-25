@@ -12,11 +12,12 @@ sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import sympy as sp  # noqa: E402
 
 from answer_sympy import answer_to_sympy  # noqa: E402
+from bank.categories import categorize  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / 'data' / 'problems'
 # Key ideas and explanatory solution steps, keyed by problem id (see scripts/bank/explain_*.py).
-EXPLAIN_MODULES = ['explain_easy', 'explain_medium', 'explain_hard']
+EXPLAIN_MODULES = ['explain_easy', 'explain_medium', 'explain_hard_a', 'explain_hard_b']
 
 SOURCES = {
     'easy': ['easy_a', 'easy_b'],
@@ -77,6 +78,8 @@ def to_json(p, difficulty, explain=None):
         'id': p.id,
         'difficulty': difficulty,
         'topic': p.topic,
+        'subject': categorize(p)[0],
+        'gradeLevel': categorize(p)[1],
         'prompt': p.prompt,
         'answer': p.answer,
         'answerNumeric': numeric(p.answer),

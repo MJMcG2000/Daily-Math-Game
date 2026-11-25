@@ -28,6 +28,7 @@ import sympy as sp  # noqa: E402
 
 from answer_sympy import answer_to_sympy  # noqa: E402
 from build_bank import SOURCES  # noqa: E402
+from bank.categories import GRADES, SUBJECTS  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 MIN_PER_BANK = 100
@@ -143,6 +144,10 @@ def main():
             if pid in seen:
                 fail(pid, 'duplicate id')
             seen.add(pid)
+            if p.get('subject') not in SUBJECTS:
+                fail(pid, f'subject {p.get("subject")!r} is not one of {SUBJECTS}')
+            if p.get('gradeLevel') not in GRADES:
+                fail(pid, f'gradeLevel {p.get("gradeLevel")!r} is not a grade from 6 to 13')
             if p.get('difficulty') != diff:
                 fail(pid, f'difficulty {p.get("difficulty")} in {diff}.json')
             if diff == 'hard' and p.get('course') not in ('calc1', 'calc2'):
