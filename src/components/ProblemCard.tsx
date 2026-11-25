@@ -10,7 +10,7 @@ const LABEL = { easy: 'Easy', medium: 'Medium', hard: 'Hard' } as const;
 const MARK_ICON = { correct: '✓', close: '≈', wrong: '✗' } as const;
 const MARK_TEXT = { correct: 'Correct', close: 'Close', wrong: 'Wrong' } as const;
 
-export function ProblemCard({ problem, state, index, onStart, onGuess, onHint, onGiveUp, scored = true, title, giveUpNote }: {
+export function ProblemCard({ problem, state, index, onStart, onGuess, onHint, onGiveUp, scored = true, title, giveUpNote, allowHints = true }: {
   problem: Problem;
   state: ProblemState;
   index: number;
@@ -23,6 +23,8 @@ export function ProblemCard({ problem, state, index, onStart, onGuess, onHint, o
   giveUpNote?: string;
   /** Daily mode: timer, reveal gate and points. Endless mode turns these off. */
   scored?: boolean;
+  /** False hides the hint button (Survival mode has no hints). */
+  allowHints?: boolean;
   /** Heading text; defaults to "Problem N · Difficulty". */
   title?: string;
 }) {
@@ -105,7 +107,7 @@ export function ProblemCard({ problem, state, index, onStart, onGuess, onHint, o
         {state.hintsUsed >= 2 && (
           <div className="hint"><strong>Hint 2.</strong> <MathText as="span" text={problem.hint2} /></div>
         )}
-        {!done && state.hintsUsed < MAX_HINTS && (
+        {allowHints && !done && state.hintsUsed < MAX_HINTS && (
           <button className="btn ghost" onClick={onHint}>
             Show hint {state.hintsUsed + 1}
             {scored && <span className="muted small"> (−0.5 pt)</span>}
