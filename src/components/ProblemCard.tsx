@@ -106,7 +106,7 @@ export function ProblemCard({ problem, state, index, onStart, onGuess, onHint, o
         )}
         {!done && state.hintsUsed < MAX_HINTS && (
           <button className="btn ghost" onClick={onHint}>
-            <span aria-hidden="true">💡</span> Show hint {state.hintsUsed + 1}
+            Show hint {state.hintsUsed + 1}
             {scored && <span className="muted small"> (−0.5 pt)</span>}
           </button>
         )}
@@ -147,7 +147,7 @@ export function ProblemCard({ problem, state, index, onStart, onGuess, onHint, o
         <div className={`result ${state.status}`} ref={resultRef} tabIndex={-1}>
           <p className="result-line">
             {state.status === 'solved' ? (
-              <><span aria-hidden="true">🎉 </span>Solved in {state.guesses.length} {state.guesses.length === 1 ? 'guess' : 'guesses'}</>
+              <>Solved in {state.guesses.length} {state.guesses.length === 1 ? 'guess' : 'guesses'}</>
             ) : state.gaveUp ? (
               <>You gave up. The answer was</>
             ) : (
@@ -191,7 +191,6 @@ function LiveTimer({ elapsedMs, targetMs }: { elapsedMs: number; targetMs: numbe
   const over = elapsedMs > targetMs;
   return (
     <p className={`timer ${over ? 'over' : ''}`}>
-      <span aria-hidden="true">⏱ </span>
       <span className="visually-hidden">Time on this problem: </span>
       <span className="timer-value">{formatDuration(elapsedMs)}</span>
       <span className="muted small">

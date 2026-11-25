@@ -53,9 +53,9 @@ Stats are kept in your browser's `localStorage`:
 
 ```
 Mathdle #42 — 2/3 · 6/18 pts
-① 🟩 ⏱1:12
-② 🟨🟩 💡 ⏱4:30
-③ 🟥🟥🟥 💡💡 ⏱10:00
+① 🟩 1:12
+② 🟨🟩 💡 4:30
+③ 🟥🟥🟥 💡💡 10:00
 ```
 
 🟩 correct · 🟨 close · 🟥 wrong · ⬜ not attempted · 💡 a hint used.

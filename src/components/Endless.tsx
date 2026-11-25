@@ -189,7 +189,7 @@ export function Endless({ banks, dailyIds }: { banks: Banks; dailyIds: string[] 
             <>
               <h2 className="card-title">Run over</h2>
               <p>You solved <strong>{data.survival.count}</strong> {data.survival.count === 1 ? 'problem' : 'problems'}.{' '}
-                {data.survival.count >= data.bestSurvival && data.survival.count > 0 ? 'New best! 🎉' : `Your best is ${data.bestSurvival}.`}</p>
+                {data.survival.count >= data.bestSurvival && data.survival.count > 0 ? 'New best!' : `Your best is ${data.bestSurvival}.`}</p>
               <div className="row center">
                 <button className="btn primary big" onClick={startSurvival}>Start a new run</button>
                 <ShareButton text={survivalShareText(data.survival.count, data.bestSurvival, location.href.split('#')[0])} />
