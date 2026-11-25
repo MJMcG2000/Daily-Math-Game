@@ -171,9 +171,28 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fo
 .answer input:focus { border-color: var(--text); outline: none; }
 .answer input[aria-invalid='true'] { border-color: var(--wrong); }
 .preview { min-height: 2.4em; padding: 6px 2px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 1.05rem; }
+/* The preview shows the parsed answer as real typeset math, with fractions stacked full-size,
+   so players can see exactly what they're about to submit. */
+.preview.has-math {
+  margin-top: 8px; padding: 6px 12px; min-height: 64px;
+  border: 1px solid var(--border); border-radius: 10px; background: var(--surface);
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px;
+}
+.preview-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.preview-math { overflow-x: auto; overflow-y: hidden; font-size: 1.15rem; }
+.preview-math .katex-display { margin: 0.2em 0; text-align: left; }
+.preview-math .katex-display > .katex { text-align: left; }
+.preview-approx { font-size: 0.85rem; white-space: nowrap; }
+.preview-notes { margin: 6px 0 2px; padding: 8px 12px; border-left: 4px solid var(--close); background: var(--close-bg); border-radius: 8px; font-size: 0.88rem; }
+.preview-notes p { margin: 0; }
+.preview-notes p + p { margin-top: 6px; }
+@media (max-width: 420px) {
+  .preview.has-math { grid-template-columns: 1fr auto; }
+  .preview-label { grid-column: 1 / -1; }
+}
 .preview .error { color: var(--wrong); font-size: 0.9rem; }
 .preview .muted { font-size: 0.9rem; }
-.keypad { display: grid; grid-template-columns: repeat(9, 1fr); gap: 6px; }
+.keypad { display: grid; grid-template-columns: repeat(9, 1fr); gap: 6px; margin-top: 10px; }
 .key {
   min-height: 44px; border-radius: 8px; border: 1px solid var(--border);
   background: var(--surface); color: var(--text);
@@ -192,6 +211,7 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fo
 }
 .guess .mark { grid-row: span 2; font-weight: 800; font-size: 1.2rem; text-align: center; }
 .guess-fb { font-size: 0.85rem; }
+.guess-expr { overflow-x: auto; overflow-y: hidden; }
 .guess.correct { background: var(--correct-bg); border-color: var(--correct); }
 .guess.correct .mark { color: var(--correct); }
 .guess.close { background: var(--close-bg); border-color: var(--close); }

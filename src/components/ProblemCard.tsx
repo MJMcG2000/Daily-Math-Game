@@ -81,7 +81,7 @@ export function ProblemCard({ problem, state, index, onStart, onGuess, onHint, o
             return (
               <li key={i} className={`guess ${g.mark}`}>
                 <span className="mark" aria-hidden="true">{MARK_ICON[g.mark]}</span>
-                <span className="guess-expr">{p.ok ? <TeX tex={p.tex} /> : g.input}</span>
+                <span className="guess-expr">{p.ok ? <TeX tex={`\\displaystyle ${p.tex}`} /> : g.input}</span>
                 <span className="guess-fb">
                   {MARK_TEXT[g.mark]}
                   {g.direction && (

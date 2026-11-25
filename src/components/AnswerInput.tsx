@@ -74,18 +74,26 @@ export function AnswerInput({ onSubmit, disabled, guessesLeft }: {
           Guess <span className="muted small">({guessesLeft} left)</span>
         </button>
       </div>
-      <div id={`${id}-preview`} className="preview" aria-live="polite">
+      <div id={`${id}-preview`} className={`preview ${parsed?.ok ? 'has-math' : ''}`} aria-live="polite">
         {parsed?.ok && (
           <>
-            <span className="visually-hidden">Interpreted as </span>
-            <TeX tex={parsed.tex} /> <span className="muted">≈ {fmt(parsed.value)}</span>
+            <span className="preview-label">Reads as</span>
+            <span className="preview-math"><TeX tex={parsed.tex} display /></span>
+            <span className="preview-approx muted">≈ {fmt(parsed.value)}</span>
           </>
         )}
         {parsed && !parsed.ok && (
           <span className={showError ? 'error' : 'muted'}>{parsed.error}</span>
         )}
-        {!parsed && <span className="muted">Your answer preview appears here.</span>}
+        {!parsed && <span className="muted">Type your answer. A preview of how it reads appears here.</span>}
       </div>
+      {parsed?.ok && parsed.notes.length > 0 && (
+        <div className="preview-notes" role="note">
+          {parsed.notes.map((n) => (
+            <p key={n}><strong>Check:</strong> {n}</p>
+          ))}
+        </div>
+      )}
       <div className="keypad" role="group" aria-label="Insert symbol">
         {KEYS.map((k) => (
           <button key={k.label} type="button" className="key" onClick={() => insert(k)} aria-label={`Insert ${k.aria}`} disabled={disabled}>
