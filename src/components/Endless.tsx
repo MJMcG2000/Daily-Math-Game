@@ -111,6 +111,10 @@ export function Endless({ banks, dailyIds }: { banks: Banks; dailyIds: string[] 
     });
   }
 
+  function giveUp() {
+    applyToRun((r) => (r.ps.status === 'playing' ? { ...r, ps: { ...r.ps, status: 'failed', gaveUp: true } } : r));
+  }
+
   function hint() {
     applyToRun((r) => ({ ...r, ps: { ...r.ps, hintsUsed: Math.min(MAX_HINTS, r.ps.hintsUsed + 1) } }));
   }
@@ -214,6 +218,8 @@ export function Endless({ banks, dailyIds }: { banks: Banks; dailyIds: string[] 
               title={kind === 'practice' ? `Practice · ${LABEL[problem.difficulty]}` : `Problem ${run.count + (run.ps.status === 'solved' ? 0 : 1)} · ${LABEL[problem.difficulty]}`}
               onGuess={guess}
               onHint={hint}
+              onGiveUp={giveUp}
+              giveUpNote={kind === 'survival' ? 'This ends your Survival run.' : 'It counts as not solved and resets your streak.'}
             />
           )}
           <div className="row center endless-actions">

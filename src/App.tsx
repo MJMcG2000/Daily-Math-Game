@@ -220,6 +220,7 @@ export default function App() {
                 onStart={() => update((s) => ({ ...s, started: true }), i)}
                 onGuess={(input, value) => guess(i, input, value)}
                 onHint={() => update((s) => ({ ...s, hintsUsed: Math.min(MAX_HINTS, s.hintsUsed + 1) }), i)}
+                onGiveUp={() => update((s) => (s.status === 'playing' ? { ...s, status: 'failed', gaveUp: true } : s), i)}
               />
             )}
           </div>

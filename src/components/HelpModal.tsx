@@ -24,6 +24,7 @@ export function HelpModal({ open, onClose }: { open: boolean; onClose: () => voi
         <li><strong>3 guesses</strong> per problem. A wrong guess tells you whether the answer is higher <span aria-hidden="true">↑</span> or lower <span aria-hidden="true">↓</span>.</li>
         <li><span className="chip close">≈ Close</span> means within 10% of the answer. <span className="chip wrong">✗ Wrong</span> means further off.</li>
         <li><strong>2 hints</strong> per problem, each costs 0.5 points.</li>
+        <li>Stuck? <strong>Give up</strong> to see the answer and worked solution right away. That problem scores 0.</li>
         <li>The full worked solution, with the key idea and a reason for every step, appears once a problem is done.</li>
       </ul>
       <h3>Endless mode</h3>

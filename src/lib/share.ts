@@ -10,7 +10,8 @@ export function shareText(state: DayState, problems: Problem[], url?: string): s
   const total = state.problems.reduce((s, p, i) => s + scoreProblem(p, problems[i].difficulty).total, 0);
   const lines = [`Mathdle #${state.day + 1} — ${solved}/3 · ${Math.round(total * 10) / 10}/${MAX_DAILY_SCORE} pts`];
   state.problems.forEach((p, i) => {
-    const squares = p.guesses.length ? p.guesses.map((g) => SQUARE[g.mark]).join('') : '⬜';
+    const marks = p.guesses.map((g) => SQUARE[g.mark]).join('');
+    const squares = p.gaveUp ? marks + '🏳️' : marks || '⬜';
     const hints = p.hintsUsed ? ' ' + '💡'.repeat(p.hintsUsed) : '';
     const time = p.status !== 'playing' ? ` ⏱${formatDuration(p.elapsedMs)}` : '';
     lines.push(`${CIRCLED[i]} ${squares}${hints}${time}`);
