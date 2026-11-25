@@ -19,6 +19,15 @@ The game is fully static: there is no backend, and the day's problems are chosen
 - Problems can be done in any order. A problem stays hidden until you reveal it, and revealing it starts its timer. The timer pauses when you switch problems, switch browser tabs or open a menu.
 - A new puzzle unlocks at **local midnight**, with a countdown on screen.
 
+### Endless mode
+
+Switch to **Endless** at the top of the page, or open the site with `#endless` at the end of the URL. There are two options:
+
+- **Practice:** pick Easy, Medium, Hard or Mixed and get one problem after another. The game tracks your current streak, best streak and solve count. Skipping a problem you've started, or switching difficulty mid-problem, resets the streak.
+- **Survival:** problems 1–3 are Easy, 4–6 are Medium, and everything after that is Hard. The run ends at the first problem you don't solve, and your best run is saved. Sharing a run shows a coloured bar for the problems solved, with no spoilers.
+
+Endless mode has no timer or points. It never serves today's daily problems, and it doesn't touch your daily stats or streaks. Each difficulty is dealt from its own shuffled queue, so a problem doesn't repeat until you've seen the rest of that difficulty.
+
 ### Scoring
 
 ```
@@ -131,11 +140,29 @@ The game reads `data/problems/{easy,medium,hard}.json`, which holds 100 problems
   "answer": "4ln(2)",                // exact answer in the game's own input syntax
   "answerNumeric": 2.772588722239781,// or "inf" / "-inf"
   "hint1": "…", "hint2": "…",
-  "solutionSteps": ["…", "…", "…"],
+  "subject": "Calculus 1",            // behind the scenes: Pre-Algebra … Calculus 2
+  "gradeLevel": 12,                  // behind the scenes: estimated US grade, 6–12 (13 = first-year college)
+  "keyIdea": "…",                    // one or two sentences: the insight that unlocks the problem
+  "solutionSteps": ["…", "…", "…"],  // each step says what is done and why; **bold** lead-ins allowed
   "diagram": "<svg …>",              // optional inline SVG drawn with currentColor
   "diagramAlt": "…"                  // required with a diagram
 }
 ```
+
+### Categories (behind the scenes)
+
+Every problem carries a `subject` and an estimated US `gradeLevel`. Players never see them; they show up only in the JSON files and the development gallery. Current counts:
+
+| Subject | Problems | Typical grade |
+|---|---|---|
+| Pre-Algebra | 33 | 6–8 |
+| Algebra 1 | 63 | 8–10 |
+| Geometry | 30 | 8–10 |
+| Algebra 2 | 26 | 10–11 |
+| Trigonometry | 20 | 11 |
+| Precalculus | 28 | 11–12 |
+| Calculus 1 | 50 | 12 |
+| Calculus 2 | 50 | 13 (first-year college; AP Calculus BC students meet it in grade 12) |
 
 ### How the daily problems are chosen
 
@@ -160,7 +187,9 @@ P('e101', 'Quadratics',
   [r'...', r'...', r'The larger solution is $3 + \sqrt5$.'])
 ```
 
-1. Add entries to a module in `scripts/bank/`. To add a new module, list it in `SOURCES` in `scripts/build_bank.py`.
+Each problem's explanation lives in `scripts/bank/explain_*.py`, keyed by problem ID. An entry holds the **key idea** and the **worked solution steps**, and each step should say *why* it is done, not just what is computed. Start a step with a short `**bold**` label. Its **subject and estimated grade level** come from `scripts/bank/categories.py`: each topic has a default, and individual problems can override it.
+
+1. Add entries to a module in `scripts/bank/`, then add the explanation and, for a new topic, a category default. To add a new module, list it in `SOURCES` in `scripts/build_bank.py`.
 2. Install the Python dependencies once:
 
    ```bash
@@ -185,7 +214,9 @@ P('e101', 'Quadratics',
 - the game's own TypeScript parser accepts `answer` and gets the same value (through `scripts/check_bank.ts`);
 - every LaTeX fragment renders in KaTeX;
 - the required fields, unique IDs, at least 3 solution steps, a course tag on hard problems, and alt text on diagrams are all present;
-- for a rational answer, the final solution steps actually show it.
+- for a rational answer, the final solution steps actually show it;
+- there is a key idea, and the solution explains itself in words rather than being a list of bare equations;
+- `subject` and `gradeLevel` are valid.
 
 It also checks bank sizes: at least 100 per difficulty and 50 per calculus course.
 

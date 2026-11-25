@@ -1021,10 +1021,12 @@
     "answerNumeric": 2.0972640247326626,
     "hint1": "Use parts with $u = x$ and $dv = e^{2x}\\,dx$.",
     "hint2": "$\\displaystyle\\int xe^{2x}\\,dx = \\tfrac{x}{2}e^{2x} - \\tfrac14e^{2x}$.",
+    "keyIdea": "Integration by parts, $\\int u\\,dv = uv - \\int v\\,du$, trades the integral for an easier one. Choose $u = x$, because differentiating it makes it simpler, and $dv = e^{2x}dx$, because it is easy to integrate.",
     "solutionSteps": [
-      "$u = x$, $v = \\tfrac12e^{2x}$: $\\displaystyle\\int xe^{2x}dx = \\tfrac x2e^{2x} - \\int\\tfrac12e^{2x}dx = \\tfrac x2e^{2x} - \\tfrac14e^{2x}$.",
-      "At $1$: $\\tfrac{e^2}{2} - \\tfrac{e^2}{4} = \\tfrac{e^2}{4}$. At $0$: $-\\tfrac14$.",
-      "Result: $\\tfrac{e^2}{4} + \\tfrac14 = \\tfrac{e^2 + 1}{4} \\approx 2.097$."
+      "**Choose the parts.** $u = x$ gives $du = dx$. $dv = e^{2x}dx$ gives $v = \\tfrac12e^{2x}$.",
+      "**Apply the formula.** $\\displaystyle\\int xe^{2x}dx = \\tfrac x2e^{2x} - \\int\\tfrac12e^{2x}dx = \\tfrac x2e^{2x} - \\tfrac14e^{2x}$. The leftover integral has no $x$ factor, so it is easy.",
+      "**Evaluate from $0$ to $1$.** At $1$: $\\tfrac{e^2}{2} - \\tfrac{e^2}{4} = \\tfrac{e^2}{4}$. At $0$: $0 - \\tfrac14 = -\\tfrac14$.",
+      "**Subtract.** $\\tfrac{e^2}{4} + \\tfrac14 = \\tfrac{e^2 + 1}{4} \\approx 2.097$."
     ],
     "course": "calc2"
   },
@@ -1039,10 +1041,12 @@
     "answerNumeric": 4.5745637607083705,
     "hint1": "Let $u = \\ln x$ and $dv = x^2\\,dx$.",
     "hint2": "$\\displaystyle\\int x^2\\ln x\\,dx = \\tfrac{x^3}{3}\\ln x - \\tfrac{x^3}{9}$.",
+    "keyIdea": "With a logarithm in the integrand, let $u = \\ln x$. Its derivative $\\tfrac1x$ cancels a power of $x$, which leaves a simple power to integrate.",
     "solutionSteps": [
-      "$u = \\ln x$, $v = \\tfrac{x^3}{3}$: $\\tfrac{x^3}{3}\\ln x - \\displaystyle\\int\\tfrac{x^2}{3}\\,dx = \\tfrac{x^3}{3}\\ln x - \\tfrac{x^3}{9}$.",
-      "At $e$: $\\tfrac{e^3}{3} - \\tfrac{e^3}{9} = \\tfrac{2e^3}{9}$. At $1$: $-\\tfrac19$.",
-      "Result: $\\tfrac{2e^3 + 1}{9} \\approx 4.57$."
+      "**Choose the parts.** $u = \\ln x$ gives $du = \\tfrac{dx}{x}$. $dv = x^2dx$ gives $v = \\tfrac{x^3}{3}$.",
+      "**Apply the formula.** $\\tfrac{x^3}{3}\\ln x - \\displaystyle\\int\\tfrac{x^3}{3}\\cdot\\tfrac1x\\,dx = \\tfrac{x^3}{3}\\ln x - \\tfrac{x^3}{9}$.",
+      "**At $e$.** $\\ln e = 1$: $\\tfrac{e^3}{3} - \\tfrac{e^3}{9} = \\tfrac{2e^3}{9}$. **At $1$.** $\\ln1 = 0$: $0 - \\tfrac19$.",
+      "**Subtract.** $\\tfrac{2e^3}{9} + \\tfrac19 = \\tfrac{2e^3 + 1}{9} \\approx 4.57$."
     ],
     "course": "calc2"
   },
@@ -1057,11 +1061,13 @@
     "answerNumeric": 12.070346316389635,
     "hint1": "Integrate by parts twice. The original integral comes back, so solve for it.",
     "hint2": "$\\displaystyle\\int e^x\\sin x\\,dx = \\tfrac12e^x(\\sin x - \\cos x) + C$.",
+    "keyIdea": "Integrating by parts twice brings back the original integral. Call it $I$ and solve the resulting equation for $I$ algebraically.",
     "solutionSteps": [
-      "Let $I = \\int e^x\\sin x\\,dx$. Parts twice: $I = e^x\\sin x - e^x\\cos x - I$.",
-      "$I = \\tfrac12e^x(\\sin x - \\cos x)$.",
-      "$\\left[\\tfrac12e^x(\\sin x - \\cos x)\\right]_0^\\pi = \\tfrac12e^\\pi(0 + 1) - \\tfrac12(0 - 1)$.",
-      "$= \\tfrac{e^\\pi + 1}{2} \\approx 12.07$."
+      "**First round.** $u = \\sin x$, $dv = e^xdx$: $I = e^x\\sin x - \\displaystyle\\int e^x\\cos x\\,dx$.",
+      "**Second round.** $u = \\cos x$, $dv = e^xdx$: $\\displaystyle\\int e^x\\cos x\\,dx = e^x\\cos x + \\int e^x\\sin x\\,dx = e^x\\cos x + I$.",
+      "**Solve for $I$.** $I = e^x\\sin x - e^x\\cos x - I$, so $I = \\tfrac12e^x(\\sin x - \\cos x)$.",
+      "**Evaluate from $0$ to $\\pi$.** At $\\pi$: $\\tfrac12e^\\pi(0 - (-1)) = \\tfrac{e^\\pi}{2}$. At $0$: $\\tfrac12(0 - 1) = -\\tfrac12$.",
+      "**Result.** $\\tfrac{e^\\pi + 1}{2} \\approx 12.07$."
     ],
     "course": "calc2"
   },
@@ -1076,10 +1082,12 @@
     "answerNumeric": 0.43882457311747564,
     "hint1": "Use parts with $u = \\arctan x$ and $dv = dx$.",
     "hint2": "$\\displaystyle\\int\\arctan x\\,dx = x\\arctan x - \\int\\frac{x}{1 + x^2}\\,dx$.",
+    "keyIdea": "There is no obvious product here, but you can treat $\\arctan x$ as $u$ and $dx$ as $dv$. Differentiating $\\arctan$ gives a rational function, which is much easier to integrate.",
     "solutionSteps": [
-      "$\\displaystyle\\int\\arctan x\\,dx = x\\arctan x - \\tfrac12\\ln(1 + x^2)$.",
-      "At $1$: $\\tfrac\\pi4 - \\tfrac12\\ln2$. At $0$: $0$.",
-      "Result: $\\tfrac\\pi4 - \\tfrac{\\ln 2}{2} \\approx 0.439$."
+      "**Choose the parts.** $u = \\arctan x$ gives $du = \\tfrac{dx}{1 + x^2}$. $dv = dx$ gives $v = x$.",
+      "**Apply the formula.** $x\\arctan x - \\displaystyle\\int\\frac{x}{1 + x^2}dx$.",
+      "**Leftover integral.** With $w = 1 + x^2$, $\\displaystyle\\int\\frac{x}{1 + x^2}dx = \\tfrac12\\ln(1 + x^2)$.",
+      "**Evaluate from $0$ to $1$.** $\\left(1\\cdot\\tfrac\\pi4 - \\tfrac12\\ln2\\right) - 0 = \\tfrac\\pi4 - \\tfrac{\\ln2}{2} \\approx 0.439$."
     ],
     "course": "calc2"
   },
@@ -1094,10 +1102,12 @@
     "answerNumeric": 0.46740110027233966,
     "hint1": "Integrate by parts twice, lowering the power of $x$ each time. Tabular integration helps.",
     "hint2": "An antiderivative is $x^2\\sin x + 2x\\cos x - 2\\sin x$.",
+    "keyIdea": "A polynomial times sine or cosine: keep differentiating the polynomial until it disappears. The *tabular method* organizes these repeated integrations by parts.",
     "solutionSteps": [
-      "Tabular: $x^2\\sin x - (2x)(-\\cos x) + 2(-\\sin x) = x^2\\sin x + 2x\\cos x - 2\\sin x$.",
-      "At $\\tfrac\\pi2$: $\\tfrac{\\pi^2}{4} + 0 - 2$. At $0$: $0$.",
-      "Result: $\\tfrac{\\pi^2}{4} - 2 \\approx 0.467$."
+      "**Table.** Derivatives of $x^2$: $x^2, 2x, 2, 0$. Integrals of $\\cos x$: $\\sin x, -\\cos x, -\\sin x$. The signs alternate $+, -, +$.",
+      "**Antiderivative.** $x^2\\sin x - 2x(-\\cos x) + 2(-\\sin x) = x^2\\sin x + 2x\\cos x - 2\\sin x$.",
+      "**At $\\tfrac\\pi2$.** $\\tfrac{\\pi^2}{4}\\cdot1 + 0 - 2 = \\tfrac{\\pi^2}{4} - 2$. **At $0$.** Every term is $0$.",
+      "**Result.** $\\tfrac{\\pi^2}{4} - 2 \\approx 0.467$."
     ],
     "course": "calc2"
   },
@@ -1112,10 +1122,12 @@
     "answerNumeric": 0.7182818284590452,
     "hint1": "Parts with $u = (\\ln x)^2$, $dv = dx$. Then you need $\\int\\ln x\\,dx$, which is parts again.",
     "hint2": "$\\displaystyle\\int(\\ln x)^2dx = x(\\ln x)^2 - 2\\int\\ln x\\,dx = x(\\ln x)^2 - 2x\\ln x + 2x$.",
+    "keyIdea": "Use parts with $u = (\\ln x)^2$ and $dv = dx$. That lowers the power of the log by one. The remaining $\\int\\ln x\\,dx$ is a standard parts integral.",
     "solutionSteps": [
-      "Antiderivative: $x(\\ln x)^2 - 2x\\ln x + 2x$.",
-      "At $e$: $e - 2e + 2e = e$. At $1$: $0 - 0 + 2 = 2$.",
-      "Result: $e - 2 \\approx 0.718$."
+      "**First round.** $u = (\\ln x)^2$ gives $du = \\tfrac{2\\ln x}{x}dx$, and $v = x$: $x(\\ln x)^2 - 2\\displaystyle\\int\\ln x\\,dx$.",
+      "**Second round.** $\\displaystyle\\int\\ln x\\,dx = x\\ln x - x$, also by parts.",
+      "**Antiderivative.** $x(\\ln x)^2 - 2x\\ln x + 2x$.",
+      "**Evaluate from $1$ to $e$.** At $e$: $e - 2e + 2e = e$. At $1$: $0 - 0 + 2 = 2$. Result: $e - 2 \\approx 0.718$."
     ],
     "course": "calc2"
   },
@@ -1130,10 +1142,12 @@
     "answerNumeric": 0.1278247915835881,
     "hint1": "Use parts with $u = \\arcsin x$, $dv = dx$. The leftover integral $\\int\\frac{x}{\\sqrt{1 - x^2}}dx$ needs a substitution.",
     "hint2": "$\\displaystyle\\int\\arcsin x\\,dx = x\\arcsin x + \\sqrt{1 - x^2}$.",
+    "keyIdea": "Integrate $\\arcsin x$ by parts with $dv = dx$. The leftover integral $\\int\\frac{x}{\\sqrt{1 - x^2}}dx$ needs a simple substitution.",
     "solutionSteps": [
-      "$x\\arcsin x - \\displaystyle\\int\\frac{x\\,dx}{\\sqrt{1 - x^2}} = x\\arcsin x + \\sqrt{1 - x^2}$.",
-      "At $\\tfrac12$: $\\tfrac12\\cdot\\tfrac\\pi6 + \\tfrac{\\sqrt3}{2}$. At $0$: $1$.",
-      "Result: $\\tfrac{\\pi}{12} + \\tfrac{\\sqrt3}{2} - 1 \\approx 0.128$."
+      "**Set up integration by parts** with $u = \\arcsin x$, because its derivative $\\tfrac{1}{\\sqrt{1 - x^2}}$ is algebraic and simpler. Take $dv = dx$, so $v = x$. That gives $x\\arcsin x - \\displaystyle\\int\\frac{x\\,dx}{\\sqrt{1 - x^2}}$.",
+      "**Handle the leftover integral with a substitution.** Let $w = 1 - x^2$, so $dw = -2x\\,dx$. Then $\\displaystyle\\int\\frac{x\\,dx}{\\sqrt{1 - x^2}} = -\\tfrac12\\int w^{-1/2}dw = -\\sqrt{1 - x^2}$.",
+      "**Put it together.** The antiderivative is $x\\arcsin x + \\sqrt{1 - x^2}$. Differentiating it gives back $\\arcsin x$.",
+      "**Evaluate from $0$ to $\\tfrac12$.** At $\\tfrac12$: $\\tfrac12\\cdot\\tfrac\\pi6 + \\tfrac{\\sqrt3}{2}$. At $0$: $0 + 1$. The difference is $\\tfrac{\\pi}{12} + \\tfrac{\\sqrt3}{2} - 1 \\approx 0.128$."
     ],
     "course": "calc2"
   },
@@ -1148,10 +1162,12 @@
     "answerNumeric": 0.29389333245105953,
     "hint1": "$\\dfrac{1}{x^2 - 1} = \\dfrac{1/2}{x - 1} - \\dfrac{1/2}{x + 1}$.",
     "hint2": "The antiderivative is $\\tfrac12\\ln\\left|\\dfrac{x - 1}{x + 1}\\right|$.",
+    "keyIdea": "Factor the denominator, $x^2 - 1 = (x - 1)(x + 1)$, and split into partial fractions. Each piece integrates to a logarithm.",
     "solutionSteps": [
-      "$\\displaystyle\\int\\frac{dx}{x^2 - 1} = \\tfrac12\\ln\\left|\\frac{x - 1}{x + 1}\\right|$.",
-      "At $4$: $\\tfrac12\\ln\\tfrac35$. At $2$: $\\tfrac12\\ln\\tfrac13$.",
-      "Difference: $\\tfrac12\\ln\\left(\\tfrac35\\cdot3\\right) = \\tfrac12\\ln\\tfrac95 \\approx 0.294$."
+      "**Partial fractions.** $\\dfrac{1}{(x - 1)(x + 1)} = \\dfrac{A}{x - 1} + \\dfrac{B}{x + 1}$. The cover-up method gives $A = \\tfrac12$ (at $x = 1$) and $B = -\\tfrac12$ (at $x = -1$).",
+      "**Integrate.** $\\tfrac12\\ln|x - 1| - \\tfrac12\\ln|x + 1| = \\tfrac12\\ln\\left|\\dfrac{x - 1}{x + 1}\\right|$.",
+      "**Evaluate.** At $4$: $\\tfrac12\\ln\\tfrac35$. At $2$: $\\tfrac12\\ln\\tfrac13$.",
+      "**Subtract.** $\\tfrac12\\left(\\ln\\tfrac35 - \\ln\\tfrac13\\right) = \\tfrac12\\ln\\tfrac95 \\approx 0.294$."
     ],
     "course": "calc2"
   },
@@ -1166,10 +1182,12 @@
     "answerNumeric": 0.6410311794209312,
     "hint1": "Write it as $\\dfrac{A}{x + 1} + \\dfrac{B}{x + 2}$ and find $A$ and $B$ with the cover-up method.",
     "hint2": "$A = \\dfrac{3(-1) + 1}{-1 + 2} = -2$ and $B = \\dfrac{3(-2) + 1}{-2 + 1} = 5$.",
+    "keyIdea": "Split the fraction into two simple fractions with constant numerators. The cover-up method finds each constant: plug in the root of that factor's denominator.",
     "solutionSteps": [
-      "$\\dfrac{3x + 1}{(x + 1)(x + 2)} = \\dfrac{-2}{x + 1} + \\dfrac{5}{x + 2}$.",
-      "$\\left[-2\\ln(x + 1) + 5\\ln(x + 2)\\right]_0^1 = (-2\\ln2 + 5\\ln3) - 5\\ln2$.",
-      "$= 5\\ln3 - 7\\ln2 \\approx 0.641$."
+      "**Cover-up for $A$.** Cover $(x + 1)$ and plug in $x = -1$: $A = \\dfrac{3(-1) + 1}{-1 + 2} = -2$.",
+      "**Cover-up for $B$.** Cover $(x + 2)$ and plug in $x = -2$: $B = \\dfrac{-6 + 1}{-2 + 1} = 5$.",
+      "**Integrate.** $\\displaystyle\\int_0^1\\left(\\frac{-2}{x + 1} + \\frac{5}{x + 2}\\right)dx = \\Big[-2\\ln(x + 1) + 5\\ln(x + 2)\\Big]_0^1$.",
+      "**Evaluate.** $(-2\\ln2 + 5\\ln3) - (0 + 5\\ln2) = 5\\ln3 - 7\\ln2 \\approx 0.641$."
     ],
     "course": "calc2"
   },
@@ -1184,10 +1202,12 @@
     "answerNumeric": 0.35981384722661197,
     "hint1": "Use $\\dfrac{A}{x} + \\dfrac{B}{x + 1} + \\dfrac{C}{(x + 1)^2}$.",
     "hint2": "$A = 1$ and $C = -2$. Comparing $x^2$ coefficients gives $A + B = 1$, so $B = 0$.",
+    "keyIdea": "A repeated factor $(x + 1)^2$ needs two partial fractions, $\\frac{B}{x + 1}$ and $\\frac{C}{(x + 1)^2}$. Plug in convenient $x$-values for some constants and compare coefficients for the rest.",
     "solutionSteps": [
-      "$x^2 + 1 = A(x + 1)^2 + Bx(x + 1) + Cx$: $x = 0$ gives $A = 1$, $x = -1$ gives $C = -2$, and the $x^2$ terms give $B = 0$.",
-      "$\\displaystyle\\int_1^2\\left(\\frac1x - \\frac{2}{(x + 1)^2}\\right)dx = \\left[\\ln x + \\frac{2}{x + 1}\\right]_1^2$.",
-      "$= \\ln2 + \\tfrac23 - 1 = \\ln2 - \\tfrac13 \\approx 0.360$."
+      "**Set up.** $x^2 + 1 = A(x + 1)^2 + Bx(x + 1) + Cx$.",
+      "**Find the constants.** $x = 0$: $1 = A$. $x = -1$: $2 = -C$, so $C = -2$. Comparing the $x^2$ coefficients: $1 = A + B$, so $B = 0$.",
+      "**Integrate.** $\\displaystyle\\int_1^2\\left(\\frac1x - \\frac{2}{(x + 1)^2}\\right)dx = \\left[\\ln x + \\frac{2}{x + 1}\\right]_1^2$.",
+      "**Evaluate.** $\\left(\\ln2 + \\tfrac23\\right) - (0 + 1) = \\ln2 - \\tfrac13 \\approx 0.360$."
     ],
     "course": "calc2"
   },
@@ -1202,10 +1222,11 @@
     "answerNumeric": 0.15342640972002736,
     "hint1": "The numerator has a higher degree. Divide first.",
     "hint2": "$\\dfrac{x^3}{x^2 + 1} = x - \\dfrac{x}{x^2 + 1}$.",
+    "keyIdea": "When the numerator's degree is at least the denominator's, divide first. What remains is a polynomial plus a proper fraction.",
     "solutionSteps": [
-      "$\\dfrac{x^3}{x^2 + 1} = x - \\dfrac{x}{x^2 + 1}$.",
-      "$\\left[\\tfrac{x^2}{2} - \\tfrac12\\ln(x^2 + 1)\\right]_0^1$.",
-      "$= \\tfrac12 - \\tfrac12\\ln2 \\approx 0.153$."
+      "**Divide.** $x^3 = x(x^2 + 1) - x$, so $\\dfrac{x^3}{x^2 + 1} = x - \\dfrac{x}{x^2 + 1}$.",
+      "**Integrate each part.** $\\int x\\,dx = \\tfrac{x^2}{2}$. For the second, $w = x^2 + 1$ gives $\\int\\frac{x}{x^2 + 1}dx = \\tfrac12\\ln(x^2 + 1)$.",
+      "**Evaluate from $0$ to $1$.** $\\tfrac12 - \\tfrac12\\ln2 \\approx 0.153$."
     ],
     "course": "calc2"
   },
@@ -1220,10 +1241,12 @@
     "answerNumeric": 0.1608752771983211,
     "hint1": "The quadratic is irreducible. Complete the square: $(x + 1)^2 + 4$.",
     "hint2": "$\\displaystyle\\int\\frac{dx}{(x + 1)^2 + 4} = \\tfrac12\\arctan\\frac{x + 1}{2}$.",
+    "keyIdea": "The denominator has no real roots, so it can't be factored. Complete the square to reach the arctangent form $\\int\\frac{du}{u^2 + a^2} = \\tfrac1a\\arctan\\tfrac ua$.",
     "solutionSteps": [
-      "$x^2 + 2x + 5 = (x + 1)^2 + 2^2$.",
-      "Antiderivative: $\\tfrac12\\arctan\\dfrac{x + 1}{2}$.",
-      "$\\tfrac12\\left(\\arctan1 - \\arctan\\tfrac12\\right) = \\tfrac\\pi8 - \\tfrac12\\arctan\\tfrac12 \\approx 0.161$."
+      "**Complete the square.** $x^2 + 2x + 5 = (x + 1)^2 + 4$, so $a = 2$.",
+      "**Antiderivative.** $\\tfrac12\\arctan\\dfrac{x + 1}{2}$.",
+      "**Evaluate.** At $1$: $\\tfrac12\\arctan1 = \\tfrac\\pi8$. At $0$: $\\tfrac12\\arctan\\tfrac12$.",
+      "**Result.** $\\tfrac\\pi8 - \\tfrac12\\arctan\\tfrac12 \\approx 0.161$."
     ],
     "course": "calc2"
   },
@@ -1238,10 +1261,12 @@
     "answerNumeric": 1.7493405784752334,
     "hint1": "Factor the denominator: $x^2(x + 2)$. Use $\\dfrac{A}{x} + \\dfrac{B}{x^2} + \\dfrac{C}{x + 2}$.",
     "hint2": "$B = -1$, $C = 3$, and $A = 2$.",
+    "keyIdea": "Factor the denominator as $x^2(x + 2)$. The repeated factor $x^2$ needs the terms $\\tfrac Ax + \\tfrac{B}{x^2}$, plus $\\tfrac{C}{x + 2}$ for the other factor.",
     "solutionSteps": [
-      "$5x^2 + 3x - 2 = Ax(x + 2) + B(x + 2) + Cx^2$: $x = 0$ gives $B = -1$, $x = -2$ gives $C = 3$, and the $x^2$ terms give $A = 2$.",
-      "$\\left[2\\ln x + \\tfrac1x + 3\\ln(x + 2)\\right]_1^2 = 2\\ln2 - \\tfrac12 + 3\\ln\\tfrac43$.",
-      "$= 8\\ln2 - 3\\ln3 - \\tfrac12 \\approx 1.749$."
+      "**Set up.** $5x^2 + 3x - 2 = Ax(x + 2) + B(x + 2) + Cx^2$.",
+      "**Find the constants.** $x = 0$: $-2 = 2B$, so $B = -1$. $x = -2$: $20 - 6 - 2 = 4C$, so $C = 3$. The $x^2$ coefficients give $A + C = 5$, so $A = 2$.",
+      "**Integrate.** $\\left[2\\ln x + \\tfrac1x + 3\\ln(x + 2)\\right]_1^2$. Note that $\\int -x^{-2}dx = x^{-1}$.",
+      "**Evaluate.** $\\left(2\\ln2 + \\tfrac12 + 3\\ln4\\right) - (0 + 1 + 3\\ln3) = 8\\ln2 - 3\\ln3 - \\tfrac12 \\approx 1.749$."
     ],
     "course": "calc2"
   },
@@ -1256,10 +1281,13 @@
     "answerNumeric": 0.407637331677358,
     "hint1": "Let $x = 3\\sin\\theta$. Then $\\sqrt{9 - x^2} = 3\\cos\\theta$ and $dx = 3\\cos\\theta\\,d\\theta$.",
     "hint2": "It becomes $\\displaystyle\\int_0^{\\pi/6}9\\sin^2\\theta\\,d\\theta$.",
+    "keyIdea": "$\\sqrt{a^2 - x^2}$ suggests $x = a\\sin\\theta$, because then $\\sqrt{a^2 - a^2\\sin^2\\theta} = a\\cos\\theta$ and the square root disappears.",
     "solutionSteps": [
-      "$x = 3\\sin\\theta$: the limits become $0$ and $\\tfrac\\pi6$, and the integrand becomes $9\\sin^2\\theta$.",
-      "$9\\displaystyle\\int\\sin^2\\theta\\,d\\theta = \\tfrac92\\left(\\theta - \\tfrac{\\sin2\\theta}{2}\\right)$.",
-      "$\\tfrac92\\left(\\tfrac\\pi6 - \\tfrac{\\sqrt3}{4}\\right) = \\tfrac{3\\pi}{4} - \\tfrac{9\\sqrt3}{8} \\approx 0.407$."
+      "**Choose the substitution.** The expression $\\sqrt{9 - x^2}$ matches the identity $1 - \\sin^2\\theta = \\cos^2\\theta$, so let $x = 3\\sin\\theta$. Then $\\sqrt{9 - x^2} = 3\\cos\\theta$ and $dx = 3\\cos\\theta\\,d\\theta$.",
+      "**Change the limits.** $x = 0$ means $\\theta = 0$. $x = \\tfrac32$ means $\\sin\\theta = \\tfrac12$, so $\\theta = \\tfrac\\pi6$.",
+      "**Simplify the integrand.** $\\dfrac{9\\sin^2\\theta}{3\\cos\\theta}\\cdot3\\cos\\theta\\,d\\theta = 9\\sin^2\\theta\\,d\\theta$. The square root has disappeared.",
+      "**Integrate using the power-reduction identity** $\\sin^2\\theta = \\tfrac{1 - \\cos2\\theta}{2}$: $9\\displaystyle\\int_0^{\\pi/6}\\sin^2\\theta\\,d\\theta = \\tfrac92\\left[\\theta - \\tfrac{\\sin2\\theta}{2}\\right]_0^{\\pi/6}$.",
+      "**Evaluate.** $\\tfrac92\\left(\\tfrac\\pi6 - \\tfrac{\\sqrt3}{4}\\right) = \\tfrac{3\\pi}{4} - \\tfrac{9\\sqrt3}{8} \\approx 0.407$."
     ],
     "course": "calc2"
   },
@@ -1274,10 +1302,12 @@
     "answerNumeric": 0.7071067811865476,
     "hint1": "Let $x = \\tan\\theta$. Then $1 + x^2 = \\sec^2\\theta$.",
     "hint2": "The integral becomes $\\displaystyle\\int_0^{\\pi/4}\\cos\\theta\\,d\\theta$.",
+    "keyIdea": "$1 + x^2$ suggests $x = \\tan\\theta$, since $1 + \\tan^2\\theta = \\sec^2\\theta$. The $\\tfrac32$ power then becomes $\\sec^3\\theta$.",
     "solutionSteps": [
-      "$dx = \\sec^2\\theta\\,d\\theta$ and $(1 + x^2)^{3/2} = \\sec^3\\theta$.",
-      "$\\displaystyle\\int_0^{\\pi/4}\\cos\\theta\\,d\\theta = \\sin\\theta\\Big|_0^{\\pi/4}$.",
-      "$= \\tfrac{\\sqrt2}{2}$."
+      "**Choose the substitution.** $1 + x^2$ matches the identity $1 + \\tan^2\\theta = \\sec^2\\theta$, so let $x = \\tan\\theta$, with $dx = \\sec^2\\theta\\,d\\theta$. Then $(1 + x^2)^{3/2} = (\\sec^2\\theta)^{3/2} = \\sec^3\\theta$.",
+      "**Change the limits.** $x = 0$ gives $\\theta = 0$, and $x = 1$ gives $\\theta = \\tfrac\\pi4$.",
+      "**Simplify.** $\\dfrac{\\sec^2\\theta\\,d\\theta}{\\sec^3\\theta} = \\cos\\theta\\,d\\theta$.",
+      "**Integrate.** $\\displaystyle\\int_0^{\\pi/4}\\cos\\theta\\,d\\theta = \\sin\\tfrac\\pi4 - \\sin 0 = \\tfrac{\\sqrt2}{2}$. As a check, in terms of $x$ the antiderivative is $\\tfrac{x}{\\sqrt{1 + x^2}}$, which equals $\\tfrac{1}{\\sqrt2}$ at $x = 1$."
     ],
     "course": "calc2"
   },
@@ -1292,10 +1322,12 @@
     "answerNumeric": 0.15891862259789113,
     "hint1": "Let $x = \\sec\\theta$, so $\\sqrt{x^2 - 1} = \\tan\\theta$.",
     "hint2": "The integrand becomes $\\cos\\theta$, with limits $\\tfrac\\pi4$ to $\\tfrac\\pi3$.",
+    "keyIdea": "$\\sqrt{x^2 - 1}$ suggests $x = \\sec\\theta$, since $\\sec^2\\theta - 1 = \\tan^2\\theta$.",
     "solutionSteps": [
-      "$dx = \\sec\\theta\\tan\\theta\\,d\\theta$, so the integrand is $\\dfrac{\\sec\\theta\\tan\\theta}{\\sec^2\\theta\\tan\\theta} = \\cos\\theta$.",
-      "$\\displaystyle\\int_{\\pi/4}^{\\pi/3}\\cos\\theta\\,d\\theta = \\sin\\tfrac\\pi3 - \\sin\\tfrac\\pi4$.",
-      "$= \\tfrac{\\sqrt3}{2} - \\tfrac{\\sqrt2}{2} \\approx 0.159$."
+      "**Choose the substitution.** The expression $\\sqrt{x^2 - 1}$ matches the identity $\\sec^2\\theta - 1 = \\tan^2\\theta$, so let $x = \\sec\\theta$. Then $dx = \\sec\\theta\\tan\\theta\\,d\\theta$, and the root becomes $\\tan\\theta$, which is positive for these angles.",
+      "**Change the limits.** When $x = \\sqrt2$, $\\cos\\theta = \\tfrac{1}{\\sqrt2}$, so $\\theta = \\tfrac\\pi4$. When $x = 2$, $\\cos\\theta = \\tfrac12$, so $\\theta = \\tfrac\\pi3$.",
+      "**Simplify the integrand.** In $\\dfrac{\\sec\\theta\\tan\\theta\\,d\\theta}{\\sec^2\\theta\\cdot\\tan\\theta}$ the tangent cancels and one secant cancels, leaving $\\dfrac{1}{\\sec\\theta} = \\cos\\theta$.",
+      "**Integrate cosine and evaluate.** $\\sin\\tfrac\\pi3 - \\sin\\tfrac\\pi4 = \\tfrac{\\sqrt3}{2} - \\tfrac{\\sqrt2}{2} \\approx 0.159$."
     ],
     "course": "calc2"
   },
@@ -1310,10 +1342,12 @@
     "answerNumeric": 4.591174298785276,
     "hint1": "Let $x = 2\\tan\\theta$. You will need $\\int\\sec^3\\theta\\,d\\theta$.",
     "hint2": "$\\displaystyle\\int\\sqrt{x^2 + a^2}\\,dx = \\tfrac x2\\sqrt{x^2 + a^2} + \\tfrac{a^2}{2}\\ln\\left(x + \\sqrt{x^2 + a^2}\\right)$.",
+    "keyIdea": "$\\sqrt{x^2 + a^2}$ suggests $x = a\\tan\\theta$, which leads to the classic integral of $\\sec^3\\theta$. Its result is worth remembering as a formula.",
     "solutionSteps": [
-      "With $a = 2$: $\\left[\\tfrac x2\\sqrt{x^2 + 4} + 2\\ln\\left(x + \\sqrt{x^2 + 4}\\right)\\right]_0^2$.",
-      "At $2$: $\\sqrt8 + 2\\ln(2 + 2\\sqrt2)$. At $0$: $2\\ln2$.",
-      "$2\\sqrt2 + 2\\ln(1 + \\sqrt2) \\approx 4.59$."
+      "**Substitute.** $x = 2\\tan\\theta$ gives $\\sqrt{x^2 + 4} = 2\\sec\\theta$ and $dx = 2\\sec^2\\theta\\,d\\theta$, so the integral becomes $4\\int\\sec^3\\theta\\,d\\theta$.",
+      "**Known result.** $\\int\\sec^3\\theta\\,d\\theta = \\tfrac12(\\sec\\theta\\tan\\theta + \\ln|\\sec\\theta + \\tan\\theta|)$, which converts back to $\\tfrac x2\\sqrt{x^2 + 4} + 2\\ln\\left(x + \\sqrt{x^2 + 4}\\right)$.",
+      "**At $2$.** $\\sqrt8 + 2\\ln(2 + 2\\sqrt2)$. **At $0$.** $2\\ln2$.",
+      "**Subtract.** $2\\sqrt2 + 2\\ln\\dfrac{2 + 2\\sqrt2}{2} = 2\\sqrt2 + 2\\ln(1 + \\sqrt2) \\approx 4.59$."
     ],
     "course": "calc2"
   },
@@ -1328,10 +1362,12 @@
     "answerNumeric": 0.13718091062670146,
     "hint1": "Let $x = 2\\sin\\theta$. The limits become $0$ and $\\tfrac\\pi6$.",
     "hint2": "It becomes $8\\displaystyle\\int_0^{\\pi/6}\\sin^3\\theta\\,d\\theta$. Write $\\sin^3 = \\sin(1 - \\cos^2)$.",
+    "keyIdea": "Substitute $x = 2\\sin\\theta$ to clear the root. The odd power $\\sin^3\\theta$ is handled by splitting off one $\\sin\\theta$ and writing the rest with cosines.",
     "solutionSteps": [
-      "$8\\displaystyle\\int\\sin^3\\theta\\,d\\theta = 8\\left[-\\cos\\theta + \\tfrac{\\cos^3\\theta}{3}\\right]$.",
-      "At $\\tfrac\\pi6$: $-\\tfrac{\\sqrt3}{2} + \\tfrac{\\sqrt3}{8} = -\\tfrac{3\\sqrt3}{8}$. At $0$: $-1 + \\tfrac13 = -\\tfrac23$.",
-      "$8\\left(-\\tfrac{3\\sqrt3}{8} + \\tfrac23\\right) = \\tfrac{16}{3} - 3\\sqrt3 \\approx 0.137$."
+      "**Substitute.** $x = 2\\sin\\theta$, $\\sqrt{4 - x^2} = 2\\cos\\theta$ and $dx = 2\\cos\\theta\\,d\\theta$. The limits $0 \\to 0$ and $1 \\to \\tfrac\\pi6$. The integral is $8\\int\\sin^3\\theta\\,d\\theta$.",
+      "**Odd power.** $\\sin^3\\theta = \\sin\\theta(1 - \\cos^2\\theta)$. With $w = \\cos\\theta$ the antiderivative is $-\\cos\\theta + \\tfrac{\\cos^3\\theta}{3}$.",
+      "**Evaluate.** At $\\tfrac\\pi6$: $-\\tfrac{\\sqrt3}{2} + \\tfrac{3\\sqrt3/8}{3} = -\\tfrac{3\\sqrt3}{8}$. At $0$: $-1 + \\tfrac13 = -\\tfrac23$.",
+      "**Multiply by 8.** $8\\left(-\\tfrac{3\\sqrt3}{8} + \\tfrac23\\right) = \\tfrac{16}{3} - 3\\sqrt3 \\approx 0.137$."
     ],
     "course": "calc2"
   },
@@ -1346,10 +1382,12 @@
     "answerNumeric": 1.0,
     "hint1": "Use parts with $u = \\ln x$ and $dv = x^{-2}dx$, then take a limit.",
     "hint2": "Antiderivative: $-\\dfrac{\\ln x}{x} - \\dfrac1x$.",
+    "keyIdea": "An integral to $\\infty$ is a limit: integrate up to $b$, then let $b \\to \\infty$. Parts handles the $\\ln x$, and L'Hôpital shows the boundary term vanishes.",
     "solutionSteps": [
-      "$\\displaystyle\\int\\frac{\\ln x}{x^2}dx = -\\frac{\\ln x}{x} - \\frac1x$.",
-      "As $x \\to \\infty$, both terms go to $0$ (L'Hôpital for $\\tfrac{\\ln x}{x}$). At $1$: $-1$.",
-      "The value is $0 - (-1) = 1$."
+      "**Parts.** $u = \\ln x$ and $dv = x^{-2}dx$, so $v = -\\tfrac1x$: $\\displaystyle\\int\\frac{\\ln x}{x^2}dx = -\\frac{\\ln x}{x} + \\int\\frac{1}{x^2}dx = -\\frac{\\ln x}{x} - \\frac1x$.",
+      "**Upper limit.** $\\dfrac{\\ln b}{b} \\to 0$ (L'Hôpital: $\\tfrac{1/b}{1}$) and $\\tfrac1b \\to 0$, so the upper end contributes $0$.",
+      "**Lower limit.** At $x = 1$: $-0 - 1 = -1$.",
+      "**Value.** $0 - (-1) = 1$. The integral converges."
     ],
     "course": "calc2"
   },
@@ -1364,10 +1402,12 @@
     "answerNumeric": 0.6931471805599453,
     "hint1": "Partial fractions: $\\dfrac{1}{x + 1} - \\dfrac{1}{x + 2}$.",
     "hint2": "Antiderivative: $\\ln\\dfrac{x + 1}{x + 2}$, which tends to $\\ln1 = 0$ as $x \\to \\infty$.",
+    "keyIdea": "Partial fractions give a difference of logs, which combines into one log. Its limit at infinity is finite, so the integral converges.",
     "solutionSteps": [
-      "$\\displaystyle\\int\\left(\\frac1{x + 1} - \\frac{1}{x + 2}\\right)dx = \\ln\\frac{x + 1}{x + 2}$.",
-      "As $x \\to \\infty$ this tends to $0$. At $0$ it is $\\ln\\tfrac12$.",
-      "The value is $0 - \\ln\\tfrac12 = \\ln2$."
+      "**Partial fractions.** $\\dfrac{1}{(x + 1)(x + 2)} = \\dfrac{1}{x + 1} - \\dfrac{1}{x + 2}$.",
+      "**Antiderivative.** $\\ln(x + 1) - \\ln(x + 2) = \\ln\\dfrac{x + 1}{x + 2}$.",
+      "**Limits.** As $x \\to \\infty$, $\\dfrac{x + 1}{x + 2} \\to 1$ and $\\ln1 = 0$. At $0$: $\\ln\\tfrac12$.",
+      "**Value.** $0 - \\ln\\tfrac12 = \\ln2 \\approx 0.693$."
     ],
     "course": "calc2"
   },
@@ -1382,10 +1422,12 @@
     "answerNumeric": -4.0,
     "hint1": "The integrand blows up at $0$. Integrate by parts with $u = \\ln x$, $dv = x^{-1/2}dx$.",
     "hint2": "Antiderivative: $2\\sqrt x\\ln x - 4\\sqrt x$.",
+    "keyIdea": "The integrand blows up at $x = 0$, so this is improper at the lower limit. Integrate by parts, then show the boundary term at $0^+$ vanishes.",
     "solutionSteps": [
-      "$\\displaystyle\\int x^{-1/2}\\ln x\\,dx = 2\\sqrt x\\ln x - \\int2\\sqrt x\\cdot\\tfrac1x\\,dx = 2\\sqrt x\\ln x - 4\\sqrt x$.",
-      "As $x \\to 0^+$: $\\sqrt x\\ln x \\to 0$. At $1$: $0 - 4$.",
-      "The value is $-4$."
+      "**Parts.** $u = \\ln x$ and $dv = x^{-1/2}dx$, so $v = 2\\sqrt x$: $2\\sqrt x\\ln x - \\displaystyle\\int2\\sqrt x\\cdot\\frac1x\\,dx = 2\\sqrt x\\ln x - 4\\sqrt x$.",
+      "**Lower limit.** $\\sqrt x\\ln x \\to 0$ as $x \\to 0^+$, because the root shrinks faster than the log blows up. So that end contributes $0$.",
+      "**Upper limit.** At $1$: $0 - 4 = -4$.",
+      "**Value.** $-4 - 0 = -4$. It is negative because $\\ln x < 0$ on $(0, 1)$."
     ],
     "course": "calc2"
   },
@@ -1400,10 +1442,12 @@
     "answerNumeric": "inf",
     "hint1": "Use $u = x^2 + 1$, then take the limit of the upper bound.",
     "hint2": "Antiderivative: $\\tfrac12\\ln(x^2 + 1)$. What happens as $x \\to \\infty$?",
+    "keyIdea": "For large $x$, $\\dfrac{x}{x^2 + 1}$ behaves like $\\dfrac1x$, and $\\int^\\infty\\frac{dx}{x}$ diverges. Confirm by computing the antiderivative.",
     "solutionSteps": [
-      "$\\displaystyle\\int_1^b\\frac{x}{x^2 + 1}dx = \\tfrac12\\ln(b^2 + 1) - \\tfrac12\\ln2$.",
-      "As $b \\to \\infty$, $\\ln(b^2 + 1) \\to \\infty$.",
-      "The integral diverges to $\\infty$. (Compare with $\\tfrac{1}{2x}$ for large $x$.)"
+      "**Antiderivative.** With $w = x^2 + 1$: $\\displaystyle\\int\\frac{x}{x^2 + 1}dx = \\tfrac12\\ln(x^2 + 1)$.",
+      "**Upper limit $b$.** $\\tfrac12\\ln(b^2 + 1) - \\tfrac12\\ln2$.",
+      "**Limit.** $\\ln(b^2 + 1) \\to \\infty$ as $b \\to \\infty$, so there is no finite value.",
+      "**Answer.** It diverges to $\\infty$. The comparison $\\frac{x}{x^2 + 1} \\ge \\frac{1}{2x}$ for $x \\ge 1$ explains why."
     ],
     "course": "calc2"
   },
@@ -1418,10 +1462,12 @@
     "answerNumeric": 6.779763149684619,
     "hint1": "The integrand blows up at $x = 1$, inside the interval. Split it there: $\\int_0^1 + \\int_1^3$.",
     "hint2": "Antiderivative: $3(x - 1)^{1/3}$, using the real cube root.",
+    "keyIdea": "The integrand blows up at $x = 1$, which is *inside* the interval. Split the integral there and check that each half converges. Use the real cube root, so $\\sqrt[3]{-1} = -1$.",
     "solutionSteps": [
-      "$\\displaystyle\\int(x - 1)^{-2/3}dx = 3\\sqrt[3]{x - 1}$.",
-      "$\\int_0^1 = 3(0 - (-1)) = 3$, and $\\int_1^3 = 3\\sqrt[3]{2} - 0$.",
-      "Both parts converge, so the total is $3 + 3\\sqrt[3]2 \\approx 6.78$."
+      "**Antiderivative.** $\\displaystyle\\int(x - 1)^{-2/3}dx = 3(x - 1)^{1/3} = 3\\sqrt[3]{x - 1}$.",
+      "**Left piece.** $\\displaystyle\\int_0^1 = 3\\sqrt[3]{0} - 3\\sqrt[3]{-1} = 0 - (-3) = 3$.",
+      "**Right piece.** $\\displaystyle\\int_1^3 = 3\\sqrt[3]{2} - 0$.",
+      "**Total.** Both pieces converge, because the power $\\tfrac23 < 1$. The value is $3 + 3\\sqrt[3]{2} \\approx 6.78$."
     ],
     "course": "calc2"
   },
@@ -1436,10 +1482,12 @@
     "answerNumeric": 1.0471975511965979,
     "hint1": "Complete the square: $(x + 2)^2 + 9$.",
     "hint2": "Antiderivative: $\\tfrac13\\arctan\\dfrac{x + 2}{3}$.",
+    "keyIdea": "Over $(-\\infty, \\infty)$, complete the square to get an arctangent. As $x \\to \\pm\\infty$, $\\arctan$ tends to $\\pm\\tfrac\\pi2$.",
     "solutionSteps": [
-      "$\\displaystyle\\int\\frac{dx}{(x + 2)^2 + 3^2} = \\tfrac13\\arctan\\frac{x + 2}{3}$.",
-      "As $x \\to \\pm\\infty$, $\\arctan \\to \\pm\\tfrac\\pi2$.",
-      "$\\tfrac13\\left(\\tfrac\\pi2 + \\tfrac\\pi2\\right) = \\tfrac\\pi3$."
+      "**Complete the square** so the integrand matches the arctangent form: $x^2 + 4x + 13 = (x + 2)^2 + 9 = (x + 2)^2 + 3^2$.",
+      "**Use the standard antiderivative** $\\displaystyle\\int\\frac{du}{u^2 + a^2} = \\frac1a\\arctan\\frac ua$, with $u = x + 2$ and $a = 3$. That gives $\\tfrac13\\arctan\\dfrac{x + 2}{3}$.",
+      "**Treat both infinite limits as limits.** As $x \\to \\infty$, $\\arctan \\to \\tfrac\\pi2$. As $x \\to -\\infty$, $\\arctan \\to -\\tfrac\\pi2$. Both are finite, so the integral converges.",
+      "**Value.** $\\tfrac13\\left(\\tfrac\\pi2 - \\left(-\\tfrac\\pi2\\right)\\right) = \\tfrac\\pi3$."
     ],
     "course": "calc2"
   },
@@ -1454,10 +1502,12 @@
     "answerNumeric": "inf",
     "hint1": "Careful: the integrand is undefined at $x = 1$. Ignoring that gives a wrong negative answer.",
     "hint2": "Split at $x = 1$ and look at $\\displaystyle\\int_0^1\\frac{dx}{(x - 1)^2}$ on its own.",
+    "keyIdea": "The trap: $x = 1$, inside the interval, makes the integrand infinite. Plugging the endpoints into $-\\tfrac{1}{x - 1}$ gives $-2$, which is impossible for a positive integrand. You must split at $x = 1$.",
     "solutionSteps": [
-      "The integrand blows up at $x = 1$, so split the integral there.",
-      "$\\displaystyle\\int_0^b\\frac{dx}{(x - 1)^2} = \\left[-\\frac{1}{x - 1}\\right]_0^b = -\\frac{1}{b - 1} - 1 \\to \\infty$ as $b \\to 1^-$.",
-      "One piece diverges, so the integral diverges to $\\infty$. (Plugging into $-\\tfrac{1}{x - 1}$ naively would give $-2$, but that is wrong since the integrand is positive.)"
+      "**Spot the problem.** $\\dfrac{1}{(x - 1)^2}$ is positive everywhere it's defined, so the integral can't be negative. Yet $\\left[-\\tfrac1{x - 1}\\right]_0^2 = -2$. The FTC doesn't apply across a vertical asymptote.",
+      "**Split.** $\\displaystyle\\int_0^2 = \\int_0^1 + \\int_1^2$, and each piece is improper at $x = 1$.",
+      "**Left piece.** $\\displaystyle\\int_0^b\\frac{dx}{(x - 1)^2} = -\\frac{1}{b - 1} - 1$. As $b \\to 1^-$, $-\\tfrac{1}{b - 1} \\to +\\infty$.",
+      "**Conclusion.** One piece diverges, so the whole integral diverges to $\\infty$. (The power $2 \\ge 1$ near the asymptote is too strong to converge.)"
     ],
     "course": "calc2"
   },
@@ -1472,10 +1522,12 @@
     "answerNumeric": 58.643062867009476,
     "hint1": "Use washers. The outer radius is $\\sqrt x + 1$ and the inner radius is $1$.",
     "hint2": "$V = \\pi\\displaystyle\\int_0^4\\left[(\\sqrt x + 1)^2 - 1\\right]dx = \\pi\\int_0^4(x + 2\\sqrt x)\\,dx$.",
+    "keyIdea": "Rotating about the line $y = -1$ instead of the $x$-axis makes washers. Measure both radii from the axis $y = -1$: the outer radius reaches the curve and the inner radius reaches the $x$-axis.",
     "solutionSteps": [
-      "$V = \\pi\\displaystyle\\int_0^4\\left[(\\sqrt x + 1)^2 - 1^2\\right]dx = \\pi\\int_0^4(x + 2\\sqrt x)\\,dx$.",
-      "$= \\pi\\left[\\tfrac{x^2}{2} + \\tfrac43x^{3/2}\\right]_0^4 = \\pi\\left(8 + \\tfrac{32}{3}\\right)$.",
-      "$V = \\tfrac{56\\pi}{3} \\approx 58.6$."
+      "**Radii.** Outer: from $y = -1$ up to $y = \\sqrt x$, length $\\sqrt x + 1$. Inner: from $y = -1$ up to $y = 0$, length $1$.",
+      "**Washer area.** $\\pi\\left[(\\sqrt x + 1)^2 - 1^2\\right] = \\pi(x + 2\\sqrt x)$.",
+      "**Integrate.** $\\pi\\displaystyle\\int_0^4(x + 2\\sqrt x)\\,dx = \\pi\\left[\\tfrac{x^2}{2} + \\tfrac43x^{3/2}\\right]_0^4 = \\pi\\left(8 + \\tfrac{32}{3}\\right)$.",
+      "**Volume.** $\\tfrac{56\\pi}{3} \\approx 58.6$. Rotating about the $x$-axis would give only $8\\pi$."
     ],
     "course": "calc2",
     "diagram": "<svg viewBox=\"0 0 220 160\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><line x1=\"10\" y1=\"110\" x2=\"210\" y2=\"110\"/><line x1=\"30\" y1=\"150\" x2=\"30\" y2=\"10\"/><line x1=\"10\" y1=\"140\" x2=\"210\" y2=\"140\" stroke-dasharray=\"5 4\"/><path d=\"M 30 110 Q 60 60 190 46 L 190 110 Z\" fill=\"currentColor\" fill-opacity=\"0.15\" stroke=\"none\"/><path d=\"M 30 110 Q 60 60 190 46\"/><line x1=\"190\" y1=\"46\" x2=\"190\" y2=\"110\"/><text x=\"150\" y=\"40\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">y = √x</text><text x=\"200\" y=\"154\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"end\">y = −1</text><text x=\"190\" y=\"124\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"middle\">4</text></svg>",
@@ -1492,10 +1544,12 @@
     "answerNumeric": 0.5235987755982989,
     "hint1": "The curves meet at $x = 0$ and $x = 1$. Shells work well: radius $x$, height $x - x^2$.",
     "hint2": "$V = 2\\pi\\displaystyle\\int_0^1x(x - x^2)\\,dx$.",
+    "keyIdea": "Rotating about the $y$-axis with the region described in terms of $x$: use cylindrical *shells*, $V = 2\\pi\\int(\\text{radius})(\\text{height})\\,dx$.",
     "solutionSteps": [
-      "Shells: $V = 2\\pi\\displaystyle\\int_0^1(x^2 - x^3)\\,dx$.",
-      "$= 2\\pi\\left(\\tfrac13 - \\tfrac14\\right)$.",
-      "$V = \\tfrac{\\pi}{6}$."
+      "**Region.** The curves cross at $x = 0$ and $x = 1$. In between, $y = x$ is above $y = x^2$.",
+      "**Shells.** Radius $x$ (distance to the $y$-axis), height $x - x^2$: $V = 2\\pi\\displaystyle\\int_0^1x(x - x^2)\\,dx$.",
+      "**Integrate.** $2\\pi\\left[\\tfrac{x^3}{3} - \\tfrac{x^4}{4}\\right]_0^1 = 2\\pi\\cdot\\tfrac{1}{12}$.",
+      "**Volume.** $\\tfrac\\pi6 \\approx 0.524$."
     ],
     "course": "calc2",
     "diagram": "<svg viewBox=\"0 0 180 170\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" font-size=\"13\" font-family=\"system-ui, sans-serif\"><line x1=\"20\" y1=\"150\" x2=\"170\" y2=\"150\"/><line x1=\"30\" y1=\"160\" x2=\"30\" y2=\"10\"/><line x1=\"30\" y1=\"150\" x2=\"150\" y2=\"30\"/><path d=\"M 30 150 Q 90 150 150 30\"/><path d=\"M 30 150 L 150 30 Q 90 150 30 150 Z\" fill=\"currentColor\" fill-opacity=\"0.15\" stroke=\"none\"/><text x=\"118\" y=\"50\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"end\">y = x</text><text x=\"130\" y=\"110\" fill=\"currentColor\" stroke=\"none\" text-anchor=\"start\">y = x²</text></svg>",
@@ -1512,10 +1566,12 @@
     "answerNumeric": 19.739208802178716,
     "hint1": "Use shells: $V = 2\\pi\\displaystyle\\int_0^\\pi x\\sin x\\,dx$.",
     "hint2": "Integrate by parts: $\\int x\\sin x\\,dx = -x\\cos x + \\sin x$.",
+    "keyIdea": "Use shells to rotate about the $y$-axis, since $y = \\sin x$ can't easily be solved for $x$ over the whole arch. The resulting integral needs parts.",
     "solutionSteps": [
-      "$V = 2\\pi\\displaystyle\\int_0^\\pi x\\sin x\\,dx$.",
-      "$\\left[-x\\cos x + \\sin x\\right]_0^\\pi = \\pi$.",
-      "$V = 2\\pi\\cdot\\pi = 2\\pi^2 \\approx 19.74$."
+      "**Shells.** Radius $x$, height $\\sin x$: $V = 2\\pi\\displaystyle\\int_0^\\pi x\\sin x\\,dx$.",
+      "**Parts.** $u = x$ and $dv = \\sin x\\,dx$: $\\int x\\sin x\\,dx = -x\\cos x + \\sin x$.",
+      "**Evaluate.** $\\left[-x\\cos x + \\sin x\\right]_0^\\pi = (\\pi + 0) - 0 = \\pi$.",
+      "**Volume.** $2\\pi\\cdot\\pi = 2\\pi^2 \\approx 19.74$."
     ],
     "course": "calc2"
   },
@@ -1530,10 +1586,12 @@
     "answerNumeric": 6.894313198297004,
     "hint1": "The region spans $0 \\le x \\le 1$, between $y = 1$ (inner) and $y = e^x$ (outer). Use washers.",
     "hint2": "$V = \\pi\\displaystyle\\int_0^1(e^{2x} - 1)\\,dx$.",
+    "keyIdea": "Rotating about the $x$-axis a region between two curves makes washers. Outer radius: the upper curve, $e^x$. Inner radius: the lower curve, $1$.",
     "solutionSteps": [
-      "Washers: $V = \\pi\\displaystyle\\int_0^1\\left[(e^x)^2 - 1^2\\right]dx$.",
-      "$= \\pi\\left[\\tfrac{e^{2x}}{2} - x\\right]_0^1 = \\pi\\left(\\tfrac{e^2}{2} - 1 - \\tfrac12\\right)$.",
-      "$V = \\tfrac{\\pi(e^2 - 3)}{2} \\approx 6.89$."
+      "**Region.** $y = e^x$ meets $y = 1$ at $x = 0$, so the region spans $0 \\le x \\le 1$ with $1 \\le y \\le e^x$.",
+      "**Washers.** $V = \\pi\\displaystyle\\int_0^1\\left[(e^x)^2 - 1^2\\right]dx = \\pi\\int_0^1(e^{2x} - 1)\\,dx$.",
+      "**Integrate.** $\\pi\\left[\\tfrac{e^{2x}}{2} - x\\right]_0^1 = \\pi\\left(\\tfrac{e^2}{2} - 1 - \\tfrac12\\right)$.",
+      "**Volume.** $\\tfrac{\\pi(e^2 - 3)}{2} \\approx 6.89$."
     ],
     "course": "calc2"
   },
@@ -1548,10 +1606,12 @@
     "answerNumeric": 42.666666666666664,
     "hint1": "At position $x$, the square's side runs across the disk: $s = 2\\sqrt{4 - x^2}$.",
     "hint2": "$V = \\displaystyle\\int_{-2}^2 4(4 - x^2)\\,dx$.",
+    "keyIdea": "For a solid with known cross-sections, the volume is $\\int(\\text{cross-section area})\\,dx$. Each square's side is the width of the disk at that $x$.",
     "solutionSteps": [
-      "Side length: $2\\sqrt{4 - x^2}$, so the area is $4(4 - x^2)$.",
-      "$V = 4\\displaystyle\\int_{-2}^2(4 - x^2)\\,dx = 4\\left[4x - \\tfrac{x^3}{3}\\right]_{-2}^2$.",
-      "$= 4\\left(16 - \\tfrac{16}{3}\\right) = \\tfrac{128}{3}$."
+      "**Side length.** At position $x$ the disk runs from $y = -\\sqrt{4 - x^2}$ to $\\sqrt{4 - x^2}$, so the side is $s = 2\\sqrt{4 - x^2}$.",
+      "**Area.** $s^2 = 4(4 - x^2)$.",
+      "**Integrate.** $\\displaystyle\\int_{-2}^2 4(4 - x^2)\\,dx = 4\\left[4x - \\tfrac{x^3}{3}\\right]_{-2}^2 = 4\\left(16 - \\tfrac{16}{3}\\right)$.",
+      "**Volume.** $\\tfrac{128}{3} \\approx 42.7$."
     ],
     "course": "calc2"
   },
@@ -1566,10 +1626,12 @@
     "answerNumeric": 59.217626406536155,
     "hint1": "Use shells: $V = 2\\pi\\displaystyle\\int_2^4x\\cdot2\\sqrt{1 - (x - 3)^2}\\,dx$.",
     "hint2": "Substitute $u = x - 3$. The part $\\int u\\sqrt{1 - u^2}\\,du$ vanishes by symmetry, and $\\int\\sqrt{1 - u^2}\\,du$ is half the area of a unit disk.",
+    "keyIdea": "Use shells. The radius is $x$ and the height is the circle's vertical extent, $2\\sqrt{1 - (x - 3)^2}$. After shifting $u = x - 3$, symmetry does most of the work. This matches Pappus's theorem: area × distance travelled by the center.",
     "solutionSteps": [
-      "With $u = x - 3$: $V = 4\\pi\\displaystyle\\int_{-1}^1(u + 3)\\sqrt{1 - u^2}\\,du$.",
-      "$\\displaystyle\\int_{-1}^1u\\sqrt{1 - u^2}\\,du = 0$ (odd), and $\\displaystyle\\int_{-1}^1\\sqrt{1 - u^2}\\,du = \\tfrac\\pi2$.",
-      "$V = 4\\pi\\cdot3\\cdot\\tfrac\\pi2 = 6\\pi^2 \\approx 59.2$."
+      "**Shells.** $V = 2\\pi\\displaystyle\\int_2^4x\\cdot2\\sqrt{1 - (x - 3)^2}\\,dx$.",
+      "**Shift.** With $u = x - 3$: $V = 4\\pi\\displaystyle\\int_{-1}^1(u + 3)\\sqrt{1 - u^2}\\,du$.",
+      "**Symmetry.** $u\\sqrt{1 - u^2}$ is odd, so its integral over $[-1, 1]$ is $0$. And $\\int_{-1}^1\\sqrt{1 - u^2}\\,du = \\tfrac\\pi2$, the area of a half unit disk.",
+      "**Volume.** $4\\pi\\cdot3\\cdot\\tfrac\\pi2 = 6\\pi^2 \\approx 59.2$. Pappus check: area $\\pi$ × circumference $2\\pi\\cdot3$ $= 6\\pi^2$. ✓"
     ],
     "course": "calc2"
   },
@@ -1584,10 +1646,12 @@
     "answerNumeric": 3.141592653589793,
     "hint1": "Use disks: $V = \\pi\\displaystyle\\int_1^\\infty\\frac{1}{x^2}\\,dx$.",
     "hint2": "$\\displaystyle\\int_1^b x^{-2}dx = 1 - \\tfrac1b \\to 1$.",
+    "keyIdea": "This is an improper integral for volume using disks. Even though the solid is infinitely long, $\\int^\\infty\\frac{dx}{x^2}$ converges, so the volume is finite.",
     "solutionSteps": [
-      "$V = \\pi\\displaystyle\\int_1^\\infty x^{-2}\\,dx$.",
-      "$\\displaystyle\\int_1^\\infty x^{-2}dx = \\left[-\\tfrac1x\\right]_1^\\infty = 1$.",
-      "$V = \\pi$. (Gabriel's horn: finite volume, though its surface area is infinite.)"
+      "**Disks.** The radius is $\\tfrac1x$, so the area is $\\tfrac{\\pi}{x^2}$ and $V = \\pi\\displaystyle\\int_1^\\infty\\frac{dx}{x^2}$.",
+      "**Improper integral.** $\\displaystyle\\int_1^b\\frac{dx}{x^2} = 1 - \\tfrac1b \\to 1$.",
+      "**Volume.** $\\pi$.",
+      "**The paradox.** This is Gabriel's horn. Its surface area involves $\\int^\\infty\\frac{dx}{x}$, which diverges. The horn holds a finite amount of paint but could never be painted."
     ],
     "course": "calc2"
   },
@@ -1602,10 +1666,12 @@
     "answerNumeric": 4.666666666666667,
     "hint1": "$L = \\displaystyle\\int_0^3\\sqrt{1 + (y')^2}\\,dx$, and $y' = \\sqrt x$.",
     "hint2": "$L = \\displaystyle\\int_0^3\\sqrt{1 + x}\\,dx$.",
+    "keyIdea": "The arc length of $y = f(x)$ is $\\displaystyle\\int\\sqrt{1 + (f')^2}\\,dx$. Here $1 + (f')^2$ is simple, so the integral is easy.",
     "solutionSteps": [
-      "$y' = x^{1/2}$, so $1 + (y')^2 = 1 + x$.",
-      "$L = \\tfrac23(1 + x)^{3/2}\\Big|_0^3 = \\tfrac23(8 - 1)$.",
-      "$L = \\tfrac{14}{3}$."
+      "**Recall the formula.** For $y = f(x)$ the arc length from $a$ to $b$ is $\\displaystyle\\int_a^b\\sqrt{1 + (f'(x))^2}\\,dx$, which adds up many tiny hypotenuses $\\sqrt{dx^2 + dy^2}$.",
+      "**Differentiate.** $y' = \\tfrac23\\cdot\\tfrac32x^{1/2} = \\sqrt x$, so $1 + (y')^2 = 1 + x$. This curve was chosen to make the root simple.",
+      "**Integrate.** $\\displaystyle\\int_0^3\\sqrt{1 + x}\\,dx = \\tfrac23(1 + x)^{3/2}\\Big|_0^3 = \\tfrac23(8 - 1)$.",
+      "**Length.** $\\tfrac{14}{3} \\approx 4.67$. That is a bit longer than the straight line from $(0, 0)$ to $(3, 2\\sqrt3)$, which has length $\\sqrt{21} \\approx 4.58$."
     ],
     "course": "calc2"
   },
@@ -1620,10 +1686,12 @@
     "answerNumeric": 0.881373587019543,
     "hint1": "$y' = -\\tan x$, so $\\sqrt{1 + (y')^2} = \\sqrt{1 + \\tan^2x} = \\sec x$ on this interval.",
     "hint2": "$\\displaystyle\\int\\sec x\\,dx = \\ln|\\sec x + \\tan x|$.",
+    "keyIdea": "For $y = \\ln(\\cos x)$, $y' = -\\tan x$. Then $1 + \\tan^2x = \\sec^2x$ makes the square root clean, leaving $\\int\\sec x\\,dx$.",
     "solutionSteps": [
-      "$\\sqrt{1 + \\tan^2 x} = \\sec x$ (positive on $[0, \\tfrac\\pi4]$).",
-      "$L = \\ln|\\sec x + \\tan x|\\Big|_0^{\\pi/4} = \\ln(\\sqrt2 + 1) - \\ln1$.",
-      "$L = \\ln(1 + \\sqrt2) \\approx 0.881$."
+      "**Differentiate.** By the chain rule, $y' = \\dfrac{1}{\\cos x}\\cdot(-\\sin x) = -\\tan x$.",
+      "**Simplify the arc-length integrand** using $1 + \\tan^2x = \\sec^2x$: $\\sqrt{1 + \\tan^2x} = |\\sec x| = \\sec x$, which is positive on $[0, \\tfrac\\pi4]$.",
+      "**Integrate secant.** A standard result is $\\displaystyle\\int\\sec x\\,dx = \\ln|\\sec x + \\tan x|$.",
+      "**Evaluate.** At $\\tfrac\\pi4$: $\\ln(\\sqrt2 + 1)$. At $0$: $\\ln(1 + 0) = 0$. So the length is $\\ln(1 + \\sqrt2) \\approx 0.881$."
     ],
     "course": "calc2"
   },
@@ -1638,10 +1706,12 @@
     "answerNumeric": 2.0972640247326626,
     "hint1": "$y' = \\tfrac x2 - \\tfrac{1}{2x}$. Expand $1 + (y')^2$ and look for a perfect square.",
     "hint2": "$1 + (y')^2 = \\left(\\tfrac x2 + \\tfrac1{2x}\\right)^2$.",
+    "keyIdea": "Arc-length problems are often designed so that $1 + (y')^2$ is a perfect square. Expand it and look for that, so the square root disappears.",
     "solutionSteps": [
-      "$(y')^2 = \\tfrac{x^2}{4} - \\tfrac12 + \\tfrac{1}{4x^2}$, so $1 + (y')^2 = \\left(\\tfrac x2 + \\tfrac{1}{2x}\\right)^2$.",
-      "$L = \\displaystyle\\int_1^e\\left(\\tfrac x2 + \\tfrac1{2x}\\right)dx = \\left[\\tfrac{x^2}{4} + \\tfrac12\\ln x\\right]_1^e$.",
-      "$= \\tfrac{e^2}{4} + \\tfrac12 - \\tfrac14 = \\tfrac{e^2 + 1}{4} \\approx 2.097$."
+      "**Derivative.** $y' = \\tfrac x2 - \\tfrac{1}{2x}$.",
+      "**Square it.** $(y')^2 = \\tfrac{x^2}{4} - \\tfrac12 + \\tfrac{1}{4x^2}$. Adding $1$ flips the middle sign: $1 + (y')^2 = \\tfrac{x^2}{4} + \\tfrac12 + \\tfrac{1}{4x^2} = \\left(\\tfrac x2 + \\tfrac1{2x}\\right)^2$.",
+      "**Integrate.** $\\displaystyle\\int_1^e\\left(\\tfrac x2 + \\tfrac{1}{2x}\\right)dx = \\left[\\tfrac{x^2}{4} + \\tfrac12\\ln x\\right]_1^e$.",
+      "**Length.** $\\left(\\tfrac{e^2}{4} + \\tfrac12\\right) - \\tfrac14 = \\tfrac{e^2 + 1}{4} \\approx 2.097$."
     ],
     "course": "calc2"
   },
@@ -1656,10 +1726,12 @@
     "answerNumeric": 3.5067530591507112,
     "hint1": "$L = \\displaystyle\\int\\sqrt{(x')^2 + (y')^2}\\,dt$, with $x' = 2t$ and $y' = t^2$.",
     "hint2": "$\\sqrt{4t^2 + t^4} = t\\sqrt{4 + t^2}$ for $t \\ge 0$.",
+    "keyIdea": "For a parametric curve, $L = \\displaystyle\\int\\sqrt{(x')^2 + (y')^2}\\,dt$. Factoring $t^2$ out of the square root leaves a $u$-substitution.",
     "solutionSteps": [
-      "$L = \\displaystyle\\int_0^{\\sqrt3}t\\sqrt{4 + t^2}\\,dt$.",
-      "With $u = 4 + t^2$: $\\tfrac13(4 + t^2)^{3/2}\\Big|_0^{\\sqrt3} = \\tfrac13(7^{3/2} - 8)$.",
-      "$L = \\tfrac{7\\sqrt7 - 8}{3} \\approx 3.51$."
+      "**Derivatives.** $x' = 2t$ and $y' = t^2$, so the speed is $\\sqrt{4t^2 + t^4} = t\\sqrt{4 + t^2}$ (for $t \\ge 0$).",
+      "**Substitute.** With $u = 4 + t^2$ and $du = 2t\\,dt$: $\\displaystyle\\int t\\sqrt{4 + t^2}\\,dt = \\tfrac13(4 + t^2)^{3/2}$.",
+      "**Evaluate.** At $\\sqrt3$: $\\tfrac13\\cdot7^{3/2}$. At $0$: $\\tfrac13\\cdot8$.",
+      "**Length.** $\\tfrac{7\\sqrt7 - 8}{3} \\approx 3.51$."
     ],
     "course": "calc2"
   },
@@ -1674,10 +1746,12 @@
     "answerNumeric": 0.75,
     "hint1": "Partial fractions: $\\dfrac{1}{n(n + 2)} = \\dfrac12\\left(\\dfrac1n - \\dfrac{1}{n + 2}\\right)$.",
     "hint2": "The terms cancel two apart. Only $\\tfrac11$ and $\\tfrac12$ survive from the positive terms.",
+    "keyIdea": "Partial fractions turn each term into a difference. The positive and negative parts cancel two terms apart (telescoping), and only a few terms survive.",
     "solutionSteps": [
-      "$\\sum\\tfrac12\\left(\\tfrac1n - \\tfrac1{n + 2}\\right)$ telescopes.",
-      "Partial sum: $\\tfrac12\\left(1 + \\tfrac12 - \\tfrac1{N + 1} - \\tfrac{1}{N + 2}\\right)$.",
-      "As $N \\to \\infty$: $\\tfrac12\\cdot\\tfrac32 = \\tfrac34$."
+      "**Split.** $\\dfrac{1}{n(n + 2)} = \\dfrac12\\left(\\dfrac1n - \\dfrac{1}{n + 2}\\right)$.",
+      "**Write out the partial sum.** $\\tfrac12\\left[\\left(1 - \\tfrac13\\right) + \\left(\\tfrac12 - \\tfrac14\\right) + \\left(\\tfrac13 - \\tfrac15\\right) + \\cdots\\right]$. Each $-\\tfrac1k$ is cancelled two terms later.",
+      "**Survivors.** $\\tfrac12\\left(1 + \\tfrac12 - \\tfrac{1}{N + 1} - \\tfrac{1}{N + 2}\\right)$.",
+      "**Limit.** As $N \\to \\infty$: $\\tfrac12\\cdot\\tfrac32 = \\tfrac34$."
     ],
     "course": "calc2"
   },
@@ -1692,10 +1766,12 @@
     "answerNumeric": 4.166666666666667,
     "hint1": "Split it into two geometric series with ratios $\\tfrac25$ and $\\tfrac35$.",
     "hint2": "$\\dfrac{1}{1 - 2/5} + \\dfrac{1}{1 - 3/5}$.",
+    "keyIdea": "Split the fraction into two geometric series. Each converges because its ratio is less than $1$.",
     "solutionSteps": [
-      "$\\sum\\left(\\tfrac25\\right)^n = \\tfrac53$.",
-      "$\\sum\\left(\\tfrac35\\right)^n = \\tfrac52$.",
-      "Total: $\\tfrac53 + \\tfrac52 = \\tfrac{25}{6}$."
+      "**Split the fraction** into two separate geometric series: $\\dfrac{2^n + 3^n}{5^n} = \\left(\\tfrac25\\right)^n + \\left(\\tfrac35\\right)^n$. You can add two convergent series term by term.",
+      "**First series.** The ratio $\\tfrac25$ is less than $1$, so starting at $n = 0$ the sum is $\\dfrac{1}{1 - 2/5} = \\tfrac53$.",
+      "**Second series.** The ratio $\\tfrac35$ is also less than $1$: $\\dfrac{1}{1 - 3/5} = \\tfrac52$.",
+      "**Add.** $\\tfrac53 + \\tfrac52 = \\tfrac{10 + 15}{6} = \\tfrac{25}{6}$."
     ],
     "course": "calc2"
   },
@@ -1710,10 +1786,12 @@
     "answerNumeric": 6.0,
     "hint1": "Start from $\\sum x^n = \\tfrac{1}{1 - x}$. Apply $x\\tfrac{d}{dx}$ twice.",
     "hint2": "$\\sum n^2x^n = \\dfrac{x(1 + x)}{(1 - x)^3}$.",
+    "keyIdea": "Start from the geometric series $\\sum x^n = \\tfrac{1}{1 - x}$. Each application of $x\\tfrac{d}{dx}$ multiplies the $n$-th term by $n$. Do it twice to get $n^2$.",
     "solutionSteps": [
-      "$\\sum nx^n = \\dfrac{x}{(1 - x)^2}$, and applying $x\\tfrac{d}{dx}$ again gives $\\sum n^2x^n = \\dfrac{x(1 + x)}{(1 - x)^3}$.",
-      "At $x = \\tfrac12$: $\\dfrac{\\tfrac12\\cdot\\tfrac32}{\\tfrac18}$.",
-      "$= \\tfrac34\\cdot8 = 6$."
+      "**Start from a series you know.** $\\sum_{n \\ge 0}x^n = \\dfrac{1}{1 - x}$ for $|x| < 1$. Differentiating and then multiplying by $x$ multiplies each term $x^n$ by $n$.",
+      "**Apply it once.** $\\sum nx^n = x\\dfrac{d}{dx}\\dfrac{1}{1 - x} = \\dfrac{x}{(1 - x)^2}$.",
+      "**Apply it again** to get $n^2$: $\\sum n^2x^n = x\\dfrac{d}{dx}\\dfrac{x}{(1 - x)^2} = \\dfrac{x(1 + x)}{(1 - x)^3}$, using the quotient rule.",
+      "**Plug in $x = \\tfrac12$.** $\\dfrac{\\tfrac12\\cdot\\tfrac32}{\\tfrac18} = \\tfrac34\\cdot8 = 6$."
     ],
     "course": "calc2"
   },
@@ -1728,10 +1806,12 @@
     "answerNumeric": -0.6931471805599453,
     "hint1": "$1 - \\tfrac1{n^2} = \\dfrac{(n - 1)(n + 1)}{n\\cdot n}$. A sum of logs is the log of a product.",
     "hint2": "$\\displaystyle\\prod_{n=2}^N\\frac{n - 1}{n}\\cdot\\frac{n + 1}{n} = \\frac{1}{N}\\cdot\\frac{N + 1}{2}$.",
+    "keyIdea": "A sum of logs is the log of a product. Factor $1 - \\tfrac1{n^2} = \\tfrac{(n - 1)(n + 1)}{n\\cdot n}$, and the product telescopes.",
     "solutionSteps": [
-      "$\\displaystyle\\sum_{n=2}^N\\ln\\left(1 - \\tfrac1{n^2}\\right) = \\ln\\prod_{n=2}^N\\frac{(n - 1)(n + 1)}{n^2}$.",
-      "The product telescopes to $\\dfrac{1}{N}\\cdot\\dfrac{N + 1}{2} \\to \\tfrac12$.",
-      "Sum $= \\ln\\tfrac12 = -\\ln2$."
+      "**Turn the sum into a product.** Since $\\ln a + \\ln b = \\ln(ab)$, the partial sum up to $N$ is $\\ln\\displaystyle\\prod_{n=2}^N\\left(1 - \\tfrac1{n^2}\\right)$.",
+      "**Factor each term.** $1 - \\tfrac{1}{n^2} = \\dfrac{n^2 - 1}{n^2} = \\dfrac{n - 1}{n}\\cdot\\dfrac{n + 1}{n}$.",
+      "**Telescope each product.** $\\tfrac12\\cdot\\tfrac23\\cdots\\tfrac{N - 1}{N} = \\tfrac1N$, because every numerator cancels the previous denominator. Similarly $\\tfrac32\\cdot\\tfrac43\\cdots\\tfrac{N + 1}{N} = \\tfrac{N + 1}{2}$.",
+      "**Take the limit.** $\\tfrac1N\\cdot\\tfrac{N + 1}{2} \\to \\tfrac12$, so the series equals $\\ln\\tfrac12 = -\\ln2 \\approx -0.693$."
     ],
     "course": "calc2"
   },
@@ -1746,10 +1826,12 @@
     "answerNumeric": 0.9068996821171089,
     "hint1": "Compare with $\\arctan x = \\displaystyle\\sum_{n=0}^\\infty\\frac{(-1)^nx^{2n + 1}}{2n + 1}$.",
     "hint2": "With $x = \\tfrac{1}{\\sqrt3}$: $x^{2n + 1} = \\dfrac{1}{\\sqrt3\\cdot3^n}$.",
+    "keyIdea": "Recognize a known Maclaurin series: $\\arctan x = \\sum\\frac{(-1)^nx^{2n+1}}{2n + 1}$. Choose $x$ so that $x^{2n} = 3^{-n}$, i.e. $x = \\tfrac1{\\sqrt3}$.",
     "solutionSteps": [
-      "$\\arctan\\tfrac{1}{\\sqrt3} = \\displaystyle\\sum\\frac{(-1)^n}{(2n + 1)3^n\\sqrt3}$.",
-      "So the series equals $\\sqrt3\\arctan\\tfrac{1}{\\sqrt3} = \\sqrt3\\cdot\\tfrac\\pi6$.",
-      "$= \\tfrac{\\pi\\sqrt3}{6} \\approx 0.907$."
+      "**Recall the arctangent series.** $\\arctan x = x - \\tfrac{x^3}{3} + \\tfrac{x^5}{5} - \\cdots = \\displaystyle\\sum_{n \\ge 0}\\frac{(-1)^nx^{2n+1}}{2n + 1}$ for $|x| \\le 1$.",
+      "**Pick $x$ to match the $3^n$.** With $x = \\tfrac{1}{\\sqrt3}$, $x^{2n+1} = \\tfrac{1}{\\sqrt3}\\cdot\\tfrac{1}{3^n}$. So $\\arctan\\tfrac{1}{\\sqrt3}$ equals $\\tfrac{1}{\\sqrt3}$ times our series.",
+      "**Solve for the series.** It equals $\\sqrt3\\cdot\\arctan\\tfrac{1}{\\sqrt3} = \\sqrt3\\cdot\\tfrac\\pi6$, because $\\tan\\tfrac\\pi6 = \\tfrac{1}{\\sqrt3}$.",
+      "**Value.** $\\tfrac{\\pi\\sqrt3}{6} \\approx 0.907$."
     ],
     "course": "calc2"
   },
@@ -1764,10 +1846,12 @@
     "answerNumeric": 0.5,
     "hint1": "$4n^2 - 1 = (2n - 1)(2n + 1)$. Use partial fractions.",
     "hint2": "$\\dfrac{1}{(2n - 1)(2n + 1)} = \\dfrac12\\left(\\dfrac{1}{2n - 1} - \\dfrac{1}{2n + 1}\\right)$.",
+    "keyIdea": "Factor $4n^2 - 1 = (2n - 1)(2n + 1)$ and split into partial fractions. The sum telescopes over consecutive odd numbers.",
     "solutionSteps": [
-      "Telescoping: $\\tfrac12\\left[\\left(1 - \\tfrac13\\right) + \\left(\\tfrac13 - \\tfrac15\\right) + \\cdots\\right]$.",
-      "Partial sum: $\\tfrac12\\left(1 - \\tfrac{1}{2N + 1}\\right)$.",
-      "Limit: $\\tfrac12$."
+      "**Factor the denominator** as a difference of squares: $4n^2 - 1 = (2n - 1)(2n + 1)$.",
+      "**Partial fractions.** $\\dfrac{1}{(2n - 1)(2n + 1)} = \\dfrac12\\left(\\dfrac{1}{2n - 1} - \\dfrac{1}{2n + 1}\\right)$. You can check this by combining the right side.",
+      "**Telescope.** The partial sum is $\\tfrac12\\left[\\left(1 - \\tfrac13\\right) + \\left(\\tfrac13 - \\tfrac15\\right) + \\cdots + \\left(\\tfrac{1}{2N - 1} - \\tfrac{1}{2N + 1}\\right)\\right] = \\tfrac12\\left(1 - \\tfrac{1}{2N + 1}\\right)$.",
+      "**Take the limit.** $\\tfrac{1}{2N + 1} \\to 0$, so the sum is $\\tfrac12$."
     ],
     "course": "calc2"
   },
@@ -1782,10 +1866,12 @@
     "answerNumeric": -0.16666666666666666,
     "hint1": "Multiply the series $e^x = \\sum\\tfrac{x^n}{n!}$ and $\\cos x = 1 - \\tfrac{x^2}{2} + \\tfrac{x^4}{24} - \\cdots$, and collect $x^4$.",
     "hint2": "The $x^4$ terms come from $\\tfrac{x^4}{24}\\cdot1$, $\\tfrac{x^2}{2}\\cdot\\left(-\\tfrac{x^2}{2}\\right)$ and $1\\cdot\\tfrac{x^4}{24}$.",
+    "keyIdea": "Multiply the two Maclaurin series and collect every combination of terms whose powers add to $4$.",
     "solutionSteps": [
-      "Coefficient: $\\tfrac1{24} - \\tfrac14 + \\tfrac1{24}$.",
-      "$= \\tfrac{1 - 6 + 1}{24} = -\\tfrac{4}{24}$.",
-      "$= -\\tfrac16$. (Check: $e^x\\cos x = \\operatorname{Re}e^{(1 + i)x}$ and $(1 + i)^4 = -4$, so the coefficient is $-\\tfrac{4}{24}$.)"
+      "**Series.** $e^x = 1 + x + \\tfrac{x^2}{2} + \\tfrac{x^3}{6} + \\tfrac{x^4}{24} + \\cdots$ and $\\cos x = 1 - \\tfrac{x^2}{2} + \\tfrac{x^4}{24} - \\cdots$.",
+      "**Pairs giving $x^4$.** $\\tfrac{x^4}{24}\\cdot1$, $\\;\\tfrac{x^2}{2}\\cdot\\left(-\\tfrac{x^2}{2}\\right)$ and $1\\cdot\\tfrac{x^4}{24}$. Odd powers of $\\cos$ don't exist, so nothing else contributes.",
+      "**Add the coefficients.** $\\tfrac{1}{24} - \\tfrac14 + \\tfrac1{24} = \\tfrac{1 - 6 + 1}{24} = -\\tfrac{4}{24}$.",
+      "**Coefficient.** $-\\tfrac16$. (Complex check: $e^x\\cos x = \\operatorname{Re}e^{(1 + i)x}$, and $(1 + i)^4 = -4$, so the coefficient is $\\tfrac{-4}{4!}$.)"
     ],
     "course": "calc2"
   },
@@ -1800,10 +1886,11 @@
     "answerNumeric": -362880.0,
     "hint1": "Find the Maclaurin series: $f(x) = x^3\\displaystyle\\sum_{n\\ge0}(-1)^nx^{2n}$. Then $f^{(9)}(0) = 9!\\cdot c_9$.",
     "hint2": "The $x^9$ term comes from $n = 3$: $c_9 = (-1)^3 = -1$.",
+    "keyIdea": "A high-order derivative at $0$ comes directly from the Maclaurin series: $f^{(n)}(0) = n!\\cdot c_n$, where $c_n$ is the coefficient of $x^n$. Finding the series is far easier than differentiating nine times.",
     "solutionSteps": [
-      "$f(x) = x^3 - x^5 + x^7 - x^9 + \\cdots$.",
-      "$c_9 = -1$, and $c_9 = \\dfrac{f^{(9)}(0)}{9!}$.",
-      "$f^{(9)}(0) = -9! = -362880$."
+      "**Series.** $\\dfrac{1}{1 + x^2} = 1 - x^2 + x^4 - x^6 + \\cdots$, so $f(x) = x^3 - x^5 + x^7 - x^9 + \\cdots$.",
+      "**Coefficient of $x^9$.** $c_9 = -1$.",
+      "**Derivative.** $f^{(9)}(0) = 9!\\cdot(-1) = -362880$."
     ],
     "course": "calc2"
   },
@@ -1818,10 +1905,12 @@
     "answerNumeric": 0.008333333333333333,
     "hint1": "Write out the Maclaurin series of $\\sin x$ to the $x^5$ term.",
     "hint2": "$\\sin x = x - \\tfrac{x^3}{6} + \\tfrac{x^5}{120} - \\cdots$.",
+    "keyIdea": "Subtracting the first terms of a Taylor series leaves the first term you didn't subtract. That term decides the limit.",
     "solutionSteps": [
-      "The numerator is $\\tfrac{x^5}{120} - \\tfrac{x^7}{5040} + \\cdots$.",
-      "Divide by $x^5$: $\\tfrac{1}{120} - \\tfrac{x^2}{5040} + \\cdots$.",
-      "The limit is $\\tfrac{1}{120}$."
+      "**Write out the Maclaurin series of $\\sin x$** far enough to go past the terms being subtracted: $\\sin x = x - \\tfrac{x^3}{6} + \\tfrac{x^5}{120} - \\tfrac{x^7}{5040} + \\cdots$.",
+      "**Subtract.** The $x$ and $-\\tfrac{x^3}{6}$ terms cancel exactly, leaving $\\tfrac{x^5}{120} - \\tfrac{x^7}{5040} + \\cdots$.",
+      "**Divide by $x^5$.** $\\tfrac{1}{120} - \\tfrac{x^2}{5040} + \\cdots$. Every term after the first still contains a power of $x$.",
+      "**Let $x \\to 0$.** Only the constant survives, so the limit is $\\tfrac{1}{120}$. (L'Hôpital would need five rounds to get the same answer.)"
     ],
     "course": "calc2"
   },
@@ -1836,10 +1925,11 @@
     "answerNumeric": 0.8333333333333334,
     "hint1": "Multiply the series $\\ln(1 + x) = x - \\tfrac{x^2}{2} + \\tfrac{x^3}{3} - \\cdots$ and $\\tfrac{1}{1 - x} = 1 + x + x^2 + \\cdots$.",
     "hint2": "Dividing by $1 - x$ turns the coefficients into partial sums.",
+    "keyIdea": "Dividing a series by $1 - x$ is the same as multiplying by $1 + x + x^2 + \\cdots$. That turns each coefficient into a running total of the original coefficients.",
     "solutionSteps": [
-      "The $x^3$ coefficient is the sum of the first three coefficients of $\\ln(1 + x)$.",
-      "$1 - \\tfrac12 + \\tfrac13$.",
-      "$= \\tfrac56$."
+      "**Series.** $\\ln(1 + x) = x - \\tfrac{x^2}{2} + \\tfrac{x^3}{3} - \\cdots$.",
+      "**Multiply by $\\sum x^k$.** The $x^3$ coefficient collects $x\\cdot x^2$, $-\\tfrac{x^2}{2}\\cdot x$ and $\\tfrac{x^3}{3}\\cdot1$.",
+      "**Add them.** $1 - \\tfrac12 + \\tfrac13 = \\tfrac{6 - 3 + 2}{6} = \\tfrac56$."
     ],
     "course": "calc2"
   },
@@ -1854,10 +1944,12 @@
     "answerNumeric": 2.718281828459045,
     "hint1": "Ratio test: $\\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\dfrac{(n + 1)!}{(n + 1)^{n+1}}\\cdot\\dfrac{n^n}{n!}|x|$.",
     "hint2": "This simplifies to $\\left(\\dfrac{n}{n + 1}\\right)^n|x|$, which tends to $\\tfrac{|x|}{e}$.",
+    "keyIdea": "The ratio test: the series converges where $\\lim\\left|\\tfrac{a_{n+1}}{a_n}\\right| < 1$. Factorials cancel neatly, and the limit $\\left(1 + \\tfrac1n\\right)^n \\to e$ appears.",
     "solutionSteps": [
-      "$\\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\left(\\dfrac{n}{n + 1}\\right)^n|x|$.",
-      "$\\left(1 + \\tfrac1n\\right)^{-n} \\to e^{-1}$.",
-      "Converges when $\\tfrac{|x|}{e} < 1$: $R = e$."
+      "**Use the ratio test.** A power series $\\sum a_nx^n$ converges where $\\lim\\left|\\tfrac{a_{n+1}}{a_n}\\right|\\cdot|x| < 1$. Here $a_n = \\tfrac{n!}{n^n}$.",
+      "**Simplify the ratio.** $\\dfrac{(n + 1)!}{(n + 1)^{n+1}}\\cdot\\dfrac{n^n}{n!} = \\dfrac{(n + 1)\\,n^n}{(n + 1)(n + 1)^n} = \\left(\\dfrac{n}{n + 1}\\right)^n$.",
+      "**Take the limit.** $\\left(\\dfrac{n}{n + 1}\\right)^n = \\dfrac{1}{(1 + 1/n)^n} \\to \\dfrac{1}{e}$, using the definition of $e$.",
+      "**Radius.** The series converges when $\\tfrac{|x|}{e} < 1$, so $R = e \\approx 2.718$."
     ],
     "course": "calc2"
   },
@@ -1872,10 +1964,11 @@
     "answerNumeric": 0.25,
     "hint1": "Ratio test on $a_n = \\dfrac{(2n)!}{(n!)^2}$.",
     "hint2": "$\\dfrac{a_{n+1}}{a_n} = \\dfrac{(2n + 2)(2n + 1)}{(n + 1)^2} \\to 4$.",
+    "keyIdea": "Apply the ratio test to the central binomial coefficients. The factorials cancel to a simple rational expression in $n$.",
     "solutionSteps": [
-      "$\\dfrac{a_{n+1}}{a_n} = \\dfrac{(2n + 2)(2n + 1)}{(n + 1)^2} = \\dfrac{2(2n + 1)}{n + 1}$.",
-      "This tends to $4$.",
-      "$R = \\tfrac14$."
+      "**Ratio.** $\\dfrac{a_{n+1}}{a_n} = \\dfrac{(2n + 2)!}{((n + 1)!)^2}\\cdot\\dfrac{(n!)^2}{(2n)!} = \\dfrac{(2n + 2)(2n + 1)}{(n + 1)^2}$.",
+      "**Simplify.** $= \\dfrac{2(2n + 1)}{n + 1} \\to 4$.",
+      "**Radius.** It converges when $4|x| < 1$, so $R = \\tfrac14$. (This matches the closed form $\\sum\\binom{2n}{n}x^n = \\tfrac{1}{\\sqrt{1 - 4x}}$.)"
     ],
     "course": "calc2"
   },
@@ -1890,10 +1983,12 @@
     "answerNumeric": 0.5773502691896257,
     "hint1": "Only even powers appear. Use the ratio test on the terms, treating $x^2$ as the variable.",
     "hint2": "The ratio tends to $3|x|^2$.",
+    "keyIdea": "Only even powers appear, so apply the ratio test to consecutive *terms*. The $x^2$ comes along. For large $n$, $3^n$ dominates $2^n$.",
     "solutionSteps": [
-      "$\\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\dfrac{3^{n+1} + 2^{n+1}}{3^n + 2^n}\\cdot\\dfrac{n}{n + 1}|x|^2 \\to 3|x|^2$.",
-      "It converges when $3x^2 < 1$, i.e. $|x| < \\tfrac{1}{\\sqrt3}$.",
-      "$R = \\tfrac{1}{\\sqrt3} = \\tfrac{\\sqrt3}{3}$."
+      "**Ratio of terms.** $\\dfrac{3^{n+1} + 2^{n+1}}{3^n + 2^n}\\cdot\\dfrac{n}{n + 1}\\cdot|x|^2$.",
+      "**Limit.** Divide the top and bottom by $3^n$: $\\dfrac{3 + 2(2/3)^n}{1 + (2/3)^n} \\to 3$. So the ratio tends to $3|x|^2$.",
+      "**Condition.** $3x^2 < 1$, so $|x| < \\tfrac{1}{\\sqrt3}$.",
+      "**Radius.** $R = \\tfrac{\\sqrt3}{3} \\approx 0.577$."
     ],
     "course": "calc2"
   },
@@ -1908,10 +2003,11 @@
     "answerNumeric": 2.5925925925925926,
     "hint1": "At $x = 1$ it is $\\sum n^2\\left(\\tfrac25\\right)^n$. Use $\\sum n^2r^n = \\dfrac{r(1 + r)}{(1 - r)^3}$.",
     "hint2": "With $r = \\tfrac25$: $\\dfrac{\\tfrac25\\cdot\\tfrac75}{\\left(\\tfrac35\\right)^3}$.",
+    "keyIdea": "At $x = 1$ the series is $\\sum n^2r^n$ with $r = \\tfrac25$. Use the closed form, found by differentiating the geometric series twice.",
     "solutionSteps": [
-      "$\\sum n^2r^n = \\dfrac{r(1 + r)}{(1 - r)^3}$ for $|r| < 1$.",
-      "$r = \\tfrac25$: numerator $\\tfrac{14}{25}$, denominator $\\tfrac{27}{125}$.",
-      "Sum $= \\tfrac{14}{25}\\cdot\\tfrac{125}{27} = \\tfrac{70}{27}$."
+      "**Formula.** $\\sum_{n \\ge 1}n^2r^n = \\dfrac{r(1 + r)}{(1 - r)^3}$ for $|r| < 1$.",
+      "**Plug in $r = \\tfrac25$.** The numerator is $\\tfrac25\\cdot\\tfrac75 = \\tfrac{14}{25}$, and the denominator is $\\left(\\tfrac35\\right)^3 = \\tfrac{27}{125}$.",
+      "**Divide.** $\\tfrac{14}{25}\\cdot\\tfrac{125}{27} = \\tfrac{70}{27} \\approx 2.59$."
     ],
     "course": "calc2"
   }

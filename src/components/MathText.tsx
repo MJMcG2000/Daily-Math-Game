@@ -4,16 +4,17 @@ import { splitMath } from '../lib/mixed';
 
 /** Render text containing $inline$ and $$display$$ LaTeX. */
 export function renderMixed(text: string): string {
-  return splitMath(text)
+  // Mark **bold** spans before splitting, so a bold lead-in may contain $math$.
+  const marked = text.replace(/\*\*([\s\S]+?)\*\*/g, '\u0001$1\u0002');
+  return splitMath(marked)
     .map((seg) =>
       seg.kind === 'text'
-        ? seg.value
-            .replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]!)
-            // Minimal emphasis: **bold** lead-ins in solution steps.
-            .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+        ? seg.value.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]!)
         : katex.renderToString(seg.value, { displayMode: seg.kind === 'display', throwOnError: false }),
     )
-    .join('');
+    .join('')
+    .replace(/\u0001/g, '<strong>')
+    .replace(/\u0002/g, '</strong>');
 }
 
 export const MathText = memo(function MathText({ text, as: Tag = 'div', className }: {

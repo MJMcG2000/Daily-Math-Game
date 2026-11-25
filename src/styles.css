@@ -216,8 +216,10 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fo
   background: var(--surface); border-left: 4px solid var(--accent);
   border-radius: 8px; padding: 8px 12px; margin: 4px 0 8px; overflow-x: auto;
 }
-.steps { padding-left: 1.4em; display: grid; gap: 10px; }
-.steps li { overflow-x: auto; overflow-y: hidden; padding: 2px 0; }
+.steps { list-style: none; counter-reset: step; padding-left: 0; display: grid; gap: 10px; }
+/* Numbers are drawn inside the padding so the horizontal scroll for wide equations doesn't clip them. */
+.steps li { counter-increment: step; position: relative; padding: 2px 0 2px 1.8em; overflow-x: auto; overflow-y: hidden; }
+.steps li::before { content: counter(step) "."; position: absolute; left: 0; top: 2px; font-weight: 700; color: var(--muted); }
 
 .done-card { text-align: center; }
 .done-card .share { justify-content: center; }
