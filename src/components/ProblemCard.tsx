@@ -10,13 +10,17 @@ const LABEL = { easy: 'Easy', medium: 'Medium', hard: 'Hard' } as const;
 const MARK_ICON = { correct: '✓', close: '≈', wrong: '✗' } as const;
 const MARK_TEXT = { correct: 'Correct', close: 'Close', wrong: 'Wrong' } as const;
 
-export function ProblemCard({ problem, state, index, onStart, onGuess, onHint, scored = true, title }: {
+export function ProblemCard({ problem, state, index, onStart, onGuess, onHint, onGiveUp, scored = true, title, giveUpNote }: {
   problem: Problem;
   state: ProblemState;
   index: number;
   onStart?: () => void;
   onGuess: (input: string, value: number) => void;
   onHint: () => void;
+  /** Ends the problem as unsolved and reveals the worked solution. */
+  onGiveUp: () => void;
+  /** What giving up costs, shown in the confirmation (e.g. "ends your run"). */
+  giveUpNote?: string;
   /** Daily mode: timer, reveal gate and points. Endless mode turns these off. */
   scored?: boolean;
   /** Heading text; defaults to "Problem N · Difficulty". */
@@ -26,6 +30,7 @@ export function ProblemCard({ problem, state, index, onStart, onGuess, onHint, s
   const score = scoreProblem(state, problem.difficulty);
   const answerTex = parseAnswer(problem.answer);
   const [stepsShown, setStepsShown] = useState(1);
+  const [confirmGiveUp, setConfirmGiveUp] = useState(false);
   const resultRef = useRef<HTMLDivElement>(null);
   const wasDone = useRef(done);
 
@@ -108,6 +113,28 @@ export function ProblemCard({ problem, state, index, onStart, onGuess, onHint, s
         <AnswerInput onSubmit={onGuess} guessesLeft={MAX_GUESSES - state.guesses.length} />
       )}
 
+      {!done && (
+        <div className="give-up">
+          {!confirmGiveUp ? (
+            <button className="btn ghost small-btn" onClick={() => setConfirmGiveUp(true)}>
+              <span aria-hidden="true">🏳️</span> Give up and show solution
+            </button>
+          ) : (
+            <div className="give-up-confirm" role="group" aria-label="Confirm giving up">
+              <p className="small">
+                Give up on this problem? {giveUpNote ?? (scored ? 'It will score 0 points.' : 'It will count as not solved.')}
+              </p>
+              <div className="row center">
+                <button className="btn primary" onClick={() => { setConfirmGiveUp(false); onGiveUp(); }} autoFocus>
+                  Yes, show the solution
+                </button>
+                <button className="btn ghost" onClick={() => setConfirmGiveUp(false)}>Keep trying</button>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
       <div aria-live="polite" className="visually-hidden">
         {state.guesses.length > 0 && !done &&
           `${MARK_TEXT[state.guesses[state.guesses.length - 1].mark]}. The answer is ${state.guesses[state.guesses.length - 1].direction}. ${MAX_GUESSES - state.guesses.length} guesses left.`}
@@ -118,6 +145,8 @@ export function ProblemCard({ problem, state, index, onStart, onGuess, onHint, s
           <p className="result-line">
             {state.status === 'solved' ? (
               <><span aria-hidden="true">🎉 </span>Solved in {state.guesses.length} {state.guesses.length === 1 ? 'guess' : 'guesses'}</>
+            ) : state.gaveUp ? (
+              <>You gave up. The answer was</>
             ) : (
               <>Out of guesses. The answer was</>
             )}{' '}

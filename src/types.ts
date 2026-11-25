@@ -42,6 +42,8 @@ export interface ProblemState {
   guesses: GuessRecord[];
   hintsUsed: number;
   status: 'playing' | 'solved' | 'failed';
+  /** True when the player pressed "Give up" (status is then 'failed'). */
+  gaveUp?: boolean;
   /** The prompt is hidden until the player starts the problem; this also starts its timer. */
   started: boolean;
   /** Active time spent on the problem, in milliseconds. */

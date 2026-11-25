@@ -15,6 +15,7 @@ The game is fully static: there is no backend, and the day's problems are chosen
 
 - **3 guesses** per problem. A wrong guess tells you whether the answer is **higher ↑** or **lower ↓**. It is marked **≈ close** if it is within 10% of the answer, otherwise **✗ wrong**.
 - **2 hints** per problem: first a nudge toward the approach, then a key intermediate step. Each hint costs 0.5 points.
+- **Give up** at any time to see the answer and the worked solution straight away. The problem scores 0, shows a 🏳️ in the share grid, and counts as not solved. In Endless mode it resets your Practice streak or ends your Survival run.
 - After a problem is solved or out of guesses, its full worked solution is shown one step at a time.
 - Problems can be done in any order. A problem stays hidden until you reveal it, and revealing it starts its timer. The timer pauses when you switch problems, switch browser tabs or open a menu.
 - A new puzzle unlocks at **local midnight**, with a countdown on screen.

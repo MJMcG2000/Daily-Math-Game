@@ -137,4 +137,16 @@ describe('share', () => {
     ]);
     expect(text).not.toMatch(/answer/i);
   });
+  it('marks a given-up problem with a white flag', () => {
+    const probs = [mk('a'), mk('b', { difficulty: 'medium' }), mk('c', { difficulty: 'hard' })];
+    const text = shareText({
+      day: 0,
+      problems: [
+        ps({ status: 'failed', gaveUp: true, guesses: [], elapsedMs: 30_000 }),
+        ps({ status: 'failed', gaveUp: true, guesses: [{ input: '2', value: 2, mark: 'close' }], elapsedMs: 60_000 }),
+        ps({ status: 'playing' }),
+      ],
+    }, probs);
+    expect(text.split('\n').slice(1)).toEqual(['① 🏳️ ⏱0:30', '② 🟨🏳️ ⏱1:00', '③ ⬜']);
+  });
 });
