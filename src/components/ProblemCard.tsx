@@ -41,7 +41,10 @@ export function ProblemCard({ problem, state, index, onStart, onGuess, onHint, o
   }, [done]);
 
   const heading = title ?? `Problem ${index + 1} · ${LABEL[problem.difficulty]}`;
-  const topic = problem.course ? `${problem.topic} · ${problem.course === 'calc1' ? 'Calc 1' : 'Calc 2'}` : problem.topic;
+  // The topic (e.g. "Integration by parts") names the method, so it stays hidden until the
+  // problem is finished. Only the course (Calc 1 / Calc 2) shows while playing.
+  const course = problem.course ? (problem.course === 'calc1' ? 'Calc 1' : 'Calc 2') : '';
+  const label = done ? [problem.topic, course].filter(Boolean).join(' · ') : course;
 
   if (scored && !state.started) {
     return (
@@ -49,7 +52,7 @@ export function ProblemCard({ problem, state, index, onStart, onGuess, onHint, o
         <h2 id={`p${index}-title`} className="card-title">
           Problem {index + 1} · {LABEL[problem.difficulty]}
         </h2>
-        <p className="muted">{topic}</p>
+        {label && <p className="muted">{label}</p>}
         <p>
           The timer starts when you reveal the problem. Full points if solved within{' '}
           <strong>{TARGET_MS[problem.difficulty] / 60000} min</strong>; after that points shrink
@@ -64,7 +67,7 @@ export function ProblemCard({ problem, state, index, onStart, onGuess, onHint, o
     <section className="card" aria-labelledby={`p${index}-title`}>
       <header className="card-head">
         <h2 id={`p${index}-title`} className="card-title">{heading}</h2>
-        <span className="muted small">{topic}</span>
+        {label && <span className="muted small">{label}</span>}
       </header>
       {scored && !done && <LiveTimer elapsedMs={state.elapsedMs} targetMs={TARGET_MS[problem.difficulty]} />}
 
